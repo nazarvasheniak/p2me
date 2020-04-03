@@ -1,0 +1,62 @@
+{
+    "name": "p2menew",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "lodash": "^4.17.15",
+        "moment": "^2.24.0",
+        "node-sass": "^4.13.1",
+        "sass-loader": "^8.0.2",
+        "vee-validate": "^3.0.5",
+        "vue": "^2.6.11",
+        "vue-ctk-date-time-picker": "^2.2.0",
+        "vue-drag-drop": "^1.1.4",
+        "vue-google-charts": "^0.3.2",
+        "vue-owl-carousel": "^2.0.3",
+        "vue-picture-input": "^2.1.6",
+        "vue-plugin-axios": "^1.0.14",
+        "vue-router": "^3.0.1",
+        "vue-select": "^2.5.1",
+        "vue-tabs-with-active-line": "^1.1.4",
+        "vuex": "^3.1.1"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^3.4.0",
+        "@vue/cli-plugin-eslint": "^3.4.0",
+        "@vue/cli-service": "^4.1.2",
+        "babel-eslint": "^10.0.1",
+        "eslint": "^5.8.0",
+        "eslint-plugin-vue": "^5.0.0",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "rules": {},
+        "parserOptions": {
+            "parser": "babel-eslint"
+        }
+    },
+    "postcss": {
+        "plugins": {
+            "autoprefixer": {}
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
+}

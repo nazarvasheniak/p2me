@@ -1,0 +1,1432 @@
+<template>
+  <div class="ordersContainer flex driversListContainerMains">
+    <!-- <div class="recentOrdersContainerRow flex driversMainNavigationTabs"> -->
+    <div class="filter flex">
+      <div class="filter-btns-left flex">
+        <button class="DriversView" style="text-align: center;">
+          Drivers
+        </button>
+        <button class="CouriersView" style="text-align: center;">
+          Couriers
+        </button>
+      </div>
+
+      <div class="filter-btns-right flex">
+        <!-- class="recentOrdersContainerRow tabs flex" -->
+        <button class="OnlineView" style="text-align: center;">
+          <p style="color: #FFFFFF; margin: 0px;">Online</p>
+        </button>
+        <button class="OfflineView" style="text-align: center;">
+          <p style="color: #F9525B; margin: 0px;">Offline</p>
+          </button>
+        <button class="RemovedView" style="text-align: center;">
+          <p style="color: #4A4A4A; margin: 0px;">Removed</p>
+        </button>
+      </div>
+    </div>
+       
+
+        <!-- <tabs
+          :tabs="tabs"
+          :currentTab="currentTab"
+          :wrapper-class="'tabs'"
+          :tab-class="'tabs__item'"
+          :tab-active-class="'tabs__item_active'"
+          :line-class="'tabs__active-line'"
+          @onClick="handleClick"
+        ></tabs>-->
+      
+
+    <!-- </div> -->
+    <div class="recentOrdersContainerRow flex driversListCarouselContainer">
+      <div class="content">
+        <div v-if="currentTab === 'Online'">
+          <div class="recentOrdersContainerRow flex">
+            <carousel
+              class="sliderRecentOrders"
+              :items="1"
+              :nav="true"
+              value="Online"
+              v-if="currentTab === 'Online'"
+            >
+              <div class="driversListContainer">
+                <div class="driversListRowHeader">
+                  <span>Driver</span>
+                  <span>Order</span>
+                  <span>Transport</span>
+                  <span>Class</span>
+                  <span>Location</span>
+                  <span>Start Date</span>
+                  <span></span>
+                </div>
+                <div class="driversListRowContent" v-on:click="openDriverProfile">
+                  <div> 
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Standart</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent" v-on:click="openDriverProfile">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Comfort</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent" v-on:click="openDriverProfile">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Black</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent" v-on:click="openDriverProfile">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Standart</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent" v-on:click="openDriverProfile">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>LUX</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent" v-on:click="openDriverProfile">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>LUX</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>VAN</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Comfort</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+              </div>
+              <div class="driversListContainer">
+                <div class="driversListRowHeader">
+                  <span>Driver</span>
+                  <span>Order</span>
+                  <span>Transport</span>
+                  <span>Class</span>
+                  <span>Location</span>
+                  <span>Start Date</span>
+                  <span></span>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>VAN</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Black</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Comfort</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>LUX</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Comfort</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>VAN</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>LUX</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Black</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+              </div>
+              <div class="driversListContainer">
+                <div class="driversListRowHeader">
+                  <span>Driver</span>
+                  <span>Order</span>
+                  <span>Transport</span>
+                  <span>Class</span>
+                  <span>Location</span>
+                  <span>Start Date</span>
+                  <span></span>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>VAN</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Standart</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Standart</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Comfort</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Standart</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>VAN</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>LUX</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+                <div class="driversListRowContent">
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>Petrov Ivan</strong>
+                  </div>
+                  <div>#111111</div>
+                  <div>BMW X5</div>
+                  <div>Standart</div>
+                  <div>Kyiv, Stereo Plaza</div>
+                  <div>19.12.2018</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
+                </div>
+              </div>
+            </carousel>
+          </div>
+        </div>
+
+        <div v-if="currentTab === 'Offline'">
+          <carousel
+            class="sliderRecentOrders"
+            :items="1"
+            :nav="true"
+            value="Offline"
+            v-if="currentTab === 'Offline'"
+          >
+            <div class="driversListContainer">
+              <div class="driversListRowHeader">
+                <span>Driver</span>
+                <span>Last visit</span>
+                <span>Transport</span>
+                <span>Class</span>
+                <!-- <span>Location</span> -->
+                <span>Start Date</span>
+                <span></span>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Comfort</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Black</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Comfort</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>LUX</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+            </div>
+            <div class="driversListContainer">
+              <div class="driversListRowHeader">
+                <span>Driver</span>
+                <span>Last visit</span>
+                <span>Transport</span>
+                <span>Class</span>
+                <!-- <span>Location</span> -->
+                <span>Start Date</span>
+                <span></span>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>LUX</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>VAN</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+            </div>
+            <div class="driversListContainer">
+              <div class="driversListRowHeader">
+                <span>Driver</span>
+                <span>last Visit</span>
+                <span>Transport</span>
+                <span>Class</span>
+                <!-- <span>Location</span> -->
+                <span>Start Date</span>
+                <span></span>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Black</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Comfort</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>VAN</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Standart</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>Black</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>15.03.2018,12:23</div>
+                <div>BMW X5</div>
+                <div>LUX</div>
+                <div>13.12.2018</div>
+                <div>
+                  <button>Remove</button>
+                </div>
+              </div>
+            </div>
+          </carousel>
+        </div>
+        <div v-if="currentTab === 'Removed'">
+          <carousel
+            class="sliderRecentOrders"
+            :items="1"
+            :nav="true"
+            value="Removed"
+            v-if="currentTab === 'Removed'"
+          >
+            <div class="driversListContainer">
+              <div class="driversListRowHeader">
+                <span>Driver</span>
+                <span>Reason for remove</span>
+                <span>Transport</span>
+                <span>Start date</span>
+                <span>Remove date</span>
+                <span></span>
+              </div>
+
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+            </div>
+            <div class="driversListContainer">
+              <div class="driversListRowHeader">
+                <span>Driver</span>
+                <span>Reason for remove</span>
+                <span>Transport</span>
+                <span>Start date</span>
+                <span>Remove date</span>
+                <span></span>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+            </div>
+            <div class="driversListContainer">
+              <div class="driversListRowHeader">
+                <span>Driver</span>
+                <span>Reason for remove</span>
+                <span>Transport</span>
+                <span>Start date</span>
+                <span>Remove date</span>
+                <span></span>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div> []
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+              <div class="driversListRowContent">
+                <div>
+                  <img src="../assets/driver.png" alt />
+                  <strong>Petrov Ivan</strong>
+                </div>
+                <div>Lorem ipsum dolor sit amet.</div>
+                <div>BMW X5</div>
+                <div>13.12.2018</div>
+                <div>20.03.2019</div>
+                <div>
+                  <button>Activate</button>
+                </div>
+              </div>
+            </div>
+          </carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import carousel from "vue-owl-carousel";
+import axios from "axios";
+
+export default {
+  name: "Drivers",
+  components: {
+    carousel
+  },
+  data: () => ({
+     tabs: [
+
+      { title: "Online", value: "Online", class: "dasdascsasdasdasda" },
+       { title: "Offline", value: "Offline" },
+       { title: "Removed", value: "Removed" }
+     ],
+    currentTab: "Online"
+  }),
+  methods: {
+    handleClick(newTab) {
+      this.currentTab = newTab;
+    },
+    openDriverProfile() {
+      this.$router.push('/drive');
+    },
+  },
+  beforeMount() { 
+      axios.get(`http://139.60.163.142:9000/superadmin/drivers_list/`, {
+        headers: {
+          "Authorization": "Token be823a8de014092acf28daf553cfa45565765c1c",
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        if (response.status != 200) {
+          alert("Drivers get error");
+          return;
+        }
+
+        console.log(response.data);
+      })
+    }
+
+  // axios.put('http://139.60.163.142:9000/superadmin/drivers_list/,' shopData, {
+  //    headers: {
+  //           "Access-Control-Allow-Origin": '*',
+  //           'Content-Type': 'application/json',
+  //           "X-CSRFToken": " bfb75a83a4696385bcd1c4e86cdb855a2d7fb630
+	// ",
+  //           Authorization: 'token ' + localStorage.getItem('token')
+  //         }
+  // }) 
+
+};
+</script>
+
+<style>
+.driversListContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+}
+.driversListRowHeader {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.driversListRowContent {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 19px 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.driversListRowContent img {
+  text-align: center !important;
+  width: 50px !important;
+  height: 50px !important;
+}
+.driversListRowContent > div {
+  font-size: 16px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.206648px;
+  color: #4a4a4a;
+  width: 14.1%;
+}
+.driversListRowHeader span {
+  font-family: 'Avenir Next';
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.232479px;
+  color: #4a4a4a;
+  display: block;
+  width: 14.1%;
+  height: auto;
+}
+.driversListRowContent div:first-child {
+  width: 25.1%;
+}
+.driversListRowHeader span:first-child {
+  width: 25.1%;
+}
+.driversListRowContent strong {
+  font-size: 20px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.232479px;
+  color: #4a4a4a;
+  padding-left: 19px;
+}
+.ordersContainer {
+  padding: 25px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 15px 5px #e5e5e585;
+  box-shadow: 0 0 15px 5px #e5e5e585;
+  background: #fff;
+}
+.sliderRecentOrders {
+  width: 100%;
+  margin-top: 35px;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 1px;
+}
+.driversMainNavigationTabs .tabs__item {
+  font-size: 14px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25831px;
+  padding: 5px 30px;
+  margin: 1px 9px;
+}
+
+.DriversView {
+  font-family: 'Avenir Next';
+  width: 124px;
+  height: 44px;
+  border-radius: 24px;
+  background: #6c6c6c;
+  font-size: 20px;
+  text-align: center;
+  line-height: 23px;
+}
+
+.CouriersView {
+  font-family: 'Avenir Next';
+  width: 124px;
+  height: 44px;
+  background: #FFFFFF;
+  border-radius: 24px;
+  line-height: 23px;
+  display:inline-block;
+  font-size: 20px;
+  line-height: 23px;
+}
+.OnlineView {
+  font-family: 'Avenir Next';
+  background: #42D18A;
+  border: 1px solid #42D18A;
+  box-sizing: border-box;
+  border-radius: 24px;
+  width: 106px;
+  height: 38px;
+  
+}
+ .OfflineView {
+   font-family: 'Avenir Next';
+  margin-right:10px;
+  margin-left:10px;
+  background: #FFFFFF;
+  border: 1px solid #FF4040;
+  box-sizing: border-box;
+  border-radius: 24px;
+  width:  106px;
+  height: 38px;
+} 
+
+.RemovedView {
+  font-family: 'Avenir Next';
+ margin-right:10px;
+ opacity: 0.5;
+ border: 1px solid #4A4A4A;
+ box-sizing: border-box;
+ border-radius: 24px;
+ width: 124px;
+ height: 38px;
+} */
+
+.OnlineView {
+  font-family: 'Avenir Next';
+  position: absolute;
+  background: #42D18A;
+  border: 1px solid #42D18A;
+  box-sizing: border-box;
+  border-radius: 24px;
+  width: 106px;
+  height: 38px;
+  margin-right:10px;
+}
+
+.driversMainNavigationTabs h1 {
+  font-size: 32px;
+  line-height: 33px;
+  color: #4a4a4a;
+}
+
+.driversListRowContent {
+  font-family: 'Avenir Next';
+}
+
+.driversListRowContent button {
+  font-family: 'Avenir Next';
+  float: right;
+  display: block;
+  text-align: center;
+  border: 1px solid #fb5f68;
+  border-radius: 24px;
+  font-size: 16px;
+  line-height: 22px;
+  align-items: center;
+  letter-spacing: 0.172206px;
+  color: #fb5f68;
+  padding: 8px 23px;
+  background: none;
+}
+.driversMainNavigationTabs nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+.tabs__active-line {
+  width: 1px !important;
+}
+
+.driversListRowContent div:nth-child(7) {
+  justify-content: flex-end;
+}
+.driversListContainerMains .owl-theme .owl-nav {
+  width: 75vw;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin: 0px;
+  height: 28px;
+}
+.driversListContainerMains .owl-theme .owl-dots {
+  width: 75vw;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+.driversListCarouselContainer .content {
+  overflow: hidden !important;
+}
+.driversListRowContent button:hover {
+  background: #fb5f68;
+  color: white;
+  text-align: center;
+}
+
+.filter {
+  width: 100%;
+  height: 110px;
+  padding: 0 25px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter-btns-right, .filter-btns-left {
+  width: 350px;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.filter-btns-left {
+  width: 260px;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+</style> 
