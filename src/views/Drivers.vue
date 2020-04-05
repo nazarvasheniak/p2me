@@ -3,30 +3,25 @@
     <!-- <div class="recentOrdersContainerRow flex driversMainNavigationTabs"> -->
     <div class="filter flex">
       <div class="filter-btns-left flex">
-        <button class="DriversView" style="text-align: center;">
-          Drivers
-        </button>
-        <button class="CouriersView" style="text-align: center;">
-          Couriers
-        </button>
+        <button class="DriversView" style="text-align: center;">Drivers</button>
+        <button class="CouriersView" style="text-align: center;">Couriers</button>
       </div>
 
       <div class="filter-btns-right flex">
         <!-- class="recentOrdersContainerRow tabs flex" -->
-        <button class="OnlineView" style="text-align: center;">
+        <button class="OnlineView" v-on:click="changeTab('online')" style="text-align: center;">
           <p style="color: #FFFFFF; margin: 0px;">Online</p>
         </button>
-        <button class="OfflineView" style="text-align: center;">
+        <button class="OfflineView" v-on:click="changeTab('offline')" style="text-align: center;">
           <p style="color: #F9525B; margin: 0px;">Offline</p>
-          </button>
-        <button class="RemovedView" style="text-align: center;">
+        </button>
+        <button class="RemovedView" v-on:click="changeTab('removed')" style="text-align: center;">
           <p style="color: #4A4A4A; margin: 0px;">Removed</p>
         </button>
       </div>
     </div>
-       
 
-        <!-- <tabs
+    <!-- <tabs
           :tabs="tabs"
           :currentTab="currentTab"
           :wrapper-class="'tabs'"
@@ -34,20 +29,19 @@
           :tab-active-class="'tabs__item_active'"
           :line-class="'tabs__active-line'"
           @onClick="handleClick"
-        ></tabs>-->
-      
+    ></tabs>-->
 
     <!-- </div> -->
     <div class="recentOrdersContainerRow flex driversListCarouselContainer">
       <div class="content">
-        <div v-if="currentTab === 'Online'">
+        <div v-if="currentTab === 'online'">
           <div class="recentOrdersContainerRow flex">
             <carousel
               class="sliderRecentOrders"
               :items="1"
               :nav="true"
-              value="Online"
-              v-if="currentTab === 'Online'"
+              value="online"
+              v-if="currentTab === 'online'"
             >
               <div class="driversListContainer">
                 <div class="driversListRowHeader">
@@ -60,350 +54,6 @@
                   <span></span>
                 </div>
                 <div class="driversListRowContent" v-on:click="openDriverProfile">
-                  <div> 
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Standart</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent" v-on:click="openDriverProfile">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Comfort</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent" v-on:click="openDriverProfile">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Black</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent" v-on:click="openDriverProfile">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Standart</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent" v-on:click="openDriverProfile">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>LUX</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent" v-on:click="openDriverProfile">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>LUX</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>VAN</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Comfort</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-              <div class="driversListContainer">
-                <div class="driversListRowHeader">
-                  <span>Driver</span>
-                  <span>Order</span>
-                  <span>Transport</span>
-                  <span>Class</span>
-                  <span>Location</span>
-                  <span>Start Date</span>
-                  <span></span>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>VAN</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Black</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Comfort</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>LUX</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Comfort</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>VAN</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>LUX</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Black</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-              <div class="driversListContainer">
-                <div class="driversListRowHeader">
-                  <span>Driver</span>
-                  <span>Order</span>
-                  <span>Transport</span>
-                  <span>Class</span>
-                  <span>Location</span>
-                  <span>Start Date</span>
-                  <span></span>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>VAN</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Standart</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Standart</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Comfort</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>Standart</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>VAN</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>Petrov Ivan</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>BMW X5</div>
-                  <div>LUX</div>
-                  <div>Kyiv, Stereo Plaza</div>
-                  <div>19.12.2018</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-                <div class="driversListRowContent">
                   <div>
                     <img src="../assets/driver.png" alt />
                     <strong>Petrov Ivan</strong>
@@ -422,13 +72,13 @@
           </div>
         </div>
 
-        <div v-if="currentTab === 'Offline'">
+        <div v-if="currentTab === 'offline'">
           <carousel
             class="sliderRecentOrders"
             :items="1"
             :nav="true"
-            value="Offline"
-            v-if="currentTab === 'Offline'"
+            value="offline"
+            v-if="currentTab === 'offline'"
           >
             <div class="driversListContainer">
               <div class="driversListRowHeader">
@@ -1055,7 +705,7 @@
                   <strong>Petrov Ivan</strong>
                 </div>
                 <div>Lorem ipsum dolor sit amet.</div>
-                <div>BMW X5</div> []
+                <div>BMW X5</div>[]
                 <div>13.12.2018</div>
                 <div>20.03.2019</div>
                 <div>
@@ -1145,49 +795,28 @@ export default {
     carousel
   },
   data: () => ({
-     tabs: [
-
-      { title: "Online", value: "Online", class: "dasdascsasdasdasda" },
-       { title: "Offline", value: "Offline" },
-       { title: "Removed", value: "Removed" }
-     ],
-    currentTab: "Online"
+    tabs: [
+      { title: "Online", value: "online", class: "dasdascsasdasdasda" },
+      { title: "Offline", value: "offline" },
+      { title: "Removed", value: "removed" }
+    ],
+    currentTab: "online"
   }),
   methods: {
-    handleClick(newTab) {
+    changeTab(newTab) {
       this.currentTab = newTab;
     },
     openDriverProfile() {
-      this.$router.push('/drive');
+      this.$router.push("/drive");
     },
+    loadDriversList() {
+		this.$store.dispatch('loadDriversList', this.currentTab)
+			.then(result => console.log(result));
+	}
   },
-  beforeMount() { 
-      axios.get(`http://139.60.163.142:9000/superadmin/drivers_list/`, {
-        headers: {
-          "Authorization": "Token be823a8de014092acf28daf553cfa45565765c1c",
-          "Content-Type": "application/json"
-        }
-      })
-      .then(response => {
-        if (response.status != 200) {
-          alert("Drivers get error");
-          return;
-        }
-
-        console.log(response.data);
-      })
-    }
-
-  // axios.put('http://139.60.163.142:9000/superadmin/drivers_list/,' shopData, {
-  //    headers: {
-  //           "Access-Control-Allow-Origin": '*',
-  //           'Content-Type': 'application/json',
-  //           "X-CSRFToken": " bfb75a83a4696385bcd1c4e86cdb855a2d7fb630
-	// ",
-  //           Authorization: 'token ' + localStorage.getItem('token')
-  //         }
-  // }) 
-
+  beforeMount() {
+    this.loadDriversList();
+  }
 };
 </script>
 
@@ -1230,7 +859,7 @@ export default {
   width: 14.1%;
 }
 .driversListRowHeader span {
-  font-family: 'Avenir Next';
+  font-family: "Avenir Next";
   font-weight: bold;
   font-size: 18px;
   line-height: 25px;
@@ -1280,7 +909,7 @@ export default {
 }
 
 .DriversView {
-  font-family: 'Avenir Next';
+  font-family: "Avenir Next";
   width: 124px;
   height: 44px;
   border-radius: 24px;
@@ -1291,59 +920,57 @@ export default {
 }
 
 .CouriersView {
-  font-family: 'Avenir Next';
+  font-family: "Avenir Next";
   width: 124px;
   height: 44px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 24px;
   line-height: 23px;
-  display:inline-block;
+  display: inline-block;
   font-size: 20px;
   line-height: 23px;
 }
 .OnlineView {
-  font-family: 'Avenir Next';
-  background: #42D18A;
-  border: 1px solid #42D18A;
+  font-family: "Avenir Next";
+  background: #42d18a;
+  border: 1px solid #42d18a;
   box-sizing: border-box;
   border-radius: 24px;
   width: 106px;
   height: 38px;
-  
 }
- .OfflineView {
-   font-family: 'Avenir Next';
-  margin-right:10px;
-  margin-left:10px;
-  background: #FFFFFF;
-  border: 1px solid #FF4040;
+.OfflineView {
+  font-family: "Avenir Next";
+  margin-right: 10px;
+  margin-left: 10px;
+  background: #ffffff;
+  border: 1px solid #ff4040;
   box-sizing: border-box;
   border-radius: 24px;
-  width:  106px;
+  width: 106px;
   height: 38px;
-} 
+}
 
 .RemovedView {
-  font-family: 'Avenir Next';
- margin-right:10px;
- opacity: 0.5;
- border: 1px solid #4A4A4A;
- box-sizing: border-box;
- border-radius: 24px;
- width: 124px;
- height: 38px;
-} */
-
-.OnlineView {
-  font-family: 'Avenir Next';
+  font-family: "Avenir Next";
+  margin-right: 10px;
+  opacity: 0.5;
+  border: 1px solid #4a4a4a;
+  box-sizing: border-box;
+  border-radius: 24px;
+  width: 124px;
+  height: 38px;
+}
+*/ .OnlineView {
+  font-family: "Avenir Next";
   position: absolute;
-  background: #42D18A;
-  border: 1px solid #42D18A;
+  background: #42d18a;
+  border: 1px solid #42d18a;
   box-sizing: border-box;
   border-radius: 24px;
   width: 106px;
   height: 38px;
-  margin-right:10px;
+  margin-right: 10px;
 }
 
 .driversMainNavigationTabs h1 {
@@ -1353,11 +980,11 @@ export default {
 }
 
 .driversListRowContent {
-  font-family: 'Avenir Next';
+  font-family: "Avenir Next";
 }
 
 .driversListRowContent button {
-  font-family: 'Avenir Next';
+  font-family: "Avenir Next";
   float: right;
   display: block;
   text-align: center;
@@ -1415,7 +1042,8 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
-.filter-btns-right, .filter-btns-left {
+.filter-btns-right,
+.filter-btns-left {
   width: 350px;
   height: 100%;
   justify-content: space-between;
