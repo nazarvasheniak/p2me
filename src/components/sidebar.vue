@@ -3,7 +3,7 @@
     <div class="sidebarSubContainer">
       <img :src="userType == 'supplier' ? logo : superadminLogo" class="logo"/>
     </div>
-    <div class="sidebarSubContainer" v-if="userType == 'superadmin'">
+    <div class="sidebarSubContainer">
       <router-link to="/request" class="menuButton flex">
         <span>
           <iconBase icon-name="Request">
