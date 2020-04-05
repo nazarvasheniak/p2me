@@ -19,7 +19,7 @@ export default {
   },
   actions: {
     load_board(context) {
-      axios.get('http://localhost:8080/control_panel/supplier/dashboard/?page=1', {
+      axios.get('/api/supplier/dashboard/?page=1', {
         headers: {
           "Access-Control-Allow-Origin": '*',
           "Content-Type": "application/json",
