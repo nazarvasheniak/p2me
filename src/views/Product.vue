@@ -1,25 +1,47 @@
 <template>
   <div class="productContainer flex">
-    <div class="productContainerHeading flex">
+    <div class="productContainerHeading flex" style="margin-bottom: 15px;">
       <h1>Product item</h1>
       <h2>(here you can edit your product)</h2>
     </div>
-    <div class="productSSubContainer flex">
-      <div class="itemProduct flex">
-        <div class="itemProductFirstelement flex">
-          <img src="../assets/bbbb.png" alt="">
-
+    <!-- <div class="productSSubContainer flex"> -->
+    <div>
+      <div style="float: left;width: 25%; min-width:350px; margin-right: 20px; margin-bottom: 15px;">
+        <div style="margin-right: 2px; margin-left: 2px;"> 
+          <img src="../assets/bbbb.png" alt style="width: 100%; border-radius: 4px;" />
         </div>
-        
+        <div>
+          <img src="../assets/bbbb.png" alt style="width: 32%; margin-right: 2px; margin-left: 2px; border-radius: 4px;" />
+          <img src="../assets/bbbb.png" alt style="width: 32%; margin-right: 2px; margin-left: 2px; border-radius: 4px;"  />
+          <img src="../assets/bbbb.png" alt style="width: 32%; margin-right: 2px; margin-left: 2px; border-radius: 4px;" />
+        </div>
       </div>
-       <!-- <productImages/>  -->
-      <productDescription/> 
+      <div class="itemProduct flex">
+        <!-- <div class="itemProductFirstelement flex" style="display: block;" >
+          <img src="../assets/bbbb.png" alt="">
+        </div>
+
+         <div class="itemProductFirstelement flex" style="display: block;">
+          <img src="../assets/bbbb.png" alt="">
+        </div>
+
+         <div class="itemProductFirstelement flex" style="display: block;">
+          <img src="../assets/bbbb.png" alt="">
+        </div>
+
+         <div class="itemProductFirstelement flex" style="display: block;">
+          <img src="../assets/bbbb.png" alt="">
+        </div>-->
+      </div>
+      <!-- <productImages/>  -->
+      <div>
+        <productDescription />
+      </div>
       <!-- <div class="doneButtonContainer flex">
         <button class="doneButton">Done!</button>
-      </div> -->
+      </div>-->
     </div>
   </div>
-
 </template>
 
 <script>
@@ -30,8 +52,7 @@ export default {
   components: {
     // productImages,
     productDescription
-  },
-
+  }
 };
 </script>
 
@@ -67,7 +88,7 @@ export default {
   background: #fff;
   padding: 45px 25px;
   width: 100%;
-  
+
   margin-bottom: 25px;
 }
 .itemProductFirstelement {
@@ -77,11 +98,11 @@ export default {
   margin-bottom: 0px;
 }
 .itemProductFirstelement img {
-   width: 400px;
+  width: 400px;
   height: 350px;
-  border-radius: 8px; 
-position: absolute;
-/* width: 319px;
+  border-radius: 8px;
+  position: absolute;
+  /* width: 319px;
 height: 305px;
 left: 338px;
 top: 187px; */

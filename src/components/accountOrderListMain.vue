@@ -24,14 +24,15 @@
                             <div>Burger King</div>
                             <div>Max Kurton</div>
                             <div>12.05.2018, 12:55</div>
-                            <div>Successfull</div><div>
+                            <div>Successfull</div>
+                            <div class="tabsIcons">
                                 <img src="../assets/icons/No.svg" alt="">
                                 <img src="../assets/icons/dollarRed.svg" alt="">
                             </div>
                             <div class="text-center">$10</div>
                             <div class="text-center">$10</div>
                         </div>
-                        <div class="driversListRowContent">
+                        <!-- <div class="driversListRowContent">
                             <div>#111111</div>
                             <div>John Johnson</div>
                             <div>Burger King</div>
@@ -251,7 +252,7 @@
                             <span>Supplier</span>
                             <span>Driver</span>
                             <span>Date & Time</span>
-                            <span>Statust</span>
+                            <span>Status</span>
                             <span>Payment</span>
                             <span>Earned on delivery </span>
                             <span>Earned on supplier</span>
@@ -361,7 +362,7 @@
                             <div class="totalsAccountDivInfos">Total on this period:</div>
                             <div class="totalsAccountDivInfos">$1297</div>
                             <div class="totalsAccountDivInfos">$1532</div>
-                        </div>
+                        </div>  -->
                     </div>  
                 </carousel>
             </div>
@@ -453,6 +454,11 @@ export default {
   background: #fff; 
 
 }
+
+.img {
+  
+}
+
 .sliderRecentOrders {
   width: 100%;
   margin-top: 35px;

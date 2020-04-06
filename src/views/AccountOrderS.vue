@@ -34,10 +34,8 @@
         @onClick="handleClick"
         ></tabs> 
             <div v-if="currentTab === 'New orders'">
-              <div class="recentOrdersContainerRow ">
+              <div class="recentOrdersContainerRow">
                 <accountOrderListMain/>
-                
-                
               </div>
             </div>
             <div v-if="currentTab === 'Accepted'">

@@ -9,6 +9,7 @@
             <span class="name flex">Lorem Ipsum</span>
             <span class="description">Lorem ipsum lorem ipsum lorem ipsum lorem ipsum…</span>
     </div>
+    </div>
 </template>
 
 <script>

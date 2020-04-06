@@ -9,24 +9,31 @@
       <div class="prodcutsSubContainerHeading flex">
         <h2>Burgers (2)</h2>
       </div>
+      <div>
        <productItem></productItem>
-      <!-- <productitemBev></productitemBev> -->
+       </div>
+        <div class="productNutContainer ">
+          <h2>Beverages</h2>
+        </div>
+       <div>
+         <productitemBev></productitemBev>
+       </div>
     </div>
-    
   </div>
+  
 </template>
 
 <script>
      import searchbar from '../components/searchbar'
    import productItem from '../components/productItem'
-  //  import productitemBev from '../components/productitemBev'
+   import productitemBev from '../components/productitemBev'
 
    export default {
     name: "ProductCategoryItem",
     components: {
          searchbar,
       productItem,
-      // productitemBev
+      productitemBev
     },
     data() {
       return {
@@ -82,6 +89,11 @@
     border-bottom: 1px solid #000;
     justify-content: space-between;
     align-items: baseline;
+  }
+ 
+  .productNutContainer  {
+    border-bottom: 1px solid #000;
+    padding-bottom: 25px;
   }
 
   .prodcutsSubContainerHeading h5 {

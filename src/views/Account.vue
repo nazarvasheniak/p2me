@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboardContainer">
+  <div class="dashboardContainer" style="width: 100%;">
     <div class="dashboardContainerRow flex">
       <div class="dashboardContainerSubRow flex">
         <div class="chartContainer">
