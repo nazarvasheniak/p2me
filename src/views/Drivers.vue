@@ -188,6 +188,12 @@ export default {
 </script>
 
 <style>
+
+.content {
+  width: 100%;
+}
+
+
 .driversListContainer {
   display: flex;
   flex-flow: column nowrap;

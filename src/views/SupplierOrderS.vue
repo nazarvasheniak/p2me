@@ -81,6 +81,11 @@ export default {
 </script>
 
 <style>
+
+.content {
+  width: 100%;
+}
+
 .ordersContainer {
   overflow-x: hidden;
   flex-flow: column nowrap;

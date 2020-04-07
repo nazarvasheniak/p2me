@@ -25,7 +25,7 @@ export default {
 
 <style>
 #sidebar {
-  width: 250px;
+  width: 263px;
   padding: 15px;
   height: 100%;
   position: fixed;

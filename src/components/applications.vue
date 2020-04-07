@@ -5,22 +5,34 @@
         Number of applications
         <span>for</span>
       </h1>
-      <vue-ctk-date-time-picker class="calendar" label="Select date range..." range v-model="value"></vue-ctk-date-time-picker>
+       <!-- <vue-ctk-date-time-picker class="calendar" label="Select date range..." range v-model="value"></vue-ctk-date-time-picker>  -->
+       <div class="headerRow flex" style="padding-left: 47px; padding-right: 26px">
+         <button class="DateView" style="border-radius: 44px; width: 158px;">
+          <p style="color: #4A4A4A, margin: 0px, font-size: 20px, text-align: center, line-height: 27px;">12.07-19.07
+           <span class="menu-icon">
+             <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 0.15C16.3 -0.05 16 -0.05 15.8 0.15L8.3 7.85L0.8 0.15C0.6 -0.05 0.3 -0.05 0.1 0.15C3.7998e-07 0.25 0 0.349999 0 0.449999C0 0.549999 3.7998e-07 0.65 0.1 0.75L7.9 8.75C8.1 8.95 8.4 8.95 8.6 8.75L16.4 0.75C16.6 0.65 16.6 0.35 16.5 0.15Z" fill="#535353"/>
+             </svg>
+           </span>
+          </p>
+         </button>  
+        </div> 
     </div>
-    <div>
+     
+     <div>
       <GChart class="googleChart" type="AreaChart" :options="chartOptions" :data="chartData"/>
-    </div>
+    </div> 
   </span>
 </template>
 <script>
 import { GChart } from "vue-google-charts";
-import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
+// import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 
 export default {
   name: "applications",
   components: {
     GChart,
-    VueCtkDateTimePicker
+    // VueCtkDateTimePicker
   },
   data() {
     return {
@@ -49,7 +61,8 @@ export default {
 <style scoped>
 @import "./vue-ctk-date-time-picker.min.css";
 .reportsRow {
-  width: 100%;
+  margin-left: 34px;
+  width: 757px;
   justify-content: flex-start;
   align-items: flex-end;
   margin-bottom: 50px;
@@ -57,12 +70,16 @@ export default {
 .reportsRow h1 span {
   font-size: 0.9em;
   color: #9b9b9b;
+  font-family: 'Avenir_Next';
 }
 .reportsRow h1 {
-  font-size: 1.8em;
+  font-size: 32px;
+  line-height: 44px;
+  font-family: 'Avenir_Next';
 }
 .googleChart {
   width: 100%;
+  margin-left: 0px;
 }
 .calendar {
   margin: 0 25px;

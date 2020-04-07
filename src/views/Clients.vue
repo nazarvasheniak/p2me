@@ -352,6 +352,12 @@ export default {
 </script>
 
 <style>
+
+.content {
+  width: 100%;
+}
+
+
 .driversMainNavigationTabs h1 {
     margin-left: 20px;
     margin-top: 10px;
