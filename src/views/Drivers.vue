@@ -54,7 +54,12 @@
                   <span></span>
                 </div>
 
-                <div class="driversListRowContent" v-for="driver in driversList" :key="driver.id" v-on:click="openDriverProfile">
+                <div
+                  class="driversListRowContent"
+                  v-for="driver in driversList"
+                  :key="driver.id"
+                  v-on:click="openDriverProfile"
+                >
                   <div>
                     <img src="../assets/driver.png" alt />
                     <strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
@@ -92,15 +97,20 @@
                 <span></span>
               </div>
 
-              <div class="driversListRowContent">
+              <div
+                class="driversListRowContent"
+                v-for="driver in driversList"
+                :key="driver.id"
+                v-on:click="openDriverProfile"
+              >
                 <div>
                   <img src="../assets/driver.png" alt />
-                  <strong>Petrov Ivan</strong>
+                  <strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
                 </div>
-                <div>15.03.2018,12:23</div>
-                <div>BMW X5</div>
-                <div>Standart</div>
-                <div>13.12.2018</div>
+                <div>00.00.0000</div>
+                <div>{{ driver.transport }}</div>
+                <div>{{ driver.class }}</div>
+                <div>{{ driver.start_date }}</div>
                 <div>
                   <button>Remove</button>
                 </div>
@@ -109,13 +119,13 @@
           </carousel>
         </div>
 
-        <div v-if="currentTab === 'Removed'">
+        <div v-if="currentTab === 'removed'">
           <carousel
             class="sliderRecentOrders"
             :items="1"
             :nav="true"
             value="Removed"
-            v-if="currentTab === 'Removed'"
+            v-if="currentTab === 'removed'"
           >
             <div class="driversListContainer">
               <div class="driversListRowHeader">
@@ -127,15 +137,18 @@
                 <span></span>
               </div>
 
-              <div class="driversListRowContent">
+              <div class="driversListRowContent"
+			  	v-for="driver in driversList"
+                :key="driver.id"
+                v-on:click="openDriverProfile">
                 <div>
                   <img src="../assets/driver.png" alt />
-                  <strong>Petrov Ivan</strong>
+                  <strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
                 </div>
                 <div>Lorem ipsum dolor sit amet.</div>
-                <div>BMW X5</div>
-                <div>13.12.2018</div>
-                <div>20.03.2019</div>
+                <div>{{ driver.transport }}</div>
+                <div>{{ driver.start_date }}</div>
+				<div>00.00.0000</div>
                 <div>
                   <button>Activate</button>
                 </div>
@@ -164,7 +177,7 @@ export default {
       { title: "Removed", value: "removed" }
     ],
     currentTab: "online",
-	driversList: []
+    driversList: []
   }),
   methods: {
     changeTab(newTab) {
@@ -188,6 +201,10 @@ export default {
 </script>
 
 <style>
+.content {
+  width: 100%;
+}
+
 .driversListContainer {
   display: flex;
   flex-flow: column nowrap;
