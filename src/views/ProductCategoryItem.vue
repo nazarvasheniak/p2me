@@ -13,7 +13,7 @@
        <productItem></productItem>
        </div>
         <div class="productNutContainer ">
-          <h2>Beverages</h2>
+          <h2>Beverages (1)</h2>
         </div>
        <div>
          <productitemBev></productitemBev>
@@ -94,6 +94,7 @@
   .productNutContainer  {
     border-bottom: 1px solid #000;
     padding-bottom: 25px;
+    
   }
 
   .prodcutsSubContainerHeading h5 {

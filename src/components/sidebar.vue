@@ -166,15 +166,19 @@ export default {
 <style scoped>
 .sidebarSubContainer .logo {
   max-width: 100%;
+ 
 }
 .sidebarContainer {
   flex-flow: column nowrap;
   justify-content: space-around;
+  
+  
 }
 .sidebarSubContainer {
   font-family: AvenirNext;
   font-size: 20px;
   margin-bottom: 25px;
+  
 }
 .menuButton {
   width: 100%;

@@ -1,173 +1,173 @@
 <template>
-    <div class="prodcutsSubContainerItems flex">
-        <div class="prodcutsSubContainerItem flex">
-            <div class="productImgContainerAddNew flex">
-                <iconPlus/>   
-                <img src="../assets/BurgerPhoto.png" alt>
-                <span class="price">price: 5$</span> 
-            </div>
-            <span class="name flex">Lorem Ipsum</span>
-            <span class="description">Lorem ipsum lorem ipsum lorem ipsum lorem ipsum…</span>
+  <div class="prodcutsSubContainerItems flex">
+    <div class="prodcutsSubContainerItem flex">
+      <div class="productImgContainerAddNew flex">
+        <iconPlus />
+        <img src="../assets/BurgerPhoto.png" alt />
+        <span class="price">price: 5$</span>
+      </div>
+      <span class="name flex">Lorem Ipsum</span>
+      <span class="description">Lorem ipsum lorem ipsum lorem ipsum lorem ipsum…</span>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
-    import iconPlus from "../components/icons/iconPlus.vue";
+import iconPlus from "../components/icons/iconPlus.vue";
 
-    export default {
-        name: "productItemBev",
-        components: {
-            iconPlus
-        },
-        computed: {
-            productItems() {
-                return this.$store.getters.getProductItems
-            }
-        },
-        created() {
-            this.$store.dispatch('load_products_items')
-        }
+export default {
+  name: "productItemBev",
+  components: {
+    iconPlus
+  },
+  computed: {
+    productItems() {
+      return this.$store.getters.getProductItems;
     }
+  },
+  created() {
+    this.$store.dispatch("load_products_items");
+  }
+};
 </script>
 
 <style scoped>
-    .prodcutsContainer {
-        width: 100%;
-        flex-flow: column nowrap;
-        align-items: flex-start;
-    }
+.prodcutsContainer {
+  width: 100%;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
 
-    .headerRow {
-        flex-flow: row nowrap;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 5px;
-    }
+.headerRow {
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
 
-    .headerRow h1 {
-        color: #fff;
-        margin: 0;
-        font-size: 1.6em;
-    }
+.headerRow h1 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.6em;
+}
 
-    .headerRow h2 {
-        margin: 0 15px;
-        color: #fff;
-        font-size: 0.8em;
-    }
+.headerRow h2 {
+  margin: 0 15px;
+  color: #fff;
+  font-size: 0.8em;
+}
 
-    .prodcutsSubContainer {
-        width: 100%;
-        padding: 25px;
-        margin-bottom: 30px;
-        flex-flow: column nowrap;
-        border-radius: 5px;
-        -webkit-box-shadow: 0 0 15px 5px #e5e5e585;
-        box-shadow: 0 0 15px 5px #e5e5e585;
-        background: #fff;
-    }
+.prodcutsSubContainer {
+  width: 100%;
+  padding: 25px;
+  margin-bottom: 30px;
+  flex-flow: column nowrap;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 15px 5px #e5e5e585;
+  box-shadow: 0 0 15px 5px #e5e5e585;
+  background: #fff;
+}
 
-    .prodcutsSubContainerHeading {
-        width: 100%;
-        padding-bottom: 25px;
-        border-bottom: 1px solid #000;
-        justify-content: space-between;
-        align-items: baseline;
-    }
+.prodcutsSubContainerHeading {
+  width: 100%;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #000;
+  justify-content: space-between;
+  align-items: baseline;
+}
 
-    .prodcutsSubContainerHeading h5 {
-        width: 100%;
-        color: #F7666A;
-        display: flex;
-    }
+.prodcutsSubContainerHeading h5 {
+  width: 100%;
+  color: #f7666a;
+  display: flex;
+}
 
-    .prodcutsSubContainerItems {
-        flex-flow: row wrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
+.prodcutsSubContainerItems {
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 
-    .prodcutsSubContainerItem {
-        position: relative;
-        margin: 15px 7.5px 30px;
-        flex-flow: column nowrap;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 15px 15px 35px;
-        width: 250px;
-        background-color: #fff;
-        -webkit-box-shadow: 0 0 15px 5px #e5e5e585;
-        box-shadow: 0 0 15px 5px #e5e5e585;
-        transition: 0.7s;
-    }
+.prodcutsSubContainerItem {
+  position: relative;
+  margin: 15px 7.5px 30px;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 15px 15px 35px;
+  width: 250px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 15px 5px #e5e5e585;
+  box-shadow: 0 0 15px 5px #e5e5e585;
+  transition: 0.7s;
+}
 
-    .prodcutsSubContainerItem:hover {
-        box-shadow: 0 0 15px 5px #9b77fb;
-    }
+.prodcutsSubContainerItem:hover {
+  box-shadow: 0 0 15px 5px #9b77fb;
+}
 
-    .productImgContainerAddNew {
-        width: 225px;
-        height: 160px;
-        margin-bottom: 15px;
-        /* background: linear-gradient(
+.productImgContainerAddNew {
+  width: 225px;
+  height: 160px;
+  margin-bottom: 15px;
+  /* background: linear-gradient(
                 to right,
                 rgba(154, 119, 251, 0.8) 0%,
                 rgba(51, 200, 254, 0.8) 100%
         ); */
-        justify-content: center;
-        align-items: center;
-    }
+  justify-content: center;
+  align-items: center;
+}
 
-    .productImgContainer {
-        width: 225px;
-        height: 160px;
-        margin-bottom: 15px;
-        position: relative;
-    }
+.productImgContainer {
+  width: 225px;
+  height: 160px;
+  margin-bottom: 15px;
+  position: relative;
+}
 
-    .productImgContainer img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+.productImgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .prodcutsSubContainerItem:hover > .productImgContainer > .price {
-        bottom: 5px;
-    }
+.prodcutsSubContainerItem:hover > .productImgContainer > .price {
+  bottom: 5px;
+}
 
-    .price {
-        position: absolute;
-        color: #fff;
-        z-index: 5;
-        bottom: 0;
-        left: 0;
-        font-weight: 400;
-        font-size: 0.8em;
-        padding: 5px 15px;
-        transition: 0.1s ease-in-out;
-        background: linear-gradient(
-                to right,
-                rgba(154, 119, 251, 0.8) 0%,
-                rgba(51, 200, 254, 0.8) 100%
-        );
-    }
+.price {
+  position: absolute;
+  color: #fff;
+  z-index: 5;
+  bottom: 0;
+  left: 0;
+  font-weight: 400;
+  font-size: 0.8em;
+  padding: 5px 15px;
+  transition: 0.1s ease-in-out;
+  background: linear-gradient(
+    to right,
+    rgba(154, 119, 251, 0.8) 0%,
+    rgba(51, 200, 254, 0.8) 100%
+  );
+}
 
-    .name {
-        margin-bottom: 15px;
-        font-size: 0.9em;
-        width: 100%;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
+.name {
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 
-    .description {
-        font-size: 0.8em;
-        color: #b6b6b6;
-    }
+.description {
+  font-size: 0.8em;
+  color: #b6b6b6;
+}
 
-    .routerLink {
-        color: inherit;
-        text-decoration: none;
-    }
+.routerLink {
+  color: inherit;
+  text-decoration: none;
+}
 </style>

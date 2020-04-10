@@ -28,6 +28,7 @@ import ClientOrders from './views/ClientOrders.vue'
 import ProductsCategoryItem from './views/ProductCategoryItem.vue'
 import Courier from './views/Courier.vue'
 import AccountOrderCour from './views/AccountOrderCour.vue'
+import CourierList from './views/CourierList.vue'
 // import Example from './views/Example.vue'
 
 
@@ -40,8 +41,8 @@ let router = new Router({
   routes: [{
     path: '/',
     redirect: {
-      path: '/dashboard',
-      name: 'dashboard',
+      path: '/request',
+      name: 'request',
     }
   },
     {
@@ -188,7 +189,11 @@ let router = new Router({
       component: Settings
     },
     
-   
+   {
+      path: '/courierList',
+      name: 'courierList',
+      component: CourierList
+   },
     
     {
 

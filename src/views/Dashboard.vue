@@ -65,7 +65,7 @@ export default {
   flex-flow: column nowrap;
 }
 .dashboardContainerRow > .dashboardContainerSubRow:nth-child(1) {
-  width: 75%;
+  width: 100%;
   padding: 25px;
   border-radius: 5px;
   box-shadow: 0 0 15px 5px #e5e5e585;
