@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="dashboardContainerRow"></div>
-    <accountOrderList/>
+    <accountOrderListMain/>
   </div>
 </template>
 
@@ -20,7 +20,7 @@
 import accountApplications from "../components/accountApplications.vue";
 import approved from "../components/approved.vue";
 import denied from "../components/denied.vue";
-import accountOrderList from "../components/accountOrderList.vue";
+import accountOrderListMain from "../components/accountOrderListMain.vue";
 import axios from "axios";
 
 export default {
@@ -29,7 +29,7 @@ export default {
     accountApplications,
     approved,
     denied,
-    accountOrderList
+    accountOrderListMain
   },
   mounted() {
     axios

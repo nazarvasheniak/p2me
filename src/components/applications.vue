@@ -6,7 +6,7 @@
         <span>for</span>
       </h1>
        <!-- <vue-ctk-date-time-picker class="calendar" label="Select date range..." range v-model="value"></vue-ctk-date-time-picker>  -->
-       <div class="headerRow flex" style="padding-left: 47px; padding-right: 26px">
+       <div class="headerRow flex" style="padding-right: 26px; box-sizing: border-box;  ">
          <button class="DateView" style="border-radius: 44px; width: 158px;">
           <p style="color: #4A4A4A, margin: 0px, font-size: 20px, text-align: center, line-height: 27px;">12.07-19.07
            <span class="menu-icon">
@@ -62,9 +62,9 @@ export default {
 @import "./vue-ctk-date-time-picker.min.css";
 .reportsRow {
   margin-left: 34px;
-  width: 757px;
+  width: 657px;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 50px;
 }
 .reportsRow h1 span {

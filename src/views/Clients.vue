@@ -25,7 +25,7 @@
                         <div class="driversListRowContent">
                             <div>
                             <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
+                            <strong>John Johnson</strong>
                             </div>
                             <div class="suplliersClientsContactsBlock">
                                 <p>+38 (063) 010-81-00</p>
@@ -38,7 +38,7 @@
                             <button>Remove</button>
                             </div>
                         </div>
-                        <div class="driversListRowContent">
+                        <!-- <div class="driversListRowContent">
                             <div>
                             <img src="../assets/driver.png" alt >
                             <strong>Petrov Ivan</strong>
@@ -330,6 +330,7 @@
                             <button>Remove</button>
                             </div>
                         </div>
+                    </div> -->
                     </div>
                 </carousel>
             </div>
@@ -364,18 +365,22 @@ export default {
 }
 
 .supplierClientsListBlock .driversListRowContent > div {
-  width: 13.3%!important;
+  width: 16.3%!important;
+  width: 202px;
+  height: 50px;
 }
 .supplierClientsListBlock .driversListRowHeader > span {
-  width: 16.3%!important;
+   /* width: 26.3%!important;  */
+   
 }
 .supplierClientsListBlock .driversListRowContent > div:last-child {
   justify-content: flex-start;
+  
 }
 .suplliersClientsContactsBlock {
   display: flex;
   flex-flow: column nowrap;
-  align-items: flex-start!important;
+  align-items: center!important;
 }
 .suplliersClientsContactsBlock p {
   margin: 0px;

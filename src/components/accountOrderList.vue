@@ -15,6 +15,7 @@
                             <span>Date & Time</span>
                             <span>Payment</span>
                             <span>Status</span>
+              
                             <span>Earned on delivery </span>
                             <span>Earned on supplier</span>
                         </div>
@@ -28,7 +29,7 @@
                             <div class="text-center">$10</div>
                             <div class="text-center">$10</div>
                         </div>
-                        <div class="driversListRowContent">
+                          <div class="driversListRowContent">
                             <div>#111111</div>
                             <div>John Johnson</div>
                             <div>Burger King</div>
@@ -76,8 +77,83 @@
                             <div>12.05.2018, 12:55</div>
                             <div>Successfull</div><div></div>
                             <div class="text-center">$10</div>
+                            <div class="text-center">$10</div> 
+                        </div>
+                    </div>
+                    
+                    <div class="driversListContainer">
+                        <div class="driversListRowHeader">
+                            <span>Order #</span>
+                            <span>Customer</span>
+                            <span>Supplier</span>
+                            <span>Driver</span>
+                            <span>Date & Time</span>
+                            <span>Payment</span>
+                            <span>Status</span>
+                            
+                            <span>Earned on delivery </span>
+                            <span>Earned on supplier</span>
+                        </div>
+                        <div class="driversListRowContent">
+                            <div>#111111</div>
+                            <div>John Johnson</div>
+                            <div>Burger King</div>
+                            <div>Max Kurton</div>
+                            <div>12.05.2018, 12:55</div>
+                            <div>Successfull</div><div></div>
+                            <div class="text-center">$10</div>
                             <div class="text-center">$10</div>
                         </div>
+                         <div class="driversListRowContent">
+                            <div>#111111</div>
+                            <div>John Johnson</div>
+                            <div>Burger King</div>
+                            <div>Max Kurton</div>
+                            <div>12.05.2018, 12:55</div>
+                            <div>Successfull</div><div></div>
+                            <div class="text-center">$10</div>
+                            <div class="text-center">$10</div> 
+                        </div> 
+                         <div class="driversListRowContent">
+                            <div>#111111</div>
+                            <div>John Johnson</div>
+                            <div>Burger King</div>
+                            <div>Max Kurton</div>
+                            <div>12.05.2018, 12:55</div>
+                            <div>Successfull</div><div></div>
+                            <div class="text-center">$10</div>
+                            <div class="text-center">$10</div>
+                        </div>
+                        <div class="driversListRowContent">
+                            <div>#111111</div>
+                            <div>John Johnson</div>
+                            <div>Burger King</div>
+                            <div>Max Kurton</div>
+                            <div>12.05.2018, 12:55</div>
+                            <div>Successfull</div><div></div>
+                            <div class="text-center">$10</div>
+                            <div class="text-center">$10</div>
+                        </div>
+                        <div class="driversListRowContent">
+                            <div>#111111</div>
+                            <div>John Johnson</div>
+                            <div>Burger King</div>
+                            <div>Max Kurton</div>
+                            <div>12.05.2018, 12:55</div>
+                            <div>Successfull</div><div></div>
+                            <div class="text-center">$10</div>
+                            <div class="text-center">$10</div>
+                        </div>
+                        <div class="driversListRowContent">
+                            <div>#111111</div>
+                            <div>John Johnson</div>
+                            <div>Burger King</div>
+                            <div>Max Kurton</div>
+                            <div>12.05.2018, 12:55</div>
+                            <div>Successfull</div><div></div>
+                            <div class="text-center">$10</div>
+                            <div class="text-center">$10</div>
+                        </div> 
                     </div>
                     <div class="driversListContainer">
                         <div class="driversListRowHeader">
@@ -88,6 +164,7 @@
                             <span>Date & Time</span>
                             <span>Payment</span>
                             <span>Status</span>
+
                             <span>Earned on delivery </span>
                             <span>Earned on supplier</span>
                         </div>
@@ -101,7 +178,7 @@
                             <div class="text-center">$10</div>
                             <div class="text-center">$10</div>
                         </div>
-                        <div class="driversListRowContent">
+                         <div class="driversListRowContent">
                             <div>#111111</div>
                             <div>John Johnson</div>
                             <div>Burger King</div>
@@ -140,8 +217,8 @@
                             <div>Successfull</div><div></div>
                             <div class="text-center">$10</div>
                             <div class="text-center">$10</div>
-                        </div>
-                        <div class="driversListRowContent">
+                        </div> 
+                         <div class="driversListRowContent">
                             <div>#111111</div>
                             <div>John Johnson</div>
                             <div>Burger King</div>
@@ -151,84 +228,12 @@
                             <div class="text-center">$10</div>
                             <div class="text-center">$10</div>
                         </div>
-                    </div>
-                    <div class="driversListContainer">
-                        <div class="driversListRowHeader">
-                            <span>Order #</span>
-                            <span>Customer</span>
-                            <span>Supplier</span>
-                            <span>Driver</span>
-                            <span>Date & Time</span>
-                            <span>Payment</span>
-                            <span>Status</span>
-                            <span>Earned on delivery </span>
-                            <span>Earned on supplier</span>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>#111111</div>
-                            <div>John Johnson</div>
-                            <div>Burger King</div>
-                            <div>Max Kurton</div>
-                            <div>12.05.2018, 12:55</div>
-                            <div>Successfull</div><div></div>
-                            <div class="text-center">$10</div>
-                            <div class="text-center">$10</div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>#111111</div>
-                            <div>John Johnson</div>
-                            <div>Burger King</div>
-                            <div>Max Kurton</div>
-                            <div>12.05.2018, 12:55</div>
-                            <div>Successfull</div><div></div>
-                            <div class="text-center">$10</div>
-                            <div class="text-center">$10</div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>#111111</div>
-                            <div>John Johnson</div>
-                            <div>Burger King</div>
-                            <div>Max Kurton</div>
-                            <div>12.05.2018, 12:55</div>
-                            <div>Successfull</div><div></div>
-                            <div class="text-center">$10</div>
-                            <div class="text-center">$10</div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>#111111</div>
-                            <div>John Johnson</div>
-                            <div>Burger King</div>
-                            <div>Max Kurton</div>
-                            <div>12.05.2018, 12:55</div>
-                            <div>Successfull</div><div></div>
-                            <div class="text-center">$10</div>
-                            <div class="text-center">$10</div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>#111111</div>
-                            <div>John Johnson</div>
-                            <div>Burger King</div>
-                            <div>Max Kurton</div>
-                            <div>12.05.2018, 12:55</div>
-                            <div>Successfull</div><div></div>
-                            <div class="text-center">$10</div>
-                            <div class="text-center">$10</div>
-                        </div>
-                        <!-- <div class="driversListRowContent">
-                            <div>#111111</div>
-                            <div>John Johnson</div>
-                            <div>Burger King</div>
-                            <div>Max Kurton</div>
-                            <div>12.05.2018, 12:55</div>
-                            <div>Successfull</div><div></div>
-                            <div class="text-center">$10</div>
-                            <div class="text-center">$10</div>
-                        </div> -->
                     </div>  
                 </carousel>
             </div>
         </div>   
     </div>
+  </div> 
 
 </template>
 

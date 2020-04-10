@@ -13,8 +13,8 @@
                             <span>Supplier</span>
                             <span>Driver</span>
                             <span>Date & Time</span>
-                            <span>Status</span>
                             <span>Payment</span>
+                            <span>Status</span> 
                             <span>Earned on delivery </span>
                             <span>Earned on supplier</span>
                         </div>
@@ -399,6 +399,8 @@ export default {
   display: flex;
   flex-flow: column nowrap ;
   justify-content: flex-start;
+  width: 957px;
+  height: 550px;
 
 }
 .driversListRowHeader {
@@ -407,9 +409,10 @@ export default {
   justify-content: space-between;
   width: 100%;
   margin-bottom: 15px;
+  
 }
 .driversListRowContent {
-  width: 100%;
+  width: 50px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -427,8 +430,8 @@ export default {
 
 }
 .driversListRowHeader span {
-  font-size: 18px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 22px;
   letter-spacing: 0.232479px;
   color: #4A4A4A;
   display: block;
