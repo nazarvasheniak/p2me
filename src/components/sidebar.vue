@@ -175,7 +175,7 @@ export default {
   
 }
 .sidebarSubContainer {
-  font-family: AvenirNext;
+  /* font-family: AvenirNext; */
   font-size: 20px;
   margin-bottom: 25px;
   

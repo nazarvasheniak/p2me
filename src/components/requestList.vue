@@ -193,7 +193,7 @@ methods: {
 	align-items: flex-end
 }
 .recentOrdersContainer h2 {
-font-family: AvenirNext;
+/* font-family: AvenirNext; */
 font-size: 24px;
 line-height: 33px;
 /* identical to box height, or 137% */
@@ -249,7 +249,7 @@ color: #4A4A4A;
 	box-sizing: border-box;
 	font-weight: 500;
 	font-size: 16px;
-	font-family: AvenirNext;
+	/* font-family: AvenirNext; */
     
 	letter-spacing: .172206px;
 	-webkit-transition: .7s;
@@ -346,7 +346,7 @@ color: #4A4A4A;
 }
 
 .requestsListItem p {
-	font-family: AvenirNext;
+	/* font-family: AvenirNext; */
     
 	font-size: 15px;
 	line-height: 22px;

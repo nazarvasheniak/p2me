@@ -70,12 +70,12 @@ export default {
 .reportsRow h1 span {
   font-size: 0.9em;
   color: #9b9b9b;
-  font-family: 'Avenir_Next';
+  /* font-family: 'Avenir_Next'; */
 }
 .reportsRow h1 {
   font-size: 32px;
   line-height: 44px;
-  font-family: 'Avenir_Next';
+  /* font-family: 'Avenir_Next'; */
 }
 .googleChart {
   width: 100%;
