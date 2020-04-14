@@ -1,164 +1,129 @@
 <template>
-  <div class="ordersContainer flex driversListContainerMains">
-    <!-- <div class="recentOrdersContainerRow flex driversMainNavigationTabs"> -->
-    <div class="filter flex">
-      <div class="filter-btns-left flex">
-        <button class="DriversView" style="text-align: center;">Drivers</button>
-        <button class="CouriersView" style="text-align: center;">Couriers</button>
-      </div>
+  	<div class="ordersContainer flex driversListContainerMains">
 
-      <div class="filter-btns-right flex">
-        <!-- class="recentOrdersContainerRow tabs flex" -->
-        <button class="OnlineView" v-on:click="changeTab('online')" style="text-align: center;">
-          <p style="color: #FFFFFF; margin: 0px;">Online</p>
-        </button>
-        <button class="OfflineView" v-on:click="changeTab('offline')" style="text-align: center;">
-          <p style="color: #F9525B; margin: 0px;">Offline</p>
-        </button>
-        <button class="RemovedView" v-on:click="changeTab('removed')" style="text-align: center;">
-          <p style="color: #4A4A4A; margin: 0px;">Removed</p>
-        </button>
-      </div>
-    </div>
+    	<div class="filter flex">
+      		<div class="filter-btns-left flex">
+        		<button class="DriversView" style="text-align: center;">Drivers</button>
+        		<button class="CouriersView" style="text-align: center;">Couriers</button>
+      		</div>
 
-    <!-- <tabs
-          :tabs="tabs"
-          :currentTab="currentTab"
-          :wrapper-class="'tabs'"
-          :tab-class="'tabs__item'"
-          :tab-active-class="'tabs__item_active'"
-          :line-class="'tabs__active-line'"
-          @onClick="handleClick"
-    ></tabs>-->
+      		<div class="filter-btns-right flex">
+				<button class="OnlineView" v-on:click="changeTab('online')" style="text-align: center;">
+					<p style="color: #FFFFFF; margin: 0px;">Online</p>
+				</button>
 
-    <!-- </div> -->
-    <div class="recentOrdersContainerRow flex driversListCarouselContainer">
-      <div class="content">
-        <div v-if="currentTab === 'online'">
-          <div class="recentOrdersContainerRow flex">
-            <carousel
-              class="sliderRecentOrders"
-              :items="1"
-              :nav="true"
-              value="online"
-              v-if="currentTab === 'online'"
-            >
-              <div class="driversListContainer">
-                <div class="driversListRowHeader">
-                  <span>Driver</span>
-                  <span>Order</span>
-                  <span>Transport</span>
-                  <span>Class</span>
-                  <span>Location</span>
-                  <span>Start Date</span>
-                  <span></span>
-                </div>
+				<button class="OfflineView" v-on:click="changeTab('offline')" style="text-align: center;">
+					<p style="color: #F9525B; margin: 0px;">Offline</p>
+				</button>
 
-                <div
-                  class="driversListRowContent"
-                  v-for="driver in driversList"
-                  :key="driver.id"
-                  v-on:click="openDriverProfile"
-                >
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>{{ driver.transport }}</div>
-                  <div>{{ driver.class }}</div>
-                  <div>{{ driver.location }}</div>
-                  <div>{{ driver.start_date }}</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-            </carousel>
-          </div>
-        </div>
+				<button class="RemovedView" v-on:click="changeTab('removed')" style="text-align: center;">
+					<p style="color: #4A4A4A; margin: 0px;">Removed</p>
+				</button>
+      		</div>
+    	</div>
 
-        <div v-if="currentTab === 'offline'">
-          <carousel
-            class="sliderRecentOrders"
-            :items="1"
-            :nav="true"
-            value="offline"
-            v-if="currentTab === 'offline'"
-          >
-            <div class="driversListContainer">
-              <div class="driversListRowHeader">
-                <span>Driver</span>
-                <span>Last visit</span>
-                <span>Transport</span>
-                <span>Class</span>
-                <!-- <span>Location</span> -->
-                <span>Start Date</span>
-                <span></span>
-              </div>
+    	<div class="recentOrdersContainerRow flex driversListCarouselContainer">
+			
+      		<div class="content">
+        		<div v-if="currentTab === 'online'">
+          			<div class="recentOrdersContainerRow flex">
 
-              <div
-                class="driversListRowContent"
-                v-for="driver in driversList"
-                :key="driver.id"
-                v-on:click="openDriverProfile"
-              >
-                <div>
-                  <img src="../assets/driver.png" alt />
-                  <strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
-                </div>
-                <div>00.00.0000</div>
-                <div>{{ driver.transport }}</div>
-                <div>{{ driver.class }}</div>
-                <div>{{ driver.start_date }}</div>
-                <div>
-                  <button>Remove</button>
-                </div>
-              </div>
-            </div>
-          </carousel>
-        </div>
+            			<carousel class="sliderRecentOrders" :items="1" :nav="true" value="online" v-if="currentTab === 'online'">
+              				<div class="driversListContainer">
+                				<div class="driversListRowHeader">
+									<span>Driver</span>
+									<span>Order</span>
+									<span>Transport</span>
+									<span>Class</span>
+									<span>Location</span>
+									<span>Start Date</span>
+									<span></span>
+                				</div>
 
-        <div v-if="currentTab === 'removed'">
-          <carousel
-            class="sliderRecentOrders"
-            :items="1"
-            :nav="true"
-            value="Removed"
-            v-if="currentTab === 'removed'"
-          >
-            <div class="driversListContainer">
-              <div class="driversListRowHeader">
-                <span>Driver</span>
-                <span>Reason for remove</span>
-                <span>Transport</span>
-                <span>Start date</span>
-                <span>Remove date</span>
-                <span></span>
-              </div>
+                				<div class="driversListRowContent" v-for="driver in driversList" :key="driver.id" v-on:click="openDriverProfile">
+                 					<div>
+                    					<img src="../assets/driver.png" alt />
+                    					<strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
+                  					</div>
 
-              <div class="driversListRowContent"
-			  	v-for="driver in driversList"
-                :key="driver.id"
-                v-on:click="openDriverProfile">
-                <div>
-                  <img src="../assets/driver.png" alt />
-                  <strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
-                </div>
-                <div>Lorem ipsum dolor sit amet.</div>
-                <div>{{ driver.transport }}</div>
-                <div>{{ driver.start_date }}</div>
-				<div>00.00.0000</div>
-                <div>
-                  <button>Activate</button>
-                </div>
-              </div>
-            </div>
-          </carousel>
-        </div>
-      </div>
-    </div>
-  </div>
+									<div>#111111</div>
+									<div>{{ driver.transport }}</div>
+									<div>{{ driver.class }}</div>
+									<div>{{ driver.location }}</div>
+									<div>{{ driver.start_date }}</div>
+									<div>
+										<button>Remove</button>
+									</div>
+                				</div>
+              				</div>
+            			</carousel>
+          			</div>
+        		</div>
+
+        		<div v-if="currentTab === 'offline'">
+
+          			<carousel class="sliderRecentOrders" :items="1" :nav="true" value="offline" v-if="currentTab === 'offline'">
+            			<div class="driversListContainer">
+              				<div class="driversListRowHeader">
+								<span>Driver</span>
+								<span>Last visit</span>
+								<span>Transport</span>
+								<span>Class</span>
+								<span>Start Date</span>
+								<span></span>
+              				</div>
+
+             	 			<div class="driversListRowContent" v-for="driver in driversList" :key="driver.id" v-on:click="openDriverProfile">
+								<div>
+									<img src="../assets/driver.png" alt />
+									<strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
+								</div>
+
+								<div>00.00.0000</div>
+								<div>{{ driver.transport }}</div>
+								<div>{{ driver.class }}</div>
+								<div>{{ driver.start_date }}</div>
+								<div>
+									<button>Remove</button>
+								</div>
+              				</div>
+            			</div>
+          			</carousel>
+        		</div>
+
+        		<div v-if="currentTab === 'removed'">
+
+          			<carousel class="sliderRecentOrders" :items="1" :nav="true" value="Removed" v-if="currentTab === 'removed'">
+            			<div class="driversListContainer">
+							<div class="driversListRowHeader">
+								<span>Driver</span>
+								<span>Reason for remove</span>
+								<span>Transport</span>
+								<span>Start date</span>
+								<span>Remove date</span>
+								<span></span>
+							</div>
+
+              				<div class="driversListRowContent" v-for="driver in driversList" :key="driver.id" v-on:click="openDriverProfile">
+								<div>
+									<img src="../assets/driver.png" alt />
+									<strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
+								</div>
+
+								<div>Lorem ipsum dolor sit amet.</div>
+								<div>{{ driver.transport }}</div>
+								<div>{{ driver.start_date }}</div>
+								<div>00.00.0000</div>
+								<div>
+									<button>Activate</button>
+								</div>
+              				</div>
+            			</div>
+          			</carousel>
+        		</div>
+      		</div>
+    	</div>
+  	</div>
 </template>
 
 <script>
@@ -166,37 +131,40 @@ import carousel from "vue-owl-carousel";
 import axios from "axios";
 
 export default {
-  name: "Drivers",
-  components: {
-    carousel
-  },
-  data: () => ({
-    tabs: [
-      { title: "Online", value: "online", class: "dasdascsasdasdasda" },
-      { title: "Offline", value: "offline" },
-      { title: "Removed", value: "removed" }
-    ],
-    currentTab: "online",
-    driversList: []
-  }),
-  methods: {
-    changeTab(newTab) {
-      this.currentTab = newTab;
-      this.loadDriversList();
-    },
-    openDriverProfile() {
-      this.$router.push("/drive");
-    },
-    loadDriversList() {
-      this.$store.dispatch("loadDriversList", this.currentTab).then(result => {
-        this.driversList = result.drivers_list;
-        console.log(this.driversList);
-      });
-    }
-  },
-  beforeMount() {
-    this.loadDriversList();
-  }
+  	name: "Drivers",
+  	components: {
+    	carousel
+  	},
+  	data: () => ({
+    	tabs: [
+      		{ title: "Online", value: "online", class: "dasdascsasdasdasda" },
+      		{ title: "Offline", value: "offline" },
+      		{ title: "Removed", value: "removed" }
+    	],
+    	currentTab: "online",
+    	driversList: []
+  	}),
+  	methods: {
+		changeTab(newTab) {
+			this.currentTab = newTab;
+			this.loadDriversList();
+		},
+
+    	openDriverProfile() {
+      		this.$router.push("/drive");
+		},
+		
+    	loadDriversList() {
+			this.$store.dispatch("loadDriversList", this.currentTab)
+			  	.then(result => {
+        			this.driversList = result.drivers_list;
+        			console.log(this.driversList);
+      			});
+    	}
+  	},
+  	beforeMount() {
+    	this.loadDriversList();
+  	}
 };
 </script>
 
