@@ -1,21 +1,36 @@
 <template>
-  <div class="notPaidContainer flex">
-    <h4>Approved</h4>
-    <div class="notPaidContainerRow flex">
-        <div class="approved-progress"></div>
+    <div class="notPaidContainer flex">
+        <h4>Approved</h4>
+
+        <div class="notPaidContainerRow flex">
+            <div class="approved-progress"></div>
+        </div>
+
+        <div class="notPaidContainerRow flex">
+            <img src="../assets/usericon.png" alt="">
+
+            <p>
+                Drivers:
+                <span>{{ approved }}</span> /
+                <span>{{ total | formatNumber }}</span>
+            </p>
+        </div>
     </div>
-    <div class="notPaidContainerRow flex"><img src="../assets/usericon.png" alt="">
-        <p>
-            Drivers:
-            <span>10</span> /
-            <span>1 500</span></p>
-    </div>
-  </div>
 </template>
 
 <script>
 export default {
-  name: "approved"
+    name: "approved",
+    props: ['total', 'approved'],
+    filters: {
+        formatNumber: (value) => {
+            if (!value) return '';
+            if (value < 1000) return value;
+            
+            value = value.toString();
+            return `${value.charAt(0)} ${value.substring(value.length - (value.length - 1))}`;
+        }
+    }
 };
 </script>
 
