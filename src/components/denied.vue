@@ -1,17 +1,22 @@
 <template>
-  <div class="refusesContainer flex">
-    <h4>Denied</h4>
-    <div class="refusesContainerrow flex">
-        <img src="../assets/refArrow.png" alt="">
-        <p> <span class="big-number-denied"> 100 </span> /
-            <span>1 500</span></p>
-    </div>
-</div>
+  	<div class="refusesContainer flex">
+    	<h4>Denied</h4>
+
+    	<div class="refusesContainerrow flex">
+        	<img src="../assets/refArrow.png" alt="">
+
+        	<p>
+				<span class="big-number-denied"> {{ denied }} </span> /
+            	<span>{{ total }}</span>
+			</p>
+    	</div>
+	</div>
 </template>
 
 <script>
 export default {
-  name: "denied"
+	name: "denied",
+	props: ['denied', 'total']
 };
 </script>
 

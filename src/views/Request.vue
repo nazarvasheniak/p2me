@@ -9,7 +9,7 @@
 
       		<div class="dashboardContainerSubRow flex">
         		<approved v-bind:approved="driversApproved" v-bind:total="totalDrivers" />
-        		<denied />
+        		<denied v-bind:denied="driversDenied" v-bind:total="totalDrivers" />
       		</div>
     	</div>
 

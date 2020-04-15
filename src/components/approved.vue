@@ -11,7 +11,7 @@
 
             <p>
                 Drivers:
-                <span>{{ approved }}</span> /
+                <span>{{ approved | formatNumber }}</span> /
                 <span>{{ total | formatNumber }}</span>
             </p>
         </div>
