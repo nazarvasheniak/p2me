@@ -15,7 +15,7 @@
 
     	<div class="dashboardContainerRow"></div>
 
-    	<requestList list="requests" />
+    	<requestList v-bind:list="requests" />
  	</div>
 </template>
 
@@ -39,7 +39,7 @@ export default {
 		driversApproved: 0,
 		driversDenied: 0,
 		driversByDate: [],
-		driversList: []
+		requests: []
   	}),
   	mounted() {
     	axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
@@ -54,7 +54,7 @@ export default {
 				this.driversApproved = result.drivers_approved;
 				this.driversDenied = result.drivers_denied;
 				this.driversByDate = result.drivers_by_date;
-				this.driversList = result.driver_list;
+				this.requests = result.driver_list;
 			});
   	}
 };

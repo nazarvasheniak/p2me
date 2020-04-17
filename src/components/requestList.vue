@@ -48,12 +48,14 @@
                 </div>
             </div>
         </div> -->
-        <div class="requestsListItem">
+        <div class="requestsListItem" v-for="item of list" v-bind:key="item.id">
             <div class="requestsListItemRow">
                 <div class="requestsListItemsMains"><img src="../assets/driver.png" alt="">
-                    <h3>Petrov Ivan</h3></div>
-                <div class="requestsListItemDate">7
-                    13th November, 12:20
+                    <h3>{{ item.first_name }} {{ item.last_name }}</h3>
+				</div>
+
+                <div class="requestsListItemDate">
+                    {{ item.created | requestDate }}
                 </div>
             </div>
             <div class="requestsListItemRow">
@@ -93,6 +95,7 @@
             </div>
         </div>
     </div>
+
 	<div class="accept-modal-container flex" v-if="acceptModalVision">
 		<div class="modal">
 			<div class="close" v-on:click="accept">
@@ -151,6 +154,18 @@ data() {
     orders: null,
 	acceptModalVision: false
     };
+},
+filters: {
+	requestDate: (date) => {
+		if (!date) return '';
+
+		const monthNames = ["January", "February", "March", "April", "May", "June",
+  			"July", "August", "September", "October", "November", "December"
+		];
+
+		date = new Date(date);
+		return `${date.getDay()}th ${monthNames[date.getMonth()]}, ${date.getHours()}:${date.getMinutes()}`;
+	}
 },
 methods: {
 	accept() {
