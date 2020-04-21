@@ -9,7 +9,6 @@
 <script>
 import mainTemplate from "./components/mainTemplate.vue";
 import Login from "./views/Login.vue";
-
 export default {
   name: "App",
   components: {
@@ -44,7 +43,6 @@ export default {
 
 <style lang="scss">
 // @import url("https://fonts.googleapis.com/css?family=Questrial");
-
 .app {
   font-family: 'Avenir_Next';
   src: url("http://www.yoursite.com/fonts/Avenir_Next.otf");
@@ -52,7 +50,6 @@ export default {
 </style>
 
 <style>
-
 * {
   box-sizing: border-box;
 }
