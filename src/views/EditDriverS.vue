@@ -19,8 +19,35 @@
                                 <h3>Petrov Ivan</h3>
                             </div>
                             <div class="edit flex">
-                                <button class="redBorderButtonMain">Remove driver</button>
+                                <button class="redBorderButtonMain" v-on:click="accept">Remove driver</button>
+                            
+
+                            <div class="accept-modal-container flex" v-if="acceptModalVision">
+                                <div class="modal">
+                                   	<div class="close" v-on:click="accept">
+				                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					                       <path d="M19.707 0.293006C19.316 -0.0979941 18.684 -0.0979941 18.293 0.293006L10 8.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L8.58601 10L0.293006 18.293C-0.0979941 18.684 -0.0979941 19.316 0.293006 19.707C0.488006 19.902 0.744006 20 1.00001 20C1.25601 20 1.51201 19.902 1.70701 19.707L10 11.414L18.293 19.707C18.488 19.902 18.744 20 19 20C19.256 20 19.512 19.902 19.707 19.707C20.098 19.316 20.098 18.684 19.707 18.293L11.414 10L19.707 1.70701C20.098 1.31601 20.098 0.684006 19.707 0.293006Z" fill="#4A4A4A"/>
+				                        </svg>
+			                          </div> 
+                                      <h2>Please, select a reason of remove</h2>
+                                      <form @submit.prevent="accept">
+                                        
+                                            <div class="removeModal flex">
+                                                
+                                               <div class="removeIt">First reason</div>
+                                                <hr/>
+                                               <div class="removeIt">Second reason</div>
+                                                 <hr/>
+                                               <div class="removeIt">Third reason</div>
+                                                <hr/>
+                                               <div class="removeIt">Another</div>
+                                                <hr/>
+                                               
+                                            </div>
+                                      </form>
+                                 </div>                            
                             </div>
+                         </div>
                         </div>
                     </div>
                     <div class="profileMainInfoSubContainer">
@@ -117,6 +144,7 @@ import axios from "axios";
 import rates from "../components/rates.vue";
 import iconCamera from "../components/icons/iconCamera.vue";
 
+
 export default {
   name: "EditDriverS",
   components: {
@@ -126,7 +154,23 @@ export default {
     tripsCanceled,
     rates,
     iconCamera
+    
   },
+ 
+
+   methods: {
+    
+    accept() {
+	 this.acceptModalVision = !this.acceptModalVision;
+	},
+    Close() {
+      
+    },
+    handleClick(newTab) {
+      this.currentTab = newTab;
+    }
+  },
+
   mounted() {
     axios
       .get("https://api.coindesk.com/v1/bpi/currentprice.json")
@@ -196,15 +240,15 @@ export default {
     align-items: flex-start;
 }
 .editDriverContainerMainBlock h3 {
-    font-size: 24px;
-    line-height: 33px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.25831px;
-    color: #4A4A4A;
-    margin-top: 35px;
+    font-family: AvenirNext;
+    font-size: 30px;
+    line-height: 41px;
+    letter-spacing: 0.322887px;
+    text-decoration-line: underline;
+    color: #4A4A4A;                                                                                                                     
 }
 .editDriverContainerMainBlock p {
+    font-family: AvenirNext;
     font-size: 18px;
     line-height: 22px;
     display: flex;
@@ -215,6 +259,13 @@ export default {
     margin: 0px;
 }
 .driverDocumentsRowContainer p {
+    font-family: AvenirNext;
+    font-size: 18px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+
+    color: #4A4A4A;
     margin: 5px 0px;
 }
 .driverDocumentsRowContainer img {
@@ -276,6 +327,7 @@ export default {
     height: 31px;
 }
 .editDriverContainerMainBlock h1 {
+    font-family: AvenirNext;
     margin-bottom: 15px;
     font-size: 36px;
     line-height: 49px;
@@ -283,4 +335,36 @@ export default {
 .profileDriverInfoBlockContainer {
     width: 33%;
 }
+.accept-modal-container {
+    position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	justify-content: space-around;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 10;
+}
+
+.modal {
+	width: 679px;
+	height: 574px;
+	padding: 61px 124px;
+	position: relative;
+	box-sizing: border-box;
+	border-radius: 3px;
+	background: #ffffff;
+}  
+
+.removeModal {
+    
+    margin-left: 52px;
+    margin-right:50px;
+    margin-bottom: 45px;
+    border: 1px solid #F92F6E;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 </style>

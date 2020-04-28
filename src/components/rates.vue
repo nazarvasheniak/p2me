@@ -37,6 +37,7 @@ export default {
 }
 .notPaidContainer > h4 {
     font-size: 1.2em;
+    font-family: AvenirNext;
     margin-bottom: 0px;
     text-align: center;
 }

@@ -27,6 +27,7 @@ export default {
   margin-bottom: 45px;
 }
 .refusesContainer > h4 {
+  font-family: AvenirNext;
   font-size: 1.2em;
   margin-bottom: 15px;
   color: #fff;

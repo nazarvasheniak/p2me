@@ -365,16 +365,16 @@ export default {
 }
 
 .supplierClientsListBlock .driversListRowContent > div {
-  width: 16.3%!important;
+  width: 26.3%!important;
   width: 202px;
   height: 50px;
 }
 .supplierClientsListBlock .driversListRowHeader > span {
-   /* width: 26.3%!important;  */
+    width: 26.3%!important;  
    
 }
 .supplierClientsListBlock .driversListRowContent > div:last-child {
-  justify-content: flex-start;
+  justify-content: center;
   
 }
 .suplliersClientsContactsBlock {

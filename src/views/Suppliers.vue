@@ -1,11 +1,121 @@
 <template>
-  <div class="ordersContainer flex suppliersListMainContainer">
-    
-      <div class="ordersHeader flex">
+  <div class="suppContainer flex ">
+    <!-- <div class="myContent">  -->
+      <div class="suppHeader flex">
+        <div class="pageName ">
+          <h1 class="suppName">Suppliers</h1>
+        </div>
+        
+        <div class="suppChoose flex">
+             <span class="suppCategory">All suppliers</span>
+             <span class="suppCategory">Restaurants</span>
+             <span class="suppCategory">Shopping</span>
+             <span class="suppCategory">Markets</span>
+             <span class="suppCategory">Pharmacy</span>
+             <span class="suppCategory">Removed</span>
+          </div>
+        </div>
+
+       <!-- <div class="tableHeader"> -->
+        <div class="tableSupplier flex">
+           <span class="tableOne">Supplier</span>
+           <span class="tableTwo">Category</span>
+           <span class="tableThree">Schedule</span>
+           <span class="tableFour">Location</span>
+            <span class="tableFive">Start date</span>
+            <button  v-on:click="accept">
+               <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> 
+                        </svg>
+           </button>
+           
+           <div class="accept-modal-container flex" v-if="acceptModalVision">
+		<div class="modal">
+			<div class="close" v-on:click="accept">
+				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M19.707 0.293006C19.316 -0.0979941 18.684 -0.0979941 18.293 0.293006L10 8.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L8.58601 10L0.293006 18.293C-0.0979941 18.684 -0.0979941 19.316 0.293006 19.707C0.488006 19.902 0.744006 20 1.00001 20C1.25601 20 1.51201 19.902 1.70701 19.707L10 11.414L18.293 19.707C18.488 19.902 18.744 20 19 20C19.256 20 19.512 19.902 19.707 19.707C20.098 19.316 20.098 18.684 19.707 18.293L11.414 10L19.707 1.70701C20.098 1.31601 20.098 0.684006 19.707 0.293006Z" fill="#4A4A4A"/>
+				</svg>
+			</div>
+			<h2 style="margin-bottom: 25px;">Filters</h2>
+			<form @submit.prevent="accept">
+				<div class="categorysupp flex">
+					<h4>Category:</h4>
+          <div class="choosecategory ">
+            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
+          </div>
+
+          <h4>Category:</h4>
+          <div class="choosecategory ">
+            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
+          </div>
+
+          <h4>Category:</h4>
+          <div class="choosecategory ">
+            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
+          </div>
+
+          <h4>Category:</h4>
+          <div class="choosecategory">
+            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
+          </div>
+
+          <h4>Category:</h4>
+          <div class="choosecategory">
+            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
+          </div>
+
+          <h4>Category:</h4>
+          <div class="choosecategory">
+            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
+          </div>
+					
+					<div class="button-ok">
+        <button class="ok-button">OK</button>
+				
+        </div>
+					
+				</div>
+       
+
+			</form>
+		</div>
+	</div>
+              
+
+          </div>
+         <!-- </div>
+         -->
+             <div class="suppTable">
+                <!-- <div class="suppContent"> -->
+                  <img src="../assets/burder.png" alt  style="margin-right: 4px;">
+                  <span class="spanPng" style="margin-right: 48px;">Burger King</span>
+                <!-- </div> -->
+
+                <span class="menuTable" style="margin-right: 140px;">Burgers</span>
+                <span class="timeTable" style="margin-right: 120px;">06:00-00:00</span>
+                <span class="addressTable" style="margin-right: 80px;">Kyiv, Stereo Plaza</span>
+                <span class="dateTable" style="margin-right: 90px;">19.12.2018</span>
+                
+                      <button class="removeButton">Remove</button>
+                
+             </div>
+            
+          
+        
+       
+      
+      </div> 
+
+      
+
+
+
+
+
+       <!-- <div class="ordersHeader flex">
         <h1>
-          Suppliers
-        </h1>
-        <tabs
+          Supplierss
+        </h1> -->
+        <!-- <tabs
         class="recentOrdersContainerRow tabs flex"
         :tabs="tabs"
         :currentTab="currentTab"
@@ -15,1606 +125,11 @@
         :line-class="'tabs__active-line'"
         @onClick="handleClick"
         ></tabs>
-       </div>
+       </div> --> 
 
-        <div class="recentOrdersContainerRow flex ">
-          <div class="content">
-            <div v-if="currentTab === 'All suppliers'">
-              <div class="recentOrdersContainerRow flex">
-              <carousel 
-                class="sliderRecentOrders"
-                :items="1"
-                :nav="true"
-                value="All suppliers"
-                v-if="currentTab === 'All suppliers'">
-                <div class="driversListContainer">
-                  <div class="driversListRowHeader">
-                    <span>Driver</span>
-                    <span>Order</span>
-                    <span>Transport</span>
-                    <span>Class</span>
-                    <span>Location</span>
-                    <span>Start Date</span>
-                    
-                    <button  v-on:click="accept">
-
-                      
-                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> 
-                        </svg>
-                      
-                    </button> 
-
-                    <div class="accept-modal-container flex" v-if="acceptModalVision">
-		<div class="modal">
-			<div class="close" v-on:click="accept">
-				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M19.707 0.293006C19.316 -0.0979941 18.684 -0.0979941 18.293 0.293006L10 8.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L8.58601 10L0.293006 18.293C-0.0979941 18.684 -0.0979941 19.316 0.293006 19.707C0.488006 19.902 0.744006 20 1.00001 20C1.25601 20 1.51201 19.902 1.70701 19.707L10 11.414L18.293 19.707C18.488 19.902 18.744 20 19 20C19.256 20 19.512 19.902 19.707 19.707C20.098 19.316 20.098 18.684 19.707 18.293L11.414 10L19.707 1.70701C20.098 1.31601 20.098 0.684006 19.707 0.293006Z" fill="#4A4A4A"/>
-				</svg>
-			</div>
-			<h2>Filters</h2>
-			<form @submit.prevent="accept">
-				<div class="categorysupp flex">
-					<h4>Category:</h4>
-          <div class="choosecategory flex">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-
-          <h4>Category:</h4>
-          <div class="choosecategory">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-
-          <h4>Category:</h4>
-          <div class="choosecategory">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-
-          <h4>Category:</h4>
-          <div class="choosecategory">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-
-          <h4>Category:</h4>
-          <div class="choosecategory">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-
-          <h4>Category:</h4>
-          <div class="choosecategory">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-					
-					
-					
-				</div>
-        <div class="button-ok">
-        <button class="ok-button">OK</button>
-				
-        </div>
-
-			</form>
-		</div>
-	</div>
-                  
-                <div class="Push-modal-container flex" v-if="PushModalvision">
-                  <div class="modal">
-                    <div class="close" v-on:click="Close">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-					                  <path d="M19.707 0.293006C19.316 -0.0979941 18.684 -0.0979941 18.293 0.293006L10 8.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L8.58601 10L0.293006 18.293C-0.0979941 18.684 -0.0979941 19.316 0.293006 19.707C0.488006 19.902 0.744006 20 1.00001 20C1.25601 20 1.51201 19.902 1.70701 19.707L10 11.414L18.293 19.707C18.488 19.902 18.744 20 19 20C19.256 20 19.512 19.902 19.707 19.707C20.098 19.316 20.098 18.684 19.707 18.293L11.414 10L19.707 1.70701C20.098 1.31601 20.098 0.684006 19.707 0.293006Z" fill="#4A4A4A"/>
-				              </svg>
-
-                       </div> 
-                         <h2>Filters</h2> 
-                         <form @submit.prevent="Push">  
-                           <div class="PushFilter-btns">
-                             <h3>Category:</h3>
-                              <button class="button-menu">
-                              <span class="menu-icon">
-                                <svg width="129" height="38" viewBox="0 0 129 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="0.5" y="0.5" width="128" height="37" rx="18.5" stroke="#4A4A4A"/>
-                                </svg>
-
-                              </span>
-                              
-                             </button>
-                          </div>
-                        </form>
-                  </div>
-                </div>
-              </div>  
-
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="driversListContainer">
-                  <div class="driversListRowHeader">
-                    <span>Supplier</span>
-                    <span>Category</span>
-                    <span>Schedule</span>
-                    <span>Location</span>
-                    <span>Start Date</span>
-                    <span><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> </svg></span>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="driversListContainer">
-                  <div class="driversListRowHeader">
-                    <span>Supplier</span>
-                    <span>Category</span>
-                    <span>Schedule</span>
-                    <span>Location</span>
-                    <span>Start Date</span>
-                    <span><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> </svg></span>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                </div>  
-              </carousel>
-              </div>
-            </div>
-            <div v-if="currentTab === 'Restaurants'">
-                <carousel 
-                class="sliderRecentOrders"
-                :items="1"
-                :nav="true"
-                value="Restaurants"
-                v-if="currentTab === 'Restaurants'">
-                <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                      <span>Supplier</span>
-                      <span>Category</span>
-                      <span>Schedule</span>
-                      <span>Location</span>
-                      <span>Start Date</span>
-                      <span><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> </svg></span>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Remove</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Remove</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Remove</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Remove</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Remove</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Remove</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Remove</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Remove</button>
-                      </div>
-                    </div>
-                </div>
-                <div class="driversListContainer">
-                  <div class="driversListRowHeader">
-                    <span>Supplier</span>
-                    <span>Category</span>
-                    <span>Schedule</span>
-                    <span>Location</span>
-                    <span>Start Date</span>
-                    <span><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> </svg></span>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="driversListContainer">
-                  <div class="driversListRowHeader">
-                    <span>Supplier</span>
-                    <span>Category</span>
-                    <span>Schedule</span>
-                    <span>Location</span>
-                    <span>Start Date</span>
-                    <span><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> </svg></span>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                </div>
-              </carousel>
-            </div>
-            <div v-if="currentTab === 'Shopping'">
-                <carousel 
-                class="sliderRecentOrders"
-                :items="1"
-                :nav="true"
-                value="Shopping"
-                v-if="currentTab === 'Shopping'">
-                <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                      <span>Supplier</span>
-                      <span>Category</span>
-                      <span>Schedule</span>
-                      <span>Location</span>
-                      <span>Start Date</span>
-                      <span><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> </svg></span>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Restore</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Restore</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Restore</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Restore</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Restore</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Restore</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Restore</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Restore</button>
-                      </div>
-                    </div>
-                </div>
-                <div class="driversListContainer">
-                  <div class="driversListRowHeader">
-                    <span>Supplier</span>
-                    <span>Category</span>
-                    <span>Schedule</span>
-                    <span>Location</span>
-                    <span>Start Date</span>
-                    <span><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> </svg></span>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Restore</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Restore</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Restore</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Restore</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Restore</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Restore</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Restore</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="driversListContainer">
-                  <div class="driversListRowHeader">
-                    <span>Supplier</span>
-                    <span>Category</span>
-                    <span>Schedule</span>
-                    <span>Location</span>
-                    <span>Start Date</span>
-                    <span><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> </svg></span>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Remove</button>
-                    </div>
-                  </div>
-                </div>
-              </carousel>
-            </div>
-          
-          <div v-if="currentTab === 'Removed'">
-                <carousel 
-                class="sliderRecentOrders"
-                :items="1"
-                :nav="true"
-                value="Removed"
-                v-if="currentTab === 'Removed'">
-                <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                      <span>Supplier</span>
-                      <span>Category</span>
-                      <span>Schedule</span>
-                      <span>Location</span>
-                      <span>Start Date</span>
-                      <span><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> </svg></span>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Activate</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Activate</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Activate</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Activate</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Activate</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Activate</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Activate</button>
-                      </div>
-                    </div>
-                    <div class="driversListRowContent">
-                      <div>
-                        <img src="../assets/burder.png" alt >
-                        <strong>Burger King</strong>
-                      </div>
-                      <div>Burgers</div>
-                      <div>06:00-00:00</div>
-                      
-                      <div>Kyiv, Stereo Plaza</div>
-                      <div>19.12.2018</div>
-                      <div>
-                        <button>Activate</button>
-                      </div>
-                    </div>
-                </div>
-                <div class="driversListContainer">
-                  <div class="driversListRowHeader">
-                    <span>Supplier</span>
-                    <span>Category</span>
-                    <span>Schedule</span>
-                    <span>Location</span>
-                    <span>Start Date</span>
-                    <span><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> </svg></span>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Restore</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="driversListContainer">
-                  <div class="driversListRowHeader">
-                    <span>Supplier</span>
-                    <span>Category</span>
-                    <span>Schedule</span>
-                    <span>Location</span>
-                    <span>Start Date</span>
-                    <span><svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> </svg></span>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                  <div class="driversListRowContent">
-                    <div>
-                      <img src="../assets/burder.png" alt >
-                      <strong>Burger King</strong>
-                    </div>
-                    <div>Burgers</div>
-                    <div>06:00-00:00</div>
-                    
-                    <div>Kyiv, Stereo Plaza</div>
-                    <div>19.12.2018</div>
-                    <div>
-                      <button>Activate</button>
-                    </div>
-                  </div>
-                </div>
-              </carousel>
-            </div>
-          
-        </div>
-    </div>
-
+        
  
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -1660,11 +175,13 @@ export default {
 
 <style>
 
-.content {
+
+
+.myContent {
   width: 100%;
 }
 
-.ordersContainer {
+.suppContainer {
   overflow-x: hidden;
   /* overflow-y: hidden; */
   flex-flow: column nowrap;
@@ -1672,7 +189,228 @@ export default {
   align-items: flex-start;
   width: 100%;
   height: 100%;
+  
 }
+
+.spanPng {
+ font-family: AvenirNext;
+ font-size: 20px;
+ line-height: 25px;
+ align-items: center;
+ letter-spacing: 0.232479px;
+ color: #4A4A4A;
+}
+
+.h1 {
+  font-family: AvenirNext;
+  font-size: 32px;
+  line-height: 33px;
+  color: #4A4A4A;
+  mix-blend-mode: multiply;
+}
+
+.suppHeader {
+  flex-direction: row;
+}
+.pageName {
+  width: 139px;
+  height: 53px;
+  margin-top: 25px;
+  margin-left: 25px;
+  border:2px solid red;
+  align-items: center;
+  
+}
+
+.tableHeader {
+  width: 1028px;
+  height: 72px;
+  margin-top: 20px;
+  margin-left: 25px;
+  border:2px solid red;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  
+}
+
+
+.tableSupplier {
+  width: 1028px;
+  height: 72px;
+  border:2px solid red;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
+  
+  
+}
+
+
+
+.tableOne {
+font-family: AvenirNext;
+font-size: 18px;
+line-height: 25px;
+letter-spacing: 0.232479px;
+color: #4A4A4A;
+opacity: 0.21;
+
+}
+
+.tableTwo {
+  font-family: AvenirNext;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.232479px;
+  color: #4A4A4A;
+  display: bold;
+}
+
+.tableThree {
+  font-family: AvenirNext;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.232479px;
+  color: #4A4A4A;
+  display: bold;
+}
+
+.tableFour {
+  font-family: AvenirNext;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.232479px;
+  color: #4A4A4A;
+  display: bold;
+}
+
+.tableFive {
+  font-family: AvenirNext;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.232479px;
+  color: #4A4A4A;
+  display: bold;
+}
+
+.suppTable {
+  width: 1028px;
+  height: 92px;
+  border:2px solid red;
+  
+  align-items: center;
+  
+  margin-left: 19px;
+  
+}
+
+.suppName {
+  font-family: AvenirNext;
+  font-size: 27px;
+  line-height: 33px;
+  color: #4A4A4A;
+  padding-top: 4px;
+}
+.suppChoose {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 700px;
+  height: 83px;
+  border:2px solid red;
+  margin-left: 98px;
+  margin-top: 25px;
+  
+}
+
+.suppCategory {
+font-family: AvenirNext;
+font-size: 16px;
+line-height: 27px;
+display: flex;
+align-items: center;
+letter-spacing: 0.25831px;
+
+color: #56CCF2;
+}
+
+.menuTable {
+  font-family: AvenirNext;
+  font-size: 16px;
+  line-height: 22px;
+  
+  align-items: center;
+  letter-spacing: 0.206648px;
+  color: #4A4A4A;
+}
+
+.timeTable {
+  font-family: AvenirNext;
+  font-size: 16px;
+  line-height: 22px;
+/* identical to box height, or 137% */
+  
+  align-items: center;
+  letter-spacing: 0.206648px;
+
+  color: #4A4A4A;
+
+}
+
+.addressTable {
+  font-family: AvenirNext;
+  font-size: 16px;
+  line-height: 22px;
+/* identical to box height, or 137% */
+ 
+  align-items: center;
+  letter-spacing: 0.206648px;
+  color: #4A4A4A;
+}
+
+.dateTable {
+  font-family: AvenirNext;
+  font-size: 16px;
+  line-height: 22px;
+/* identical to box height, or 137% */
+  
+  align-items: center;
+  letter-spacing: 0.206648px;
+  color: #4A4A4A;
+}
+
+.suppContent {
+  width: 173px;
+  height: 50px;
+}
+
+.suppContent img {
+    text-align: center !important;
+    width: 30px !important;
+    height: 30px !important;
+    margin-left: 5px;
+}
+
+.removeButton {
+  font-family: "Avenir Next";
+  float: right;
+   /* display: block;  */
+  text-align: center;
+  border: 1px solid #fb5f68;
+  border-radius: 24px;
+  font-size: 16px;
+  line-height: 22px;
+  align-items: center;
+  letter-spacing: 0.172206px;
+  color: #fb5f68;
+  /* padding: 8px 23px; */
+  background: none;
+  
+}
+
 .accept-modal-container {
 	position: fixed;
 	left: 0;
@@ -1686,8 +424,8 @@ export default {
 }
 
 .modal {
-	width: 679px;
-	height: 471px;
+	width: 979px; 
+	height: 531px;
 	padding: 61px 124px;
 	position: relative;
 	box-sizing: border-box;
@@ -1718,19 +456,20 @@ line-height: 44px;
 }
 
 .categorysupp {
-  height: 374px;
-  flex-flow: row wrap;
-  top: 10px;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
+  height: 444px;
+   flex-flow: row wrap; 
+   top: 10px;
+   align-content: center; 
+   justify-content: flex-start; 
+   align-items: center;
+  
 }
 .choosecategory {
   position: relative;
   margin: 5px 7.5px 20px;
   flex-flow: row nowrap;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: start;
   padding: 15px 15px 35px;
   width: 250px;
   
@@ -1746,9 +485,9 @@ line-height: 44px;
 	border: 1px solid #4A4A4A;
 } */
 .modal h2 {
-	font-family: 'AvenirNext', sans-serif;
+	font-family: 'AvenirNext';
 	font-size: 30px;
-	line-height: 41px;
+	line-height: 21px;
 	text-align: center;
 	letter-spacing: 0.14359px;
 	color: #4A4A4A;
@@ -1759,7 +498,7 @@ line-height: 44px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: 55px;
+  margin-left: 285px;
   margin-bottom: 60px;
   margin-top: 30px;
 
@@ -1773,6 +512,16 @@ display: flex;
 width: 142px;
 height: 58px;
 justify-content: center;
+font-family: AvenirNext;
+font-size: 30px;
+line-height: 49px;
+/* identical to box height, or 163% */
+
+display: flex;
+align-items: center;
+letter-spacing: 0.172308px;
+
+color: #FFFFFF;
 
 } 
 

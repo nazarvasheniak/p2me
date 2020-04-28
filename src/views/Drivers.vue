@@ -4,7 +4,7 @@
     <div class="filter flex">
       <div class="filter-btns-left flex">
         <button class="DriversView" style="text-align: center;">Drivers</button>
-        <button class="CouriersView" style="text-align: center;">Couriers</button>
+        <button class="CouriersView" v-on:click="changeTab('courierList')" style="text-align: center;">Couriers</button>
       </div>
 
       <div class="filter-btns-right flex">
@@ -129,7 +129,7 @@
 
               <div class="driversListRowContent">
                 <div>
-                  <img src="../assets/driver.png" alt />
+                  <img src="../assets/driver.png" alt >
                   <strong>Petrov Ivan</strong>
                 </div>
                 <div>Lorem ipsum dolor sit amet.</div>

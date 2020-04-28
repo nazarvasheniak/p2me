@@ -160,6 +160,7 @@ export default {
   align-items: center;
 }
 .profileMainInfoColumn h3 {
+  font-family: AvenirNext;
   font-size: 24px;
   line-height: 33px;
   display: flex;
@@ -168,6 +169,7 @@ export default {
   color: #4A4A4A;
 }
 .profileMainInfoColumn p {
+  font-family: AvenirNext;
   font-size: 18px;
   line-height: 22px;
   align-items: center;

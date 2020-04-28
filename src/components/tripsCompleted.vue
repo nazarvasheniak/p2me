@@ -30,6 +30,7 @@ export default {
   margin-bottom: 20px;;
 }
 .notPaidContainer > h4{
+    font-family: AvenirNext;
     font-size: 1.2em;
     margin-bottom: 19px
 }

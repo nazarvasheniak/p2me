@@ -55,6 +55,7 @@ export default {
   margin-bottom: 20px;
 }
 h1 {
+  font-family: AvenirNext;
   font-size: 36px;
   line-height: 49px;
   letter-spacing: 0.25831px;
@@ -62,6 +63,7 @@ h1 {
   mix-blend-mode: normal;
 }
 h2 {
+  font-family: AvenirNext;
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 0.25831px;
