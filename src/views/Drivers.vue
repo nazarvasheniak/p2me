@@ -54,7 +54,7 @@
                   <span></span>
                 </div>
 
-                <div class="driversListRowContent" v-for="driver in driversList" :key="driver.id" v-on:click="openDriverProfile">
+                <div class="driversListRowContent" v-for="driver in driversList" :key="driver.id" v-on:click="openDriverProfile(driver.id)">
                   <div>
                     <img src="../assets/driver.png" alt />
                     <strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
@@ -171,13 +171,12 @@ export default {
       this.currentTab = newTab;
       this.loadDriversList();
     },
-    openDriverProfile() {
-      this.$router.push("/drive");
+    openDriverProfile(id) {
+      this.$router.push(`/drive/${id}`);
     },
     loadDriversList() {
       this.$store.dispatch("loadDriversList", this.currentTab).then(result => {
         this.driversList = result.drivers_list;
-        console.log(this.driversList);
       });
     }
   },

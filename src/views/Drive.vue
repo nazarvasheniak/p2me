@@ -6,7 +6,7 @@
         </div>
         <div class="profileMainContainer flex">
         <div class="profileSubContainer flex">
-            <driverMainInfo/>
+            <driverMainInfo :id="$route.params.id"/>
         </div>
         <div class="profileSubContainer flex">
             <earnings/>

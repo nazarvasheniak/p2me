@@ -126,7 +126,7 @@ let router = new Router({
       component: Drivers
     },
     {
-      path: '/drive',
+      path: '/drive/:id',
       name: 'drive',
       component: Drive
     },

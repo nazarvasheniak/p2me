@@ -1,86 +1,120 @@
 <template>
-    <div class="profileMainInfoContainer flex">
-        <div class="profileMainInfoSubContainer flex">
-            <div class="subContainerSub flex">
-              <div class="driversMainInfoTop">
-                <img src="../assets/driver.png" alt>  
-                <div class="driverMainInfoSubtitle">
-                  <h3>Petrov Ivan</h3>
-                  <p>Date of registration:13th November, 12:20</p>
-                </div>
-              </div>
-                <div class="edit flex">
-                  <div>
-                    Online
-                  </div>
-                </div>
-            </div>
+  <div class="profileMainInfoContainer flex">
+    <div class="profileMainInfoSubContainer flex">
+      <div class="subContainerSub flex">
+        <div class="driversMainInfoTop">
+          <img src="../assets/driver.png" alt />
+          <div class="driverMainInfoSubtitle">
+            <h3>{{driver.first_name + driver.last_name}}</h3>
+            <p>Date of registration:13th November, 12:20</p>
+          </div>
         </div>
-        <div class="profileMainInfoSubContainer flex driversMainInfoText">
-            <div class="profileMainInfoColumn">
-                <h3>Contacts & Info:</h3>
-                <div class="profileDriverInfoBlockContainer">
-                    <p><strong>Have a car to drive</strong></p>
-                    <p><strong>E-mail:</strong> petrovivan@gmail.com</p>
-                    <p><strong>Phone:</strong> +38 (012) 345-67-89</p>
-                    <p><strong>Date of birth:</strong> 01.02.1986</p>
-                    <p><strong>City:</strong> Kyiv</p>
-                    <p><strong>Language:</strong> English</p>
-                </div>
-                <div class="profileDriverInfoBlockContainer">
-                    <p><strong>Car class:</strong> Standart</p>
-                    <p><strong>Car manufactorer:</strong> BMW</p>
-                    <p><strong>Year of production:</strong> 2018</p>
-                    <p><strong>Car number:</strong> AA111AA</p>
-                    <p><strong>Driver’s license:</strong> AB123456</p>
-                    <p><strong>Have a taxi license </strong></p>
-                </div>
-                <div class="profileDriverInfoBlockContainer">
-                    <p><strong>Expiration date of driver license:</strong> 01.02.2017</p>
-                    <p><strong>Expiration date of car:</strong> 02.03.2015</p>
-                </div>
-                <div class="profileDriverInfoBlockContainer">
-                    <p><strong>Card number:</strong> 1234 5678 9101 1213</p>
-                    <p><strong>Cardholder:</strong> Ivan</p>
-                    <p><strong>Bank:</strong> PrivatBank</p>
-                    <p><strong>Account number:</strong> 123456789</p>
-                    <p><strong>Want to receive money on credit card</strong></p>
-                </div>
-                <div class="">
-
-                </div>
-            </div>
-            <div class="profileMainInfoColumn">
-                <h3>Documents:</h3>
-                <img src="../assets/card1.png" alt>
-                <img src="../assets/card2.png" alt>
-                <img src="../assets/card3.png" alt>
-            </div>
+        <div class="edit flex">
+          <div>Online</div>
         </div>
+      </div>
     </div>
+    <div class="profileMainInfoSubContainer flex driversMainInfoText">
+      <div class="profileMainInfoColumn">
+        <h3>Contacts & Info:</h3>
+        <div class="profileDriverInfoBlockContainer">
+          <p>
+            <strong>Have a car to drive</strong>
+          </p>
+          <p>
+            <strong>E-mail:</strong> petrovivan@gmail.com
+          </p>
+          <p>
+            <strong>Phone:</strong> +38 (012) 345-67-89
+          </p>
+          <p>
+            <strong>Date of birth:</strong> 01.02.1986
+          </p>
+          <p>
+            <strong>City:</strong> Kyiv
+          </p>
+          <p>
+            <strong>Language:</strong> English
+          </p>
+        </div>
+        <div class="profileDriverInfoBlockContainer">
+          <p>
+            <strong>Car class:</strong> Standart
+          </p>
+          <p>
+            <strong>Car manufactorer:</strong> BMW
+          </p>
+          <p>
+            <strong>Year of production:</strong> 2018
+          </p>
+          <p>
+            <strong>Car number:</strong> AA111AA
+          </p>
+          <p>
+            <strong>Driver’s license:</strong> AB123456
+          </p>
+          <p>
+            <strong>Have a taxi license</strong>
+          </p>
+        </div>
+        <div class="profileDriverInfoBlockContainer">
+          <p>
+            <strong>Expiration date of driver license:</strong> 01.02.2017
+          </p>
+          <p>
+            <strong>Expiration date of car:</strong> 02.03.2015
+          </p>
+        </div>
+        <div class="profileDriverInfoBlockContainer">
+          <p>
+            <strong>Card number:</strong> 1234 5678 9101 1213
+          </p>
+          <p>
+            <strong>Cardholder:</strong> Ivan
+          </p>
+          <p>
+            <strong>Bank:</strong> PrivatBank
+          </p>
+          <p>
+            <strong>Account number:</strong> 123456789
+          </p>
+          <p>
+            <strong>Want to receive money on credit card</strong>
+          </p>
+        </div>
+        <div class></div>
+      </div>
+      <div class="profileMainInfoColumn">
+        <h3>Documents:</h3>
+        <img src="../assets/card1.png" alt />
+        <img src="../assets/card2.png" alt />
+        <img src="../assets/card3.png" alt />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "driverMainInfo",
-
-  // data() {
-  //   return {
-  //     disabled: true,
-  //     profileName: "Los Pollos Hermanos Restaurant",
-  //     mainInfo:
-  //       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil doloribus quos omnis optio, enim neque similique quaerat perspiciatis culpa tenetur placeat nostrum quis veritatis architecto impedit. Adipisci, exercitationem! Quo, iusto!"
-  //   };
-  
+  data: () => ({
+    driver: null
+  }),
+  mounted() {
+    const id = this.$attrs.id;
+    this.$store.dispatch("getDriver", id).then(result => {
+      this.driver = result;
+    });
+  },
   methods: {
-    editInfo: function() {
-      ///console.log("click event is done");
-    }
+    // getDriver() {
+    //   debugger;
+    //   this.$store.dispatch("getDriver", this.id).then(result => {
+    //     this.driver = result.driver;
+    //   });
+    // }
   }
 };
-/*function test(){
-  ///console.log(123)
-} */
 </script>
 
 <style scoped>
@@ -102,16 +136,16 @@ export default {
   width: 100%;
   flex-flow: column nowrap;
   position: relative;
-} 
+}
 .edit > div {
   font-size: 14px;
   line-height: 27px;
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
-  color: #FFFFFF;
-  background: #42D18A;
-  border: 1px solid #42D18A;
+  color: #ffffff;
+  background: #42d18a;
+  border: 1px solid #42d18a;
   box-sizing: border-box;
   border-radius: 24px;
   padding: 5px 30px;
@@ -144,7 +178,7 @@ export default {
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   opacity: 0.5;
 }
 .subContainerSub {
@@ -166,14 +200,14 @@ export default {
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 .profileMainInfoColumn p {
   font-family: AvenirNext;
   font-size: 18px;
   line-height: 22px;
   align-items: center;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 .profileDriverInfoBlockContainer {
   margin: 30px 1px;
@@ -190,6 +224,5 @@ export default {
   margin: 9px 0px;
   display: block;
 }
-
 </style>
 
