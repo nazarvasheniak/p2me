@@ -18,9 +18,30 @@
 </template>
 
 <script>
+// export default {
+//   name: "rates"
+// }; 
 export default {
-  name: "rates"
+  name: "rates",
+  data: () => ({
+    driver: null
+  }),
+  mounted() {
+    const id = this.$attrs.id;
+    this.$store.dispatch("getDriver", id).then(result => {
+      this.driver = result;
+    });
+  },
+  methods: {
+    // getDriver() {
+    //   debugger;
+    //   this.$store.dispatch("getDriver", this.id).then(result => {
+    //     this.driver = result.driver;
+    //   });
+    // }
+  }
 };
+
 </script>
 
 <style scoped>

@@ -129,7 +129,7 @@ export default {
     width: 100%;
 }
 .tabs__item {
-    font-size: 14px;
+    font-size: 10px;
     line-height: 21px;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -138,7 +138,7 @@ export default {
     color: #56CCF2;
     background: none!important;
     border-color: transparent;
-    padding: 5px 20px;
+    padding: 5px 100px;
 }
 </style>
 

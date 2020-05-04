@@ -105,7 +105,7 @@
 
   .prodcutsSubContainerItems {
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
   }
 

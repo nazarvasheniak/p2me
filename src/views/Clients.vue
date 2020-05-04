@@ -5,6 +5,10 @@
         <h1>
           Clients
         </h1>
+
+        <span class="clientsEdit" style="margin-top: 32px; margin-right: 35px;" >
+          Edit
+          </span>
     </div>
     <div class="recentOrdersContainerRow flex driversListCarouselContainer">
         <div class="content">
@@ -22,315 +26,24 @@
                             <span>Date</span>
                             <!-- <span>    </span> -->
                         </div>
-                        <div class="driversListRowContent">
+                        <div class="driversListRowContent" v-for="customer in clientList" :key="customer.id" 
+                        v-on:click="" >
                             <div>
                             <img src="../assets/driver.png" alt >
-                            <strong>John Johnson</strong>
+                            <strong>{{customer.customer_name}}</strong>
                             </div>
                             <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
+                                <p>{{customer.phone}}</p>
+                                <p>{{customer.email}}</p>
                             </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
+                            <div>{{customer.total_orders}}</div>
+                            <div>{{customer.comments}}</div>
+                            <div>{{customer.date}}</div>
                             <div>
                             <button>Remove</button>
                             </div>
                         </div>
-                        <!-- <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="driversListContainer">
-                        <div class="driversListRowHeader">
-                            <span>Client name</span>
-                            <span>Contacts</span>
-                            <span>Orders</span>
-                            <span>Comments</span>
-                            <span>Date</span>
-                            <span>    </span>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="driversListContainer">
-                        <div class="driversListRowHeader">
-                            <span>Client name</span>
-                            <span>Contacts</span>
-                            <span>Orders</span>
-                            <span>Comments</span>
-                            <span>Date</span>
-                            <span>    </span>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="driversListRowContent">
-                            <div>
-                            <img src="../assets/driver.png" alt >
-                            <strong>Petrov Ivan</strong>
-                            </div>
-                            <div class="suplliersClientsContactsBlock">
-                                <p>+38 (063) 010-81-00</p>
-                                <p>mianastasia@gmail.com</p>
-                            </div>
-                            <div>15</div>
-                            <div>Lorem ipsum</div>
-                            <div>13.12.2018</div>
-                            <div>
-                            <button>Remove</button>
-                            </div>
-                        </div>
-                    </div> -->
+                        
                     </div>
                 </carousel>
             </div>
@@ -348,7 +61,27 @@ export default {
   name: "Clients",
   components: {
     carousel
+  }, 
+  data: () => ({
+    // tabs: [
+    //   { title: "Online", value: "online", class: "dasdascsasdasdasda" },
+    //   { title: "Offline", value: "offline" },
+    //   { title: "Removed", value: "removed" }
+    // ],
+  //   currentTab: "online",
+  // driversList: []
+  
+     methods: {
+       loadClientList() {
+          this.$store.dispatch("loadClientList", this.currentTab).then(result => {
+          this.clientList = result.client_list;
+      });
+       }
+     },
+     beforeMount() {
+      this.loadClientsList();
   }
+  }),
 };
 </script>
 

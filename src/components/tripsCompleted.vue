@@ -5,16 +5,37 @@
         <div class="approved-progress"></div>
     </div>
     <div class="notPaidContainerRow flex">
-            <span>43</span> /
-            <span>50</span>
+            <span>{{driver.completed_trips}}</span> /
+            <span>{{driver.total_trips}}</span>
     </div>
   </div>
 </template>
 
 <script>
+// export default {
+//   name: "tripsCompleted"
+// };
 export default {
-  name: "tripsCompleted"
+  name: "tripsCompleted",
+  data: () => ({
+    driver: null
+  }),
+  mounted() {
+    const id = this.$attrs.id;
+    this.$store.dispatch("getDriver", id).then(result => {
+      this.driver = result;
+    });
+  },
+  methods: {
+    // getDriver() {
+    //   debugger;
+    //   this.$store.dispatch("getDriver", this.id).then(result => {
+    //     this.driver = result.driver;
+    //   });
+    // }
+  }
 };
+
 </script>
 
 <style scoped>

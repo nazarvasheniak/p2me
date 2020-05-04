@@ -26,8 +26,8 @@
                             <div>12.05.2018, 12:55</div>
                             <div>Successfull</div>
                             <div class="tabsIcons">
-                                <img src="../assets/icons/No.svg" alt="">
-                                <img src="../assets/icons/dollarRed.svg" alt="">
+                                <img width="44" height="17" src="../assets/icons/No.svg" alt="">
+                                <img width="44" height="17" src="../assets/icons/dollarRed.svg" alt="">
                             </div>
                             <div class="text-center">$10</div>
                             <div class="text-center">$10</div>
@@ -412,7 +412,7 @@ export default {
   
 }
 .driversListRowContent {
-  width: 50px;
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -422,7 +422,7 @@ export default {
 
 .driversListRowContent > div {
   font-size: 16px;
-  line-height: 22px;
+  line-height: 20px;
   display: flex;
   align-items: center;
   letter-spacing: 0.206648px;

@@ -9,10 +9,10 @@
             <driverMainInfo :id="$route.params.id"/>
         </div>
         <div class="profileSubContainer flex">
-            <earnings/>
-            <tripsCompleted/>
-            <tripsCanceled/>
-            <rates/>
+            <earnings :id="$route.params.id"/>
+            <tripsCompleted :id="$route.params.id"/>
+            <tripsCanceled :id="$route.params.id"/>
+            <rates :id="$route.params.id"/>
         </div>
         </div>
     </div>    

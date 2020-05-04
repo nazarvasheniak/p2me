@@ -94,9 +94,9 @@
                 <span class="timeTable" style="margin-right: 120px;">06:00-00:00</span>
                 <span class="addressTable" style="margin-right: 80px;">Kyiv, Stereo Plaza</span>
                 <span class="dateTable" style="margin-right: 90px;">19.12.2018</span>
-                
+                    <div style="margin-top: -24px;">
                       <button class="removeButton">Remove</button>
-                
+                    </div>
              </div>
             
           
@@ -217,7 +217,7 @@ export default {
   height: 53px;
   margin-top: 25px;
   margin-left: 25px;
-  border:2px solid red;
+  
   align-items: center;
   
 }
@@ -227,7 +227,7 @@ export default {
   height: 72px;
   margin-top: 20px;
   margin-left: 25px;
-  border:2px solid red;
+  /* border:2px solid red; */
   /* display: flex; */
   /* flex-direction: row; */
   /* justify-content: space-between; */
@@ -238,7 +238,7 @@ export default {
 .tableSupplier {
   width: 1028px;
   height: 72px;
-  border:2px solid red;
+  
   display: flex;
   flex-direction: row;
   flex-flow: row nowrap;
@@ -299,8 +299,8 @@ opacity: 0.21;
 
 .suppTable {
   width: 1028px;
-  height: 92px;
-  border:2px solid red;
+  height: 42px;
+  
   
   align-items: center;
   
@@ -320,7 +320,7 @@ opacity: 0.21;
   justify-content: space-between;
   width: 700px;
   height: 83px;
-  border:2px solid red;
+  
   margin-left: 98px;
   margin-top: 25px;
   
@@ -398,12 +398,12 @@ color: #56CCF2;
   font-family: "Avenir Next";
   float: right;
    /* display: block;  */
-  text-align: center;
+  /* text-align: center; */
   border: 1px solid #fb5f68;
   border-radius: 24px;
   font-size: 16px;
   line-height: 22px;
-  align-items: center;
+  /* align-items: center; */
   letter-spacing: 0.172206px;
   color: #fb5f68;
   /* padding: 8px 23px; */

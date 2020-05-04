@@ -3,15 +3,36 @@
     <h4>Canceled trips</h4>
     <div class="refusesContainerrow flex">
  
-         <span class="big-number-denied"> 7 </span> / <span>50 </span>
+         <span class="big-number-denied">{{driver.canceled_trips}}</span> / <span>{{driver.total_trips}}</span>
     </div>
 </div>
 </template>
 
 <script>
+// export default {
+//   name: "tripsCanceled"
+// };
 export default {
-  name: "tripsCanceled"
+  name: "tripsCanceled",
+  data: () => ({
+    driver: null
+  }),
+  mounted() {
+    const id = this.$attrs.id;
+    this.$store.dispatch("getDriver", id).then(result => {
+      this.driver = result;
+    });
+  },
+  methods: {
+    // getDriver() {
+    //   debugger;
+    //   this.$store.dispatch("getDriver", this.id).then(result => {
+    //     this.driver = result.driver;
+    //   });
+    // }
+  }
 };
+
 </script>
 
 <style scoped>
