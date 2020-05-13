@@ -18,10 +18,10 @@ export default {
         }
     },
     actions: {
-        loadDriversList(context, filter) {
+        loadDriversList(context, status) {
             
             return new Promise((resolve, reject) => {
-                axios.get('/api/superadmin/driver_list/?status=' + filter, {
+                axios.get('/api/superadmin/driver_list/?status=' + status, {
                     headers: {
                         "Access-Control-Allow-Origin": '*',
                         "Content-Type": "application/json",

@@ -2,7 +2,7 @@
   <div class="ordertable flex">
     <div class="ordertableHeading">Order:</div>
     <div class="ordertableItems flex">
-      <div class="ordertableItemsRow flex" v-for="item in order.item_in_order">
+      <div class="ordertableItemsRow flex" v-for="item in order.item_in_order" :key="item.id">
         <div class="itemName">{{ item.name }}</div>
         <div class="itemPrice">{{ item.price }}</div>
       </div>
