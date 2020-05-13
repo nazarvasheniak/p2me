@@ -65,9 +65,11 @@ export default {
   margin-bottom: 24px;
 }
 .headerRow h1 {
-  color:#4A4A4A;
-  margin: 0;
+  font-family: AvenirNext;
   font-size: 36px;
+  line-height: 49px;
+  letter-spacing: 0.25831px;
+  color: #4A4A4A;
 }
 /* .headerRow h2 {
   margin: 0 15px;

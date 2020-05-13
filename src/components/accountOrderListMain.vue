@@ -19,18 +19,18 @@
                             <span>Earned on supplier</span>
                         </div>
                         <div class="driversListRowContent">
-                            <div>#111111</div>
-                            <div>John Johnson</div>
-                            <div>Burger King</div>
-                            <div>Max Kurton</div>
-                            <div>12.05.2018, 12:55</div>
-                            <div>Successfull</div>
-                            <div class="tabsIcons">
-                                <img width="44" height="17" src="../assets/icons/No.svg" alt="">
-                                <img width="44" height="17" src="../assets/icons/dollarRed.svg" alt="">
+                            <div style="justify-content: left;">{{item.id}}</div>
+                            <div style="justify-content: left;">{{item.customer_name}}</div>
+                            <div style="justify-content: left;">{{item.supplier_name}}</div>
+                            <div style="justify-content: left;">{{item.driver_name}}</div>
+                            <div style="justify-content: left;">{{item.date_time}}</div>
+                            <div style="justify-content: left;">
+                                <img style="width: 20px!important; height: 20px!important;" src="../assets/icons/No.svg" alt="">
+                                <img style="width: 20px!important; height: 20px!important;" src="../assets/icons/dollarRed.svg" alt="">
                             </div>
-                            <div class="text-center">$10</div>
-                            <div class="text-center">$10</div>
+                             <div style="justify-content: left;">{{item.payment_status}}</div>
+                            <div style="justify-content: left;" class="text-center">{{item.earned_delivery}}</div>
+                            <div style="justify-content: left;" class="text-center">{{item.earned_supplier}}</div>
                         </div>
                         <!-- <div class="driversListRowContent">
                             <div>#111111</div>
@@ -399,7 +399,7 @@ export default {
   display: flex;
   flex-flow: column nowrap ;
   justify-content: flex-start;
-  width: 957px;
+  width: 1057px;
   height: 550px;
 
 }

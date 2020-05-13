@@ -22,64 +22,64 @@
             <strong>Have a car to drive</strong>
           </p>
           <p>
-            <strong>E-mail:</strong>{{driver.e_mail}} 
+            <strong>E-mail:</strong> {{driver.e_mail}} 
           </p>
           <p>
-            <strong>Phone:</strong>{{driver.phone}}
+            <strong>Phone:</strong> {{driver.phone}}
           </p>
           <p>
-            <strong>Date of birth:</strong>{{driver.birthday}}
+            <strong>Date of birth:</strong> {{driver.birthday}}
           </p>
           <p>
-            <strong>City:</strong>{{driver.city}}
+            <strong>City:</strong> {{driver.city}}
           </p>
           <p>
-            <strong>Language:</strong>{{driver.language}}
-          </p>
-        </div>
-        <div class="profileDriverInfoBlockContainer">
-          <p>
-            <strong>Car class:</strong>{{driver.car_class}}
-          </p>
-          <p>
-            <strong>Car manufactorer:</strong>{{driver.car_manufactorer}}
-          </p>
-          <p>
-            <strong>Year of production:</strong>{{driver.year_of_production}}
-          </p>
-          <p>
-            <strong>Car number:</strong>{{driver.car_number}}
-          </p>
-          <p>
-            <strong>Driver’s license:</strong>{{driver.drivers_license}}
-          </p>
-          <p>
-            <strong>{{driver.have_license}}</strong>
+            <strong>Language:</strong> {{driver.language}}
           </p>
         </div>
         <div class="profileDriverInfoBlockContainer">
           <p>
-            <strong>Expiration date of driver license:</strong>{{driver.expiration_license}}
+            <strong>Car class:</strong> {{driver.car_class}}
           </p>
           <p>
-            <strong>Expiration date of car:</strong>{{driver.expiration_car}}
+            <strong>Car manufactorer:</strong> {{driver.car_manufactorer}}
+          </p>
+          <p>
+            <strong>Year of production:</strong> {{driver.year_of_production}}
+          </p>
+          <p>
+            <strong>Car number:</strong> {{driver.car_number}}
+          </p>
+          <p>
+            <strong>Driver’s license:</strong> {{driver.drivers_license}}
+          </p>
+          <p>
+            <strong> {{driver.have_license}}</strong>
           </p>
         </div>
         <div class="profileDriverInfoBlockContainer">
           <p>
-            <strong>Card number:</strong>{{driver.card_number}}
+            <strong>Expiration date of driver license:</strong> {{driver.expiration_license}}
           </p>
           <p>
-            <strong>Cardholder:</strong>{{driver.cardholder}}
+            <strong>Expiration date of car:</strong> {{driver.expiration_car}}
+          </p>
+        </div>
+        <div class="profileDriverInfoBlockContainer">
+          <p>
+            <strong>Card number:</strong> {{driver.card_number}}
           </p>
           <p>
-            <strong>Bank:</strong>{{driver.bank_name}}
+            <strong>Cardholder:</strong> {{driver.cardholder}}
           </p>
           <p>
-            <strong>Account number:</strong>{{driver.account_number}}
+            <strong>Bank:</strong> {{driver.bank_name}}
           </p>
           <p>
-            <strong>{{driver.receive_money_on_card}}</strong>
+            <strong>Account number:</strong> {{driver.account_number}}
+          </p>
+          <p>
+            <strong> {{driver.receive_money_on_card}}</strong>
           </p>
         </div>
         <div class></div>

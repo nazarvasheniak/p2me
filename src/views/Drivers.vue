@@ -3,8 +3,16 @@
     <!-- <div class="recentOrdersContainerRow flex driversMainNavigationTabs"> -->
     <div class="filter flex">
       <div class="filter-btns-left flex">
-        <button class="DriversView" style="text-align: center;">Drivers</button>
-        <button class="CouriersView" v-on:click="changeTab('courierList')" style="text-align: center;">Couriers</button>
+        <button
+          class="DriversView"
+          v-on:click="changeTab('courierList', true)"
+          style="text-align: center;"
+        >Drivers</button>
+        <button
+          class="CouriersView"
+          v-on:click="changeTab('courierList', false)"
+          style="text-align: center;"
+        >Couriers</button>
       </div>
 
       <div class="filter-btns-right flex">
@@ -54,16 +62,21 @@
                   <span></span>
                 </div>
 
-                <div class="driversListRowContent" v-for="driver in driversList" :key="driver.id" v-on:click="openDriverProfile(driver.id)">
+                <div
+                  class="driversListRowContent"
+                  v-for="item in items"
+                  :key="item.id"
+                  v-on:click="openDriverProfile(item.id)"
+                >
                   <div>
                     <img src="../assets/driver.png" alt />
-                    <strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
+                    <strong>{{ item.first_name }} {{ item.last_name }}</strong>
                   </div>
                   <div>#111111</div>
-                  <div>{{ driver.transport }}</div>
-                  <div>{{ driver.class }}</div>
-                  <div>{{ driver.location }}</div>
-                  <div>{{ driver.start_date }}</div>
+                  <div>{{ item.transport }}</div>
+                  <div>{{ item.class }}</div>
+                  <div>{{ item.location }}</div>
+                  <div>{{ item.start_date }}</div>
                   <div>
                     <button>Remove</button>
                   </div>
@@ -129,7 +142,7 @@
 
               <div class="driversListRowContent">
                 <div>
-                  <img src="../assets/driver.png" alt >
+                  <img src="../assets/driver.png" alt />
                   <strong>Petrov Ivan</strong>
                 </div>
                 <div>Lorem ipsum dolor sit amet.</div>
@@ -158,25 +171,37 @@ export default {
     carousel
   },
   data: () => ({
+    isDriverOrCourier: true, //true= driver, false = courier
     tabs: [
       { title: "Online", value: "online", class: "dasdascsasdasdasda" },
       { title: "Offline", value: "offline" },
       { title: "Removed", value: "removed" }
     ],
     currentTab: "online",
-	driversList: []
+    items: []
   }),
   methods: {
-    changeTab(newTab) {
+    changeTab(newTab, isdriver = this.isDriverOrCourier) {
       this.currentTab = newTab;
-      this.loadDriversList();
+      if (isdriver === true) {
+        this.loadDriversList();
+      } else {
+        this.loadCourierList();
+      }
+      this.isDriverOrCourier = isdriver;
     },
     openDriverProfile(id) {
       this.$router.push(`/drive/${id}`);
     },
     loadDriversList() {
       this.$store.dispatch("loadDriversList", this.currentTab).then(result => {
-        this.driversList = result.drivers_list;
+        this.items = result.drivers_list;
+      });
+    },
+    loadCourierList() {
+      // $store is a drivers.js
+      this.$store.dispatch("loadCourierList", this.currentTab).then(result => {
+        this.items = result.courierList;
       });
     }
   },
@@ -187,11 +212,9 @@ export default {
 </script>
 
 <style>
-
 .content {
   width: 100%;
 }
-
 
 .driversListContainer {
   display: flex;

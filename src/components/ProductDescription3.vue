@@ -1,61 +1,108 @@
 <template>
-  <div class="productDescriptionContainer flex"> 
+  <div class="productDescriptionContainer flex">
     <div class="productDescriptionHeading flex">
-      <h2>Meat</h2>
+      <h2>Burger</h2>
       <h4>
         Code:
-        <span> {{item.product_code}}</span>
+        <span>012345</span>
       </h4>
     </div>
     <div class="productDescriptionRow flex">
       <h4>Status:</h4>
       <span>Active</span>
+      
+      <!-- <v-select class="vSelect" placeholder="Enter here..." :options="['10m','20m','30m', '40m']"></v-select> -->
     </div>
 
     <div class="productDescriptionRow flex">
       <h4>Price:</h4>
-        <span> {{item.price}}                     UAH</span>
+      <!-- <div class="productDescriptionRowSub flex">  -->
+        <!-- <input type="number"> -->
+        <span>120                      UAH</span>
+        
+        <!-- <v-select class="vSelect" placeholder="Currency" :options="['UAH' ,'USD', 'EUR']"></v-select> -->
+      <!-- </div> -->
     </div>
     
     <div class="productDescriptionRow flex">
       <h4>Badge:</h4>
       <span>Hot Price</span>
-      
+      <!-- <v-select class="vSelect" placeholder="Enter here..." :options="['Top price','Best selling']"></v-select> -->
     </div>
     <div class="productDescriptionRow flex">
       <h4>Sale:</h4>
-      <span> {{item.discount}}</span>  
-    </div>
-   
-    <div class="productDescriptionRow flex">
-      <h4>Brand:</h4>
-      <span>Berska</span>
-      <div></div>
+      <span>0%</span>
     </div>
 
     <div class="productDescriptionRow flex">
-      <h4>Country Manufacture</h4>
+      <h4>Size:</h4>
+      <span></span>
+    </div>
+
+     
+
+    <!-- <div class="productDescriptionRow flex">
+      <productOptionsSizes/>
+    </div>
+    <div class="productDescriptionRow flex">
+      <productOptionsColors/>
+    </div> -->
+    <!-- <div class="productDescriptionRow flex">
+      <h4>Volume:</h4>
+      <span>Berska </span>
+      <div></div>
+    </div> -->
+
+    <div class="productDescriptionRow flex">
+      <h4>Country Manufacture:</h4>
       <span>Indonesia</span>
-      
+      <!-- <v-select
+        class="vSelect"
+        placeholder="Enter here..."
+        :options="['1','2','3','4', '5', '10','15','20','25','30']"
+      ></v-select> -->
     </div>
 
     <div class="productDescriptionRow flex">
       <h4>Volume:</h4>
-      <span>600        g</span>
+      <span>300        g</span>
     </div>
+    
+      <h4>Extras</h4>
+     <div class="ProductDescriptionExtra">
+       <img src="../assets/tomato.png" alt="">
+        <h4>Tomato</h4>
+         <span>15,00</span>
+         <h4>UAH</h4>
+
+     </div>
+
     <div class="productDescriptionRow flex">
       <h4>Average time of delivery:</h4>
-      <span> {{item.average_packing_time}} min</span>
-      
+      <span>20 min</span>
+      <!-- <v-select class="vSelect" placeholder="Enter here..." :options="['10m','20m','30m', '40m']"></v-select> -->
     </div>
     <div class="productDescriptionRow flex">
       <h4>Description:</h4>
-      <span> {{item.description}}</span>
+      <span>A hamburger, beefburger or burger is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The patty may be pan fried, barbecued, or flame broiled. Hamburgers are often served with cheese, lettuce, tomato, bacon, onion, pickles, or chiles; condiments such as mustard, mayonnaise, ketchup, relish, or "special sauce"; and are frequently placed on sesame seed buns. A hamburger topped with cheese is called a cheeseburger.</span>
     </div>
     <div class="productDescriptionRow flex">
       <h4>Shop selection:</h4>
       <button class="kyivButton">Kyiv,Stereo Plaza, 37/2</button>
-      
+      <!-- <div class="mainCatSelectContainer flex" v-show="false">
+        <label class="mainCatSelectItem">
+          Mayakovskogo st., 68
+          <input type="checkbox" name="subCatSelect" class="mainCatSelect">
+        </label>
+        <label class="mainCatSelectItem">
+          Balzaka bl., 96
+          <input type="checkbox" name="subCatSelect" class="mainCatSelect">
+        </label>
+        <label class="mainCatSelectItem">
+          Zakrevskogo st.,75/2
+          <input type="checkbox" name="subCatSelect" class="mainCatSelect">
+        </label>
+      </div> -->
     </div>
   </div>
 </template>
@@ -66,7 +113,7 @@ import productOptionsColors from "../components/productOptionColors.vue";
 
 import vSelect from "vue-select";
 export default {
-  name: "productDescription",
+  name: "productDescription3",
   components: {
     vSelect,
     productOptionsSizes,

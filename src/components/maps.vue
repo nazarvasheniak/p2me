@@ -1,7 +1,7 @@
 s<template>
   <div class="notPaidContainer flex">
     <h4>Delivery adress</h4>
-    <p>Shota Rustaveli street, 3</p>
+    <p> { { orders.delivery_adress } }</p>
     <p><small>2 km from center</small>
     <div class="notPaidContainerRow ">
         <img src="../assets/mapsvvv.png" alt="">

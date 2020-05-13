@@ -3,7 +3,7 @@
         <div class="recentOrdersContainerRow flex driversListCarouselContainer">
             <div class="recentOrdersContainerRow ">
                 <h3>Feedback for restaurant:</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. Aenean non lorem pellentesque quam molestie finibus a non nunc. Donec pharetra nulla sit amet justo ultrices lacinia.</p>
+                <p> { { order.feedback } } </p>
             </div>
         </div>   
     </div>
@@ -22,19 +22,25 @@ export default {
   h3 {
     font-size: 24px;
     line-height: 33px;
-    /* identical to box height, or 137% */
+    font-family: AvenirNext;
     letter-spacing: 0.25831px;
     color: #4A4A4A;
     font-weight: bold;
+    padding-left: 34px;
+    padding-top: 28px;
   }
   p {
     font-size: 16px;
     line-height: 24px;
-
+    font-family: AvenirNext;
     letter-spacing: 0.215258px;
     color: #9B9B9B;
+    padding-left: 34px;
+    padding-top: 15px;
+    padding-right: 25px;
   }
   .ordersContainer {
     overflow-x: hidden;
+    height: 202px;
   }
 </style> 

@@ -4,12 +4,12 @@
             <div class="subContainerSub flex">
               <div class="driversMainInfoTop"> 
                 <div class="driverMainInfoSubtitle">
-                  <h3><strong>Customer</strong> - <span>John Doe</span></h3>
+                  <h3><strong>Customer</strong> - <span> { { order.customer_name } } </span></h3>
                 </div>
               </div>
                 <div class="edit flex">
                   <img src="../assets/phone.png" alt=""> 
-                  <p>+ 38 (095) 332 43 23</p>
+                  <p> { { order.customer_phone } } </p>
                 </div>
             </div>
         </div>
@@ -19,18 +19,18 @@
                     <strong>Order:</strong>
                 </div>
                 <div class="supplierColumnContainerBlock">
-                    <p>Burger Filadelfia, 1 pc. </p>
-                    <p>Coca Colla, 2 pc.</p>
+                    <p> { { order.name } } </p>
+                    <p> { { order.name } } </p>
                 </div>
             </div>
             <div class="totalPriceContainer">
                 <div class="supplierColumnContainerBlock">
-                    <p><strong>$32,50</strong></p>
-                    <p><strong>$49,99</strong></p>
+                    <p><strong> { { order.price } } </strong></p>
+                    <p><strong> { { order.price } } </strong></p>
                 </div>
                 <div class="supplierColumnContainerBlock">
                     <p><strong>Total price:</strong></p>
-                    <p class="totalPriceCountContainer">$82,49</p>
+                    <p class="totalPriceCountContainer"> { { order.total_price } } </p>
                 </div>
             </div>
             
@@ -39,9 +39,9 @@
             <h4>Details:</h4>
             <div class="supplierSingleOrdeDetails">
 
-                <p><strong>Payment method:</strong> <span>Cash</span></p>
-                <p><strong>Comment:</strong> <span>Call before delivery</span></p>
-                <p><strong>Waiting time:</strong> <span>I can wait about 1 hour</span></p>
+                <p><strong>Payment method:</strong> <span> { { order.payment_method } } </span></p>
+                <p><strong>Comment:</strong> <span> { { order.comment } } </span></p>
+                <p><strong>Waiting time:</strong> <span> { { order.waiting_time } } </span></p>
             </div>
             
         </div>
@@ -51,7 +51,7 @@
         </div>
         <div class="profileMainInfoSubContainer flex driversMainInfoText supplierContactInfoContainer orderDriverContainer">
              <h4>Driver: </h4>
-             <span>Max Curton</span>
+             <span> { { order.driver_name } } </span>
         </div>
     </div>
 </template>
@@ -124,11 +124,26 @@ color: #4A4A4A;
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
-
   color: #4A4A4A;
-
   opacity: 0.5;
 }
+
+.driverMainInfoSubtitle h3 {
+  font-family: AvenirNext;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: 0.172206px;
+  color: #4A4A4A;
+}
+
+.driverMainInfoSubtitle span {
+  font-family: AvenirNext;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: 0.172206px;
+  color: #4A4A4A;
+}
+
 .subContainerSub {
   display: flex;
   flex-flow: row nowrap;
@@ -192,17 +207,25 @@ color: #4A4A4A;
     color: #4A4A4A;
 }
 .totalPriceContainer .supplierColumnContainerBlock strong {
-    font-size: 16px;
-    line-height: 22px;
-    /* identical to box height, or 137% */
-    letter-spacing: 0.0956702px;
-
+    font-family: AvenirNext;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.193732px;
     color: #4A4A4A;
 }
+
+.totalPriceContainer .supplierColumnContainerBlock p {
+  font-family: AvenirNext;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.172206px;
+  color: #9B9B9B;
+}
+
 .profileMainInfoSubContainer > h4 {
     font-size: 24px;
     line-height: 33px;
-    /* identical to box height, or 137% */
+    font-family: AvenirNext;
     letter-spacing: 0.25831px;
     color: #4A4A4A;
     font-weight: bold;
@@ -211,10 +234,14 @@ color: #4A4A4A;
 .profileMainInfoSubContainer > p {
     font-size: 16px;
     line-height: 24px;
-    /* or 150% */
+    font-family: AvenirNext;
     letter-spacing: 0.215258px;
     color: #9B9B9B;
     font-weight: 100;
+}
+
+.profileMainInfoSubContainer > span {
+  
 }
 .supplierContactInfoContainer {
     margin-top: 0px;

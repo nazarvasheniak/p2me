@@ -6,7 +6,7 @@
       <div class="headerRow flex">
         <button
           class="DateView"
-          style="margin-left: 15px;border: 1px solid #4A4A4A;box-sizing: border-box; border-radius: 44px;"
+          style="margin-left: 15px; margin-bottom:44px; border: 1px solid #4A4A4A;box-sizing: border-box; border-radius: 44px;"
         >
           <p
             style="color: #4A4A4A, margin: 0px, font-size: 20px, text-align: center, line-height: 27px"
@@ -38,7 +38,7 @@
       ></v-select>
     </div>
 
-    <div class="chooseTypeOrderHeader flex">
+    <div style="width: 100%; height: 30px; margin: 0; display:inherit; margin-bottom: 10px; background: #FFFFFF;">
       <button class="All">All</button>
       <button class="Restaurants">Restaurants</button>
       <button class="Shopping">Shopping</button>
@@ -136,109 +136,116 @@ export default {
 .headerRow {
 }
 
-/* .recentOrdersContainerRow {
-   /* background-color: #EEDDFF;
-  border: 6px solid #7922CC;
-  border-radius: 25px; */
-/* }   */
+.DateView {
+  margin-left: 15px;
+  margin-bottom:44px;
+  border: 1px solid #4A4A4A;
+  box-sizing: border-box;
+  border-radius: 44px;
+}
 
 .chooseTypeOrderHeader {
+  margin-left: 15px;
+  width: 866px;
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #ffffff;
 }
 .All {
-  margin-left: 10px;
-  margin-right: 15px;
+  margin-left: 15px;
+  margin-right: 25px;
   font-size: 18px;
   line-height: 27px;
-  /* identical to box height, or 135% */
-  /* padding-left: 15px; */
-  /* display: flex; */
   align-items: center;
   box-sizing: border-box;
   border-radius: 24px;
-  /* justify-content: space-between; */
-
+  background: #FFFFFF;
   color: #4a4a4a;
 }
 
 .Restaurants {
   font-family: AvenirNext;
-  margin-right: 10px;
+  margin-left: 0;
+  margin-right: 25px;
   font-size: 18px;
   line-height: 27px;
-  /* box-sizing: border-box;
-    background: #6C6C6C; */
   box-sizing: border-box;
   border-radius: 24px;
-  background: #6c6c6c;
+  background: #FFFFFF;
+  color: #4a4a4a;
 }
 .Shopping {
-  margin-right: 10px;
+   margin-left: 0;
+   margin-right: 25px;
   font-family: AvenirNext;
   font-size: 18px;
   line-height: 27px;
-  /* identical to box height, or 135% */
   box-sizing: border-box;
-  display: flex;
   align-items: center;
-
   border-radius: 24px;
-
+  background: #FFFFFF;
   color: #4a4a4a;
 }
 .Taxi {
-  margin-right: 10px;
+  margin-left: 0;
+  margin-right: 25px;
   font-family: AvenirNext;
   font-size: 18px;
   line-height: 27px;
-  /* identical to box height, or 135% */
   box-sizing: border-box;
-  display: flex;
   align-items: center;
   border-radius: 24px;
+  background: #FFFFFF;
+  color: #4a4a4a;
 }
 .Pharmacy {
-  margin-right: 10px;
+   margin-left: 0;
+   margin-right: 25px;
   font-family: AvenirNext;
   font-size: 18px;
   line-height: 27px;
-  /* identical to box height, or 135% */
+  background: #FFFFFF;
+  color: #4a4a4a;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   border-radius: 24px;
 }
 .Courier {
-  margin-right: 10px;
+  margin-left: 0;
+  margin-right: 25px;
   font-family: AvenirNext;
   font-size: 18px;
   line-height: 27px;
-  /* identical to box height, or 135% */
+  background: #FFFFFF;
+  color: #4a4a4a;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   border-radius: 24px;
 }
 .Markets {
-  margin-right: 10px;
+  margin-left: 0;
+  margin-right: 25px;
   font-family: AvenirNext;
   font-size: 18px;
   line-height: 27px;
-  /* identical to box height, or 135% */
+  background: #FFFFFF;
+  color: #4a4a4a;
   box-sizing: border-box;
   border-radius: 24px;
   display: flex;
   align-items: center;
 }
 .Buytome {
-  margin-right: 10px;
+  margin-left: 0;
+  margin-right: 25px;
   font-family: AvenirNext;
   font-size: 18px;
   line-height: 27px;
-  /* identical to box height, or 135% */
+  background: #FFFFFF;
+  color: #4a4a4a;
   box-sizing: border-box;
   border-radius: 24px;
   display: flex;

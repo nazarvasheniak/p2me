@@ -14,7 +14,7 @@ export default {
     actions: {
         loadClientList (context, filter) {
             return new Promise((resolve, reject) => {
-                axios.get('/api/superadmin/client_list/?filter=' + filter, {
+                axios.get('/api/superadmin/client_list/?status=' + filter, {
                     "Access-Control-Allow-Origin": '*',
                     "Content-Type": "application/json",
                     "X-CSRFToken": "j8PYQSsFNEHgI0qclM5zcMyCUH3vepQR9LEnZVut36UZ7K5XdWVDsVkkFLrgaySG",

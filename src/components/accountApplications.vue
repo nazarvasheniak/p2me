@@ -22,6 +22,8 @@
         <div v-if="currentTab === 'All suppliers'">
              <GChart class="googleChart" type="AreaChart" :options="chartOptions" :data="chartData"/>
         </div>
+
+      <div class="chartFilter">
         <div v-if="currentTab === 'Restaurants'">
             1
         </div>
@@ -43,7 +45,7 @@
         <div v-if="currentTab === 'Buy to me'">
           7
         </div>
-     
+      </div>
     </div>
      
   </span>
@@ -128,12 +130,20 @@ export default {
 .reportsRow h1 {
     width: 100%;
 }
+
+.chartFilter {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  height: 30px;
+}
+
 .tabs__item {
     font-size: 10px;
     line-height: 21px;
-    -webkit-box-align: center;
+     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
+    align-items: center; 
     letter-spacing: normal;
     color: #56CCF2;
     background: none!important;

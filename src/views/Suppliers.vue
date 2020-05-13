@@ -1,135 +1,171 @@
 <template>
-  <div class="suppContainer flex ">
+  <div class="suppContainer flex">
     <!-- <div class="myContent">  -->
-      <div class="suppHeader flex">
-        <div class="pageName ">
-          <h1 class="suppName">Suppliers</h1>
+    <div class="suppHeader flex">
+      <!-- <div class="pageName"> -->
+        <h1 class="suppName">Suppliers</h1>
+      <!-- </div> -->
+
+      <div class="suppChoose flex">
+        <h3 class="suppCategory">All suppliers</h3>
+        <span class="suppCategory">Restaurants</span>
+        <span class="suppCategory">Shopping</span>
+        <span class="suppCategory">Markets</span>
+        <span class="suppCategory">Pharmacy</span>
+        <span class="suppCategory">Removed</span>
+      </div>
+    </div>
+
+    <!-- <div class="tableHeader"> -->
+    <table style="border-collapse:separate; border-spacing: 10px 5px;">
+      <thead>
+        <tr style="height: 70px;">
+          <td class="tdClass">Supplier</td>
+          <td class="tdClass">Category</td>
+          <td class="tdClass">Schedule</td>
+          <td class="tdClass">Location</td>
+          <td class="tdClass">Start date</td>
+          <td class="tdClass">
+            <button v-on:click="accept">
+              <svg
+                width="21"
+                height="20"
+                viewBox="0 0 21 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z"
+                  fill="url(#paint0_linear)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear"
+                    x1="2.5"
+                    y1="3.65001e-07"
+                    x2="18.5"
+                    y2="18.5"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FA626D" />
+                    <stop offset="1" stop-color="#ED7FA5" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </button>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row -->
+        <tr>
+          <!-- column -->
+          <td style="display: inline-flex;">
+            <img src="../assets/burder.png" alt="" style="width: 40px;  margin-right: 4px;" />
+            <div>
+              <strong class="spanPng" style="margin-right: 60px; padding-top: 15px;" >Burger King</strong>
+            </div>
+          </td>
+          <td>
+            <span class="menuTable" style="margin-right: 100px;">Burgers</span>
+          </td>
+          <td>
+            <span class="timeTable" style="margin-right: 100px;">06:00-00:00</span>
+          </td>
+          <td>
+            <span class="addressTable" style="margin-right: 80px;">Kyiv, Stereo Plaza</span>
+          </td>
+          <td>
+            <span class="dateTable" style="margin-right: 80px;">19.12.2018</span>
+          </td>
+          <td>
+            <button class="removeButton">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="accept-modal-container flex" v-if="acceptModalVision">
+      <div class="modal">
+        <div class="close" v-on:click="accept">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.707 0.293006C19.316 -0.0979941 18.684 -0.0979941 18.293 0.293006L10 8.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L8.58601 10L0.293006 18.293C-0.0979941 18.684 -0.0979941 19.316 0.293006 19.707C0.488006 19.902 0.744006 20 1.00001 20C1.25601 20 1.51201 19.902 1.70701 19.707L10 11.414L18.293 19.707C18.488 19.902 18.744 20 19 20C19.256 20 19.512 19.902 19.707 19.707C20.098 19.316 20.098 18.684 19.707 18.293L11.414 10L19.707 1.70701C20.098 1.31601 20.098 0.684006 19.707 0.293006Z"
+              fill="#4A4A4A"
+            />
+          </svg>
         </div>
-        
-        <div class="suppChoose flex">
-             <span class="suppCategory">All suppliers</span>
-             <span class="suppCategory">Restaurants</span>
-             <span class="suppCategory">Shopping</span>
-             <span class="suppCategory">Markets</span>
-             <span class="suppCategory">Pharmacy</span>
-             <span class="suppCategory">Removed</span>
+        <h2 style="margin-bottom: 25px;">Filters</h2>
+        <form @submit.prevent="accept">
+          <div class="categorysupp flex">
+            <h4>Category:</h4>
+            <div class="choosecategory">
+              <v-select
+                class="vSelect"
+                placeholder="Currency"
+                :options="['Food' ,'Clothes', 'Drive']"
+              ></v-select>
+            </div>
+
+            <h4>Category:</h4>
+            <div class="choosecategory">
+              <v-select
+                class="vSelect"
+                placeholder="Currency"
+                :options="['Food' ,'Clothes', 'Drive']"
+              ></v-select>
+            </div>
+
+            <h4>Category:</h4>
+            <div class="choosecategory">
+              <v-select
+                class="vSelect"
+                placeholder="Currency"
+                :options="['Food' ,'Clothes', 'Drive']"
+              ></v-select>
+            </div>
+
+            <h4>Category:</h4>
+            <div class="choosecategory">
+              <v-select
+                class="vSelect"
+                placeholder="Currency"
+                :options="['Food' ,'Clothes', 'Drive']"
+              ></v-select>
+            </div>
+
+            <h4>Category:</h4>
+            <div class="choosecategory">
+              <v-select
+                class="vSelect"
+                placeholder="Currency"
+                :options="['Food' ,'Clothes', 'Drive']"
+              ></v-select>
+            </div>
+
+            <h4>Category:</h4>
+            <div class="choosecategory">
+              <v-select
+                class="vSelect"
+                placeholder="Currency"
+                :options="['Food' ,'Clothes', 'Drive']"
+              ></v-select>
+            </div>
+
+            <div class="button-ok">
+              <button class="ok-button">OK</button>
+            </div>
           </div>
-        </div>
-
-       <!-- <div class="tableHeader"> -->
-        <div class="tableSupplier flex">
-           <span class="tableOne">Supplier</span>
-           <span class="tableTwo">Category</span>
-           <span class="tableThree">Schedule</span>
-           <span class="tableFour">Location</span>
-            <span class="tableFive">Start date</span>
-            <button  v-on:click="accept">
-               <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.9435 0.554038C19.7822 0.184829 19.5032 0.000199008 19.105 0H0.923598C0.52593 0 0.246473 0.184829 0.0854759 0.554038C-0.075422 0.942153 -0.00920215 1.2738 0.284434 1.54833L7.28737 8.55107V15.4544C7.28737 15.7009 7.37738 15.9137 7.55723 16.0939L11.1934 19.7299C11.364 19.9097 11.5769 20 11.8327 20C11.9462 20 12.0646 19.9762 12.1877 19.9289C12.5572 19.7678 12.7419 19.4885 12.7419 19.0908V8.55112L19.7446 1.54838C20.0384 1.27385 20.1044 0.942303 19.9435 0.554038Z" fill="url(#paint0_linear)"/> <defs> <linearGradient id="paint0_linear" x1="2.5" y1="3.65001e-07" x2="18.5" y2="18.5" gradientUnits="userSpaceOnUse"> <stop stop-color="#FA626D"/> <stop offset="1" stop-color="#ED7FA5"/> </linearGradient> </defs> 
-                        </svg>
-           </button>
-           
-           <div class="accept-modal-container flex" v-if="acceptModalVision">
-		<div class="modal">
-			<div class="close" v-on:click="accept">
-				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M19.707 0.293006C19.316 -0.0979941 18.684 -0.0979941 18.293 0.293006L10 8.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L8.58601 10L0.293006 18.293C-0.0979941 18.684 -0.0979941 19.316 0.293006 19.707C0.488006 19.902 0.744006 20 1.00001 20C1.25601 20 1.51201 19.902 1.70701 19.707L10 11.414L18.293 19.707C18.488 19.902 18.744 20 19 20C19.256 20 19.512 19.902 19.707 19.707C20.098 19.316 20.098 18.684 19.707 18.293L11.414 10L19.707 1.70701C20.098 1.31601 20.098 0.684006 19.707 0.293006Z" fill="#4A4A4A"/>
-				</svg>
-			</div>
-			<h2 style="margin-bottom: 25px;">Filters</h2>
-			<form @submit.prevent="accept">
-				<div class="categorysupp flex">
-					<h4>Category:</h4>
-          <div class="choosecategory ">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-
-          <h4>Category:</h4>
-          <div class="choosecategory ">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-
-          <h4>Category:</h4>
-          <div class="choosecategory ">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-
-          <h4>Category:</h4>
-          <div class="choosecategory">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-
-          <h4>Category:</h4>
-          <div class="choosecategory">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-
-          <h4>Category:</h4>
-          <div class="choosecategory">
-            <v-select class="vSelect" placeholder="Currency" :options="['Food' ,'Clothes', 'Drive']"></v-select>
-          </div>
-					
-					<div class="button-ok">
-        <button class="ok-button">OK</button>
-				
-        </div>
-					
-				</div>
-       
-
-			</form>
-		</div>
-	</div>
-              
-
-          </div>
-         <!-- </div>
-         -->
-             <div class="suppTable">
-                <!-- <div class="suppContent"> -->
-                  <img src="../assets/burder.png" alt  style="margin-right: 4px;">
-                  <span class="spanPng" style="margin-right: 48px;">Burger King</span>
-                <!-- </div> -->
-
-                <span class="menuTable" style="margin-right: 140px;">Burgers</span>
-                <span class="timeTable" style="margin-right: 120px;">06:00-00:00</span>
-                <span class="addressTable" style="margin-right: 80px;">Kyiv, Stereo Plaza</span>
-                <span class="dateTable" style="margin-right: 90px;">19.12.2018</span>
-                    <div style="margin-top: -24px;">
-                      <button class="removeButton">Remove</button>
-                    </div>
-             </div>
-            
-          
-        
-       
-      
-      </div> 
-
-      
-
-
-
-
-
-       <!-- <div class="ordersHeader flex">
-        <h1>
-          Supplierss
-        </h1> -->
-        <!-- <tabs
-        class="recentOrdersContainerRow tabs flex"
-        :tabs="tabs"
-        :currentTab="currentTab"
-        :wrapper-class="'tabs'"
-        :tab-class="'tabs__item'"
-        :tab-active-class="'tabs__item_active'"
-        :line-class="'tabs__active-line'"
-        @onClick="handleClick"
-        ></tabs>
-       </div> --> 
-
-        
- 
-  <!-- </div> -->
+        </form>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -143,7 +179,6 @@ export default {
     carousel,
     Tabs,
     vSelect
-
   },
   data: () => ({
     tabs: [
@@ -153,19 +188,15 @@ export default {
       { title: "Markets", value: "Markets" },
       { title: "Pharmacy", value: "Pharmacy" },
       { title: "Removed", value: "Removed" }
-      
     ],
     acceptModalVision: false,
     currentTab: "All suppliers"
   }),
   methods: {
-    
     accept() {
-	  this.acceptModalVision = !this.acceptModalVision;
-	},
-    Close() {
-      
+      this.acceptModalVision = !this.acceptModalVision;
     },
+    Close() {},
     handleClick(newTab) {
       this.currentTab = newTab;
     }
@@ -174,9 +205,6 @@ export default {
 </script>
 
 <style>
-
-
-
 .myContent {
   width: 100%;
 }
@@ -189,37 +217,46 @@ export default {
   align-items: flex-start;
   width: 100%;
   height: 100%;
-  
 }
 
 .spanPng {
- font-family: AvenirNext;
- font-size: 20px;
- line-height: 25px;
- align-items: center;
- letter-spacing: 0.232479px;
- color: #4A4A4A;
+  font-family: AvenirNext;
+  font-size: 17px;
+   line-height: 20px; 
+  align-items: center;
+  letter-spacing: 0.232479px;
+  color: #4a4a4a;
 }
 
 .h1 {
   font-family: AvenirNext;
   font-size: 32px;
   line-height: 33px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   mix-blend-mode: multiply;
 }
 
 .suppHeader {
   flex-direction: row;
 }
+
+.suppChoose {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 700px;
+  height: 83px;
+
+  margin-left: 98px;
+  margin-top: 25px;
+}
+
 .pageName {
   width: 139px;
   height: 53px;
   margin-top: 25px;
   margin-left: 25px;
-  
+  height: 83px;
   align-items: center;
-  
 }
 
 .tableHeader {
@@ -231,34 +268,27 @@ export default {
   /* display: flex; */
   /* flex-direction: row; */
   /* justify-content: space-between; */
-  
 }
-
 
 .tableSupplier {
   width: 1028px;
   height: 72px;
-  
+
   display: flex;
   flex-direction: row;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   margin-left: 20px;
-  
-  
 }
 
-
-
 .tableOne {
-font-family: AvenirNext;
-font-size: 18px;
-line-height: 25px;
-letter-spacing: 0.232479px;
-color: #4A4A4A;
-opacity: 0.21;
-
+  font-family: AvenirNext;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.232479px;
+  color: #4a4a4a;
+  opacity: 0.21;
 }
 
 .tableTwo {
@@ -266,7 +296,7 @@ opacity: 0.21;
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 0.232479px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   display: bold;
 }
 
@@ -275,7 +305,7 @@ opacity: 0.21;
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 0.232479px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   display: bold;
 }
 
@@ -284,7 +314,7 @@ opacity: 0.21;
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 0.232479px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   display: bold;
 }
 
@@ -293,93 +323,79 @@ opacity: 0.21;
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 0.232479px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   display: bold;
 }
 
 .suppTable {
   width: 1028px;
   height: 42px;
-  
-  
+
   align-items: center;
-  
+
   margin-left: 19px;
-  
 }
 
 .suppName {
   font-family: AvenirNext;
   font-size: 27px;
   line-height: 33px;
-  color: #4A4A4A;
-  padding-top: 4px;
-}
-.suppChoose {
-  flex-direction: row;
-  justify-content: space-between;
-  width: 700px;
-  height: 83px;
-  
-  margin-left: 98px;
-  margin-top: 25px;
-  
+  color: #4a4a4a;
+  padding-top: 30px;
+  padding-left: 40px;
+
 }
 
 .suppCategory {
-font-family: AvenirNext;
-font-size: 16px;
-line-height: 27px;
-display: flex;
-align-items: center;
-letter-spacing: 0.25831px;
+  font-family: AvenirNext;
+  font-size: 16px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25831px;
 
-color: #56CCF2;
+  color: #56ccf2;
 }
 
 .menuTable {
   font-family: AvenirNext;
   font-size: 16px;
   line-height: 22px;
-  
+
   align-items: center;
   letter-spacing: 0.206648px;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 
 .timeTable {
   font-family: AvenirNext;
   font-size: 16px;
   line-height: 22px;
-/* identical to box height, or 137% */
-  
   align-items: center;
   letter-spacing: 0.206648px;
-
-  color: #4A4A4A;
-
+  color: #4a4a4a;
 }
 
 .addressTable {
   font-family: AvenirNext;
   font-size: 16px;
   line-height: 22px;
-/* identical to box height, or 137% */
- 
+  /* identical to box height, or 137% */
+
   align-items: center;
   letter-spacing: 0.206648px;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 
 .dateTable {
   font-family: AvenirNext;
   font-size: 16px;
   line-height: 22px;
-/* identical to box height, or 137% */
-  
+  /* identical to box height, or 137% */
+
   align-items: center;
   letter-spacing: 0.206648px;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 
 .suppContent {
@@ -388,16 +404,18 @@ color: #56CCF2;
 }
 
 .suppContent img {
-    text-align: center !important;
-    width: 30px !important;
-    height: 30px !important;
-    margin-left: 5px;
+  text-align: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  margin-left: 5px;
 }
 
 .removeButton {
   font-family: "Avenir Next";
-  float: right;
-   /* display: block;  */
+  margin-left: -15px;
+  padding: 8px 23px;
+  /* float: right; */
+  /* display: block;  */
   /* text-align: center; */
   border: 1px solid #fb5f68;
   border-radius: 24px;
@@ -408,32 +426,35 @@ color: #56CCF2;
   color: #fb5f68;
   /* padding: 8px 23px; */
   background: none;
-  
+}
+
+.removeButton button:hover {
+  background: #fb5f68;
+  color: white;
+  text-align: center;
 }
 
 .accept-modal-container {
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100vh;
-	justify-content: space-around;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.6);
-	z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
 }
 
 .modal {
-	width: 979px; 
-	height: 531px;
-	padding: 61px 124px;
-	position: relative;
-	box-sizing: border-box;
-	border-radius: 3px;
-	background: #ffffff;
+  width: 979px;
+  height: 531px;
+  padding: 61px 124px;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background: #ffffff;
 }
-
-
 
 /* .modal h2 {
 margin-bottom: 20px;
@@ -445,24 +466,23 @@ line-height: 44px;
 /* letter-spacing: 0.153162px; */
 
 /* color: #4A4A4A;
-} */ 
+} */
 
-.close { 
-	position: absolute;
-	right: 25px;
-	top: 24px;
-	cursor: pointer;
-	z-index: 12;
+.close {
+  position: absolute;
+  right: 25px;
+  top: 24px;
+  cursor: pointer;
+  z-index: 12;
 }
 
 .categorysupp {
   height: 444px;
-   flex-flow: row wrap; 
-   top: 10px;
-   align-content: center; 
-   justify-content: flex-start; 
-   align-items: center;
-  
+  flex-flow: row wrap;
+  top: 10px;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
 }
 .choosecategory {
   position: relative;
@@ -472,7 +492,7 @@ line-height: 44px;
   justify-content: start;
   padding: 15px 15px 35px;
   width: 250px;
-  
+
   background-color: #fff;
   -webkit-box-shadow: 0 0 15px 5px #e5e5e585;
   box-shadow: 0 0 15px 5px #e5e5e585;
@@ -485,12 +505,12 @@ line-height: 44px;
 	border: 1px solid #4A4A4A;
 } */
 .modal h2 {
-	font-family: 'AvenirNext';
-	font-size: 30px;
-	line-height: 21px;
-	text-align: center;
-	letter-spacing: 0.14359px;
-	color: #4A4A4A;
+  font-family: "AvenirNext";
+  font-size: 30px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.14359px;
+  color: #4a4a4a;
   margin-bottom: 20px;
 }
 
@@ -501,76 +521,86 @@ line-height: 44px;
   margin-left: 285px;
   margin-bottom: 60px;
   margin-top: 30px;
-
 }
 
 .ok-button {
- background: #FB5F68;
-/* box-shadow: 0px 2px 15px #FCB3BB; */
-border-radius: 24px;
-display: flex;
-width: 142px;
-height: 58px;
-justify-content: center;
-font-family: AvenirNext;
-font-size: 30px;
-line-height: 49px;
-/* identical to box height, or 163% */
+  background: #fb5f68;
+  /* box-shadow: 0px 2px 15px #FCB3BB; */
+  border-radius: 24px;
+  display: flex;
+  width: 142px;
+  height: 58px;
+  justify-content: center;
+  font-family: AvenirNext;
+  font-size: 30px;
+  line-height: 49px;
+  /* identical to box height, or 163% */
 
-display: flex;
-align-items: center;
-letter-spacing: 0.172308px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.172308px;
 
-color: #FFFFFF;
-
-} 
-
-.v-select  {
-   border: none;
-   height: 20px;
-   weight: 40px;
+  color: #ffffff;
 }
 
+.v-select {
+  border: none;
+  height: 20px;
+  weight: 40px;
+}
 
 .accept,
 .decline {
-	margin: 5px 1px
+  margin: 5px 1px;
 }
 
 .accept,
 .decline:hover {
-	color: #fff;
-	background-color: #f56c81
+  color: #fff;
+  background-color: #f56c81;
 }
 
 .accept,
 .accept:hover,
 .decline,
 .decline:hover {
-	-webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, .12);
-	/* box-shadow: 0 2px 10px rgba(0, 0, 0, .12); */
-	border-radius: 24px;
-	display: block;
-	width: 108px;
-	height: 48px;
-	text-align: center;
-	line-height: 43px;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	font-weight: 500;
-	font-size: 16px;
-	letter-spacing: .172206px;
-	-webkit-transition: .7s;
-	transition: .7s;
-	border: 2px solid #f56c81;
-	cursor: pointer;
-	outline: none
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, .12); */
+  border-radius: 24px;
+  display: block;
+  width: 108px;
+  height: 48px;
+  text-align: center;
+  line-height: 43px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.172206px;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  border: 2px solid #f56c81;
+  cursor: pointer;
+  outline: none;
+}
+
+.tdClass {
+  font-family: AvenirNext;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.232479px;
+  color: #4A4A4A;
+}
+
+.tdClass button {
+  
 }
 
 .accept:hover,
 .decline {
-	background: #fff;
-	color: #f56c81
+  background: #fff;
+  color: #f56c81;
 }
 .ordersContainerTabs {
   position: absolute;
@@ -580,7 +610,7 @@ color: #FFFFFF;
 .recentOrdersListItem:last-child {
   border-bottom: none;
 }
-.suppliersListMainContainer  .tabs__item {
+.suppliersListMainContainer .tabs__item {
   display: inline;
   font-size: 14px;
   line-height: 26px;
@@ -588,15 +618,15 @@ color: #FFFFFF;
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
-  color: #56CCF2;
+  color: #56ccf2;
   background: none;
   border-color: transparent;
   padding: 5px 30px;
 }
 .suppliersListMainContainer .tabs__item_active,
 .suppliersListMainContainer .tabs__item:hover {
-  background: #56CCF2!important;
-  border: 1px solid #56CCF2;
+  background: #56ccf2 !important;
+  border: 1px solid #56ccf2;
   box-sizing: border-box;
   border-radius: 20px;
   font-size: 14px;
@@ -605,11 +635,11 @@ color: #FFFFFF;
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
-  color: #FFFFFF!important;
+  color: #ffffff !important;
 }
 .driversListContainer {
   display: flex;
-  flex-flow: column nowrap ;
+  flex-flow: column nowrap;
   justify-content: flex-start;
 }
 .driversListRowHeader {
@@ -623,7 +653,6 @@ color: #FFFFFF;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  
 }
 .driversListRowContent img {
   width: 100%;
@@ -634,10 +663,10 @@ color: #FFFFFF;
   display: flex;
   align-items: center;
   letter-spacing: 0.232479px;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 .suppliersListMainContainer .content {
-  overflow: hidden!important;
+  overflow: hidden !important;
 }
 .suppliersListMainContainer h1 {
   margin-right: 5%;

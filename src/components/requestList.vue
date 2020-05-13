@@ -51,7 +51,7 @@
         <div class="requestsListItem">
             <div class="requestsListItemRow">
                 <div class="requestsListItemsMains"><img src="../assets/driver.png" alt="">
-                    <h3>Petrov Ivan</h3></div>
+                    <h3> {{driver.first_name}} {{driver.second_name}}</h3></div>
                 <div class="requestsListItemDate">7
                     13th November, 12:20
                 </div>
@@ -59,31 +59,31 @@
             <div class="requestsListItemRow">
                 <div class="requestsListItemColumn">
                     <p>Have a car to drive</p>
-                    <p><strong>E-mail:</strong> petrovivan@gmail.com</p>
-                    <p><strong>Phone:</strong> +38 (012) 345-67-89</p>
-                    <p><strong>Date of birth:</strong> 01.02.1986</p>
-                    <p><strong>City:</strong> Kyiv</p>
-                    <p><strong>Language:</strong> English</p>
+                    <p><strong>E-mail:</strong> {{driver.e_mail}}</p>
+                    <p><strong>Phone:</strong> {{driver.phone}}</p>
+                    <p><strong>Date of birth:</strong> {{driver.birthday}}</p>
+                    <p><strong>City:</strong> {{driver.city}}</p>
+                    <p><strong>Language:</strong> {{driver.language}}</p>
                 </div>
                 <div class="requestsListItemColumn">
-                    <p><strong>Car manufactorer:</strong> BMW</p>
-                    <p><strong>Year of production:</strong> 2018</p>
-                    <p><strong>Car number:</strong> AA111AA</p>
-                    <p><strong>Driver’s license:</strong> AB123456</p>
-                    <p><strong>Have a taxi license </strong></p>
+                    <p><strong>Car manufactorer:</strong> {{driver.car_manufactorer}}</p>
+                    <p><strong>Year of production:</strong> {{driver.year_of_production}}</p>
+                    <p><strong>Car number:</strong> {{driver.car_number}}</p>
+                    <p><strong>Driver’s license:</strong> {{driver.drivers_license}}</p>
+                    <p><strong> {{driver.have_license}}</strong></p>
                 </div>
                 <div class="requestsListItemColumn">
                     <p><strong>Photos:</strong></p>
                     <div class="requestsListItemPhotos"><img src="../assets/card1.png" alt=""><img src="../assets/card2.png" alt=""><img src="../assets/card3.png" alt=""></div>
-                    <p><strong>Expiration date of driver license:</strong> 01.02.2017</p>
-                    <p><strong>Expiration date of car:</strong> 02.03.2015</p>
+                    <p><strong>Expiration date of driver license:</strong> {{driver.expiration_license}}</p>
+                    <p><strong>Expiration date of car:</strong> {{driver.expiration_car}}</p>
                 </div>
                 <div class="requestsListItemColumn">
-                    <p><strong>Card number:</strong> 1234 5678 9101 1213</p>
-                    <p><strong>Cardholder:</strong> Ivan</p>
-                    <p><strong>Bank:</strong> PrivatBank</p>
-                    <p><strong>Account number:</strong> 123456789</p>
-                    <p><strong>Want to receive money on credit card</strong></p>
+                    <p><strong>Card number:</strong> {{driver.card_number}}</p>
+                    <p><strong>Cardholder:</strong> {{driver.cardholder}}</p>
+                    <p><strong>Bank:</strong> {{driver.bank_name}}</p>
+                    <p><strong>Account number:</strong> {{driver.account_number}}</p>
+                    <p><strong> {{driver.receive_money_on_card}}</strong></p>
                 </div>
 				
                 <div class="requestsListItemColumn">

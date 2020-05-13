@@ -1,6 +1,6 @@
 <template>
   <div class="ordersContainer flex suppliersListMainContainer suplierNewOrdersContainer accountOrdersContainerMain">
-    
+    <carousel>
      <div class="recentOrdersContainerRow flex accountOrdersMainHeaders">
        <div class="headerRow flex">
          <button class="DateView" style="margin-left: 15px,border: 1px solid #4A4A4A,box-sizing: border-box; border-radius: 44px;">
@@ -90,12 +90,12 @@
             </div>
         </div>
     </div>
-
+    </carousel>
   </div>
 </template>
 
 <script>
-import carousel from "vue-owl-carousel";
+ import carousel from "vue-owl-carousel";
 import Tabs from "vue-tabs-with-active-line";
 import accountOrderListMain from "../components/accountOrderListMain.vue";
 import vSelect from "vue-select";

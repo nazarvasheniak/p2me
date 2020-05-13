@@ -1,10 +1,10 @@
 <template>
-  <div class="productDescriptionContainer flex"> 
+  <div class="productDescriptionContainer flex">
     <div class="productDescriptionHeading flex">
-      <h2>Meat</h2>
+      <h2>Dress</h2>
       <h4>
         Code:
-        <span> {{item.product_code}}</span>
+        <span>012345</span>
       </h4>
     </div>
     <div class="productDescriptionRow flex">
@@ -14,48 +14,71 @@
 
     <div class="productDescriptionRow flex">
       <h4>Price:</h4>
-        <span> {{item.price}}                     UAH</span>
+      <!-- <div class="productDescriptionRowSub flex">  -->
+        <!-- <input type="number"> -->
+        <span>120                      UAH</span>
+        
+        <!-- <v-select class="vSelect" placeholder="Currency" :options="['UAH' ,'USD', 'EUR']"></v-select> -->
+      <!-- </div> -->
     </div>
     
     <div class="productDescriptionRow flex">
       <h4>Badge:</h4>
       <span>Hot Price</span>
-      
+      <!-- <v-select class="vSelect" placeholder="Enter here..." :options="['Top price','Best selling']"></v-select> -->
     </div>
     <div class="productDescriptionRow flex">
       <h4>Sale:</h4>
-      <span> {{item.discount}}</span>  
+      <span>0%</span>
     </div>
-   
-    <div class="productDescriptionRow flex">
-      <h4>Brand:</h4>
-      <span>Berska</span>
-      <div></div>
-    </div>
+    
+     <div class="productDescriptionRowMine flex">
+      <h4>Sizes:</h4>
+      <span></span>
+      <span></span>
+     </div>
+
+     <div class="productDescriptionRowMine flex">
+      <h4>Color: </h4>
+      <span></span>
+     </div>
+    
+     <div class="productDescriptionRow flex">
+       <h4>Season:</h4>
+       <span>Summer</span>
+      </div>
+     
+      <div class="productDescriptionRow flex">
+        <h4>Material:</h4>
+        <span>Poliester</span>
+      </div>
+
+      <div class="productDescriptionRow flex">
+         <h4>Brand:</h4>
+         <span>Berska</span>
+      </div>
+       
 
     <div class="productDescriptionRow flex">
-      <h4>Country Manufacture</h4>
-      <span>Indonesia</span>
-      
+       <h4>Country of manufacture:</h4>
+       <span>Indonesia</span>
     </div>
 
-    <div class="productDescriptionRow flex">
-      <h4>Volume:</h4>
-      <span>600        g</span>
-    </div>
+
+    
     <div class="productDescriptionRow flex">
       <h4>Average time of delivery:</h4>
-      <span> {{item.average_packing_time}} min</span>
-      
+      <span>20 min</span>
+      <!-- <v-select class="vSelect" placeholder="Enter here..." :options="['10m','20m','30m', '40m']"></v-select> -->
     </div>
     <div class="productDescriptionRow flex">
       <h4>Description:</h4>
-      <span> {{item.description}}</span>
+      <span>A hamburger, beefburger or burger is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The patty may be pan fried, barbecued, or flame broiled. Hamburgers are often served with cheese, lettuce, tomato, bacon, onion, pickles, or chiles; condiments such as mustard, mayonnaise, ketchup, relish, or "special sauce"; and are frequently placed on sesame seed buns. A hamburger topped with cheese is called a cheeseburger.</span>
     </div>
     <div class="productDescriptionRow flex">
       <h4>Shop selection:</h4>
       <button class="kyivButton">Kyiv,Stereo Plaza, 37/2</button>
-      
+     
     </div>
   </div>
 </template>
@@ -66,9 +89,9 @@ import productOptionsColors from "../components/productOptionColors.vue";
 
 import vSelect from "vue-select";
 export default {
-  name: "productDescription",
+  name: "productDescription4",
   components: {
-    vSelect,
+    
     productOptionsSizes,
     productOptionsColors
   }

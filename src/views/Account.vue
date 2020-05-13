@@ -76,7 +76,7 @@ export default {
   color: #56CCF2;
   background: none!important;
   border-color: transparent;
-  padding: 5px 30px;
+  padding: 5px 10px;
   margin-bottom: 19px;
 }
 .accountApplicationsTabs .tabs__item_active, .accountApplicationsTabs .tabs__item:hover { 

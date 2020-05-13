@@ -27,8 +27,10 @@ export default {
     }
   },
   actions: {
-    load_orders(context, payload) {
-      axios.get('http://localhost:8080/order/', {
+    load_orders(context, filter) {
+
+      return new Promise((resolve, reject) => {
+      axios.get('/api/superadmin/order_list/', {
         headers: {
           "Access-Control-Allow-Origin": '*',
           "Content-Type": "application/json",
@@ -37,15 +39,17 @@ export default {
         }
       })
           .then(response => {
-            // console.log(response.data);
-            context.commit('LOAD_ORDERS', response.data);
+            context.commit('LOAD_ORDERS', response.data.orders_list);
+            resolve(response.data);
+            
           })
           .catch(e => {
-            console.log(e);
+            reject(e);
           });
+        });
     },
     order({commit}, payload) {
-      axios.get('http://localhost:8080/control_panel/supplier/order_detail/' + localStorage.getItem('orderId'), {
+      axios.get('/api/superadmin//order_detail/' + localStorage.getItem('orderId'), {
         headers: {
           "Access-Control-Allow-Origin": '*',
           "Content-Type": "application/json",
