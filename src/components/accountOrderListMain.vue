@@ -19,9 +19,8 @@
               class="driversListRowContent"
               v-for="item in items"
               :key="item.id"
-              v-on:click="routeToOrder(item.id)"
-            >
-              <!-- <div style="justify-content: left;">{{item.id}}</div> -->
+              v-on:click="routeToOrder(item.id)">
+              <div style="justify-content: left;">{{item.order_number}}</div> 
               <div style="justify-content: left;">{{item.customer_name}}</div>
               <div style="justify-content: left;">{{item.supplier_name}}</div>
               <div style="justify-content: left;">{{item.driver_name}}</div>

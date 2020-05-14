@@ -6,6 +6,9 @@
                 <div class="driverMainInfoSubtitle">
                   <h3><strong>Customer</strong> - <span> { { order.customer_name } } </span></h3>
                 </div>
+                <div class="driverSecondInfoSubtitle">
+                  <h3><strong>Supplier</strong> - <span> { {order.supplier_name } }  </span></h3>
+                </div>
               </div>
                 <div class="edit flex">
                   <img src="../assets/phone.png" alt=""> 
@@ -18,19 +21,19 @@
                 <div class="supplierColumnContainerBlock">
                     <strong>Order:</strong>
                 </div>
-                <div class="supplierColumnContainerBlock">
-                    <p> { { order.name } } </p>
-                    <p> { { order.name } } </p>
+                <div class="supplierColumnContainerBlock" v-for="item in order.item_in_order" :key="item.id">
+                    <p> { { item.name } } </p>
+                    
                 </div>
             </div>
             <div class="totalPriceContainer">
                 <div class="supplierColumnContainerBlock">
-                    <p><strong> { { order.price } } </strong></p>
-                    <p><strong> { { order.price } } </strong></p>
+                    <p><strong> ${ { item.price } } </strong></p>
+                    
                 </div>
                 <div class="supplierColumnContainerBlock">
                     <p><strong>Total price:</strong></p>
-                    <p class="totalPriceCountContainer"> { { order.total_price } } </p>
+                    <p class="totalPriceCountContainer"> ${ { order.total_price } } </p>
                 </div>
             </div>
             
@@ -47,7 +50,8 @@
         </div>
         <div class="profileMainInfoSubContainer driversMainInfoText supplierContactInfoContainer orderStatusBar">
              <h4>Status order: </h4>
-             <div class="approved-progress"></div>
+              <p> <span> {{ order.status }} </span></p>
+             <!-- <div class="approved-progress"></div> -->
         </div>
         <div class="profileMainInfoSubContainer flex driversMainInfoText supplierContactInfoContainer orderDriverContainer">
              <h4>Driver: </h4>
@@ -87,12 +91,8 @@ export default {
   flex-flow: column nowrap;
   padding: 25px;
 }
-.subContainerSub {
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
-  width: 100%;
-}
+
+
 .profileMainInfoSubContainer {
   width: 100%;
   flex-flow: column nowrap;
@@ -144,7 +144,44 @@ color: #4A4A4A;
   color: #4A4A4A;
 }
 
+.driverSecondInfoSubtitle {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+.driverSecondInfoSubtitle p {
+  font-family: AvenirNext;
+  font-size: 12px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25831px;
+  color: #4A4A4A;
+  opacity: 0.5;
+}
+
+.driverSecondInfoSubtitle h3 {
+  font-family: AvenirNext;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: 0.172206px;
+  color: #4A4A4A;
+}
+
+.driverSecondInfoSubtitle span {
+  font-family: AvenirNext;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: 0.172206px;
+  color: #4A4A4A;
+}
+
 .subContainerSub {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;

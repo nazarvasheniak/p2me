@@ -1,29 +1,58 @@
 <template>
   <div class="order flex">
     <h1>Order № {{ order.order_number }}</h1>
-    <div class="primaryOrderSubContainer flex">
+    <!-- <div class="primaryOrderSubContainer flex"> -->
       <div class="primaryOrderContainer flex">
-        <div class="primaryOrderContainerRow flex">
+       <div class="profileMainInfoSubContainer flex">
+        <div class="subContainerSub flex">
+              <div class="driversMainInfoTop"> 
+                <div class="driverMainInfoSubtitle">
+                  <h3><strong>Customer</strong> - <span> { { order.customer_name } } </span></h3>
+                </div>
+              </div>
+                <div class="edit flex">
+                  <img src="../assets/phone.png" alt=""> 
+                  <p> { { order.customer_phone } } </p>
+                </div>
+            </div>
+       </div>
+        <!-- <div class="primaryOrderContainerRow flex">
           <h2>
             Customer -
-            <span>{{ order.customer }}</span>
+            <span>{{ order.customer_name }}</span>
           </h2>
 
           <a href="tel:3809888888">
             <img src="../assets/phone.png" />
             {{ order.phone }}
           </a>
-        </div>
-        <!-- <div class="primaryOrderContainerRow flex">
-          <ordertable />
+        </div> -->
+         <div class="primaryOrderContainerRow flex">
+           <!-- <ordertable />  -->
+          <div class="ordertable flex">
+            <div class="ordertableHeading">Order:</div>
+              <div class="ordertableItems flex">
+                <div class="ordertableItemsRow flex" v-for="item in order.item_in_order" :key="item.id">
+                   <div class="itemName">{{ item.name }}</div>
+                     <div class="itemPrice"> ${{ item.price }}</div>
+                  </div>
+                   </div>
+                  <div class="ordertableItemsPrice flex">
+                <span>Total price:</span>
+               <span class="totalPrice"> ${{ order.total_price }}</span>
+              </div>
+            </div>
+
         </div>
         <div class="primaryOrderContainerRow flex">
           <orderDetails />
-        </div>-->
-        <div class="primaryOrderContainerRow flex">
+        </div>
+
+        <!-- <div class="primaryOrderContainerRow flex">
           <button class="decline" @click.prevent="showModal = !showModal">Decline</button>
           <button class="accept" @click.prevent="accept">Accept</button>
-        </div>
+        </div> -->
+
       </div>
       <div class="secondaryOrderContainer flex">
         <div class="secondaryOrderContainerRow">
@@ -47,7 +76,7 @@
         <div class="secondaryOrderContainerRow">
           <button class="viewMap">See on the map</button>
         </div>
-      </div>
+      
     </div>
     <app-modal-order v-if="showModal" @declineStatus="decline=$event"></app-modal-order>
   </div>
@@ -99,6 +128,49 @@ export default {
 </script>
 
 <style scoped>
+
+.subContainerSub {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+.driverMainInfoSubtitle {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+.driverMainInfoSubtitle p {
+  font-size: 12px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25831px;
+  color: #4A4A4A;
+  opacity: 0.5;
+}
+
+.driverMainInfoSubtitle h3 {
+  font-family: AvenirNext;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: 0.172206px;
+  color: #4A4A4A;
+}
+
+.driverMainInfoSubtitle span {
+  font-family: AvenirNext;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: 0.172206px;
+  color: #4A4A4A;
+}
+
 .order h1 {
   color: #535353;
   margin: -10px 0 10px;
@@ -259,5 +331,53 @@ export default {
 .viewMap:hover {
   color: #f56c81;
   background: #fff;
+}
+
+ .ordertable {
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: space-between;
+}
+.ordertableHeading {
+  justify-content: center;
+  flex-flow: column nowrap;
+  font-size: 1em;
+  font-weight: 400;
+  width: 10%;
+  /* border: 1px solid #0000001c; */
+}
+.ordertableItems {
+  flex-flow: column nowrap;
+  font-size: 0.8em;
+  width: 70%;
+  /* border: 1px solid #0000001c; */
+}
+.itemName {
+  width: 80%;
+  color: #9b9b9b;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+.itemPrice {
+  width: 20%;
+  font-size: 0.9em;
+}
+.ordertableItemsPrice {
+  flex-flow: column nowrap;
+  justify-content: center;
+  font-size: 0.8em;
+  width: 15%;
+  padding-left: 5px;
+  border-left: 1px solid #0000001c;
+}
+.ordertableItemsRow {
+  width: 100%;
+  margin: 5px 0;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+.totalPrice {
+  color: #fb888b;
+  font-size: 1.2em;
 }
 </style>

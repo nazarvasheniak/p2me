@@ -1,7 +1,7 @@
 <template>
     <div class="profileContainer flex">
         <div class="headerRow flex">
-        <h1>Order #111111</h1>
+        <h1>Order № {{ order.order_number }}</h1>
         <div class="flex">
         </div>
         </div>
@@ -33,12 +33,44 @@ export default {
     rates,
     feedbackForRestaurant
   },
-  mounted() {
-    axios
-      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
-      .then(response => (this.info = response));
+   data() {
+     return {
+      order: null,
+      showModal: false
+    };
+   },
+   created() {
+    this.$store.dispatch("order");
+    localStorage.setItem("orderId", JSON.stringify(this.$route.params.id));
+  },
+   
+   methods: {
+    loadItem() {
+      this.$store.dispatch("order").then(result => {
+        this.order = result;
+      });
+    },
+
+    accept() {
+      this.$router.back();
+      // Метод для изменения статуса PUT
+    },
+
+    decline() {
+      this.$router.back();
+    }
+
+   },
+
+    beforeMount() {
+    this.loadItem();
+  },
+   destroyed() {
+    localStorage.removeItem("orderId");
   }
+
 };
+
 </script>
 
 <style scoped>
