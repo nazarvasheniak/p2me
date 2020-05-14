@@ -4,15 +4,15 @@
             <div class="subContainerSub flex">
               <div class="driversMainInfoTop"> 
                 <div class="driverMainInfoSubtitle">
-                  <h3><strong>Customer</strong> - <span> { { order.customer_name } } </span></h3>
+                  <h3><strong>Customer</strong> - <span> {{ order.customer_name }} </span></h3>
                 </div>
                 <div class="driverSecondInfoSubtitle">
-                  <h3><strong>Supplier</strong> - <span> { {order.supplier_name } }  </span></h3>
+                  <h3><strong>Supplier</strong> - <span> {{ order.supplier_name }}  </span></h3>
                 </div>
               </div>
                 <div class="edit flex">
                   <img src="../assets/phone.png" alt=""> 
-                  <p> { { order.customer_phone } } </p>
+                  <p> {{ order.customer_phone }} </p>
                 </div>
             </div>
         </div>
@@ -21,19 +21,19 @@
                 <div class="supplierColumnContainerBlock">
                     <strong>Order:</strong>
                 </div>
+
                 <div class="supplierColumnContainerBlock" v-for="item in order.item_in_order" :key="item.id">
-                    <p> { { item.name } } </p>
-                    
+                    <p> {{ item.name }} </p>
+                </div>
+
+                <div class="supplierColumnContainerBlock" v-for="item in order.item_in_order" :key="item.id">
+                    <p><strong> ${{ item.price }} </strong></p>
                 </div>
             </div>
             <div class="totalPriceContainer">
                 <div class="supplierColumnContainerBlock">
-                    <p><strong> ${ { item.price } } </strong></p>
-                    
-                </div>
-                <div class="supplierColumnContainerBlock">
                     <p><strong>Total price:</strong></p>
-                    <p class="totalPriceCountContainer"> ${ { order.total_price } } </p>
+                    <p class="totalPriceCountContainer"> ${{ order.total_price }} </p>
                 </div>
             </div>
             
@@ -42,9 +42,9 @@
             <h4>Details:</h4>
             <div class="supplierSingleOrdeDetails">
 
-                <p><strong>Payment method:</strong> <span> { { order.payment_method } } </span></p>
-                <p><strong>Comment:</strong> <span> { { order.comment } } </span></p>
-                <p><strong>Waiting time:</strong> <span> { { order.waiting_time } } </span></p>
+                <p><strong>Payment method:</strong> <span> {{ order.payment_method }} </span></p>
+                <p><strong>Comment:</strong> <span> {{ order.comment }} </span></p>
+                <p><strong>Waiting time:</strong> <span> {{ order.waiting_time }} </span></p>
             </div>
             
         </div>
@@ -55,7 +55,7 @@
         </div>
         <div class="profileMainInfoSubContainer flex driversMainInfoText supplierContactInfoContainer orderDriverContainer">
              <h4>Driver: </h4>
-             <span> { { order.driver_name } } </span>
+             <span> {{ order.driver_name }} </span>
         </div>
     </div>
 </template>
@@ -63,6 +63,7 @@
 <script>
 export default {
   name: "supplierOrderSingleInfo",
+  props: ['order'],
   data() {
     return {
       disabled: true,

@@ -1,7 +1,7 @@
 s<template>
   <div class="notPaidContainer flex">
     <h4>Delivery adress</h4>
-    <p> { { orders.delivery_adress } }</p>
+    <p> {{ order.delivery_adress }}</p>
     <p><small>2 km from center</small>
     <div class="notPaidContainerRow ">
         <img src="../assets/mapsvvv.png" alt="">
@@ -14,7 +14,8 @@ s<template>
 
 <script>
 export default {
-  name: "maps"
+  name: "maps",
+  props: ['order']
 };
 </script>
 

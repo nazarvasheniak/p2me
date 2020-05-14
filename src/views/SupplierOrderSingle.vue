@@ -1,21 +1,20 @@
 <template>
-    <div class="profileContainer flex">
-        <div class="headerRow flex">
-        <h1>Order № {{ order.order_number }}</h1>
-        <div class="flex">
-        </div>
-        </div>
-        <div class="profileMainContainer flex">
-        <div class="profileSubContainer flex">
-            <supplierOrderSingleInfo/>
-            <feedbackForRestaurant/>
-        </div>
-        <div class="profileSubContainer flex">
-           <maps/>
-           <rates/>
-        </div>
-        </div>
-    </div>    
+  <div class="profileContainer flex" v-if="order">
+    <div class="headerRow flex">
+      <h1>Order № {{ order.order_number }}</h1>
+      <div class="flex"></div>
+    </div>
+    <div class="profileMainContainer flex">
+      <div class="profileSubContainer flex">
+        <supplierOrderSingleInfo v-bind:order="order" />
+        <feedbackForRestaurant />
+      </div>
+      <div class="profileSubContainer flex">
+        <maps v-bind:order="order" />
+        <rates />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -33,20 +32,21 @@ export default {
     rates,
     feedbackForRestaurant
   },
-   data() {
-     return {
+  data() {
+    return {
       order: null,
       showModal: false
     };
-   },
-   created() {
+  },
+  created() {
     this.$store.dispatch("order");
     localStorage.setItem("orderId", JSON.stringify(this.$route.params.id));
   },
-   
-   methods: {
+
+  methods: {
     loadItem() {
       this.$store.dispatch("order").then(result => {
+        console.log(result);
         this.order = result;
       });
     },
@@ -59,18 +59,15 @@ export default {
     decline() {
       this.$router.back();
     }
+  },
 
-   },
-
-    beforeMount() {
+  beforeMount() {
     this.loadItem();
   },
-   destroyed() {
+  destroyed() {
     localStorage.removeItem("orderId");
   }
-
 };
-
 </script>
 
 <style scoped>
@@ -101,7 +98,7 @@ export default {
   font-size: 36px;
   line-height: 49px;
   letter-spacing: 0.25831px;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 /* .headerRow h2 {
   margin: 0 15px;
