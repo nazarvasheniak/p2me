@@ -3,7 +3,7 @@
         <div class="recentOrdersContainerRow flex driversListCarouselContainer">
             <div class="recentOrdersContainerRow ">
                 <h3>Feedback for restaurant:</h3>
-                <p> { { order.feedback } } </p>
+                <p> {{ order.feedback }} </p>
             </div>
         </div>   
     </div>
@@ -14,7 +14,8 @@
 
 
 export default {
-  name: "feedbackForRestaurant" 
+  name: "feedbackForRestaurant",
+  props: ['order'] 
 };
 </script>
 

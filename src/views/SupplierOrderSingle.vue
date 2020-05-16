@@ -7,11 +7,11 @@
     <div class="profileMainContainer flex">
       <div class="profileSubContainer flex">
         <supplierOrderSingleInfo v-bind:order="order" />
-        <feedbackForRestaurant />
+        <feedbackForRestaurant v-bind:order="order" />
       </div>
       <div class="profileSubContainer flex">
         <maps v-bind:order="order" />
-        <rates />
+        <rates v-bind:order="order"/>
       </div>
     </div>
   </div>

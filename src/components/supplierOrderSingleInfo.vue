@@ -4,58 +4,80 @@
             <div class="subContainerSub flex">
               <div class="driversMainInfoTop"> 
                 <div class="driverMainInfoSubtitle">
-                  <h3><strong>Customer</strong> - <span> {{ order.customer_name }} </span></h3>
-                </div>
-                <div class="driverSecondInfoSubtitle">
-                  <h3><strong>Supplier</strong> - <span> {{ order.supplier_name }}  </span></h3>
+                  <h3><strong>Customer</strong> - <span>{{ order.customer_name }}</span></h3>
                 </div>
               </div>
+
                 <div class="edit flex">
                   <img src="../assets/phone.png" alt=""> 
-                  <p> {{ order.customer_phone }} </p>
+                  <p>{{ order.customer_phone }}</p>
                 </div>
             </div>
+
+               <div class="driverSecondInfoSubtitle">
+                  <h3><strong>Supplier</strong> - <span class="underline">{{ order.supplier_name }}</span></h3>
+                </div>    
+
         </div>
-        <div class="profileMainInfoSubContainer flex driversMainInfoText">
-            <div>
-                <div class="supplierColumnContainerBlock">
+
+         <div class="primaryOrderContainerRow flex">
+           <!-- <ordertable />  -->
+          <div class="ordertable flex">
+            <div class="ordertableHeading">Order:</div>
+              <div class="ordertableItems flex">
+                <div class="ordertableItemsRow flex" v-for="item in order.item_in_order" :key="item.id">
+                   <div class="itemName">{{ item.name }}</div>
+                     <div class="itemPrice"> ${{ item.price }}</div>
+                  </div>
+                   </div>
+                  <div class="ordertableItemsPrice flex">
+                <span>Total price:</span>
+               <span class="totalPrice"> ${{ order.total_price }}</span>
+              </div>
+            </div>
+
+        </div>
+
+        <!-- <div class="profileMainInfoSubContainerDa">
+            <div class="totalPriceContainer">
+                <div class="supplierColumnContainerBlockOrder">
                     <strong>Order:</strong>
                 </div>
-
-                <div class="supplierColumnContainerBlock" v-for="item in order.item_in_order" :key="item.id">
-                    <p> {{ item.name }} </p>
-                </div>
-
-                <div class="supplierColumnContainerBlock" v-for="item in order.item_in_order" :key="item.id">
-                    <p><strong> ${{ item.price }} </strong></p>
+                <div class="suppBlockOrder" v-for="item in order.item_in_order" :key="item.id">
+                    <span class="itemName">{{ item.name }}</span>
+                    
                 </div>
             </div>
-            <div class="totalPriceContainer">
+            <div class="totalPriceContainerTwo">
+                <div class="supplierColumnContainerBlock" v-for="item in order.item_in_order" :key="item.id">
+                    <p><strong>${{ item.price }} </strong></p>  
+                </div>
                 <div class="supplierColumnContainerBlock">
                     <p><strong>Total price:</strong></p>
-                    <p class="totalPriceCountContainer"> ${{ order.total_price }} </p>
+                    <p class="totalPriceCountContainer">${{ order.total_price }}</p>
                 </div>
             </div>
             
-        </div>
+        </div> -->
+
         <div class="profileMainInfoSubContainer">
             <h4>Details:</h4>
             <div class="supplierSingleOrdeDetails">
 
-                <p><strong>Payment method:</strong> <span> {{ order.payment_method }} </span></p>
-                <p><strong>Comment:</strong> <span> {{ order.comment }} </span></p>
-                <p><strong>Waiting time:</strong> <span> {{ order.waiting_time }} </span></p>
+                <p><strong>Payment method:</strong> <span>{{ order.payment_method }}</span></p>
+                <p><strong>Comment:</strong> <span>{{ order.comment }}</span></p>
+                <p><strong>Waiting time:</strong> <span>{{ order.waiting_time }}</span></p>
             </div>
             
         </div>
         <div class="profileMainInfoSubContainer driversMainInfoText supplierContactInfoContainer orderStatusBar">
              <h4>Status order: </h4>
-              <p> <span> {{ order.status }} </span></p>
+              <p> <span>{{ order.status }}</span></p>
              <!-- <div class="approved-progress"></div> -->
         </div>
         <div class="profileMainInfoSubContainer flex driversMainInfoText supplierContactInfoContainer orderDriverContainer">
              <h4>Driver: </h4>
-             <span> {{ order.driver_name }} </span>
+             <span>{{ order.driver_name }}</span>
         </div>
     </div>
 </template>
@@ -93,6 +115,14 @@ export default {
   padding: 25px;
 }
 
+.profileMainInfoSubContainerDa {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 135px;
+  width: 715px;
+}
 
 .profileMainInfoSubContainer {
   width: 100%;
@@ -139,14 +169,14 @@ color: #4A4A4A;
 
 .driverMainInfoSubtitle span {
   font-family: AvenirNext;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 33px;
   letter-spacing: 0.172206px;
   color: #4A4A4A;
 }
 
 .driverSecondInfoSubtitle {
-  display: flex;
+  /* display: flex; */
   flex-flow: column nowrap;
   justify-content: flex-start;
 }
@@ -172,21 +202,26 @@ color: #4A4A4A;
 
 .driverSecondInfoSubtitle span {
   font-family: AvenirNext;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 33px;
   letter-spacing: 0.172206px;
   color: #4A4A4A;
+  
+
 }
+
+ .underline {
+  border-bottom: 1px solid; 
+  color: #4A4A4A;
+} 
+
 
 .subContainerSub {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+ 
 }
 .driversMainInfoTop {
   display: flex;
@@ -228,13 +263,34 @@ color: #4A4A4A;
 .supplierMainInfoContainer .driversMainInfoText p {
     margin: 0px;
 }
+
+.supplierColumnContainerBlockOrder {
+  width: 57px;
+  height: 25px;
+  margin-right: 28px;
+}
+
+.suppBlockOrder {
+  width: 87px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+
+
+
 .supplierColumnContainerBlock {
+    display: flex;
+    flex-direction: column;
     margin-right: 75px;
     max-width: 95%;
     margin-bottom: 19px;
     font-size: 16px;
     line-height: 22px;
-    /* identical to box height, or 137% */
+    
     letter-spacing: 0.172206px;
     color: #9B9B9B;
 }
@@ -251,6 +307,24 @@ color: #4A4A4A;
     letter-spacing: 0.193732px;
     color: #4A4A4A;
 }
+
+.totalPriceContainer {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+  
+  align-items: center;
+}
+
+.totalPriceContainerTwo {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+  align-content: flex-start;
+  width: 142px;
+  height: 100px;
+}
+
 
 .totalPriceContainer .supplierColumnContainerBlock p {
   font-family: AvenirNext;
@@ -278,9 +352,19 @@ color: #4A4A4A;
     font-weight: 100;
 }
 
-.profileMainInfoSubContainer > span {
-  
+.primaryOrderContainerRow {
+  width: 100%;
+  margin: 15px 0;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
 }
+
+.primaryOrderContainerRow:last-child {
+  justify-content: center;
+}
+
+
 .supplierContactInfoContainer {
     margin-top: 0px;
 }
@@ -321,7 +405,53 @@ color: #4A4A4A;
   align-items: flex-start;
 }
 
-
+ .ordertable {
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: space-between;
+}
+.ordertableHeading {
+  justify-content: center;
+  flex-flow: column nowrap;
+  font-size: 1em;
+  font-weight: 400;
+  width: 10%;
+  /* border: 1px solid #0000001c; */
+}
+.ordertableItems {
+  flex-flow: column nowrap;
+  font-size: 0.8em;
+  width: 60%;
+  /* border: 1px solid #0000001c; */
+}
+.itemName {
+  width: 80%;
+  color: #9b9b9b;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+.itemPrice {
+  width: 20%;
+  font-size: 0.9em;
+}
+.ordertableItemsPrice {
+  flex-flow: column nowrap;
+  justify-content: center;
+  font-size: 0.8em;
+  width: 15%;
+  padding-left: 5px;
+  border-left: 1px solid #0000001c;
+}
+.ordertableItemsRow {
+  width: 100%;
+  margin: 5px 0;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+.totalPrice {
+  color: #fb888b;
+  font-size: 1.2em;
+}
 
 
 
@@ -354,9 +484,9 @@ color: #4A4A4A;
   letter-spacing: 0.119588px;
   color: #FB888B;
 }
-.supplierMainInfoContainer .driversMainInfoText .totalPriceContainer p {
+/* .supplierMainInfoContainer .driversMainInfoText .totalPriceContainer p {
   margin-bottom: 9px;
-}
+} */
 .supplierSingleOrdeDetails p {
   font-size: 16px;
   line-height: 22px;

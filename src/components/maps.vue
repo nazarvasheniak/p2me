@@ -1,4 +1,4 @@
-s<template>
+<template>
   <div class="notPaidContainer flex">
     <h4>Delivery adress</h4>
     <p> {{ order.delivery_adress }}</p>
