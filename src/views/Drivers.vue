@@ -122,13 +122,13 @@
           </carousel>
         </div>
 
-        <div v-if="currentTab === 'Removed'">
+        <div v-if="currentTab === 'removed'">
           <carousel
             class="sliderRecentOrders"
             :items="1"
             :nav="true"
             value="Removed"
-            v-if="currentTab === 'Removed'"
+            v-if="currentTab === 'removed'"
           >
             <div class="driversListContainer">
               <div class="driversListRowHeader">
@@ -182,6 +182,7 @@ export default {
   }),
   methods: {
     changeTab(newTab, isdriver = this.isDriverOrCourier) {
+      debugger;
       this.currentTab = newTab;
       if (isdriver === true) {
         this.loadDriversList();
