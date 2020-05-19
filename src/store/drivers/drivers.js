@@ -23,7 +23,6 @@ export default {
     },
     actions: {
         loadDriversList(context, status) {
-            
             return new Promise((resolve, reject) => {
                 axios.get('/api/superadmin/driver_list/?status=' + status, {
                     headers: {
@@ -42,9 +41,9 @@ export default {
                     });
             });
         },
-        loadCourierList(context, filter) {
+        loadCourierList(context, status) {
             return new Promise((resolve, reject) => {
-                axios.get('/api/superadmin/courier_list/?filter=' + filter, {
+                axios.get('/api/superadmin/courier_list/?status=' + status, {
                     headers: {
                         "Access-Control-Allow-Origin": '*',
                         "Content-Type": "application/json",
@@ -53,7 +52,7 @@ export default {
                     }
                 })
                     .then(response => {
-                        context.commit('LOAD_COURIER_LIST', response.data.courier_list); //maybe need change response.data.courier_list to response.data check after fix backend
+                        context.commit('LOAD_COURIER_LIST', response.data.couriers_list); //maybe need change response.data.courier_list to response.data check after fix backend
                         resolve(response.data);
                     })
                     .catch(e => {
@@ -101,8 +100,8 @@ export default {
                     });
             });
         }
-       
-       
+
+
 
     },
     getters: {

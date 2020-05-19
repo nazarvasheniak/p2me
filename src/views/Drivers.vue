@@ -5,12 +5,12 @@
       <div class="filter-btns-left flex">
         <button
           class="DriversView"
-          v-on:click="changeTab('courierList', true)"
+          v-on:click="changeTab('online', true)"
           style="text-align: center;"
         >Drivers</button>
         <button
           class="CouriersView"
-          v-on:click="changeTab('courierList', false)"
+          v-on:click="changeTab('online', false)"
           style="text-align: center;"
         >Couriers</button>
       </div>
@@ -201,7 +201,7 @@ export default {
     loadCourierList() {
       // $store is a drivers.js
       this.$store.dispatch("loadCourierList", this.currentTab).then(result => {
-        this.items = result.courierList;
+        this.items = result.couriers_list;
       });
     }
   },
