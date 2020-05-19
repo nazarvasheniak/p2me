@@ -7,12 +7,12 @@
       <!-- </div> -->
 
       <div class="suppChoose flex">
-        <h3 class="suppCategory">All suppliers</h3>
-        <span class="suppCategory">Restaurants</span>
-        <span class="suppCategory">Shopping</span>
-        <span class="suppCategory">Markets</span>
-        <span class="suppCategory">Pharmacy</span>
-        <span class="suppCategory">Removed</span>
+        <button class="suppCategory">All suppliers</button>
+        <button class="suppCategory">Restaurants</button>
+        <button class="suppCategory">Shopping</button>
+        <button class="suppCategory">Markets</button>
+        <button class="suppCategory">Pharmacy</button>
+        <button class="suppCategory">Removed</button>
       </div>
     </div>
 
@@ -244,10 +244,9 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   width: 700px;
-  height: 83px;
-
+  height: 43px;
   margin-left: 98px;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .pageName {
@@ -341,7 +340,7 @@ export default {
   font-size: 27px;
   line-height: 33px;
   color: #4a4a4a;
-  padding-top: 30px;
+  padding-top: 45px;
   padding-left: 40px;
 
 }
@@ -349,12 +348,16 @@ export default {
 .suppCategory {
   font-family: AvenirNext;
   font-size: 16px;
-  line-height: 27px;
+  line-height: 20px;
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
-
   color: #56ccf2;
+  background-color: #fff;
+}
+
+.suppCategory:hover {
+ 
 }
 
 .menuTable {

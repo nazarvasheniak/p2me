@@ -5,12 +5,12 @@
         <div class="driversMainInfoTop">
           <img src="../assets/driver.png" alt />
           <div class="driverMainInfoSubtitle">
-            <h3>{{driver.first_name + driver.last_name}}</h3>
-            <p>Date of registration:13th November, 12:20</p>
+           <h3>{{courier.first_name + courier.last_name}}</h3>
+            <p>Date of registration: 13th November, 12:20</p>
           </div>
         </div>
         <div class="edit flex">
-          <div>Online</div>
+          <div>All orders</div>
         </div>
       </div>
     </div>
@@ -22,68 +22,47 @@
             <strong>Have a car to drive</strong>
           </p>
           <p>
-            <strong>E-mail:</strong> {{driver.e_mail}} 
+            <strong>E-mail:</strong> {{courier.e_mail}} 
           </p>
           <p>
-            <strong>Phone:</strong> {{driver.phone}}
+            <strong>Phone:</strong> {{courier.phone}}
           </p>
           <p>
-            <strong>Date of birth:</strong> {{driver.birthday}}
+            <strong>Date of birth:</strong> {{courier.birthday}}
           </p>
           <p>
-            <strong>City:</strong> {{driver.city}}
+            <strong>City:</strong> {{courier.city}}
           </p>
           <p>
-            <strong>Language:</strong> {{driver.language}}
-          </p>
-        </div>
-        <div class="profileDriverInfoBlockContainer">
-          <p>
-            <strong>Car class:</strong> {{driver.car_class}}
-          </p>
-          <p>
-            <strong>Car manufactorer:</strong> {{driver.car_manufactorer}}
-          </p>
-          <p>
-            <strong>Year of production:</strong> {{driver.year_of_production}}
-          </p>
-          <p>
-            <strong>Car number:</strong> {{driver.car_number}}
-          </p>
-          <p>
-            <strong>Driver’s license:</strong> {{driver.drivers_license}}
-          </p>
-          <p>
-            <strong>Have a taxi license</strong> {{driver.have_license}}
+            <strong>Language:</strong> {{courier.language}}
           </p>
         </div>
         <div class="profileDriverInfoBlockContainer">
           <p>
-            <strong>Expiration date of driver license:</strong> {{driver.expiration_license}}
-          </p>
-          <p>
-            <strong>Expiration date of car:</strong> {{driver.expiration_car}}
+            <strong>Vehicle:</strong> {{courier.vehicle}}
           </p>
         </div>
+        
         <div class="profileDriverInfoBlockContainer">
           <p>
-            <strong>Card number:</strong> {{driver.card_number}}
+            <strong>Card number:</strong> {{courier.card_number}} 
           </p>
           <p>
-            <strong>Cardholder:</strong> {{driver.cardholder}}
+            <strong>Cardholder:</strong> {{courier.cardholder}}
           </p>
           <p>
-            <strong>Bank:</strong> {{driver.bank_name}}
+            <strong>Bank:</strong> {{courier.bank_name}}
           </p>
           <p>
-            <strong>Account number:</strong> {{driver.account_number}}
+            <strong>Account number:</strong> {{courier.account_number}}
           </p>
           <p>
-            <strong>Want to recieve money on credit card</strong> {{driver.receive_money_on_card}}
+            <strong>Want to recieve money on credit card: </strong> {{courier.receive_money_on_card}}
           </p>
         </div>
         <div class></div>
       </div>
+
       <div class="profileMainInfoColumn">
         <h3>Documents:</h3>
         <img src="../assets/card1.png" alt />
@@ -92,19 +71,18 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
 export default {
-  name: "driverMainInfo",
+  name: "courierMainInfo",
   data: () => ({
-    driver: null
+    courier: null
   }),
   mounted() {
     const id = this.$attrs.id;
-    this.$store.dispatch("getDriver", id).then(result => {
-      this.driver = result;
+    this.$store.dispatch("getCourier", id).then(result => {
+      this.courier = result;
     });
   },
   methods: {

@@ -63,14 +63,7 @@ export default {
     carousel
   }, 
   data: () => ({
-    // tabs: [
-    //   { title: "Online", value: "online", class: "dasdascsasdasdasda" },
-    //   { title: "Offline", value: "offline" },
-    //   { title: "Removed", value: "removed" }
-    // ],
-  //   currentTab: "online",
-  // driversList: []
-  
+   
      methods: {
        loadClientList() {
           this.$store.dispatch("loadClientList", this.currentTab).then(result => {

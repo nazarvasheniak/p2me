@@ -6,7 +6,7 @@
         </div>
         <div class="profileMainContainer flex">
         <div class="profileSubContainer flex">
-            <driverMainInfo/>
+            <courierMainInfo/>
         </div>
         <div class="profileSubContainer flex">
             <earnings/>
@@ -20,7 +20,7 @@
 
 
 <script>
-import driverMainInfo from "../components/driverMainInfo.vue";
+import courierMainInfo from "../components/courierMainInfo.vue";
 import earnings from "../components/earnings.vue";
 import tripsCompleted from "../components/tripsCompleted.vue";
 import tripsCanceled from "../components/tripsCanceled.vue";
@@ -30,7 +30,7 @@ import rates from "../components/rates.vue";
 export default {
   name: "Coirier",
   components: {
-    driverMainInfo,
+    courierMainInfo,
     earnings,
     tripsCompleted,
     tripsCanceled,

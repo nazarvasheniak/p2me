@@ -38,14 +38,8 @@
     
 
     <div class="recentOrdersContainerRow flex supplierNewOrdersListContainer accountApplicationsTabs">
-
-    
-      
-
         
         <div class="content">
-          
-
 
             <tabs
         class="recentOrdersContainerRow tabs flex"
@@ -142,9 +136,7 @@ export default {
   align-items: flex-start;
   width: 100%;
 }
-.headerRow {
-  
-}
+
 
  /* .recentOrdersContainerRow {
    /* background-color: #EEDDFF;

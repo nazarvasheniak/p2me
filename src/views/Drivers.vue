@@ -77,7 +77,7 @@
                   <div>{{ item.class }}</div>
                   <div>{{ item.location }}</div>
                   <div>{{ item.start_date }}</div>
-                  <div>
+                  <div v-on:click="">
                     <button>Remove</button>
                   </div>
                 </div>
@@ -206,8 +206,9 @@ export default {
     }
   },
   beforeMount() {
-    this.loadDriversList();
-  }
+    this.loadDriversList(),
+    this.loadCourierList();
+ }
 };
 </script>
 

@@ -4,7 +4,8 @@ export default {
     state: {
         driversList: [],
         courierList: [],
-        driver: null
+        driver: null,
+        courier: null
     },
     mutations: {
         LOAD_DRIVERS_LIST(state, payload) {
@@ -15,6 +16,9 @@ export default {
         },
         GET_DRIVER(state, payload) {
             state.driver = payload
+        },
+        GET_COURIER(state, payload) {
+            state.courier = payload
         }
     },
     actions: {
@@ -40,7 +44,7 @@ export default {
         },
         loadCourierList(context, filter) {
             return new Promise((resolve, reject) => {
-                axios.get('/api/superadmin/couriers_list/?filter=' + filter, {
+                axios.get('/api/superadmin/courier_list/?filter=' + filter, {
                     headers: {
                         "Access-Control-Allow-Origin": '*',
                         "Content-Type": "application/json",
@@ -76,11 +80,35 @@ export default {
                         reject(e);
                     });
             });
+        },
+        getCourier(context, id) {
+            return new Promise((resolve, reject) => {
+                axios.get(`/api/superadmin/courier_detail/${id}/`, {
+                    headers: {
+                        "Access-Control-Allow-Origin": '*',
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": "j8PYQSsFNEHgI0qclM5zcMyCUH3vepQR9LEnZVut36UZ7K5XdWVDsVkkFLrgaySG",
+                        Authorization: 'token ' + localStorage.getItem('token')
+                    }
+                })
+                    .then(response => {
+                        context.commit('GET_COURIER', response.data);
+                        resolve(response.data);
+                    })
+                    .catch(e => {
+                        // console.log(e);
+                        reject(e);
+                    });
+            });
         }
+       
+       
+
     },
     getters: {
         getCourierList: (state) => state.courierList,
         getDriversList: (state) => state.driversList,
-        getDriver: (state) => state.driver
+        getDriver: (state) => state.driver,
+        getCourier: (state) => state.courier
     }
 }
