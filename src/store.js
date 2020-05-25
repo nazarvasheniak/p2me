@@ -6,15 +6,11 @@ import Orders from './store/orders/orders'
 import Profile from './store/profile/profile'
 import Dashboard from './store/dashboard/dashboard'
 import Drivers from './store/drivers/drivers'
-import Clients from  './store/clients/clients' 
+import Clients from './store/clients/clients'
 import Requests from './store/requests/requests'
+import Suppliers from './store/suppliers/suppliers'
 
 Vue.use(Vuex);
-
-//  const store = new Vuex.Store( options: {
-
-//  }
-//  )
 
 export default new Vuex.Store({
   modules: {
@@ -25,8 +21,8 @@ export default new Vuex.Store({
     Dashboard,
     Drivers,
     Clients,
-    Requests
-    
+    Requests,
+    Suppliers
 
   }
 })
