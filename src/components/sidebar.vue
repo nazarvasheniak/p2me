@@ -1,7 +1,7 @@
 <template>
   <aside class="sidebarContainer flex" id="sidebar">
-    <div class="sidebarSubContainer">
-      <img :src="userType == 'supplier' ? logo : superadminLogo" class="logo"/>
+    <div class="sidebarSubContainer" v-on:click="sidebarSubContainer">
+      <img :src="userType == 'supplier' ? logo : superadminLogo">
     </div>
     <div class="sidebarSubContainer">
       <router-link to="/request" class="menuButton flex">
@@ -160,6 +160,12 @@ export default {
     },
     userType: () => localStorage.getItem('userType')
   },
+
+  methods: {
+    sidebarSubContainer() {
+      this.$router.push('/request');
+    }
+  }
 };
 </script>
 

@@ -24,7 +24,7 @@
                             <span>Orders</span>
                             <span>Comments</span>
                             <span>Date</span>
-                            <!-- <span>    </span> -->
+                            
                         </div>
                         <div class="driversListRowContent" v-for="customer in clientList" :key="customer.id" 
                         v-on:click="" >
@@ -63,18 +63,20 @@ export default {
     carousel
   }, 
   data: () => ({
+    clientList: []
+  }),
    
      methods: {
        loadClientList() {
-          this.$store.dispatch("loadClientList", this.currentTab).then(result => {
-          this.clientList = result.client_list;
+          this.$store.dispatch("loadClientList").then(result => {
+          this.clientList = result;
       });
        }
      },
      beforeMount() {
-      this.loadClientsList();
+      this.loadClientList();
   }
-  }),
+  
 };
 </script>
 

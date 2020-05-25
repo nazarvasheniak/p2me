@@ -11,9 +11,12 @@
         <denied/>
       </div>
     </div>
-    <div class="dashboardContainerRow"></div>
+    <div class="dashboardContainerRow1">
+      <h3>Orders</h3>
+      <button class="seeAll" v-on:click="seeAll">See all</button>
+    </div>
     <accountOrderListMain/>
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -35,6 +38,12 @@ export default {
     axios
       .get("https://api.coindesk.com/v1/bpi/currentprice.json")
       .then(response => (this.info = response));
+  },
+
+  methods: {
+    seeAll() {
+      this.$router.push('/accountordercour');
+    }
   }
 };
 </script>
@@ -52,6 +61,19 @@ export default {
   width: 100%;
   align-items: stretch;
   /* border: 1px solid #000; */
+}
+
+.dashboardContainerRow1 {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin-top: 15px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+..dashboardContainerRow1 h3 {
+  padding-top: 15px;
 }
 .dashboardContainerSubRow {
   flex-flow: column nowrap;

@@ -57,7 +57,7 @@
 
             <div v-if="currentTab === 'New orders'">
               <div class="recentOrdersContainerRow ">
-                <accountOrderListMain/>
+                 <accountOrderListMain/> 
                 
                 
               </div>
@@ -89,7 +89,7 @@
 </template>
 
 <script>
- import carousel from "vue-owl-carousel";
+import carousel from "vue-owl-carousel";
 import Tabs from "vue-tabs-with-active-line";
 import accountOrderListMain from "../components/accountOrderListMain.vue";
 import vSelect from "vue-select";
@@ -109,13 +109,13 @@ export default {
       { title: "Picked up", value: "Picked up" },
       { title: "Delivered", value: "Delivered" },
       { title: "Declined", value: "Declined" },
-      // { title: "Restaurants", value: "Restaurants" },
-      // { title: "Shopping", value: "Shopping" },
-      // { title: "Taxi", value: "Taxi" },
-      // { title: "Pharmacy", value: "Pharmacy" },
-      // { title: "Courier", value: "Courier" },
-      // { title: "Markets", value: "Markets" },
-      // { title: "Buy to me", value: "Buy to me" }
+      { title: "Restaurants", value: "Restaurants" },
+      { title: "Shopping", value: "Shopping" },
+       { title: "Taxi", value: "Taxi" },
+       { title: "Pharmacy", value: "Pharmacy" },
+       { title: "Courier", value: "Courier" },
+       { title: "Markets", value: "Markets" },
+       { title: "Buy to me", value: "Buy to me" }
     ],
     currentTab: "New orders"
   }),
@@ -130,7 +130,7 @@ export default {
 <style>
 .ordersContainer {
   
-  overflow-x: hidden;
+   overflow-x: hidden; 
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: flex-start;
@@ -138,32 +138,21 @@ export default {
 }
 
 
- /* .recentOrdersContainerRow {
-   /* background-color: #EEDDFF;
-  border: 6px solid #7922CC;
-  border-radius: 25px; */
-/* }   */
 
 .chooseTypeOrderHeader {
  position: relative;
  display: flex;
  justify-content: center;
- background-color: #FFFFFF;
+ 
  }
 .All {
 margin-left: 10px;
 margin-right: 15px;
 font-size: 18px;
 line-height: 27px;
-/* identical to box height, or 135% */
-/* padding-left: 15px; */
-/* display: flex; */
 align-items: center;
 box-sizing: border-box;
 border-radius: 24px;
-/* justify-content: space-between; */
- 
-
 color: #4A4A4A;
 
 }
@@ -382,7 +371,7 @@ align-items: center;
     -ms-flex-align: center;
     align-items: center;
     letter-spacing: 0.25831px;
-    color: #FFFFFF!important;
+     color: #FFFFFF!important;
 }
 .accountOrdersMainHeaders h1 {
   font-size: 32px;

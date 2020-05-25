@@ -95,12 +95,12 @@
     letter-spacing: 0.172206px;
     transition: 0.7s;
     color: #fff;
-    border: 2px solid #f56c81;
-    background-color: #f56c81;
+    /* border: 2px solid #f56c81;
+    background-color: #f56c81; */
     cursor: pointer;
     outline: none;
   }
-  .decline:hover {
+  /* .decline:hover {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.12);
     border-radius: 24px;
     display: block;
@@ -118,7 +118,7 @@
     color: #f56c81;
     cursor: pointer;
     outline: none;
-  }
+  } */
   .btn-close {
     border: none;
     font-size: 20px;

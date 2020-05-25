@@ -14,7 +14,7 @@ export default {
         },
     },
     actions: {
-        load_products_sections(context, payload) {
+        loadProductSections(context, payload) {
             axios.get('http://localhost:8080/shop/133e3710-2a91-4683-a0c7-d6528a42c545', {
                 headers: {
                     "Access-Control-Allow-Origin": '*',
@@ -30,7 +30,7 @@ export default {
                     console.log(e);
                 });
         },
-        load_products_items(context, payload) {
+        loadProductsItems(context, payload) {
             axios.get('http://localhost:8080/shop/133e3710-2a91-4683-a0c7-d6528a42c545', {
                 headers: {
                     "Access-Control-Allow-Origin": '*',

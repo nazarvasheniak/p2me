@@ -7,12 +7,12 @@
         </div>
       </div>
       <div class="dashboardContainerSubRow flex">
-        <approved/>
-        <denied/>
+          <approved v-bind:approved="driversApproved" v-bind:total="totalDrivers" />
+        	<denied v-bind:denied="driversDenied" v-bind:total="totalDrivers" />
       </div>
     </div>
-    <div class="dashboardContainerRow"></div>
-    <requestList list="requests" />
+    <div class="dashboardContainerRow"></div>  
+     <requestList v-bind:list="requests" /> 
   </div>
 </template>
 
@@ -26,24 +26,34 @@ import axios from "axios";
 export default {
   name: "Request",
   components: {
-    applications,
-    approved,
-    denied,
-    requestList
-  },
-  data() {
-    return {
-      requests: []
-    }
-  },
+	applications,
+	approved,
+	denied,
+	requestList
+	},
+  	data: () => ({
+	totalDrivers: 0,
+	driversApproved: 0,
+	driversDenied: 0,
+	driversByDate: [],
+	requests: []
+  }),
   mounted() {
-    axios
-      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
-      .then(response => (this.info = response));
-    axios
-      .get("http://139.60.163.142:9000.superadmin/driver_status_update")
-      .then(response => (this.requests = response.data));
-  }
+    axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+			.then(response => (this.info = response));
+  
+  	axios.get("http://139.60.163.142:9000.superadmin/driver_status_update")
+			  .then(response => (this.requests = response.data));
+			  
+		this.$store.dispatch("loadRequestsData")
+			.then(result => {
+				this.totalDrivers = result.total_drivers;
+				this.driversApproved = result.drivers_approved;
+				this.driversDenied = result.drivers_denied;
+				this.driversByDate = result.drivers_by_date;
+				this.requests = result.driver_list;
+			});
+  	}
 };
 </script>
 

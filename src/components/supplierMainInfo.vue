@@ -1,17 +1,18 @@
 <template>
-    <div class="profileMainInfoContainer flex supplierMainInfoContainer">
+    <div class="profileMainInfoContainer flex supplierMainInfoContainer" 
+    >
         <div class="profileMainInfoSubContainer flex">
             <div class="subContainerSub flex">
               <div class="driversMainInfoTop">
                 <img src="../assets/burder.png" alt>  
                 <div class="driverMainInfoSubtitle">
-                  <h3>Burger King</h3>
-                  <p>Date of registration:13th November, 12:20</p>
+                  <h3>{{supplier.name}}</h3>
+                  <p>Date of registration: {{supplier.created}} </p>
                 </div>
               </div>
                 <div class="edit flex">
                   <div>
-                    Restaurant & Cafe
+                    {{supplier.category}}
                   </div>
                 </div>
             </div>
@@ -21,22 +22,22 @@
                 <strong>Tag line:</strong>
             </div>
             <div class="supplierColumnContainerBlock">
-                <p>Lorem ipsum dolori lorem lorem Lorem ipsum dolori</p>
+                <p> {{supplier.tag_line}} </p>
             </div>
         </div>
         <div class="profileMainInfoSubContainer">
             <h4>Information</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. Aenean non lorem pellentesque quam molestie finibus a non nunc. Donec pharetra nulla sit amet justo ultrices lacinia.</p>
+            <p> {{supplier.description}} </p>
         </div>
         <div class="profileMainInfoSubContainer flex driversMainInfoText supplierContactInfoContainer">
             <div class="supplierColumnContainerBlock">
-                <p><strong>E-mail:</strong> king@gmail.com</p>
-                <p><strong>Phone:</strong> +38 (012) 345-67-89</p>
-                <p><strong>City:</strong>  Kyiv</p>
+                <p><strong>E-mail:</strong> {{supplier.e_mail}} </p>
+                <p><strong>Phone:</strong> {{supplier.phone}} </p>
+                <p><strong>City:</strong> {{supplier.city}} </p>
             </div>
             <div class="supplierColumnContainerBlock">
-                <p><strong>Instagram:</strong> @burgerking</p>
-                <p><strong>Facebook:</strong>  Burger King</p>
+                <p><strong>Instagram:</strong>-----</p>
+                <p><strong>Facebook:</strong>------</p>
             </div>
         </div>
         <div class="profileMainInfoSubContainer flex driversMainInfoText supplierContactInfoContainer">

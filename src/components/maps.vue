@@ -60,11 +60,11 @@ button {
   display: block;
   transition: 0.7s;
 }
-button:hover {
+ /* button:hover {
   color: #FB5F68;
   background: none;
-  border-color: #FB5F68;
-}
+  border-color: #FB5F68; 
+} */
 img {
   width: 100%;
   display: block;

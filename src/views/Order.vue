@@ -251,7 +251,7 @@ export default {
 }
 
 .decline,
-.accept:hover {
+.accept {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.12);
   border-radius: 24px;
   display: block;
@@ -271,7 +271,7 @@ export default {
   outline: none;
 }
 
-.accept,
+/* .accept,
 .decline:hover {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.12);
   border-radius: 24px;
@@ -290,7 +290,7 @@ export default {
   color: #f56c81;
   cursor: pointer;
   outline: none;
-}
+} */
 
 .adress {
   font-size: 0.9em;

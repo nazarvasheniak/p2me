@@ -5,53 +5,11 @@
         <button class="seeAll">See all</button>
     </div>
     <div class="recentOrdersContainerRow flex requestCotainerStyleClass">
-        <!-- <div class="requestsListItem" v-for="item of list" v-bind:key="item.id">
+        
+        <div class="requestsListItem" v-for="item of list" v-bind:key="item.id">
             <div class="requestsListItemRow">
                 <div class="requestsListItemsMains"><img src="../assets/driver.png" alt="">
-                    <h3>{{ item.name }}</h3></div>
-                <div class="requestsListItemDate">
-                    {{ item.date }}
-                </div>
-            </div>
-            <div class="requestsListItemRow">
-                <div class="requestsListItemColumn">
-                    <p>Have a car to drive</p>
-                    <p><strong>E-mail:</strong> {{ item.email }}</p>
-                    <p><strong>Phone:</strong> {{ item.phone }}</p>
-                    <p><strong>Date of birth:</strong> {{ item.birth }}</p>
-                    <p><strong>City:</strong> {{ item.city }}</p>
-                    <p><strong>Language:</strong> {{ item.lang }}</p>
-                </div>
-                <div class="requestsListItemColumn">
-                    <p><strong>Car manufactorer:</strong> {{ item.car.manufactorer }}</p>
-                    <p><strong>Year of production:</strong> {{ item.car.year }}</p>
-                    <p><strong>Car number:</strong> {{ item.car.number }}</p>
-                    <p><strong>Driver’s license:</strong> {{ item.car.license }}</p>
-                    <p><strong>Have a taxi license </strong></p>
-                </div>
-                <div class="requestsListItemColumn">
-                    <p><strong>Photos:</strong></p>
-                    <div class="requestsListItemPhotos"><img src="../assets/card1.png" alt=""><img src="../assets/card2.png" alt=""><img src="../assets/card3.png" alt=""></div>
-                    <p><strong>Expiration date of driver license:</strong> {{ item.license.exp_date }}</p>
-                    <p><strong>Expiration date of car:</strong> {{ item.car.exp_date }}</p>
-                </div>
-                <div class="requestsListItemColumn">
-                    <p><strong>Card number:</strong> {{ item.card.number }}</p>
-                    <p><strong>Cardholder:</strong> {{ item.card.holder }}</p>
-                    <p><strong>Bank:</strong> {{ item.card.bank }}</p>
-                    <p><strong>Account number:</strong> {{ item.card.account }}</p>
-                    <p><strong>Want to receive money on credit card</strong></p>
-                </div>
-                <div class="requestsListItemColumn">
-                    <button class="accept" v-on:click="accept">Accept</button>
-                    <button class="decline" v-on:click="decline">Decline</button>
-                </div>
-            </div>
-        </div> -->
-        <div class="requestsListItem">
-            <div class="requestsListItemRow">
-                <div class="requestsListItemsMains"><img src="../assets/driver.png" alt="">
-                    <h3> {{driver.first_name}} {{driver.second_name}}</h3></div>
+                    <h3> {{item.first_name}} {{item.second_name}}</h3></div>
                 <div class="requestsListItemDate">7
                     13th November, 12:20
                 </div>
@@ -59,36 +17,36 @@
             <div class="requestsListItemRow">
                 <div class="requestsListItemColumn">
                     <p>Have a car to drive</p>
-                    <p><strong>E-mail:</strong> {{driver.e_mail}}</p>
-                    <p><strong>Phone:</strong> {{driver.phone}}</p>
-                    <p><strong>Date of birth:</strong> {{driver.birthday}}</p>
-                    <p><strong>City:</strong> {{driver.city}}</p>
-                    <p><strong>Language:</strong> {{driver.language}}</p>
+                    <p><strong>E-mail:</strong> {{item.e_mail}}</p>
+                    <p><strong>Phone:</strong> {{item.phone}}</p>
+                    <p><strong>Date of birth:</strong> {{item.birthday}}</p>
+                    <p><strong>City:</strong> {{item.city}}</p>
+                    <p><strong>Language:</strong> {{item.language}}</p>
                 </div>
                 <div class="requestsListItemColumn">
-                    <p><strong>Car manufactorer:</strong> {{driver.car_manufactorer}}</p>
-                    <p><strong>Year of production:</strong> {{driver.year_of_production}}</p>
-                    <p><strong>Car number:</strong> {{driver.car_number}}</p>
-                    <p><strong>Driver’s license:</strong> {{driver.drivers_license}}</p>
-                    <p><strong> {{driver.have_license}}</strong></p>
+                    <p><strong>Car manufactorer:</strong> {{item.car_manufactorer}}</p>
+                    <p><strong>Year of production:</strong> {{item.year_of_production}}</p>
+                    <p><strong>Car number:</strong> {{item.car_number}}</p>
+                    <p><strong>Driver’s license:</strong> {{item.drivers_license}}</p>
+                    <p><strong> {{item.have_license}}</strong></p>
                 </div>
                 <div class="requestsListItemColumn">
                     <p><strong>Photos:</strong></p>
                     <div class="requestsListItemPhotos"><img src="../assets/card1.png" alt=""><img src="../assets/card2.png" alt=""><img src="../assets/card3.png" alt=""></div>
-                    <p><strong>Expiration date of driver license:</strong> {{driver.expiration_license}}</p>
-                    <p><strong>Expiration date of car:</strong> {{driver.expiration_car}}</p>
+                    <p><strong>Expiration date of driver license:</strong> {{item.expiration_license}}</p>
+                    <p><strong>Expiration date of car:</strong> {{item.expiration_car}}</p>
                 </div>
                 <div class="requestsListItemColumn">
-                    <p><strong>Card number:</strong> {{driver.card_number}}</p>
-                    <p><strong>Cardholder:</strong> {{driver.cardholder}}</p>
-                    <p><strong>Bank:</strong> {{driver.bank_name}}</p>
-                    <p><strong>Account number:</strong> {{driver.account_number}}</p>
-                    <p><strong> {{driver.receive_money_on_card}}</strong></p>
+                    <p><strong>Card number:</strong> {{item.card_number}}</p>
+                    <p><strong>Cardholder:</strong> {{item.cardholder}}</p>
+                    <p><strong>Bank:</strong> {{item.bank_name}}</p>
+                    <p><strong>Account number:</strong> {{item.account_number}}</p>
+                    <p><strong> {{item.receive_money_on_card}}</strong></p>
                 </div>
 				
                 <div class="requestsListItemColumn">
                     <button class="accept" v-on:click="accept">Accept</button>
-                    <button class="decline">Decline</button>
+                    <button class="decline" v-on:click="decline">Decline</button>
                 </div>
             </div>
         </div>
@@ -137,8 +95,7 @@
 
 <script>
   import carousel from "vue-owl-carousel";
-// import testApi from "../gateways/testApi.js";
-import axios from 'axios';
+  import axios from 'axios';
 
 export default {
 name: "requestList",
@@ -154,10 +111,10 @@ data() {
 },
 methods: {
 	accept() {
-	  this.acceptModalVision = !this.acceptModalVision;
+	this.acceptModalVision = !this.acceptModalVision;
 	},
 	decline() {
-	  this.$router.push('/request/decline');
+	this.$router.push('/drivers');
 	}
   }
 };
@@ -228,12 +185,12 @@ color: #4A4A4A;
 	background-color: #f56c81;
 	color: #fff;
 }
-.decline {
+ .decline {
 	color: #f56c81;
 	background-color: #fff;
-}
+} 
 
-.accept,
+/* .accept,
 .accept:hover,
 .decline,
 .decline:hover {
@@ -257,7 +214,7 @@ color: #4A4A4A;
 	border: 2px solid #f56c81;
 	cursor: pointer;
 	outline: none
-}
+} */
 
 /* .accept:hover,
 .decline {

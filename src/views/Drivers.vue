@@ -7,12 +7,12 @@
           class="DriversView"
           v-on:click="changeTab('online', true)"
           style="text-align: center;"
-        >Drivers</button>
+          >Drivers</button>
         <button
           class="CouriersView"
           v-on:click="changeTab('online', false)"
           style="text-align: center;"
-        >Couriers</button>
+          >Couriers</button>
       </div>
 
       <div class="filter-btns-right flex">
@@ -29,16 +29,7 @@
       </div>
     </div>
 
-    <!-- <tabs
-          :tabs="tabs"
-          :currentTab="currentTab"
-          :wrapper-class="'tabs'"
-          :tab-class="'tabs__item'"
-          :tab-active-class="'tabs__item_active'"
-          :line-class="'tabs__active-line'"
-          @onClick="handleClick"
-    ></tabs>-->
-
+    <
     <!-- </div> -->
     <div class="recentOrdersContainerRow flex driversListCarouselContainer">
       <div class="content">
@@ -100,24 +91,28 @@
                 <span>Last visit</span>
                 <span>Transport</span>
                 <span>Class</span>
-                <!-- <span>Location</span> -->
                 <span>Start Date</span>
                 <span></span>
               </div>
 
-              <div class="driversListRowContent">
-                <div>
-                  <img src="../assets/driver.png" alt />
-                  <strong>Petrov Ivan</strong>
+              <div
+                  class="driversListRowContent"
+                  v-for="item in items"
+                  :key="item.id"
+                  v-on:click="-(item.id)"
+                >
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>{{ item.first_name }} {{ item.last_name }}</strong>
+                  </div>
+                  <div>{{ item.transport }}</div>
+                  <div>{{ item.class }}</div>
+                  <div>{{ item.location }}</div>
+                  <div>{{ item.start_date }}</div>
+                  <div>
+                    <button>Remove</button>
+                  </div>
                 </div>
-                <div>15.03.2018,12:23</div>
-                <div>BMW X5</div>
-                <div>Standart</div>
-                <div>13.12.2018</div>
-                <div>
-                  <button>Remove</button>
-                </div>
-              </div>
             </div>
           </carousel>
         </div>
@@ -140,19 +135,24 @@
                 <span></span>
               </div>
 
-              <div class="driversListRowContent">
-                <div>
-                  <img src="../assets/driver.png" alt />
-                  <strong>Petrov Ivan</strong>
+              <div
+                  class="driversListRowContent"
+                  v-for="item in items" 
+                  :key="item.id"
+                  v-on:click="openDriverProfile(item.id)"
+                >
+                  <div>
+                    <img src="../assets/driver.png" alt />
+                    <strong>{{ item.first_name }} {{ item.last_name }}</strong>
+                  </div>
+                  <div>{{ item.transport }}</div>
+                  <div>{{ item.class }}</div>
+                  <div>{{ item.location }}</div>
+                  <div>{{ item.start_date }}</div>
+                  <div v-on:click="">
+                    <button>Remove</button>
+                  </div>
                 </div>
-                <div>Lorem ipsum dolor sit amet.</div>
-                <div>BMW X5</div>
-                <div>13.12.2018</div>
-                <div>20.03.2019</div>
-                <div>
-                  <button>Activate</button>
-                </div>
-              </div>
             </div>
           </carousel>
         </div>
@@ -182,7 +182,6 @@ export default {
   }),
   methods: {
     changeTab(newTab, isdriver = this.isDriverOrCourier) {
-      debugger;
       this.currentTab = newTab;
       if (isdriver === true) {
         this.loadDriversList();
@@ -195,6 +194,7 @@ export default {
       this.$router.push(`/drive/${id}`);
     },
     loadDriversList() {
+      
       this.$store.dispatch("loadDriversList", this.currentTab).then(result => {
         this.items = result.drivers_list;
       });
@@ -314,6 +314,8 @@ export default {
   font-size: 20px;
   text-align: center;
   line-height: 23px;
+  color: #FFFFFF;
+
 }
 
 .CouriersView {
@@ -321,6 +323,7 @@ export default {
   width: 124px;
   height: 44px;
   background: #ffffff;
+  color: #535353;
   border-radius: 24px;
   line-height: 23px;
   display: inline-block;

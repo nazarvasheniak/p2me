@@ -7,17 +7,18 @@
       <!-- </div> -->
 
       <div class="suppChoose flex">
-        <button class="suppCategory">All suppliers</button>
-        <button class="suppCategory">Restaurants</button>
-        <button class="suppCategory">Shopping</button>
-        <button class="suppCategory">Markets</button>
-        <button class="suppCategory">Pharmacy</button>
-        <button class="suppCategory">Removed</button>
+        <button class="suppCategory" v-on:click="changeTab('all suppliers', true)">All suppliers</button>
+        <button class="suppCategory" v-on:click="changeTab('restaurants', true)" >Restaurants</button>
+        <button class="suppCategory" v-on:click="changeTab('shopping', true)">Shopping</button>
+        <button class="suppCategory" v-on:click="changeTab('markets', true)">Markets</button>
+        <button class="suppCategory" v-on:click="changeTab('pharmacy', true)">Pharmacy</button>
+        <button class="suppCategory" v-on:click="changeTab('removed', true)">Removed</button>
       </div>
     </div>
 
     <!-- <div class="tableHeader"> -->
-    <table style="border-collapse:separate; border-spacing: 10px 5px;">
+    <table style="border-collapse:separate; border-spacing: 10px 5px;" >
+       <!-- <carousel> -->
       <thead>
         <tr style="height: 70px;">
           <td class="tdClass">Supplier</td>
@@ -56,36 +57,38 @@
           </td>
         </tr>
       </thead>
-      <tbody>
+      <tbody >
+        
         <!-- row -->
-        <tr>
+        <tr v-for="item in items" :key="item.id">
           <!-- column -->
-          <td style="display: inline-flex;">
+          <td style="display: inline-flex;" >
             <img src="../assets/burder.png" alt="" style="width: 40px;  margin-right: 4px;" />
             <div>
-              <strong class="spanPng" style="margin-right: 60px; padding-top: 15px;" >Burger King</strong>
+              <strong class="spanPng" style="margin-right: 60px; padding-top: 15px;"> {{item.name}} </strong>
             </div>
           </td>
           <td>
-            <span class="menuTable" style="margin-right: 100px;">Burgers</span>
+            <span class="menuTable" style="margin-right: 100px;"> {{item.category}} </span>
           </td>
           <td>
-            <span class="timeTable" style="margin-right: 100px;">06:00-00:00</span>
+            <span class="timeTable" style="margin-right: 100px;"> {{item.schedule}} </span>
           </td>
           <td>
-            <span class="addressTable" style="margin-right: 80px;">Kyiv, Stereo Plaza</span>
+            <span class="addressTable" style="margin-right: 80px;"> {{item.location}} </span>
           </td>
           <td>
-            <span class="dateTable" style="margin-right: 80px;">19.12.2018</span>
+            <span class="dateTable" style="margin-right: 80px;"> {{item.start_date}} </span>
           </td>
           <td>
             <button class="removeButton">Remove</button>
           </td>
         </tr>
       </tbody>
+       <!-- </carousel> -->
     </table>
 
-    <div class="accept-modal-container flex" v-if="acceptModalVision">
+     <div class="accept-modal-container flex" v-if="acceptModalVision">
       <div class="modal">
         <div class="close" v-on:click="accept">
           <svg
@@ -164,7 +167,7 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> 
   </div>
 </template>
 
@@ -181,6 +184,7 @@ export default {
     vSelect
   },
   data: () => ({
+    isSupplier: true,
     tabs: [
       { title: "All suppliers", value: "All suppliers" },
       { title: "Restaurants", value: "Restaurants" },
@@ -199,9 +203,15 @@ export default {
     Close() {},
     handleClick(newTab) {
       this.currentTab = newTab;
-    }
+    },
+    loadSuppliersList() {
+      
+      this.$store.dispatch("loadSuppliersList", this.currentTab).then(result => {
+        this.items = result.suppliers_list;
+      });
+    },
   }
-};
+}
 </script>
 
 <style>
@@ -243,10 +253,12 @@ export default {
 .suppChoose {
   flex-direction: row;
   justify-content: space-between;
-  width: 700px;
-  height: 43px;
+  width: 750px;
+  height: 45px;
   margin-left: 98px;
   margin-top: 15px;
+  
+  
 }
 
 .pageName {
@@ -340,24 +352,32 @@ export default {
   font-size: 27px;
   line-height: 33px;
   color: #4a4a4a;
-  padding-top: 45px;
+  padding-top: 20px;
   padding-left: 40px;
+  padding-bottom: 15px;
 
 }
 
 .suppCategory {
+  
+  border-radius: 17px;
   font-family: AvenirNext;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 17px;
+  line-height: 27px;
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
   color: #56ccf2;
   background-color: #fff;
+ 
 }
 
-.suppCategory:hover {
- 
+.suppCategory:focus {
+background: #56CCF2;
+border: 1px solid #56CCF2;
+box-sizing: border-box;
+border-radius: 24px;
+color: #FFFFFF;
 }
 
 .menuTable {
@@ -565,10 +585,8 @@ line-height: 44px;
 
 .accept,
 .accept:hover,
-.decline,
-.decline:hover {
+.decline  {
   -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, .12); */
   border-radius: 24px;
   display: block;
   width: 108px;
@@ -600,11 +618,11 @@ line-height: 44px;
   
 }
 
-.accept:hover,
+/* .accept:hover,
 .decline {
   background: #fff;
-  color: #f56c81;
-}
+  color: #f56c81; */
+
 .ordersContainerTabs {
   position: absolute;
   margin: 5px 5px 15px;

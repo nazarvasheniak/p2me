@@ -578,22 +578,7 @@
           data.append('shop_description', this.mainInfo);
         }
         console.log(document.querySelector('#profileLogo').load);
-        // if(!document.querySelector('#profileLogo').onload  ) {
-        //   console.log('Error');
-        //   data.append('logo_image', imageFile.files[0]);
-        // }
-        // if(!this.imageFileBanner  ) {
-        //   data.append('header_image', imageFileBanner.files[0]);
-        // }
-        // if(this.imageFileBanner.files[0] !== '' ) {
-          // data.append('category', this.personPhone);
-        // }
-        // if(this.imageFileBanner.files[0] !== '' ) {
-          // data.append('type', this.personPhone);
-        // }
-        // if(this.imageFileBanner.files[0] !== '' ) {
-          // data.append('section', this.personPhone);
-        // }
+        
         if(this.link_to_instagram !== '' ) {
           data.append('link_to_instagram', this.link_to_instagram);
         }
@@ -607,12 +592,7 @@
           data.append('link_to_telegram', this.link_to_telegram);
         }
 
-        // data.append('registration_state', this.personPhone);
-        // data.append('registration_city', this.personPhone);
-        // data.append('registration_street', this.personPhone);
-        // data.append('registration_building', this.personPhone);
-        // data.append('registration_office', this.personPhone);
-        // data.append('registration_postcode', this.personPhone);
+        
 
         axios.put('http://localhost:8080/control_panel/supplier/profile_update/89b48bb9-ef54-46d5-b1b3-ca16a6019643/', data, {
           headers: {

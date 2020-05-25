@@ -11,65 +11,21 @@
           </select>
         </label>
       </div>
-      <div class="topbarlogo">
-        <img src="" alt>
+      <div class="topbarlogo" style="width: 50px; height: 50px">
+        <img src="../assets/burder.png" alt="" style=" width: 50px; height: 50px;" />
       </div>
       <div class="topbarName">
         <p>{{shopProfile.name}}</p>
       </div>
       <button v-on:click.prevent="logout">
-        <img src="../assets/logout.png" alt="Logout">
+        <img src="../assets/logout.png" alt="Logout" v-on:click.prevent="logout">
       </button>
     </div>
   </header>
  </template>
 
  <script>
-// const overlay1 = document.querySelector('.overlay-1');
-// const overlay2 = document.querySelector('.overlay-2');
-// const search = document.querySelector('.search');
-// const input = document.querySelector('.input');
-// overlay1.addEventListener('click', () => {
-//   search.classList.toggle('active');
-//   if (search.classList.contains('active')) {
-//     setTimeout(() => {
-//       input.focus();
-//     }, 200)
-//   }
-// })
-// search.addEventListener('click', () => {
-//   if (search.classList.contains('active')) {
-//     setTimeout(() => {
-//       input.focus();
-//     }, 200)
-//   }
-// })
-// overlay2.addEventListener('click', (e) => {
-//   input.value = '';
-//   input.focus();
-//   search.classList.remove('searching')
-// })
-// document.body.addEventListener('click', (e) => {
-//   if (!search.contains(e.target) && input.value.length === 0) {
-//     search.classList.remove('active');
-//     search.classList.remove('searching');
-//     input.value = '';
-//   }
-// })
-// input.addEventListener('keyup', (e) => {
-//   if (e.keyCode === 13) {
-//     input.blur();
-//   }
-// })
-// input.addEventListener('input', () => {
-//   if (input.value.length > 0) {
-//     search.classList.add('searching')
-//   } else {
-//     search.classList.remove('searching')
-//   }
-// })
-// input.value = '';
-// input.blur();
+
 import searchbar from './searchbar';
 
   export default {
@@ -109,10 +65,11 @@ import searchbar from './searchbar';
     align-items: center;
   }
   .right-container {
-    width: 200px;
+    width: 220px;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    margin-right: 15px;
   }
 .search.active .magnifying-glass {
   transform: translateX(-7%);
@@ -174,12 +131,10 @@ import searchbar from './searchbar';
 .search:not(.searching) .overlay-2 {
   visibility: hidden;
 }
-  .topbarlogo {
-    background-color: grey;
-  }
+ 
 
    .topbarlogo img {
-    width: 65px;
+     width: 65px;
      height: 65px;
      border-radius: 50%;
      object-fit: cover;
@@ -235,9 +190,7 @@ import searchbar from './searchbar';
      transition: .7s
    }
 
-   button img {
-     color: #535353;
-   }
+ 
 
   button:hover,
   button:active,

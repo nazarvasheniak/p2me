@@ -74,8 +74,9 @@ export default {
       });
     },
     routeToOrder(id) {
-      const routePath = "/orders/order/" + id;
-      this.$router.push(routePath);
+       this.$router.push(`/supplierOrderSingle/${id}`);
+      // const routePath = "/supplierordersingle/" + id;
+      // this.$router.push(routePath);
     }
   },
   beforeMount() {

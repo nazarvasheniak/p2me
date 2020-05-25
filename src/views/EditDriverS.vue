@@ -15,8 +15,8 @@
                   </div>
                   <img src="../assets/driver.png" alt />
                 </div>
-                <h3>Petrov Ivan</h3>
-              </div>
+                  <input class="inputInput"></input>
+                </div>
               <div class="edit flex">
                 <!-- <button class="redBorderButtonMain" v-on:click="accept">Remove driver</button> -->
                 <button
@@ -67,7 +67,7 @@
                         
                       </div>
                         <button class="saveButton">
-                          OK
+                          Save
                         </button>
  
 
@@ -85,10 +85,13 @@
                   <strong>Have a car to drive</strong>
                 </p>
                 <p>
-                  <strong>E-mail:</strong> petrovivan@gmail.com
+                   <strong>E-mail: </strong> 
+                    <input type="text" v-model="editThis" placeholder=""</input>
                 </p>
                 <p>
-                  <strong>Phone:</strong> +38 (012) 345-67-89
+                  <strong>Phone:</strong> 
+                   <input type="text" v-model="editThis" placeholder=""</input>
+                    
                 </p>
                 <p>
                   <strong>Date of birth:</strong> 01.02.1986
@@ -261,6 +264,16 @@ export default {
 </script>
 
 <style scoped>
+
+.inputInput {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+  font-family: AvenirNext;
+  font-size: 30px;
+  line-height: 41px;
+}
 .profileContainer {
   flex-flow: column nowrap;
   width: 100%;

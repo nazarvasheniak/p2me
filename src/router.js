@@ -109,6 +109,12 @@ let router = new Router({
       component: Clients
     },
     {
+      path: '/clientOrders',
+      name: 'clientOrders',
+      component: ClientOrders
+    },
+
+    {
       path: '*',
       redirect: {
         path: '/404 ',
@@ -189,12 +195,6 @@ let router = new Router({
       component: Settings
     },
     
-  //  {
-  //     path: '/courierList',
-  //     name: 'courierList',
-  //     component: CourierList
-  //  },
-    
     {
 
       path: '/courier',
@@ -212,11 +212,7 @@ let router = new Router({
       name: 'clientOrders',
       component: ClientOrders
     },
-    // {
-    //   path: '/example',
-    //   name: 'example',
-    //   component: Example
-    // },
+    
   ]
 });
 

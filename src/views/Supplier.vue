@@ -16,13 +16,13 @@
 
         <div class="profileMainContainer flex">
         <div class="profileSubContainer flex">
-            <supplierMainInfo/>
+            <supplierMainInfo :id="$route.params.id"/>
             <!-- <supplierOrderList/> -->
         </div>
         <div class="profileSubContainer flex">
-           <earnings/>
-           <tripsCompleted/>
-           <tripsCanceled/>
+           <earnings :id="$route.params.id"/>
+           <tripsCompleted :id="$route.params.id"/>
+           <tripsCanceled :id="$route.params.id"/>
            <rates/>
         </div>
         </div>
@@ -52,7 +52,14 @@ export default {
     axios
       .get("https://api.coindesk.com/v1/bpi/currentprice.json")
       .then(response => (this.info = response));
+  },
+
+  methods: {
+    openFeedbacks() {
+      this.$router.push('/feedbacks');
+    }
   }
+
 };
 </script>
 
@@ -75,14 +82,14 @@ export default {
   flex-flow: row nowrap;
   align-items: center;
   width: 100%;
-  margin-bottom: 5px;
+  margin-left: 25px;
   justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 .headerRow h1 {
 font-family: AvenirNext;
-font-size: 36px;
-line-height: 49px;
+font-size: 32px;
+line-height: 45px;
 /* identical to box height, or 136% */
 letter-spacing: 0.25831px;
 mix-blend-mode: normal;
@@ -92,13 +99,13 @@ mix-blend-mode: normal;
  
 }
 .goToFeedbacks h2 {
-  margin: 0 50px;
+  margin: 0 35px;
   font-family: AvenirNext;
   font-size: 20px;
   line-height: 25px;
 }
 .goToOrders h2 {
-  margin: 0 15px;
+  margin: 0 35px;
   font-family: AvenirNext;
   font-size: 20px;
   line-height: 25px;
