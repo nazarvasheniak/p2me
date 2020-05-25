@@ -7,7 +7,7 @@
       <!-- </div> -->
 
       <div class="suppChoose flex">
-        <button class="suppCategory" v-on:click="changeTab('all suppliers')">All suppliers</button>
+        <button class="suppCategory" v-on:click="changeTab('all suppliers')" autofocus>All suppliers</button>
         <button class="suppCategory" v-on:click="changeTab('restaurants')">Restaurants</button>
         <button class="suppCategory" v-on:click="changeTab('shopping')">Shopping</button>
         <button class="suppCategory" v-on:click="changeTab('markets')">Markets</button>
@@ -25,7 +25,7 @@
           <td class="tdClass">Location</td>
           <td class="tdClass">Start date</td>
           <td class="tdClass">
-            <button v-on:click="accept">
+            <button >
               <svg
                 width="21"
                 height="20"
@@ -365,7 +365,6 @@ export default {
 
 .suppCategory:focus {
   background: #56ccf2;
-  border: 1px solid #56ccf2;
   box-sizing: border-box;
   border-radius: 24px;
   color: #ffffff;

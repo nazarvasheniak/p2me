@@ -4,12 +4,12 @@
     <div class="filter flex">
       <div class="filter-btns-left flex">
         <button
-          class="DriversView"
+          v-bind:class="{'isActiveView': isDriverOrCourier,'isInActiveView': !isDriverOrCourier}"
           v-on:click="changeTab('online', true)"
           style="text-align: center;"
           >Drivers</button>
         <button
-          class="CouriersView"
+          v-bind:class="{'isActiveView': !isDriverOrCourier,'isInActiveView': isDriverOrCourier}"
           v-on:click="changeTab('online', false)"
           style="text-align: center;"
           >Couriers</button>
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <
+    
     <!-- </div> -->
     <div class="recentOrdersContainerRow flex driversListCarouselContainer">
       <div class="content">
@@ -305,7 +305,7 @@ export default {
   margin: 1px 9px;
 }
 
-.DriversView {
+.isActiveView {
   font-family: "Avenir Next";
   width: 124px;
   height: 44px;
@@ -318,7 +318,7 @@ export default {
 
 }
 
-.CouriersView {
+.isInActiveView {
   font-family: "Avenir Next";
   width: 124px;
   height: 44px;

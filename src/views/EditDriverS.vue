@@ -3,6 +3,27 @@
     <div class="headerRow flex">
       <h1>Edit profile</h1>
     </div>
+          <!-- new version -->
+          <div class="container">
+            <div class="row">
+            <div class="col-sm">
+              left
+            </div>
+            <div class="col-sm">
+              center
+            </div>
+            <div class="col-sm">
+              right
+            <!--Example field -->
+            <div class="form-group row">
+              <label class="col-sm-auto col-form-label" style="font-size:12px;">Account number:</label>
+              <div class="col-sm-8">
+                <input class="form-control-plaintext" v-model="driverInfo.accountNumber"/>
+              </div>
+            </div>
+            </div>
+            </div>
+          </div>
     <div class="profileMainContainer">
       <div class="profileSubContainer flex driverEditMainRow">
         <div class="profileMainInfoContainer">
@@ -15,7 +36,7 @@
                   </div>
                   <img src="../assets/driver.png" alt />
                 </div>
-                  <input class="inputInput" v-model="driverInfo.fullName"/>
+                  <input class="inputInputMain" v-model="driverInfo.fullName"/>
                 </div>
               <div class="edit flex">
                 <!-- <button class="redBorderButtonMain" v-on:click="accept">Remove driver</button> -->
@@ -73,51 +94,58 @@
               </div>
             </div>
           </div>
-          <div class="profileMainInfoSubContainer">
+          <div class="profileMainInfoSubContainer container">
             <div class="profileMainInfoColumn">
               <div class="profileDriverInfoBlockContainer">
                 <h3>Contacts & Info:</h3>
                 <p>
-                  <strong>Have a car to drive</strong>
+                  <strong>{{driverInfo.isHaveCar ? 'Have a car to drive' : ''}}</strong>
                 </p>
                 <p>
                    <strong>E-mail: </strong> 
-                    <input type="text" v-model="editThis" placeholder=""</input>
+                    <input class="inputInput" v-model="driverInfo.email"/>
                 </p>
                 <p>
                   <strong>Phone:</strong> 
-                   <input type="text" v-model="editThis" placeholder=""</input>
-                    
+                    <input class="inputInput" v-model="driverInfo.phone"/>   
                 </p>
                 <p>
-                  <strong>Date of birth:</strong> 01.02.1986
+                  <strong>Date of birth:</strong>
+                   <input class="inputInput" v-model="driverInfo.birthday"/>
                 </p>
                 <p>
-                  <strong>City:</strong> Kyiv
+                  <strong>City:</strong>
+                   <input class="inputInput" v-model="driverInfo.city"/>
                 </p>
                 <p>
-                  <strong>Language:</strong> English
+                  <strong>Language:</strong> 
+                   <input class="inputInput" v-model="driverInfo.language"/>
                 </p>
               </div>
               <div class="profileDriverInfoBlockContainer">
                 <h3>Personal and Vehicle info:</h3>
                 <p>
-                  <strong>Car class:</strong> Standart
+                  <strong>Car class:</strong> 
+                    <input class="inputInput" v-model="driverInfo.carClass"/>
                 </p>
                 <p>
-                  <strong>Car manufactorer:</strong> BMW
+                  <strong>Car manufactorer:</strong>
+                    <input class="inputInput" v-model="driverInfo.carManufactorer"/>
                 </p>
                 <p>
-                  <strong>Year of production:</strong> 2018
+                  <strong>Year of production:</strong>
+                   <input class="inputInput" v-model="driverInfo.year"/>
                 </p>
                 <p>
-                  <strong>Car number:</strong> AA111AA
+                  <strong>Car number:</strong>
+                    <input class="inputInput" v-model="driverInfo.carNumber"/>
                 </p>
                 <p>
-                  <strong>Driver’s license:</strong> AB123456
+                  <strong>Driver’s license:</strong>
+                   <input class="inputInput" v-model="driverInfo.driverLicense"/>
                 </p>
                 <p>
-                  <strong>Have a taxi license</strong>
+                  <strong>{{driverInfo.isHaveLicense ? 'Have a taxi license' : ''}}</strong>
                 </p>
               </div>
               <!-- <div class="profileDriverInfoBlockContainer">
@@ -127,19 +155,27 @@
               <div class="profileDriverInfoBlockContainer">
                 <h3>Payment info:</h3>
                 <p>
-                  <strong>Card number:</strong> 1234 5678 9101 1213
+                  <strong>Card number:</strong>
+                   <input class="inputInput" v-model="driverInfo.cardNumber"/>
                 </p>
                 <p>
-                  <strong>Cardholder:</strong> Ivan
+                  <strong>Cardholder:</strong>
+                   <input class="inputInput" v-model="driverInfo.cardHolder"/>
                 </p>
                 <p>
-                  <strong>Bank:</strong> PrivatBank
+                  <strong>Bank:</strong> 
+                   <input class="inputInput" v-model="driverInfo.bank"/>
                 </p>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Account number:</label>
+                  <div class="col-sm-10">
+                   <input class="form-control-plaintext" v-model="driverInfo.accountNumber"/>
+                  </div>
+                </div>
                 <p>
-                  <strong>Account number:</strong> 123456789
-                </p>
-                <p>
-                  <strong>Want to receive money on credit card</strong>
+                  <strong>
+                    {{driverInfo.isReceiveMoneyoncard ? 'Want to receive money on credit card' : ''}}
+                  </strong>
                 </p>
               </div>
               <div class></div>
@@ -163,7 +199,8 @@
                   <strong>Expiration date of driver</strong>
                 </p>
                 <p>
-                  <strong>license:</strong> 01.02.2017
+                  <strong>license:</strong>
+                   <input class="inputInput" v-model="driverInfo.expirationDateofdriver"/>
                 </p>
               </div>
               <div class="driverEditDocumentsColumn">
@@ -197,7 +234,9 @@
                 <p>
                   <strong>Expiration date of car:</strong>
                 </p>
-                <p>01.02.2017</p>
+                <p>
+                  <input class="inputInput" v-model="driverInfo.expirationDateofcar"/>
+                  </p>
               </div>
             </div>
             <div class="profileMainInfoColumn">
@@ -232,7 +271,28 @@ export default {
 
   data() {
     return {
-      driverInfo: null,
+      driverInfo: {
+          isHaveCar: null,
+          fullName: null,
+          email: null,
+          phone: null,
+          birthday: null,
+          city: null,
+          language: null,
+          carClass: null,
+          carManufactorer: null,
+          year: null,
+          carNumber: null,
+          driverLicense: null,
+          isHaveLicense: null,
+          cardNumber: null,
+          cardHolder: null,
+          bankName: null,
+          accountNumber: null,
+          isReceiveMoneyoncard: null,
+          expirationDateofdriver: null,
+          expirationDateofcar: null
+        },
       acceptModalVision: false,
       selectReasonForRemoveDriver: ""
     };
@@ -255,11 +315,31 @@ export default {
       this.$store
       .dispatch("getDriver", id)
       .then(result => {
-        debugger;
         const model = {
+          isHaveCar: result.have_car,
           fullName: result.first_name+' '+result.last_name,
           email: result.e_mail,
+          phone: result.phone,
+          birthday: result.birthday,
+          city: result.city,
+          language: result.language,
+          carClass: result.car_class,
+          carManufactorer: result.car_manufactorer,
+          year: result.year_of_production,
+          carNumber: result.car_number,
+          driverLicense: result.drivers_license,
+          isHaveLicense: result.have_license,
+          cardNumber: result.card_number,
+          cardHolder: result.card_holder,
+          bankName: result.bank_name,
+          accountNumber: result.account_number,
+          isReceiveMoneyoncard: result.receive_money_on_card,
+          expirationDateofdriver: result.expiration_license,
+          expirationDateofcar: result.expiration_car
+
         };
+        debugger;
+        
         this.driverInfo = model;
       });
     }
@@ -278,8 +358,22 @@ export default {
   background: transparent;
   border-bottom: 1px solid black;
   font-family: AvenirNext;
-  font-size: 30px;
-  line-height: 41px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #4A4A4A;
+  margin-left: 5px;
+}
+
+.inputInputMain {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+  font-family: AvenirNext;
+  font-size: 22px;
+  line-height: 22px;
+  color: #4A4A4A;
+  margin-left: 5px;
 }
 .profileContainer {
   flex-flow: column nowrap;

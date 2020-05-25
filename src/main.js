@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import Axios from 'axios'
 import "./vee-validate"
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.css';
 
 Vue.prototype.$http = Axios;
 Vue.config.productionTip = false
