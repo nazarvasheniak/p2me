@@ -137,7 +137,7 @@ let router = new Router({
       component: Drive
     },
     {
-      path: '/editDriverS',
+      path: '/editDriverS/:id',
       name: 'editDriverS',
       component: EditDriverS
     },

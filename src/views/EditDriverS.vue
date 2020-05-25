@@ -15,7 +15,7 @@
                   </div>
                   <img src="../assets/driver.png" alt />
                 </div>
-                  <input class="inputInput"></input>
+                  <input class="inputInput" v-model="driverInfo.fullName"/>
                 </div>
               <div class="edit flex">
                 <!-- <button class="redBorderButtonMain" v-on:click="accept">Remove driver</button> -->
@@ -63,14 +63,10 @@
                           style="width: 100%; height: 78px; text-align: left; border-bottom: 1px solid darkgray;"
                           v-on:click="selectReason('FirstValue')"
                         >Another</button>
-
-                        
                       </div>
                         <button class="saveButton">
                           Save
                         </button>
- 
-
                     </form>
                   </div>
                 </div>
@@ -236,6 +232,7 @@ export default {
 
   data() {
     return {
+      driverInfo: null,
       acceptModalVision: false,
       selectReasonForRemoveDriver: ""
     };
@@ -252,13 +249,23 @@ export default {
     Close() {},
     handleClick(newTab) {
       this.currentTab = newTab;
+    },
+    loadInfo() {
+      const id = this.$route.params.id;
+      this.$store
+      .dispatch("getDriver", id)
+      .then(result => {
+        debugger;
+        const model = {
+          fullName: result.first_name+' '+result.last_name,
+          email: result.e_mail,
+        };
+        this.driverInfo = model;
+      });
     }
   },
-
-  mounted() {
-    axios
-      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
-      .then(response => (this.info = response));
+  beforeMount(){
+    this.loadInfo();
   }
 };
 </script>

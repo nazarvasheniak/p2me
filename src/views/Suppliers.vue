@@ -193,7 +193,6 @@ export default {
     },
     Close() {},
     changeTab(newTab) {
-      debugger;
       this.currentTab = newTab;
       this.loadSuppliersList();
     },

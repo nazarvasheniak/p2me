@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     editProfile() {
-      this.$router.push('/editDriverS');
+      this.$router.push(`/editDriverS/${this.$route.params.id}`);
     }
   }
 };
