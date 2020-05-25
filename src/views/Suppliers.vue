@@ -7,12 +7,12 @@
       <!-- </div> -->
 
       <div class="suppChoose flex">
-        <button class="suppCategory" v-on:click="changeTab('all suppliers', true)">All suppliers</button>
-        <button class="suppCategory" v-on:click="changeTab('restaurants', true)">Restaurants</button>
-        <button class="suppCategory" v-on:click="changeTab('shopping', true)">Shopping</button>
-        <button class="suppCategory" v-on:click="changeTab('markets', true)">Markets</button>
-        <button class="suppCategory" v-on:click="changeTab('pharmacy', true)">Pharmacy</button>
-        <button class="suppCategory" v-on:click="changeTab('removed', true)">Removed</button>
+        <button class="suppCategory" v-on:click="changeTab('all suppliers')">All suppliers</button>
+        <button class="suppCategory" v-on:click="changeTab('restaurants')">Restaurants</button>
+        <button class="suppCategory" v-on:click="changeTab('shopping')">Shopping</button>
+        <button class="suppCategory" v-on:click="changeTab('markets')">Markets</button>
+        <button class="suppCategory" v-on:click="changeTab('pharmacy')">Pharmacy</button>
+        <button class="suppCategory" v-on:click="changeTab('removed')">Removed</button>
       </div>
     </div>
 
@@ -85,6 +85,7 @@
       <!-- </carousel> -->
     </table>
 
+<!-- Modal vindow -->
     <div class="accept-modal-container flex" v-if="acceptModalVision">
       <div class="modal">
         <div class="close" v-on:click="accept">
@@ -183,14 +184,6 @@ export default {
   data: () => ({
     items: [],
     isSupplier: true,
-    tabs: [
-      { title: "All suppliers", value: "All suppliers" },
-      { title: "Restaurants", value: "Restaurants" },
-      { title: "Shopping", value: "Shopping" },
-      { title: "Markets", value: "Markets" },
-      { title: "Pharmacy", value: "Pharmacy" },
-      { title: "Removed", value: "Removed" }
-    ],
     acceptModalVision: false,
     currentTab: "All suppliers"
   }),
@@ -199,15 +192,15 @@ export default {
       this.acceptModalVision = !this.acceptModalVision;
     },
     Close() {},
-    handleClick(newTab) {
+    changeTab(newTab) {
+      debugger;
       this.currentTab = newTab;
+      this.loadSuppliersList();
     },
     loadSuppliersList() {
-      debugger;
       this.$store
         .dispatch("loadSuppliersList", this.currentTab)
         .then(result => {
-          debugger;
           this.items = result.suppliers_list;
         });
     }
