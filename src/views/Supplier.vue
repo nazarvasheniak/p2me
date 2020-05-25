@@ -8,9 +8,9 @@
             <h2 style="color:#606060;">Feedbacks</h2>
           </div>
 
-          <div class="goToOrders" v-on:click="openAccountOrderS">
+          <!-- <div class="goToOrders" v-on:click="openAccountOrderS">
             <h2 style="color:#606060;">Orders</h2>
-          </div>
+          </div> -->
         </div>
         </div>
 

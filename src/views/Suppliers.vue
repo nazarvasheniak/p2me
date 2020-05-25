@@ -368,6 +368,7 @@ export default {
   box-sizing: border-box;
   border-radius: 24px;
   color: #ffffff;
+  outline: none;
 }
 
 .menuTable {

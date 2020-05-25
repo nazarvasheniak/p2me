@@ -1,49 +1,52 @@
 <template>
-    <div class="profileMainInfoContainer flex supplierMainInfoContainer" 
-    >
-        <div class="profileMainInfoSubContainer flex">
-            <div class="subContainerSub flex">
-              <div class="driversMainInfoTop">
-                <img src="../assets/burder.png" alt>  
-                <div class="driverMainInfoSubtitle">
-                  <h3>{{supplier.name}}</h3>
-                  <p>Date of registration: {{supplier.created}} </p>
-                </div>
-              </div>
-                <div class="edit flex">
-                  <div>
-                    {{supplier.category}}
-                  </div>
-                </div>
-            </div>
+  <div class="profileMainInfoContainer flex supplierMainInfoContainer">
+    <div class="profileMainInfoSubContainer flex">
+      <div class="subContainerSub flex">
+        <div class="driversMainInfoTop">
+          <img src="../assets/burder.png" alt />
+          <div class="driverMainInfoSubtitle">
+            <h3>{{supplier.name}}</h3>
+            <!-- <p>Date of registration: {{supplier.created}} </p> -->
+          </div>
         </div>
-        <div class="profileMainInfoSubContainer flex driversMainInfoText">
-            <div class="supplierColumnContainerBlock">
-                <strong>Tag line:</strong>
-            </div>
-            <div class="supplierColumnContainerBlock">
-                <p> {{supplier.tag_line}} </p>
-            </div>
+        <div class="edit flex">
+          <div>
+            <!-- {{supplier.category}} -->
+          </div>
         </div>
-        <div class="profileMainInfoSubContainer">
-            <h4>Information</h4>
-            <p> {{supplier.description}} </p>
-        </div>
-        <div class="profileMainInfoSubContainer flex driversMainInfoText supplierContactInfoContainer">
-            <div class="supplierColumnContainerBlock">
-                <p><strong>E-mail:</strong> {{supplier.e_mail}} </p>
-                <p><strong>Phone:</strong> {{supplier.phone}} </p>
-                <p><strong>City:</strong> {{supplier.city}} </p>
-            </div>
-            <div class="supplierColumnContainerBlock">
-                <p><strong>Instagram:</strong>-----</p>
-                <p><strong>Facebook:</strong>------</p>
-            </div>
-        </div>
-        <div class="profileMainInfoSubContainer flex driversMainInfoText supplierContactInfoContainer">
-            <button class="redBackgroundButtonMain" v-on:click="openProductCategoryitem">View menu</button>
-        </div>
+      </div>
     </div>
+    <div class="profileMainInfoSubContainer flex driversMainInfoText">
+      <div class="supplierColumnContainerBlock">
+        <strong>Tag line:</strong>
+      </div>
+      <div class="supplierColumnContainerBlock">
+        <!-- <p> {{supplier.tag_line}} </p> -->
+      </div>
+    </div>
+    <div class="profileMainInfoSubContainer">
+      <h4>Information</h4>
+      <!-- <p> {{supplier.description}} </p> -->
+    </div>
+    <div class="profileMainInfoSubContainer flex driversMainInfoText supplierContactInfoContainer">
+      <div class="supplierColumnContainerBlock">
+        <!-- <p><strong>E-mail:</strong> {{supplier.e_mail}} </p> -->
+        <!-- <p><strong>Phone:</strong> {{supplier.phone}} </p> -->
+        <!-- <p><strong>City:</strong> {{supplier.city}} </p> -->
+      </div>
+      <div class="supplierColumnContainerBlock">
+        <p>
+          <strong>Instagram:</strong>-----
+        </p>
+        <p>
+          <strong>Facebook:</strong>------
+        </p>
+      </div>
+    </div>
+    <div class="profileMainInfoSubContainer flex driversMainInfoText supplierContactInfoContainer">
+      <button class="redBackgroundButtonMain" v-on:click="openProductCategoryitem">View menu</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -51,6 +54,7 @@ export default {
   name: "supplierMainInfo",
   data() {
     return {
+      supplier: null,
       disabled: true,
       profileName: "Los Pollos Hermanos Restaurant",
       mainInfo:
@@ -58,14 +62,21 @@ export default {
     };
   },
   methods: {
-    editInfo: function() {
-      ///console.log("click event is done");
+    editInfo: function() {},
+    getSupplier() {
+      debugger;
+      this.$store
+        .dispatch("getSupplier", this.$route.params.id)
+        .then(result => {
+          debugger;
+          this.supplier = result;
+        });
     }
+  },
+  beforeMount() {
+    this.getSupplier();
   }
 };
-/*function test(){
-  ///console.log(123)
-} */
 </script>
 
 <style scoped>
@@ -87,18 +98,18 @@ export default {
   width: 100%;
   flex-flow: column nowrap;
   position: relative;
-} 
+}
 .edit > div {
   font-size: 16px;
-line-height: 25px;
-display: flex;
-align-items: center;
-letter-spacing: 0.232479px;
-color: #9B9B9B;
-border: 1px solid rgba(151, 151, 151, 0.5);
-box-sizing: border-box;
-border-radius: 24px;
-padding: 10px 31px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.232479px;
+  color: #9b9b9b;
+  border: 1px solid rgba(151, 151, 151, 0.5);
+  box-sizing: border-box;
+  border-radius: 24px;
+  padding: 10px 31px;
 }
 .edit > button:first-child {
   background: none;
@@ -129,20 +140,19 @@ padding: 10px 31px;
   /* identical to box height, or 137% */
 
   letter-spacing: 0.322887px;
-  color: #4A4A4A;
-
+  color: #4a4a4a;
 }
 
 .driverMainInfoSubtitle p {
   font-family: AvenirNext;
   font-size: 12px;
   line-height: 19px;
-  
+
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
 
-  color: #4A4A4A;
+  color: #4a4a4a;
 
   opacity: 0.5;
 }
@@ -166,14 +176,14 @@ padding: 10px 31px;
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 .profileMainInfoColumn p {
   font-family: AvenirNext;
   font-size: 18px;
   line-height: 22px;
   align-items: center;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 .profileDriverInfoBlockContainer {
   margin: 30px 1px;
@@ -191,69 +201,69 @@ padding: 10px 31px;
   display: block;
 }
 .supplierMainInfoContainer .driversMainInfoText p {
-    margin: 0px;
+  margin: 0px;
 }
 .supplierColumnContainerBlock {
-    margin-right: 25px;
-    max-width: 45%;
-    font-size: 16px;
-    line-height: 22px;
-    /* or 137% */
-    letter-spacing: 0.172206px;
-    color: #4A4A4A;
-    margin-bottom: 19px;
+  margin-right: 25px;
+  max-width: 45%;
+  font-size: 16px;
+  line-height: 22px;
+  /* or 137% */
+  letter-spacing: 0.172206px;
+  color: #4a4a4a;
+  margin-bottom: 19px;
 }
 .profileMainInfoSubContainer > h4 {
-   font-family: AvenirNext;
-    font-size: 24px;
-    line-height: 33px;
-    /* identical to box height, or 137% */
-    letter-spacing: 0.25831px;
-    color: #4A4A4A;
-    font-weight: bold;
+  font-family: AvenirNext;
+  font-size: 24px;
+  line-height: 33px;
+  /* identical to box height, or 137% */
+  letter-spacing: 0.25831px;
+  color: #4a4a4a;
+  font-weight: bold;
 }
 .profileMainInfoSubContainer > p {
-    font-family: AvenirNext;
-    font-size: 16px;
-    line-height: 24px;
-    /* or 150% */
-    letter-spacing: 0.215258px;
-    color: #9B9B9B;
-    font-weight: 100;
+  font-family: AvenirNext;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+  letter-spacing: 0.215258px;
+  color: #9b9b9b;
+  font-weight: 100;
 }
 .supplierContactInfoContainer {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 .supplierContactInfoContainer p {
-    font-family: AvenirNext;
-    font-size: 18px;
-    line-height: 22px;
-    /* or 122% */
-    display: flex;
-    align-items: center;
-    color: #4A4A4A;
-    margin-bottom: 19px!important;
+  font-family: AvenirNext;
+  font-size: 18px;
+  line-height: 22px;
+  /* or 122% */
+  display: flex;
+  align-items: center;
+  color: #4a4a4a;
+  margin-bottom: 19px !important;
 }
 .redBackgroundButtonMain {
-    font-size: 16px;
-    line-height: 22px;
-    /* identical to box height, or 137% */
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.172206px;
-    color: white;
-    border: 1px solid #FB5F68;
-    box-shadow: 0px 2px 15px #FCB3BB;
-    border-radius: 24px;
-    padding : 9px 30px;
-    background: #FB5F68;
-    transition: 0.7s;
-    margin: 5px auto;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height, or 137% */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.172206px;
+  color: white;
+  border: 1px solid #fb5f68;
+  box-shadow: 0px 2px 15px #fcb3bb;
+  border-radius: 24px;
+  padding: 9px 30px;
+  background: #fb5f68;
+  transition: 0.7s;
+  margin: 5px auto;
 }
 .redBackgroundButtonMain:hover {
-    background: none;
-    color: #FB5F68;
-    position: relative;
+  background: none;
+  color: #fb5f68;
+  position: relative;
 }
 </style>
 

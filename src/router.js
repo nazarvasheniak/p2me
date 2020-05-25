@@ -149,7 +149,7 @@ let router = new Router({
       
     },
     {
-      path: '/supplier',
+      path: '/supplier/:id',
       name: 'supplier',
       component: Supplier
     },

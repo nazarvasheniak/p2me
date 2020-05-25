@@ -39,7 +39,7 @@ export default {
 
     getSupplier(context, id) {
         return new Promise((resolve, reject) => {
-            axios.get(`/api/superadmin/supplier_detail/${id}/`, {
+            axios.get(`/api/superadmin/supplier_detail/supplier_id=${id}`, {
                 headers: {
                     "Access-Control-Allow-Origin": '*',
                     "Content-Type": "application/json",
