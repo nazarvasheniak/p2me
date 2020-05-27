@@ -149,10 +149,12 @@ export default {
 		},
 
 		toggleDeclineModal() {
+			
 			this.declineModalVision = !this.declineModalVision;
 		},
 
 		accept(id) {
+
 			this.activeRequest.id = id;
 			this.toggleAcceptModal();
 		},
