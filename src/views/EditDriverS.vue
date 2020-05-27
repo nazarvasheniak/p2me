@@ -4,7 +4,7 @@
       <h1>Edit profile</h1>
     </div>
           <!-- new version -->
-          <div class="container">
+          <!-- <div class="container">
             <div class="row">
             <div class="col-sm">
               left
@@ -13,9 +13,9 @@
               center
             </div>
             <div class="col-sm">
-              right
+              right -->
             <!--Example field -->
-            <div class="form-group row">
+            <!-- <div class="form-group row">
               <label class="col-sm-auto col-form-label" style="font-size:12px;">Account number:</label>
               <div class="col-sm-8">
                 <input class="form-control-plaintext" v-model="driverInfo.accountNumber"/>
@@ -23,7 +23,7 @@
             </div>
             </div>
             </div>
-          </div>
+          </div> -->
     <div class="profileMainContainer">
       <div class="profileSubContainer flex driverEditMainRow">
         <div class="profileMainInfoContainer">
@@ -166,12 +166,17 @@
                   <strong>Bank:</strong> 
                    <input class="inputInput" v-model="driverInfo.bank"/>
                 </p>
-                <div class="form-group row">
+
+                <p>
+                  <strong>Account number:</strong>
+                   <input class="inputInput" v-model="driverInfo.accountNumber" style="margin-left: -5px;"/>
+                </p>
+                <!-- <div class="form-group row">
                   <label class="col-sm-2 col-form-label">Account number:</label>
                   <div class="col-sm-10">
                    <input class="form-control-plaintext" v-model="driverInfo.accountNumber"/>
                   </div>
-                </div>
+                </div> -->
                 <p>
                   <strong>
                     {{driverInfo.isReceiveMoneyoncard ? 'Want to receive money on credit card' : ''}}
@@ -351,12 +356,23 @@ export default {
 </script>
 
 <style scoped>
+.headerRow {
+  margin-left: 14px;
+}
 
+.headerRow h1 {
+  font-family: AvenirNext;
+  font-size: 36px;
+  line-height: 49px;
+  letter-spacing: 0.25831px;
+  color: #454545;
+  mix-blend-mode: normal;
+}
 .inputInput {
   border: 0;
   outline: 0;
   background: transparent;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #C9C9C9;
   font-family: AvenirNext;
   font-size: 18px;
   line-height: 22px;
@@ -398,7 +414,7 @@ export default {
   background: #ffffff;
   box-shadow: 0px 2px 10px rgba(30, 30, 30, 0.12);
   border-radius: 3px;
-  padding: 30px;
+   padding: 20px; 
 }
 .driverMainInfoTop img {
   margin-right: 19px;
@@ -439,7 +455,7 @@ export default {
   font-size: 30px;
   line-height: 41px;
   letter-spacing: 0.322887px;
-  text-decoration-line: underline;
+  /* text-decoration-line: underline; */
   color: #4a4a4a;
 }
 .editDriverContainerMainBlock p {
@@ -455,7 +471,7 @@ export default {
 }
 .driverDocumentsRowContainer p {
   font-family: AvenirNext;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 25px;
   display: flex;
   align-items: center;
@@ -528,7 +544,21 @@ export default {
   line-height: 49px;
 }
 .profileDriverInfoBlockContainer {
-  width: 33%;
+  width: 330px;
+}
+.profileDriverInfoBlockContainer h3 {
+  font-family: AvenirNext;
+  font-size: 24px;
+  line-height: 33px;
+  color: #4A4A4A;
+  margin-top: 10px;
+}
+
+.profileDriverInfoBlockContainer strong {
+  font-family: AvenirNext;
+  font-size: 18px;
+  line-height: 22px;
+  color: #4A4A4A;
 }
 .accept-modal-container {
   position: fixed;

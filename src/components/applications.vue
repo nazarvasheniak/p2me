@@ -1,22 +1,18 @@
 <template>
   <span>
     <div class="reportsRow flex">
-      <h1>
+      <h1 style="width: 650px;">
         Number of applications
         <span>for</span>
       </h1>
        <!-- <vue-ctk-date-time-picker class="calendar" label="Select date range..." range v-model="value"></vue-ctk-date-time-picker>  -->
-       <div class="headerRow flex" style="padding-right: 26px; box-sizing: border-box; ">
-         <button class="DateView" style="border-radius: 44px; width: 158px; border: 1px solid #4A4A4A;">
-          <p style=" margin: 0px, font-size: 20px, text-align: center, line-height: 27px;">12.07-19.07
-           <span class="menu-icon">
-             <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 0.15C16.3 -0.05 16 -0.05 15.8 0.15L8.3 7.85L0.8 0.15C0.6 -0.05 0.3 -0.05 0.1 0.15C3.7998e-07 0.25 0 0.349999 0 0.449999C0 0.549999 3.7998e-07 0.65 0.1 0.75L7.9 8.75C8.1 8.95 8.4 8.95 8.6 8.75L16.4 0.75C16.6 0.65 16.6 0.35 16.5 0.15Z" fill="#535353"/>
-             </svg>
-           </span>
-          </p>
+       <div class="headerRow1 flex">
+         <button class="DateView1">
+           <span class="datePicker">
+             12.07-19.07
+           </span>  
          </button>  
-        </div> 
+        </div>  
     </div>
      
      <div>
@@ -87,6 +83,27 @@ export default {
 }
 .reportsRow h1 {
     width: 100%;
+}
+
+.headerRow1 {
+  padding-right: 26px;
+  height: 68px;
+  padding-top: 8px;
+  
+}
+
+.DateView1 {
+ border-radius: 24px;
+ width: 200px;
+ height: 42px; 
+ border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.datepicker {
+  margin-top: 5px;
+   margin-bottom: 0; 
+   font-size: 15px;
+    text-align: center;
 }
 </style>
 

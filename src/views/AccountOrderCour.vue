@@ -2,41 +2,13 @@
   <div
     class="ordersContainer flex suppliersListMainContainer suplierNewOrdersContainer accountOrdersContainerMain"
   >
-    <div class="recentOrdersContainerRow flex accountOrdersMainHeaders">
-      <div class="headerRow flex">
-        <button
-          class="DateView"
-          style="margin-left: 15px; margin-bottom:44px; border: 1px solid #4A4A4A;box-sizing: border-box; border-radius: 44px;"
-        >
-          <p
-            style="color: #4A4A4A, margin: 0px, font-size: 20px, text-align: center, line-height: 27px"
-          >
-            12.07-19.07
-            <span class="menu-icon">
-              <svg
-                width="17"
-                height="9"
-                viewBox="0 0 17 9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M16.5 0.15C16.3 -0.05 16 -0.05 15.8 0.15L8.3 7.85L0.8 0.15C0.6 -0.05 0.3 -0.05 0.1 0.15C3.7998e-07 0.25 0 0.349999 0 0.449999C0 0.549999 3.7998e-07 0.65 0.1 0.75L7.9 8.75C8.1 8.95 8.4 8.95 8.6 8.75L16.4 0.75C16.6 0.65 16.6 0.35 16.5 0.15Z"
-                  fill="#535353"
-                />
-              </svg>
-            </span>
-          </p>
-        </button>
-      </div>
-      <v-select
-        class="vSelect"
-        placeholder="Enter here..."
-        :options="['1','2','3','4', '5', '10','15','20','25','30']"
-      ></v-select>
-    </div>
+    <div class="headerRow2 flex">
+         <button class="DateView2">
+           <span class="datePicker">
+             12.07-19.07
+           </span>  
+         </button>  
+        </div>  
 
     <div style="width: 100%; height: 30px; margin: 0; display:inherit; margin-bottom: 10px; background: #FFFFFF;">
       <button class="All">All</button>
@@ -425,5 +397,97 @@ export default {
 }
 .accountOrdersMainHeaders .v-select .open-indicator:before {
   border-color: white;
+}
+
+.headerRow2 {
+  padding-right: 26px;
+  height: 68px;
+  padding-top: 8px;
+  padding-bottom: 15px;
+}
+
+.DateView2 {
+ border-radius: 24px;
+ width: 200px;
+ height: 38px; 
+ border: 1px solid rgba(0, 0, 0, 0.2);
+ 
+}
+
+.datepicker {
+  margin-top: 5px;
+   margin-bottom: 0; 
+   font-size: 15px;
+    text-align: center;
+}
+
+/* .All
+.Restaurants
+.Shopping
+.Taxi
+.Pharmacy
+.Courier
+.Markets */
+.Buytome:focus {
+  background: #56ccf2;
+  box-sizing: border-box;
+  border-radius: 24px;
+  color: #FFFFFF;
+  outline: none;
+}
+
+.All:focus {
+  background: #56ccf2;
+  box-sizing: border-box;
+  border-radius: 24px;
+  color: #FFFFFF;
+  outline: none;
+}
+
+.Restaurants:focus {
+  background: #56ccf2;
+  box-sizing: border-box;
+  border-radius: 24px;
+  color: #FFFFFF;
+  outline: none;
+}
+.Shopping:focus {
+  background: #56ccf2;
+  box-sizing: border-box;
+  border-radius: 24px;
+  color: #FFFFFF;
+  outline: none;
+}
+
+.Taxi:focus {
+  background: #56ccf2;
+  box-sizing: border-box;
+  border-radius: 24px;
+  color: #FFFFFF;
+  outline: none;
+}
+
+.Markets:focus {
+  background: #56ccf2;
+  box-sizing: border-box;
+  border-radius: 24px;
+  color: #FFFFFF;
+  outline: none;
+}
+
+.Pharmacy:focus {
+  background: #56ccf2;
+  box-sizing: border-box;
+  border-radius: 24px;
+  color: #FFFFFF;
+  outline: none;
+}
+
+.Courier:focus {
+  background: #56ccf2;
+  box-sizing: border-box;
+  border-radius: 24px;
+  color: #FFFFFF;
+  outline: none;
 }
 </style>

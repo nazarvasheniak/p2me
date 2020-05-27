@@ -12,7 +12,7 @@
         <button class="suppCategory" v-on:click="changeTab('shopping')">Shopping</button>
         <button class="suppCategory" v-on:click="changeTab('markets')">Markets</button>
         <button class="suppCategory" v-on:click="changeTab('pharmacy')">Pharmacy</button>
-        <button class="suppCategory" v-on:click="changeTab('removed')">Removed</button>
+        <button class="suppCategory1" v-on:click="changeTab('removed')">Removed</button>
       </div>
     </div>
 
@@ -25,7 +25,7 @@
           <td class="tdClass">Location</td>
           <td class="tdClass">Start date</td>
           <td class="tdClass">
-            <button >
+            <button style="margin-left: 29px;" >
               <svg
                 width="21"
                 height="20"
@@ -363,8 +363,27 @@ export default {
   background-color: #fff;
 }
 
+.suppCategory1 {
+color: #4A4A4A;
+opacity: 0.5;
+border-radius: 17px;
+font-family: AvenirNext;
+font-size: 17px;
+line-height: 27px;
+display: flex;
+align-items: center;
+letter-spacing: 0.25831px;
+}
+
 .suppCategory:focus {
   background: #56ccf2;
+  box-sizing: border-box;
+  border-radius: 24px;
+  color: #FFFFFF;
+  outline: none;
+}
+.suppCategory1:focus {
+  background: #535353;
   box-sizing: border-box;
   border-radius: 24px;
   color: #ffffff;
@@ -405,8 +424,6 @@ export default {
   font-family: AvenirNext;
   font-size: 16px;
   line-height: 22px;
-  /* identical to box height, or 137% */
-
   align-items: center;
   letter-spacing: 0.206648px;
   color: #4a4a4a;
@@ -428,17 +445,12 @@ export default {
   font-family: "Avenir Next";
   margin-left: -15px;
   padding: 8px 23px;
-  /* float: right; */
-  /* display: block;  */
-  /* text-align: center; */
   border: 1px solid #fb5f68;
   border-radius: 24px;
   font-size: 16px;
   line-height: 22px;
-  /* align-items: center; */
   letter-spacing: 0.172206px;
   color: #fb5f68;
-  /* padding: 8px 23px; */
   background: none;
 }
 
@@ -470,18 +482,6 @@ export default {
   background: #ffffff;
 }
 
-/* .modal h2 {
-margin-bottom: 20px;
-font-family: Avenir Next;
-font-size: 32px;
-line-height: 44px;
-/* identical to box height, or 137% */
-
-/* letter-spacing: 0.153162px; */
-
-/* color: #4A4A4A;
-} */
-
 .close {
   position: absolute;
   right: 25px;
@@ -512,12 +512,7 @@ line-height: 44px;
   box-shadow: 0 0 15px 5px #e5e5e585;
   transition: 0.7s;
 }
-/* input {
-	width: 18px;
-	height: 18px;
-	background: transparent;
-	border: 1px solid #4A4A4A;
-} */
+
 .modal h2 {
   font-family: "AvenirNext";
   font-size: 30px;
@@ -548,7 +543,7 @@ line-height: 44px;
   font-family: AvenirNext;
   font-size: 30px;
   line-height: 49px;
-  /* identical to box height, or 163% */
+  
 
   display: flex;
   align-items: center;
@@ -605,13 +600,6 @@ line-height: 44px;
   color: #4a4a4a;
 }
 
-.tdClass button {
-}
-
-/* .accept:hover,
-.decline {
-  background: #fff;
-  color: #f56c81; */
 
 .ordersContainerTabs {
   position: absolute;

@@ -55,20 +55,29 @@
     align-items: center;
     width: 100%;
     margin-bottom: 5px;
+    margin-left: 23px;
   }
 
   .headerRow h1 {
     font-family: AvenirNext;
-    color: #606060;
+    color: #4A4A4A;
     margin: 0;
-    font-size: 1.6em;
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: 0.200907px;
   }
 
   .headerRow h2 {
     font-family: AvenirNext;
-    margin: 0 15px;
+    margin-left: 15px;
+    margin-bottom: 0px;
+    margin-top: 8px;
     color: #606060;
-    font-size: 0.8em;
+    font-size: 14px;
+    line-height: 33px;
+    letter-spacing: 0.200907px;
+    mix-blend-mode: normal;
+    opacity: 0.88;
   }
 
   .prodcutsSubContainer {
@@ -85,7 +94,7 @@
 
   .prodcutsSubContainerHeading {
     width: 100%;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
     border-bottom: 1px solid #000;
     justify-content: space-between;
     align-items: baseline;
@@ -93,14 +102,32 @@
  
   .productNutContainer  {
     border-bottom: 1px solid #000;
-    padding-bottom: 25px;
-    
+    padding-bottom: 20px;
+    border-bottom: 1px solid #000;
+    justify-content: space-between;
+    align-items: baseline;
   }
 
-  .prodcutsSubContainerHeading h5 {
-    width: 100%;
+  .productNutContainer h2 {
+    font-family: AvenirNext;
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: 0.200907px;
+    color: #4A4A4A;
+    margin-left: 17px;
+  }
+
+  .prodcutsSubContainerHeading h2 {
+    font-family: AvenirNext;
+    font-size: 28px;
+    line-height: 33px;
+    letter-spacing: 0.200907px;
+    color: #4A4A4A;
+    margin-left: 17px;
+
+    /* width: 100%;
     color: #F7666A;
-    display: flex;
+    display: flex; */
   }
 
   .prodcutsSubContainerItems {

@@ -1,128 +1,264 @@
 <template>
     <div data-v-edef5880="" class="recentOrdersContainer flex">
-    <div class="recentOrdersContainerRow flex">
-        <h2>Requests</h2>
-        <button class="seeAll">See all</button>
-    </div>
-    <div class="recentOrdersContainerRow flex requestCotainerStyleClass">
+    
+		<div class="recentOrdersContainerRow flex">
+        	<h2>Requests</h2>
+        	<button class="seeAll">See all</button>
+    	</div>
+
+    	<div class="recentOrdersContainerRow flex requestCotainerStyleClass">
         
-        <div class="requestsListItem" v-for="item of list" v-bind:key="item.id">
-            <div class="requestsListItemRow">
-                <div class="requestsListItemsMains"><img src="../assets/driver.png" alt="">
-                    <h3> {{item.first_name}} {{item.second_name}}</h3></div>
-                <div class="requestsListItemDate">7
-                    13th November, 12:20
-                </div>
-            </div>
-            <div class="requestsListItemRow">
-                <div class="requestsListItemColumn">
-                    <p>Have a car to drive</p>
-                    <p><strong>E-mail:</strong> {{item.e_mail}}</p>
-                    <p><strong>Phone:</strong> {{item.phone}}</p>
-                    <p><strong>Date of birth:</strong> {{item.birthday}}</p>
-                    <p><strong>City:</strong> {{item.city}}</p>
-                    <p><strong>Language:</strong> {{item.language}}</p>
-                </div>
-                <div class="requestsListItemColumn">
-                    <p><strong>Car manufactorer:</strong> {{item.car_manufactorer}}</p>
-                    <p><strong>Year of production:</strong> {{item.year_of_production}}</p>
-                    <p><strong>Car number:</strong> {{item.car_number}}</p>
-                    <p><strong>Driver’s license:</strong> {{item.drivers_license}}</p>
-                    <p><strong> {{item.have_license}}</strong></p>
-                </div>
-                <div class="requestsListItemColumn">
-                    <p><strong>Photos:</strong></p>
-                    <div class="requestsListItemPhotos"><img src="../assets/card1.png" alt=""><img src="../assets/card2.png" alt=""><img src="../assets/card3.png" alt=""></div>
-                    <p><strong>Expiration date of driver license:</strong> {{item.expiration_license}}</p>
-                    <p><strong>Expiration date of car:</strong> {{item.expiration_car}}</p>
-                </div>
-                <div class="requestsListItemColumn">
-                    <p><strong>Card number:</strong> {{item.card_number}}</p>
-                    <p><strong>Cardholder:</strong> {{item.cardholder}}</p>
-                    <p><strong>Bank:</strong> {{item.bank_name}}</p>
-                    <p><strong>Account number:</strong> {{item.account_number}}</p>
-                    <p><strong> {{item.receive_money_on_card}}</strong></p>
-                </div>
-				
-                <div class="requestsListItemColumn">
-                    <button class="accept" v-on:click="accept">Accept</button>
-                    <button class="decline" v-on:click="decline">Decline</button>
-                </div>
-            </div>
-        </div>
-    </div>
-	<div class="accept-modal-container flex" v-if="acceptModalVision">
-		<div class="modal">
-			<div class="close" v-on:click="accept">
-				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M19.707 0.293006C19.316 -0.0979941 18.684 -0.0979941 18.293 0.293006L10 8.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L8.58601 10L0.293006 18.293C-0.0979941 18.684 -0.0979941 19.316 0.293006 19.707C0.488006 19.902 0.744006 20 1.00001 20C1.25601 20 1.51201 19.902 1.70701 19.707L10 11.414L18.293 19.707C18.488 19.902 18.744 20 19 20C19.256 20 19.512 19.902 19.707 19.707C20.098 19.316 20.098 18.684 19.707 18.293L11.414 10L19.707 1.70701C20.098 1.31601 20.098 0.684006 19.707 0.293006Z" fill="#4A4A4A"/>
-				</svg>
-			</div>
-			<h2>Please determine the class of car for this driver:</h2>
-			<form @submit.prevent="accept">
-				<div class="radio-btns">
-					<label for="st">
-						<input type="radio" name="car" id="st" value="Standart">
-						Standart
-					</label>
-					<label for="co">
-						<input type="radio" name="car" id="co" value="Comfort">
-						Comfort
-					</label>
-					<label for="lux">
-						<input type="radio" name="car" id="lux" value="LUX">
-						LUX
-					</label>
-					<label for="van">
-						<input type="radio" name="car" id="van" value="Van">
-						Van
-					</label>
-					<label for="bl">
-						<input type="radio" name="car" id="bl" value="Black">
-						Black
-					</label>
-					<label for="cr">
-						<input type="radio" name="car" id="cr" value="Courier">
-						Courier
-					</label>
+        	<div class="requestsListItem" v-for="driver of list" v-bind:key="driver.id">
+            	<div class="requestsListItemRow">
+                	<div class="requestsListItemsMains"><img src="../assets/driver.png" alt="">
+                    	<h3>{{ driver.first_name }} {{ driver.last_name }}</h3>
+					</div>
+
+                	<div class="requestsListItemDate">
+                    	{{ driver.created | requestDate }}
+                	</div>
+            	</div>
+
+				<div class="requestsListItemRow">
+					<div class="requestsListItemColumn">
+						<p v-bind:class="{ 'text-strike': !driver.have_car }">Have a car to drive</p>
+						<p><strong>E-mail:</strong> {{ driver.e_mail }}</p>
+						<p><strong>Phone:</strong> {{ driver.phone }}</p>
+						<p><strong>Date of birth:</strong> {{ driver.birthday }}</p>
+						<p><strong>City:</strong> {{ driver.city }}</p>
+						<p><strong>Language:</strong> {{ driver.language }}</p>
+					</div>
+
+					<div class="requestsListItemColumn">
+						<p><strong>Car manufactorer:</strong> {{ driver.car_manufactorer }}</p>
+						<p><strong>Year of production:</strong> {{ driver.year_of_production }}</p>
+						<p><strong>Car number:</strong> {{ driver.car_number }}</p>
+						<p><strong>Driver’s license:</strong> {{ driver.drivers_license }}</p>
+						<p v-bind:class="{ 'text-strike': !driver.have_license }"><strong>Have a taxi license </strong></p>
+					</div>
+
+					<div class="requestsListItemColumn">
+						<p><strong>Photos:</strong></p>
+						<div class="requestsListItemPhotos"><img src="../assets/card1.png" alt=""><img src="../assets/card2.png" alt=""><img src="../assets/card3.png" alt=""></div>
+						<p><strong>Expiration date of driver license:</strong> {{ driver.expiration_license }}</p>
+						<p><strong>Expiration date of car:</strong> {{ driver.expiration_car }}</p>
+					</div>
+
+					<div class="requestsListItemColumn">
+						<p><strong>Card number:</strong> {{ driver.card_number | cardNumber }}</p>
+						<p><strong>Cardholder:</strong> {{ driver.cardholder }}</p>
+						<p><strong>Bank:</strong> {{ driver.bank_name }}</p>
+						<p><strong>Account number:</strong> {{ driver.account_number }}</p>
+						<p v-bind:class="{ 'text-strike': !driver.receive_money_on_card }"><strong>Want to receive money on credit card</strong></p>
+					</div>
+					
+					<div class="requestsListItemColumn">
+						<button class="accept" v-on:click="accept(driver.id)">Accept</button>
+						<button class="decline" v-on:click="decline(driver.id)">Decline</button>
+					</div>
 				</div>
-				<button type="submit">OK</button>
-			</form>
+        	</div>
+    	</div>
+
+		<div class="accept-modal-container flex" v-if="acceptModalVision">
+			<div class="modal">
+				<div class="close" v-on:click="toggleAcceptModal">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M19.707 0.293006C19.316 -0.0979941 18.684 -0.0979941 18.293 0.293006L10 8.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L8.58601 10L0.293006 18.293C-0.0979941 18.684 -0.0979941 19.316 0.293006 19.707C0.488006 19.902 0.744006 20 1.00001 20C1.25601 20 1.51201 19.902 1.70701 19.707L10 11.414L18.293 19.707C18.488 19.902 18.744 20 19 20C19.256 20 19.512 19.902 19.707 19.707C20.098 19.316 20.098 18.684 19.707 18.293L11.414 10L19.707 1.70701C20.098 1.31601 20.098 0.684006 19.707 0.293006Z" fill="#4A4A4A"/>
+					</svg>
+				</div>
+
+				<h2>Please determine the class of car for this driver:</h2>
+
+				<form @submit="acceptRequest">
+					<div class="radio-btns">
+						<label for="st">
+							<input type="radio" name="car" id="st" value="standart" @change="setClassCar('standart')">
+							Standart
+						</label>
+						<label for="co">
+							<input type="radio" name="car" id="co" value="comfort" @change="setClassCar('comfort')">
+							Comfort
+						</label>
+						<label for="lux">
+							<input type="radio" name="car" id="lux" value="lux" @change="setClassCar('lux')">
+							LUX
+						</label>
+						<label for="van">
+							<input type="radio" name="car" id="van" value="van" @change="setClassCar('van')">
+							Van
+						</label>
+						<label for="bl">
+							<input type="radio" name="car" id="bl" value="black" @change="setClassCar('black')">
+							Black
+						</label>
+						<label for="cr">
+							<input type="radio" name="car" id="cr" value="courier" @change="setClassCar('courier')">
+							Courier
+						</label>
+					</div>
+					<button type="submit">OK</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="decline-modal-container flex" v-if="declineModalVision">
+			<div class="modal">
+				<div class="close" v-on:click="toggleDeclineModal">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M19.707 0.293006C19.316 -0.0979941 18.684 -0.0979941 18.293 0.293006L10 8.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L8.58601 10L0.293006 18.293C-0.0979941 18.684 -0.0979941 19.316 0.293006 19.707C0.488006 19.902 0.744006 20 1.00001 20C1.25601 20 1.51201 19.902 1.70701 19.707L10 11.414L18.293 19.707C18.488 19.902 18.744 20 19 20C19.256 20 19.512 19.902 19.707 19.707C20.098 19.316 20.098 18.684 19.707 18.293L11.414 10L19.707 1.70701C20.098 1.31601 20.098 0.684006 19.707 0.293006Z" fill="#4A4A4A"/>
+					</svg>
+				</div>
+
+				<h2>Are you sure want to decline request?</h2>
+
+				<form @submit="declineRequest">
+					<button type="submit">OK</button>
+					<button type="button" v-on:click="toggleDeclineModal">Cancel</button>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
 </template> 
 
 <script>
   import carousel from "vue-owl-carousel";
-  import axios from 'axios';
+// import testApi from "../gateways/testApi.js";
+import axios from 'axios';
 
 export default {
-name: "requestList",
-components: {
-    carousel
-},
-props: ['list'],
-data() {
-    return {
-    orders: null,
-	acceptModalVision: false
-    };
-},
-methods: {
-	accept() {
-	this.acceptModalVision = !this.acceptModalVision;
+	name: "requestList",
+	components: {
+		carousel
 	},
-	decline() {
-	this.$router.push('/drivers');
+	props: ['list'],
+	data() {
+		return {
+			orders: null,
+			acceptModalVision: false,
+			declineModalVision: false,
+			activeRequest: {
+				id: 0,
+				class_car: ""
+			}
+		};
+	},
+	methods: {
+		toggleAcceptModal() {
+			this.acceptModalVision = !this.acceptModalVision;
+		},
+
+		toggleDeclineModal() {
+			this.declineModalVision = !this.declineModalVision;
+		},
+
+		accept(id) {
+			this.activeRequest.id = id;
+			this.toggleAcceptModal();
+		},
+
+		decline(id) {
+			this.activeRequest.id = id;
+			this.activeRequest.class_car = "";
+			this.toggleDeclineModal();
+		},
+
+		setClassCar(value = "") {
+			this.activeRequest.class_car = value;
+			console.log(this.activeRequest);
+		},
+
+		declineRequest(event) {
+			event.preventDefault();
+
+			if (!this.activeRequest.id)
+				return;
+
+			const data = {
+				driverId: this.activeRequest.id,
+				status: "decline",
+				class_car: this.activeRequest.class_car
+			};
+
+			this.$store.dispatch("updateDriverStatus", data)
+				.then(result => {
+					if (result.status == "decline") {
+						alert('success');
+						this.toggleDeclineModal();
+
+						return;
+					}
+
+					alert('error');
+					this.toggleDeclineModal();
+					return;
+				});
+		},
+
+		acceptRequest(event) {
+			event.preventDefault();
+
+			if (!this.activeRequest.id)
+				return;
+
+			if (this.activeRequest.class_car == "") {
+				alert('Select class car');
+				return;
+			}
+
+			const data = {
+				driverId: this.activeRequest.id,
+				status: "accept",
+				class_car: this.activeRequest.class_car
+			};
+
+			this.$store.dispatch("updateDriverStatus", data)
+				.then(result => {
+					if (result.status == "accept") {
+						alert('success');
+						this.toggleAcceptModal();
+
+						return;
+					}
+
+					alert('error');
+					this.toggleAcceptModal();
+
+					return;
+				});
+		}
+	},
+	filters: {
+		requestDate: (date) => {
+			if (!date) return '';
+
+			const monthNames = ["January", "February", "March", "April", "May", "June",
+				"July", "August", "September", "October", "November", "December"
+			];
+
+			date = new Date(date);
+			return `${date.getDay()}th ${monthNames[date.getMonth()]}, ${date.getHours()}:${date.getMinutes()}`;
+		},
+
+		cardNumber: (value) => {
+			let cNumberStr = String(value);
+			
+			if (cNumberStr.length != 16)
+				return cNumberStr;
+
+			return `${cNumberStr.substr(0, 4)} ${cNumberStr.substr(4, 4)} ${cNumberStr.substr(8, 4)} ${cNumberStr.substr(12, 4)}`;
+		}
 	}
-  }
 };
 
 
 </script>
 
 <style scoped>
+.text-strike {
+	text-decoration: line-through;
+}
+
 .recentOrdersContainer {
 	width: 100%;
 	margin: 50px 0;
@@ -150,7 +286,7 @@ methods: {
 	align-items: flex-end
 }
 .recentOrdersContainer h2 {
-font-family: AvenirNext;
+/* font-family: AvenirNext; */
 font-size: 24px;
 line-height: 33px;
 /* identical to box height, or 137% */
@@ -185,12 +321,12 @@ color: #4A4A4A;
 	background-color: #f56c81;
 	color: #fff;
 }
- .decline {
+.decline {
 	color: #f56c81;
 	background-color: #fff;
-} 
+}
 
-/* .accept,
+.accept,
 .accept:hover,
 .decline,
 .decline:hover {
@@ -206,7 +342,7 @@ color: #4A4A4A;
 	box-sizing: border-box;
 	font-weight: 500;
 	font-size: 16px;
-	font-family: AvenirNext;
+	/* font-family: AvenirNext; */
     
 	letter-spacing: .172206px;
 	-webkit-transition: .7s;
@@ -214,7 +350,7 @@ color: #4A4A4A;
 	border: 2px solid #f56c81;
 	cursor: pointer;
 	outline: none
-} */
+}
 
 /* .accept:hover,
 .decline {
@@ -303,7 +439,7 @@ color: #4A4A4A;
 }
 
 .requestsListItem p {
-	font-family: AvenirNext;
+	/* font-family: AvenirNext; */
     
 	font-size: 15px;
 	line-height: 22px;
@@ -375,6 +511,22 @@ color: #4A4A4A;
 	z-index: 10;
 }
 
+.decline-modal-container {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	justify-content: space-around;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 10;
+}
+
+.decline-modal-container .modal {
+	height: auto;
+}
+
 .modal {
 	width: 679px;
 	height: 574px;
@@ -399,7 +551,7 @@ color: #4A4A4A;
 	letter-spacing: 0.14359px;
 	color: #4A4A4A;
 }
-form {
+.accept-modal-container form {
 	width: 100%;
 	height: 80%;
 	margin-top: 52px;
@@ -409,7 +561,31 @@ form {
 	justify-content: space-between;
 	align-items: center;
 }
-form button {
+.accept-modal-container form button {
+	width: 132px;
+	height: 58px;
+	background: radial-gradient(96.87% 96.87% at 3.13% 3.13%, #FB5F68 0%, #EA84AF 100%);
+	box-shadow: 0px 2px 15px #FCB3BB;
+	border-radius: 24px;
+	border: 0;
+	font-family: 'AvenirNext', sans-serif;
+	font-size: 36px;
+	line-height: 49px;
+	letter-spacing: 0.172308px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+.decline-modal-container form {
+	width: 100%;
+	height: auto;
+	margin-top: 52px;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.decline-modal-container form button {
 	width: 132px;
 	height: 58px;
 	background: radial-gradient(96.87% 96.87% at 3.13% 3.13%, #FB5F68 0%, #EA84AF 100%);
