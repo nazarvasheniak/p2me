@@ -9,7 +9,8 @@
 <script>
 import mainTemplate from "./components/mainTemplate.vue";
 import Login from "./views/Login.vue";
-import api from "./api"
+//import axios from 'axios';
+//axios.defaults.baseURL = 'http://139.60.163.142:9000/';
 
 export default {
   name: "App",
@@ -29,9 +30,6 @@ export default {
             this.$router.push('/login')
           })
     }
-  },
-  beforeMount() {
-    api.axiosSetBaseURL();
   },
   created: function() {
     this.$http.interceptors.response.use(undefined, function (err) {
