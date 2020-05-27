@@ -9,6 +9,7 @@
 <script>
 import mainTemplate from "./components/mainTemplate.vue";
 import Login from "./views/Login.vue";
+import api from "./api"
 
 export default {
   name: "App",
@@ -28,6 +29,9 @@ export default {
             this.$router.push('/login')
           })
     }
+  },
+  beforeMount() {
+    api.axiosSetBaseURL();
   },
   created: function() {
     this.$http.interceptors.response.use(undefined, function (err) {
