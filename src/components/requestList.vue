@@ -217,7 +217,6 @@ export default {
 			this.$store.dispatch("updateDriverStatus", data)
 				.then(result => {
 					if (result.status == "accept") {
-						alert('success');
 						this.toggleAcceptModal();
 
 						return;
