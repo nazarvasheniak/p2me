@@ -6,13 +6,13 @@
         <button
           v-bind:class="{'isActiveView': isDriverOrCourier,'isInActiveView': !isDriverOrCourier}"
           v-on:click="changeTab('online', true)"
-          style="text-align: center;"
-          >Drivers</button>
+          style="text-align: center; outline: none;"
+        >Drivers</button>
         <button
           v-bind:class="{'isActiveView': !isDriverOrCourier,'isInActiveView': isDriverOrCourier}"
           v-on:click="changeTab('online', false)"
-          style="text-align: center;"
-          >Couriers</button>
+          style="text-align: center; outline: none;"
+        >Couriers</button>
       </div>
 
       <div class="filter-btns-right flex">
@@ -24,140 +24,46 @@
           <p style="color: #F9525B; margin: 0px;">Offline</p>
         </button>
         <button class="RemovedView" v-on:click="changeTab('removed')" style="text-align: center;">
-          <p style="color: #4A4A4A; margin: 0px;">Removed</p>
+          <p style="color: #4A4A4A; margin: 0px; ">Removed</p>
         </button>
       </div>
     </div>
-
+     
+     <table style="width: 100%; border-collapse:separate; border-spacing: 10px 5px;">
+       <thead>
+         <tr style="height: 70px;">
+          <td class="tdClass" style="width: 25%;">Drivers</td>
+          <td class="tdClass" style="width: 12%;">Orders</td>
+          <td class="tdClass" style="width: 12%;">Transport</td>
+          <td class="tdClass" style="width: 12%;">Class</td>
+          <td class="tdClass" style="width: 12%;">Location</td>
+          <td class="tdClass" style="width: 12%;">Start date</td>
+         
+         </tr>
+        </thead>
+       <tbody>
+         <!-- row -->
+          <tr v-for="(item, index) in items" :key="item.id" style="height: 60px;" v-on:click="openItemProfile(item.id)">
+          <!-- column -->
+           <td style="display: inline-flex;">
+             <img v-bind:src="item.avatar" style="width: 40px; height: 40px;  margin-right: 10px; border-radius: 50px;"/>
+              <div style=" text-align: center!important;">
+                <p>{{ item.first_name }} {{ item.last_name }}</p>
+              </div>
+           </td>
+           <td class="driverClass">#111111</td>
+           <td class="driverClass">{{ item.transport }}</td>
+           <td class="driverClass">{{ item.class }}</td>
+           <td class="driverClass">{{ item.location }}</td>
+           <td class="driverClass">{{ item.start_date }}</td>
+           <td class="driverClass">
+             <!-- <button class="removeButton" @click="deleteEvent(index)">Remove</button> -->
+             <button class="removeButton" @click="remov">Remove</button>
+           </td>
+          </tr>
+       </tbody>
+     </table>
     
-    <!-- </div> -->
-    <div class="recentOrdersContainerRow flex driversListCarouselContainer">
-      <div class="content">
-        <div v-if="currentTab === 'online'">
-          <div class="recentOrdersContainerRow flex">
-            <carousel
-              class="sliderRecentOrders"
-              :items="1"
-              :nav="true"
-              value="online"
-              v-if="currentTab === 'online'"
-            >
-              <div class="driversListContainer">
-                <div class="driversListRowHeader">
-                  <span>Driver</span>
-                  <span>Order</span>
-                  <span>Transport</span>
-                  <span>Class</span>
-                  <span>Location</span>
-                  <span>Start Date</span>
-                  <span></span>
-                </div>
-
-                <div
-                  class="driversListRowContent"
-                  v-for="item in items"
-                  :key="item.id"
-                  v-on:click="openDriverProfile(item.id)"
-                >
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>{{ item.first_name }} {{ item.last_name }}</strong>
-                  </div>
-                  <div>#111111</div>
-                  <div>{{ item.transport }}</div>
-                  <div>{{ item.class }}</div>
-                  <div>{{ item.location }}</div>
-                  <div>{{ item.start_date }}</div>
-                  <div v-on:click="">
-                    <button>Remove</button>
-                  </div>
-                </div>
-              </div>
-            </carousel>
-          </div>
-        </div>
-
-        <div v-if="currentTab === 'offline'">
-          <carousel
-            class="sliderRecentOrders"
-            :items="1"
-            :nav="true"
-            value="offline"
-            v-if="currentTab === 'offline'"
-          >
-            <div class="driversListContainer">
-              <div class="driversListRowHeader">
-                <span>Driver</span>
-                <span>Last visit</span>
-                <span>Transport</span>
-                <span>Class</span>
-                <span>Start Date</span>
-                <span></span>
-              </div>
-
-              <div
-                  class="driversListRowContent"
-                  v-for="item in items"
-                  :key="item.id"
-                  v-on:click="-(item.id)"
-                >
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>{{ item.first_name }} {{ item.last_name }}</strong>
-                  </div>
-                  <div>{{ item.transport }}</div>
-                  <div>{{ item.class }}</div>
-                  <div>{{ item.location }}</div>
-                  <div>{{ item.start_date }}</div>
-                  <div>
-                    <button>Remove</button>
-                  </div>
-                </div>
-            </div>
-          </carousel>
-        </div>
-
-        <div v-if="currentTab === 'removed'">
-          <carousel
-            class="sliderRecentOrders"
-            :items="1"
-            :nav="true"
-            value="Removed"
-            v-if="currentTab === 'removed'"
-          >
-            <div class="driversListContainer">
-              <div class="driversListRowHeader">
-                <span>Driver</span>
-                <span>Reason for remove</span>
-                <span>Transport</span>
-                <span>Start date</span>
-                <span>Remove date</span>
-                <span></span>
-              </div>
-
-              <div
-                  class="driversListRowContent"
-                  v-for="item in items" 
-                  :key="item.id"
-                  v-on:click="openDriverProfile(item.id)"
-                >
-                  <div>
-                    <img src="../assets/driver.png" alt />
-                    <strong>{{ item.first_name }} {{ item.last_name }}</strong>
-                  </div>
-                  <div>{{ item.transport }}</div>
-                  <div>{{ item.class }}</div>
-                  <div>{{ item.location }}</div>
-                  <div>{{ item.start_date }}</div>
-                  <div v-on:click="">
-                    <button>Remove</button>
-                  </div>
-                </div>
-            </div>
-          </carousel>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -190,11 +96,16 @@ export default {
       }
       this.isDriverOrCourier = isdriver;
     },
-    openDriverProfile(id) {
-      this.$router.push(`/drive/${id}`);
-    },
-    loadDriversList() {
+    openItemProfile(id) {
       
+      if (this.isDriverOrCourier === true) {
+        this.$router.push(`/drive/${id}`);
+      } else if (this.isDriverOrCourier === false) {
+        this.$router.push(`/courier/${id}`);
+      }
+    },
+
+    loadDriversList() {
       this.$store.dispatch("loadDriversList", this.currentTab).then(result => {
         this.items = result.drivers_list;
       });
@@ -204,12 +115,15 @@ export default {
       this.$store.dispatch("loadCourierList", this.currentTab).then(result => {
         this.items = result.couriers_list;
       });
-    }
+    },
+    deleteEvent: function(index) {
+     this.events.splice(index, 1);
+   }
   },
   beforeMount() {
-    this.loadDriversList(),
+    this.loadDriversList();
     this.loadCourierList();
- }
+  }
 };
 </script>
 
@@ -218,6 +132,40 @@ export default {
   width: 100%;
 }
 
+.tdClass {
+  font-family: AvenirNext;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.232479px;
+  color: #4A4A4A;
+}
+
+.removeButton {
+  font-family: "Avenir Next";
+  margin-left: -15px;
+  padding: 8px 23px;
+  border: 1px solid #fb5f68;
+  border-radius: 24px;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.172206px;
+  color: #fb5f68;
+  background: none;
+  outline: none;
+}
+
+.removeButton:hover {
+  background: #fb5f68;
+  color: white;
+  text-align: center;
+  outline: none;
+}
+
+.driverClass {
+ font-family: AvenirNext;
+ font-size: 16px;
+ line-height: 22px;
+}
 .driversListContainer {
   display: flex;
   flex-flow: column nowrap;
@@ -272,12 +220,11 @@ export default {
 .driversListRowHeader span:first-child {
   width: 25.1%;
 }
-.driversListRowContent strong {
+.driversListRowContent p {
   font-size: 20px;
-  line-height: 25px;
-  display: flex;
   align-items: center;
   letter-spacing: 0.232479px;
+  display: flex;
   color: #4a4a4a;
   padding-left: 19px;
 }
@@ -314,8 +261,7 @@ export default {
   font-size: 20px;
   text-align: center;
   line-height: 23px;
-  color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 .isInActiveView {
@@ -338,6 +284,7 @@ export default {
   border-radius: 24px;
   width: 106px;
   height: 38px;
+  outline: #42d18a;
 }
 .OfflineView {
   font-family: "Avenir Next";
@@ -349,6 +296,7 @@ export default {
   border-radius: 24px;
   width: 106px;
   height: 38px;
+  outline: none;
 }
 
 .RemovedView {
@@ -360,6 +308,7 @@ export default {
   border-radius: 24px;
   width: 124px;
   height: 38px;
+  outline: none;
 }
 */ .OnlineView {
   font-family: "Avenir Next";

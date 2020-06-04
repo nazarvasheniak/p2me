@@ -196,9 +196,17 @@
                 </p>
                 <div class="driverMainInfoImage">
                   <div class="driverMainInfoImageOverlay">
+                    <label for="uploadPhoto" class="uploadPhotoLable">
+                        Add photo
+                        <input type="file" id="uploadPhoto">
+                        </label>
                     <iconCamera />
                   </div>
-                  <img src="../assets/card1.png" alt />
+                  <!-- <img src="../assets/card1.png" alt /> -->
+                  <!-- <label>File
+                    <input type="file" id="file" ref="file" v-on:change="onChangeFileUpload()"/>
+                 </label> -->
+
                 </div>
                 <p>
                   <strong>Expiration date of driver</strong>
@@ -208,7 +216,7 @@
                    <input class="inputInput" v-model="driverInfo.expirationDateofdriver"/>
                 </p>
               </div>
-              <div class="driverEditDocumentsColumn">
+              <div class="driverEditDocumentsColumn" tabindex="100">
                 <p>
                   <strong>Photo of technical passport:</strong>
                 </p>
@@ -219,7 +227,20 @@
                   <div class="driverMainInfoImageOverlay">
                     <iconCamera />
                   </div>
-                  <img src="../assets/card2.png" alt />
+                  <div class="input__wrapper">
+                    <div class="example-1">
+  <div class="form-group">
+                   <input type="file" name="file" class="input input__file" 
+                    v-on:change="(e)=> onChangeFileUpload(e)"/>
+                    <label for="input__file" class="input__file-button">
+                      <!-- <span class="input__file-icon-wrapper"><img class="input__file-icon" alt="Выбрать файл" width="25"></span> -->
+                      <span class="input__file-button-text">LOL</span>
+                    </label>
+  </div>
+  </div>
+                  </div>
+                 <!-- <label>File -->
+                <!-- </label> -->
                 </div>
                 <p></p>
               </div>
@@ -232,9 +253,15 @@
                 </p>
                 <div class="driverMainInfoImage">
                   <div class="driverMainInfoImageOverlay">
-                    <iconCamera />
+                    <label>
+                      <input type="file" id="file">
+                        <!-- <img src= -->
+                    </label>
+                    <!-- <iconCamera /> -->
                   </div>
-                  <img src="../assets/card3.png" alt />
+                  
+                    <!-- <input type="file" id="file" ref="file" v-on:change="onChangeFileUpload()"/> -->
+                 
                 </div>
                 <p>
                   <strong>Expiration date of car:</strong>
@@ -299,9 +326,12 @@ export default {
           expirationDateofcar: null
         },
       acceptModalVision: false,
-      selectReasonForRemoveDriver: ""
+      selectReasonForRemoveDriver: "",
+
+      imageFile: null
     };
   },
+
 
   methods: {
     isOpenModalRemoveDriver() {
@@ -343,11 +373,17 @@ export default {
           expirationDateofcar: result.expiration_car
 
         };
-        debugger;
+        
         
         this.driverInfo = model;
       });
+    },
+    onChangeFileUpload(event) {
+      debugger;
+      this.imageFile = event.target.files[0];
+
     }
+
   },
   beforeMount(){
     this.loadInfo();
@@ -356,6 +392,63 @@ export default {
 </script>
 
 <style scoped>
+/* input type file styple */
+.input__wrapper {
+  width: 100%;
+  position: relative;
+  margin: 15px 0;
+  text-align: center;
+}
+ 
+.input__file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+ 
+.input__file-icon-wrapper {
+  height: 60px;
+  width: 60px;
+  margin-right: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-right: 1px solid #fff;
+}
+ 
+.input__file-button-text {
+  line-height: 1;
+  margin-top: 1px;
+}
+ 
+.input__file-button {
+  width: 100%;
+  max-width: 290px;
+  height: 60px;
+  background: #1bbc9b;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+/* end input type file styple  */
 .headerRow {
   margin-left: 14px;
 }

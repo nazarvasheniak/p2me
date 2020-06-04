@@ -5,7 +5,8 @@ export default {
         driversList: [],
         courierList: [],
         driver: null,
-        courier: null
+        courier: null,
+        show_modal_delete_driver: false
     },
     mutations: {
         LOAD_DRIVERS_LIST(state, payload) {
@@ -19,7 +20,11 @@ export default {
         },
         GET_COURIER(state, payload) {
             state.courier = payload
+        },
+        DELETE_DRIVER(state, payload) {
+            state.driver = payload
         }
+    
     },
     actions: {
         loadDriversList(context, status) {
@@ -75,7 +80,6 @@ export default {
                         resolve(response.data);
                     })
                     .catch(e => {
-                        // console.log(e);
                         reject(e);
                     });
             });
@@ -95,11 +99,31 @@ export default {
                         resolve(response.data);
                     })
                     .catch(e => {
-                        // console.log(e);
                         reject(e);
                     });
             });
-        }
+        },
+        
+        deleteDriver(context, id) {
+            return new Promise((resolve, reject) => {
+                axios.delete(`/api/superadmin/driver_delete/${id}`, {
+                    headers: {
+                        "Access-Control-Allow-Origin": '*',
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": "j8PYQSsFNEHgI0qclM5zcMyCUH3vepQR9LEnZVut36UZ7K5XdWVDsVkkFLrgaySG",
+                        Authorization: 'token ' + localStorage.getItem('token')
+                    }
+                })
+                    .then(response => {
+                        context.commit('DELETE_DRIVER', response.data);
+                        resolve(response.data);
+                    })
+                    .catch(e => {
+                        reject(e);
+                    });
+            });
+        },
+        
 
 
 
@@ -108,6 +132,8 @@ export default {
         getCourierList: (state) => state.courierList,
         getDriversList: (state) => state.driversList,
         getDriver: (state) => state.driver,
-        getCourier: (state) => state.courier
+        getCourier: (state) => state.courier,
+        deleteDriver: (state) =>state.show_modal_delete_driver
+        
     }
 }

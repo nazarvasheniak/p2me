@@ -4,9 +4,9 @@
   >
     <div class="headerRow2 flex">
          <button class="DateView2">
-           <span class="datePicker">
+           <p class="datePicker">
              12.07-19.07
-           </span>  
+           </p>  
          </button>  
         </div>  
 
@@ -79,13 +79,7 @@ export default {
       { title: "Picked up", value: "Picked up" },
       { title: "Delivered", value: "Delivered" },
       { title: "Declined", value: "Declined" }
-      // { title: "Restaurants", value: "Restaurants" },
-      // { title: "Shopping", value: "Shopping" },
-      // { title: "Taxi", value: "Taxi" },
-      // { title: "Pharmacy", value: "Pharmacy" },
-      // { title: "Courier", value: "Courier" },
-      // { title: "Markets", value: "Markets" },
-      // { title: "Buy to me", value: "Buy to me" }
+     
     ],
     currentTab: "New orders"
   }),
@@ -105,8 +99,7 @@ export default {
   align-items: flex-start;
   width: 100%;
 }
-.headerRow {
-}
+
 
 .DateView {
   margin-left: 15px;
@@ -414,20 +407,14 @@ export default {
  
 }
 
-.datepicker {
+.datePicker {
+  font-family: 'Avenir_Next';
   margin-top: 5px;
    margin-bottom: 0; 
    font-size: 15px;
     text-align: center;
 }
 
-/* .All
-.Restaurants
-.Shopping
-.Taxi
-.Pharmacy
-.Courier
-.Markets */
 .Buytome:focus {
   background: #56ccf2;
   box-sizing: border-box;

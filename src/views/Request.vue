@@ -39,8 +39,8 @@ export default {
 	requests: []
   }),
   mounted() {
-    axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
-			.then(response => (this.info = response));
+    // axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
+		// 	.then(response => (this.info = response));
   
   	axios.get("http://139.60.163.142:9000.superadmin/driver_status_update")
 			  .then(response => (this.requests = response.data));

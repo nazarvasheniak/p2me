@@ -1,1018 +1,68 @@
 <template>
-    
   <div class="ordersContainer flex suppliersListMainContainer suppliersListMainContainerFeedbacks">
-    
-    <div class="recentOrdersContainerRow flex">
-  
-        <tabs
-        class="recentOrdersContainerRow tabs flex"
-        :tabs="tabs"
-        :currentTab="currentTab"
-        :wrapper-class="'tabs'"
-        :tab-class="'tabs__item'"
-        :tab-active-class="'tabs__item_active'"
-        :line-class="'tabs__active-line'"
-        @onClick="handleClick"
-        ></tabs>
-        
-    </div>
-    <div class="recentOrdersContainerRow flex feedbakcsListContainer">
-        <div class="content">
-            <div v-if="currentTab === 'New feedbacks'">
-             <!-- <div v-if="currentTab === 'Accepted'">  -->
-              <div class="recentOrdersContainerRow flex">
+    <div class="content" style="width: 100%">
+      <div class="flex">
+        <button class="filter-button focus-none text-default text-table-head">New Feedbacks</button>
+        <button
+          class="filter-button focus-none text-default text-table-head"
+          style="margin-left: 20px; margin-right: 20px"
+        >Accepted</button>
+        <button class="filter-button focus-none text-default text-table-head">Declined</button>
+      </div>
 
-                <carousel 
-                    class="sliderRecentOrders"
-                    :items="1"
-                    :nav="true">
-                    <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                        
-                        <span>Order No</span>
-                        <span>Customer</span>
-                        <span>Supplier</span>
-                        <span>Location</span>
-                        <span>Comment</span>
-                        <span>   </span>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                       <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                       
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                        
-                        <span>Order No</span>
-                        <span>Customer</span>
-                        <span>Supplier</span>
-                        <span>Location</span>
-                        <span>Comment</span>
-                        <span>   </span>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                       <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                       
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                        
-                        <span>Order No</span>
-                        <span>Customer</span>
-                        <span>Supplier</span>
-                        <span>Location</span>
-                        <span>Comment</span>
-                        <span>   </span>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                       <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                       
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    </div>
-                </carousel>
+      <table style="margin-top: 15px; margin-right: 10px;">
+        <thead>
+          <tr class="trFeedbacks">
+            <td class="tdFeedbacks" style="width: 11%;">Order №</td>
+            <td class="tdFeedbacks" style="width: 20%;">Customer</td>
+            <td class="tdFeedbacks" style="width: 15%;">Supplier</td>
+            <td class="tdFeedbacks" style="width: 20%;">Location</td>
+            <td class="tdFeedbacks" style="width: 29%;">Comment</td>
+            <td class="tdFeedbacks" style="width: 5%;"></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="text-center inline-flex">
+                <p class="text-default text-table-item"> {{supplier.order_number}} </p>
               </div>
-            </div>
-            <div v-if="currentTab === 'Accepted'">
-              <div class="recentOrdersContainerRow flex">
-                <carousel 
-                    class="sliderRecentOrders"
-                    :items="1"
-                    :nav="true">
-                    <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                        
-                        <span>Order No</span>
-                        <span>Customer</span>
-                        <span>Supplier</span>
-                        <span>Location</span>
-                        <span>Comment</span>
-                        <span>   </span>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                       <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                       
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                        
-                        <span>Order No</span>
-                        <span>Customer</span>
-                        <span>Supplier</span>
-                        <span>Location</span>
-                        <span>Comment</span>
-                        <span>   </span>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                       <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                       
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                        
-                        <span>Order No</span>
-                        <span>Customer</span>
-                        <span>Supplier</span>
-                        <span>Location</span>
-                        <span>Comment</span>
-                        <span>   </span>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                       <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                       
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    </div>
-                </carousel>
+            </td>
+            <td>
+              <div class="text-center inline-flex">
+                <img
+                  src="../assets/burder.png"
+                  alt
+                  style="width: 40px; height: 40px; margin: auto; margin-right: 5px;"
+                />
+                <p class="text-default text-table-item"> {{supplier.customer_name}} </p>
               </div>
-            </div>
-            <div v-if="currentTab === 'Declined'">
-              <div class="recentOrdersContainerRow flex">
-                <carousel 
-                    class="sliderRecentOrders"
-                    :items="1"
-                    :nav="true">
-                   <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                        
-                        <span>Order No</span>
-                        <span>Customer</span>
-                        <span>Supplier</span>
-                        <span>Location</span>
-                        <span>Comment</span>
-                        <span>   </span>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                       <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                       
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                        
-                        <span>Order No</span>
-                        <span>Customer</span>
-                        <span>Supplier</span>
-                        <span>Location</span>
-                        <span>Comment</span>
-                        <span>   </span>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                       <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                       
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="driversListContainer">
-                    <div class="driversListRowHeader">
-                        
-                        <span>Order No</span>
-                        <span>Customer</span>
-                        <span>Supplier</span>
-                        <span>Location</span>
-                        <span>Comment</span>
-                        <span>   </span>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                        
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                       <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    <div class="driversListRowContent">
-                       
-                        <div>#111111</div>
-                        <div class="avatarCellBlock"><img src="../assets/burder.png" alt>Kevin K.</div>
-                        <div>Burger King</div>
-                        <div>Kyiv, Stereo Plaza</div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac luctus quam, non lacinia lorem. Aliquam sed arcu eros. Aenean nec posuere mauris. Ut sit amet leo pulvinar, efficitur erat vel, aliquet ante. </div>
-                        <div>
-                            <button class="redBackgroundButtonMain">Publish</button>
-                            <button class="redBorderButtonMain">Delete</button>
-                        </div>
-                    </div>
-                    </div>
-                </carousel>
+            </td>
+            <td>
+              <div class="text-center inline-flex">
+                <p class="text-default text-table-item"> {{supplier.supplier_name}} </p>
               </div>
-            </div>
-        </div>
+            </td>
+            <td>
+              <div class="inline-flex">
+                <p class="text-default text-table-item"> {{supplier.location}} </p>
+              </div>
+            </td>
+            <td>
+              <div class="inline-flex">
+                <p class="text-default text-table-item"> {{supplier.comment}} </p>
+              </div>
+            </td>
+            <td>
+              <div>
+                <button class="table-button-publish focus-none text-default text-table-item">Publish</button>
+                <button class="table-button-delete focus-none text-default text-table-item">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
   </div>
 </template>
 
@@ -1022,40 +72,135 @@ import Tabs from "vue-tabs-with-active-line";
 
 export default {
   name: "feedbacks",
-  components: {
-    carousel,
-    Tabs
-  },
   data: () => ({
-    tabs: [
-      { title: "New feedbacks", value: "New feedbacks" },
-      { title: "Accepted", value: "Accepted" },
-      { title: "Declined", value: "Declined" }
-      
-    ],
-    currentTab: "New feedbacks"
+      supplier: null,
+      suppliersFeedback: null
   }),
-  methods: {
-    handleClick(newTab) {
-      this.currentTab = newTab;
-    }
+
+  mounted() {
+    this.$store.dispatch("getSuppliersFeedback", {
+        id: this.$route.params['id'],
+        status: "active"
+    }).then(result => {
+      this.suppliersFeedback = result;
+    });
   }
+//   data: () => ({
+//     tabs: [
+//       { title: "New feedbacks", value: "New feedbacks" },
+//       { title: "Accepted", value: "Accepted" },
+//       { title: "Declined", value: "Declined" }
+//     ],
+//     currentTab: "New feedbacks"
+//   }),
+//   methods: {
+//     handleClick(newTab) {
+//       this.currentTab = newTab;
+//     }
+//   }
 };
 </script>
 
 <style >
+.text-center {
+  text-align: center !important;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+.text-default {
+  font-family: AvenirNext;
+  color: #4a4a4a;
+}
+
+.text-table-head {
+  font-size: 18px;
+}
+.text-table-item {
+  font-size: 16px;
+}
 
 .content {
   width: 100%;
+  margin-top: 0;
+  margin-left: 10px;
 }
 
 .ordersContainer {
   overflow-x: hidden;
   flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  /* justify-content: flex-start;
+  align-items: flex-start; */
   width: 100%;
 }
+
+.trFeedbacks {
+  background-color: #ffffff;
+}
+
+.tdFeedbacks {
+  font-family: AvenirNext;
+  font-size: 19px;
+  line-height: 27px;
+  letter-spacing: 0.232479px;
+  color: #4a4a4a;
+}
+
+.focus-none:focus {
+  outline: none;
+}
+
+.filter-button {
+  background: transparent;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.filter-button:focus {
+  background: #4a4a4a;
+  border-radius: 24px;
+  color: #ffffff;
+}
+
+.table-button-publish {
+  background: radial-gradient(
+    110.91px at 3.13% 3.13%,
+    #fb5f68 0%,
+    #ea84af 100%
+  );
+  border: 1px solid #fb5f68;
+  border-radius: 24px;
+  box-shadow: 0px 2px 15px #fcb3bb;
+  color: white;
+  margin-bottom: 8px;
+  padding: 8px 25px;
+  width: 100px;
+}
+
+.table-button-delete {
+  background: transparent;
+  border: 1px solid #fb5f68;
+  border-radius: 24px;
+  color: #fb5f68;
+  padding: 8px 25px;
+  width: 100px;
+}
+
+.tdMyFeedbacks1,
+.tdMyFeedbacks2,
+.tdMyFeedbacks3,
+.tdMyFeedbacks4,
+.tdMyFeedbacks5 {
+  font-family: AvenirNext;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.206648px;
+  color: #4a4a4a;
+}
+
 .ordersContainerTabs {
   margin: 5px 5px 15px;
   width: 100%;
@@ -1063,35 +208,21 @@ export default {
 .recentOrdersListItem:last-child {
   /* border-bottom: none; */
 }
-.suppliersListMainContainer  .tabs__item {
-  
+.suppliersListMainContainer .tabs__item {
   font-size: 14px;
   line-height: 27px;
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
-  color: #FFFFFF;
+  color: #ffffff;
   background: none;
   border-color: transparent;
   padding: 5px 30px;
 }
-/* .suppliersListMainContainer .tabs__item_active  */
-/* .suppliersListMainContainer .tabs__item:hover {  */
-   /* background: #4A4A4A!important; 
-   border: 1px solid #333; 
-  box-sizing: border-box;
-  border-radius: 24px;
-  font-size: 14px;
-  line-height: 27px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.25831px;
-  /* color: #FFFFFF!important; */ 
-
 
 .driversListContainer {
   display: flex;
-  flex-flow: column nowrap ;
+  flex-flow: column nowrap;
   justify-content: flex-start;
 }
 .driversListRowHeader {
@@ -1117,10 +248,10 @@ export default {
   display: flex;
   align-items: center;
   letter-spacing: 0.232479px;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 .suppliersListMainContainer .content {
-  overflow: hidden!important;
+  overflow: hidden !important;
 }
 .suppliersListMainContainer h1 {
   margin-right: 5%;
@@ -1139,104 +270,74 @@ export default {
   flex-flow: row nowrap;
   justify-content: center;
 }
-.feedbakcsListContainer { 
-    background: #FFFFFF;
-    box-shadow: 0px 2px 25px rgba(30, 30, 30, 0.146031);
-    border-radius: 3px;
-    padding: 30px;
-    margin-top: 25px;
+.feedbakcsListContainer {
+  background: #ffffff;
+  box-shadow: 0px 2px 25px rgba(30, 30, 30, 0.146031);
+  border-radius: 3px;
+  padding: 30px;
+  margin-top: 25px;
 }
 .ordersContainer.suppliersListMainContainerFeedbacks {
-    background: none;
-    box-shadow: none;
-    border-radius: none;
-    padding: 0px;
+  background: none;
+  box-shadow: none;
+  border-radius: none;
+  padding: 0px;
 }
 .suppliersListMainContainerFeedbacks .recentOrdersContainerRow.tabs.flex {
-    justify-content: flex-start;
-    padding-left: 15px;
-    text-align: center;
+  justify-content: flex-start;
+  padding-left: 15px;
+  text-align: center;
 }
-.suppliersListMainContainerFeedbacks .recentOrdersContainerRow.tabs.flex .tabs__item {
-    font-size: 20px;
-    line-height: 27px;
-    color: #FFFFFF;
-    margin-right: 45px;
-} 
-.suppliersListMainContainerFeedbacks .recentOrdersContainerRow.tabs.flex .tabs__item_active, .suppliersListMainContainerFeedbacks .recentOrdersContainerRow.tabs.flex .tabs__item:hover, .suppliersListMainContainerFeedbacks .recentOrdersContainerRow.tabs.flex .tabs__item_active:hover {  
-    background: !important;
-    border-radius: 24px;
-    font-size: 20px;
-    line-height: 27px;
-    border-color: white!important;
-    display: flex;
-    align-items: center;
-    color: #4A4A4A!important;
+.suppliersListMainContainerFeedbacks
+  .recentOrdersContainerRow.tabs.flex
+  .tabs__item {
+  font-size: 20px;
+  line-height: 27px;
+  color: #ffffff;
+  margin-right: 45px;
+}
+.suppliersListMainContainerFeedbacks
+  .recentOrdersContainerRow.tabs.flex
+  .tabs__item_active,
+.suppliersListMainContainerFeedbacks
+  .recentOrdersContainerRow.tabs.flex
+  .tabs__item:hover,
+.suppliersListMainContainerFeedbacks
+  .recentOrdersContainerRow.tabs.flex
+  .tabs__item_active:hover {
+  background: !important;
+  border-radius: 24px;
+  font-size: 20px;
+  line-height: 27px;
+  border-color: white !important;
+  display: flex;
+  align-items: center;
+  color: #4a4a4a !important;
 }
 .suppliersListMainContainerFeedbacks .driversListRowHeader span:nth-child(5) {
-    width: 25.1%;
+  width: 25.1%;
 }
 .suppliersListMainContainerFeedbacks .driversListRowHeader span {
-    width: 14.1%;
+  width: 14.1%;
 }
 .suppliersListMainContainerFeedbacks .driversListRowContent div:nth-child(5) {
-    width: 25.1%;
+  width: 25.1%;
 }
 .suppliersListMainContainerFeedbacks .driversListRowContent > div {
-    width: 14.1%;
+  width: 14.1%;
 }
 .suppliersListMainContainerFeedbacks .driversListRowHeader {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    padding-bottom: 19px;
-    padding-top: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding-bottom: 19px;
+  padding-top: 5px;
 }
 .suppliersListMainContainerFeedbacks .driversListRowContent div:nth-child(6) {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 .suppliersListMainContainerFeedbacks .sliderRecentOrders {
-    margin-top: 0px;
-}
-.redBackgroundButtonMain {
-    font-size: 16px;
-    line-height: 22px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.172206px;
-    color: white!important;
-    border: 1px solid #FB5F68!important;
-    box-shadow: 0px 2px 15px #FCB3BB!important;
-    border-radius: 24px;
-    padding : 9px 30px;
-    background: radial-gradient(110.91px at 3.13% 3.13%, #FB5F68 0%, #EA84AF 100%)!important;
-    transition: 0.7s;
-    margin-bottom: 18px;
-}
-.redBackgroundButtonMain:hover {
-    background: none!important;
-    color: #FB5F68!important;
-    position: relative!important;
-}
-.redBorderButtonMain {
-    font-size: 16px;
-    line-height: 22px;
-    /* identical to box height, or 137% */
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.172206px;
-    color: #FB5F68!important;
-    border: 1px solid #FB5F68!important;
-    box-shadow: 0px 2px 15px #FCB3BB!important;
-    border-radius: 24px;
-    padding : 9px 30px;
-    background: none!important;
-    transition: 0.7s;
-}
-.redBorderButtonMain:hover {
-    background: #FB5F68!important;
-    color: white!important;
-    text-align: center!important;
+  margin-top: 0px;
 }
 </style>

@@ -7,22 +7,17 @@
           <div class="goToFeedbacks" v-on:click="openFeedbacks">
             <h2 style="color:#606060;">Feedbacks</h2>
           </div>
-
-          <!-- <div class="goToOrders" v-on:click="openAccountOrderS">
-            <h2 style="color:#606060;">Orders</h2>
-          </div> -->
         </div>
-        </div>
+    </div>
 
         <div class="profileMainContainer flex">
         <div class="profileSubContainer flex">
             <supplierMainInfo :id="$route.params.id"/>
-            <!-- <supplierOrderList/> -->
         </div>
         <div class="profileSubContainer flex">
-           <earnings :id="$route.params.id"/>
-           <tripsCompleted :id="$route.params.id"/>
-           <tripsCanceled :id="$route.params.id"/>
+           <earnings />
+           <tripsCompleted />
+           <tripsCanceled />
            <rates/>
         </div>
         </div>
@@ -55,8 +50,8 @@ export default {
   },
 
   methods: {
-    openFeedbacks() {
-      this.$router.push('/feedbacks');
+    openFeedbacks(id) {
+      this.$router.push(`/feedbacks/${id}`);
     }
   }
 
@@ -95,9 +90,7 @@ letter-spacing: 0.25831px;
 mix-blend-mode: normal;
 }
 
-.rightSight {
- 
-}
+
 .goToFeedbacks h2 {
   margin: 0 35px;
   font-family: AvenirNext;

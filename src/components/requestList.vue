@@ -114,7 +114,7 @@
 
 				<form @submit="declineRequest">
 					<button type="submit">OK</button>
-					<button type="button" v-on:click="toggleDeclineModal">Cancel</button>
+					<button type="button" v-on:click="toggleDeclineModal" >Cancel</button>
 				</form>
 			</div>
 		</div>
@@ -321,13 +321,19 @@ color: #4A4A4A;
 .accept {
 	background-color: #f56c81;
 	color: #fff;
+	cursor: pointer;
+	transition: .7s;
+	border: 2px solid #f56c81;
 }
 .decline {
 	color: #f56c81;
 	background-color: #fff;
+	cursor: pointer;
+	transition: .7s;
+	border: 2px solid #f56c81;
 }
 
-.accept,
+/* .accept,
 .accept:hover,
 .decline,
 .decline:hover {
@@ -345,19 +351,14 @@ color: #4A4A4A;
 	font-size: 16px;
 	/* font-family: AvenirNext; */
     
-	letter-spacing: .172206px;
+	/* letter-spacing: .172206px;
 	-webkit-transition: .7s;
 	transition: .7s;
 	border: 2px solid #f56c81;
 	cursor: pointer;
 	outline: none
-}
+} */ 
 
-/* .accept:hover,
-.decline {
-	background: #FF0000;
-	color: #f56c81;
-} */
 
 .requestsListItem {
 	-webkit-box-orient: vertical;
@@ -570,11 +571,12 @@ color: #4A4A4A;
 	border-radius: 24px;
 	border: 0;
 	font-family: 'AvenirNext', sans-serif;
-	font-size: 36px;
+	font-size: 30px;
 	line-height: 49px;
 	letter-spacing: 0.172308px;
 	color: #FFFFFF;
 	cursor: pointer;
+	outline: none;
 }
 .decline-modal-container form {
 	width: 100%;
@@ -585,6 +587,7 @@ color: #4A4A4A;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
+	
 }
 .decline-modal-container form button {
 	width: 132px;
@@ -594,11 +597,12 @@ color: #4A4A4A;
 	border-radius: 24px;
 	border: 0;
 	font-family: 'AvenirNext', sans-serif;
-	font-size: 36px;
+	font-size: 30px;
 	line-height: 49px;
 	letter-spacing: 0.172308px;
 	color: #FFFFFF;
 	cursor: pointer;
+	outline: none;
 }
 .radio-btns {
 	width: 100%;

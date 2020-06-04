@@ -6,12 +6,12 @@
           <img src="../assets/burder.png" alt />
           <div class="driverMainInfoSubtitle">
             <h3>{{supplier.name}}</h3>
-            <!-- <p>Date of registration: {{supplier.created}} </p> -->
+          <p>Date of registration: {{supplier.created}} </p> 
           </div>
         </div>
         <div class="edit flex">
           <div>
-            <!-- {{supplier.category}} -->
+            {{supplier.category}} 
           </div>
         </div>
       </div>
@@ -21,18 +21,18 @@
         <strong>Tag line:</strong>
       </div>
       <div class="supplierColumnContainerBlock">
-        <!-- <p> {{supplier.tag_line}} </p> -->
+        <p> {{supplier.tag_line}} </p> 
       </div>
     </div>
     <div class="profileMainInfoSubContainer">
       <h4>Information</h4>
-      <!-- <p> {{supplier.description}} </p> -->
+       <p> {{supplier.description}} </p> 
     </div>
     <div class="profileMainInfoSubContainer flex driversMainInfoText supplierContactInfoContainer">
       <div class="supplierColumnContainerBlock">
-        <!-- <p><strong>E-mail:</strong> {{supplier.e_mail}} </p> -->
-        <!-- <p><strong>Phone:</strong> {{supplier.phone}} </p> -->
-        <!-- <p><strong>City:</strong> {{supplier.city}} </p> -->
+         <p><strong>E-mail:</strong> {{supplier.e_mail}} </p> 
+         <p><strong>Phone:</strong> {{supplier.phone}} </p> 
+         <p><strong>City:</strong> {{supplier.city}} </p>
       </div>
       <div class="supplierColumnContainerBlock">
         <p>
@@ -64,13 +64,16 @@ export default {
   methods: {
     editInfo: function() {},
     getSupplier() {
-      debugger;
+      // debugger;
       this.$store
         .dispatch("getSupplier", this.$route.params.id)
         .then(result => {
-          debugger;
+          // debugger;
           this.supplier = result;
         });
+    },
+    openProductCategoryitem() {
+       this.$router.push(`/productCatedoryItem/`);
     }
   },
   beforeMount() {
@@ -259,11 +262,13 @@ export default {
   background: #fb5f68;
   transition: 0.7s;
   margin: 5px auto;
+  outline: none;
 }
 .redBackgroundButtonMain:hover {
   background: none;
   color: #fb5f68;
   position: relative;
+  outline: none;
 }
 </style>
 

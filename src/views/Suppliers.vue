@@ -16,10 +16,10 @@
       </div>
     </div>
 
-    <table style="border-collapse:separate; border-spacing: 10px 5px;">
+    <table style=" width: 100%; border-collapse:separate; border-spacing: 10px 5px;">
       <thead>
         <tr style="height: 70px;">
-          <td class="tdClass">Supplier</td>
+          <td class="tdClass" style="opacity: 0.21;">Supplier</td>
           <td class="tdClass">Category</td>
           <td class="tdClass">Schedule</td>
           <td class="tdClass">Location</td>
@@ -57,12 +57,12 @@
       </thead>
       <tbody>
         <!-- row -->
-        <tr v-for="item in items" :key="item.id">
+        <tr v-for="item in items" :key="item.supplier_id" v-on:click="seeSupplier(item.supplier_id, item.shop_id)">
           <!-- column -->
           <td style="display: inline-flex;">
-            <img src="../assets/burder.png" alt style="width: 40px;  margin-right: 4px;" />
-            <div>
-              <strong class="spanPng" style="margin-right: 60px; padding-top: 15px;">{{item.name}}</strong>
+            <div class="text-center inline-flex">
+            <img src="../assets/burder.png" alt style="width: 40px; height: 40px; margin-right: 10px;" />
+              <p class="spanPng1">{{item.name}}</p>
             </div>
           </td>
           <td>
@@ -202,6 +202,9 @@ export default {
         .then(result => {
           this.items = result.suppliers_list;
         });
+    },
+    seeSupplier(id, shop_id) {
+      this.$router.push(`/supplier/${id}/?shop_id=${shop_id}`);
     }
   },
   beforeMount() {
@@ -215,6 +218,14 @@ export default {
   width: 100%;
 }
 
+.text-center {
+  text-align: center !important;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
 .suppContainer {
   overflow-x: hidden;
   /* overflow-y: hidden; */
@@ -225,13 +236,13 @@ export default {
   height: 100%;
 }
 
-.spanPng {
+.spanPng1 {
   font-family: AvenirNext;
-  font-size: 17px;
-  line-height: 20px;
+  font-size: 19px;
   align-items: center;
-  letter-spacing: 0.232479px;
   color: #4a4a4a;
+  text-align: center!important;
+  display: flex;
 }
 
 .h1 {
@@ -413,8 +424,6 @@ letter-spacing: 0.25831px;
   font-family: AvenirNext;
   font-size: 16px;
   line-height: 22px;
-  /* identical to box height, or 137% */
-
   align-items: center;
   letter-spacing: 0.206648px;
   color: #4a4a4a;
@@ -563,11 +572,11 @@ letter-spacing: 0.25831px;
   margin: 5px 1px;
 }
 
-.accept,
+/* .accept,
 .decline:hover {
   color: #fff;
   background-color: #f56c81;
-}
+} */
 
 .accept,
 .accept:hover,
@@ -656,7 +665,7 @@ letter-spacing: 0.25831px;
 .driversListRowContent img {
   width: 100%;
 }
-.driversListRowContent strong {
+.driversListRowContent p {
   font-size: 20px;
   line-height: 25px;
   display: flex;

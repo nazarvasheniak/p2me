@@ -26,7 +26,26 @@
               <div style="justify-content: left;">{{item.driver_name}}</div>
               <div style="justify-content: left;">{{item.date_time}}</div>
               <div style="justify-content: left;">
-                <img
+                 <span class="paymentStatus" v-show="item.payment_status === 'paid' && item.payment_method === 'card'">
+                      <img src="../assets/icons/card_ok.png" alt="">
+                    </span>
+                    <span class="paymentStatus" v-show="item.payment_status === 'wait' && item.payment_method === 'card'">
+                      <img src="../assets/icons/card_await.png" alt="">
+                    </span>
+                    <span class="paymentStatus" v-show="item.payment_status === 'not_paid' && item.payment_method === 'card'" >
+                      <img src="../assets/icons/card_decline.png" alt="">
+                    </span>
+                    <span class="paymentStatus" v-show="item.payment_status === 'paid' && item.payment_method === 'cash'">
+                      <img src="../assets/icons/cash_ok.png" alt="">
+                    </span>
+                    <span class="paymentStatus" v-show="item.payment_status === 'wait' && item.payment_method === 'cash'">
+                      <img src="../assets/icons/cash_await.png" alt="">
+                    </span>
+                    <span class="paymentStatus" v-show="item.payment_status === 'not_paid' && item.payment_method === 'cash'">
+                      <img src="../assets/icons/cash_decline.png" alt="">
+                    </span>
+
+                <!-- <img
                   style="width: 20px!important; height: 20px!important;"
                   src="../assets/icons/No.svg"
                   alt
@@ -35,7 +54,7 @@
                   style="width: 20px!important; height: 20px!important;"
                   src="../assets/icons/dollarRed.svg"
                   alt
-                />
+                /> -->
               </div>
               <div style="justify-content: left;">{{item.payment_status}}</div>
               <div style="justify-content: left;" class="text-center">{{item.earned_delivery}}</div>

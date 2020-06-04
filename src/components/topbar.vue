@@ -59,7 +59,7 @@ import searchbar from './searchbar';
 <style scoped>
   header {
     width: 100%;
-    height: 95px;
+    height: 90px;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;

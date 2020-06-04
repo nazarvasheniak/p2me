@@ -154,7 +154,7 @@ let router = new Router({
       component: Supplier
     },
     {
-      path: '/feedbacks',
+      path: '/feedbacks/:id',
       name: 'feedbacks',
       component: Feedbacks
     },
@@ -197,7 +197,7 @@ let router = new Router({
     
     {
 
-      path: '/courier',
+      path: '/courier/:id',
       name: 'courier',
       component: Courier
 },

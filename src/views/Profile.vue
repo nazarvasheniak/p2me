@@ -516,10 +516,7 @@
         return supplierProfile
       },
       categories() {
-        console.log(this.store.getters.getSupplierProfile);
-        // const categories = this.$store.getters.getCategory();
-        // localStorage.setItem('category', JSON.stringify(categories));
-        // return categories
+        
       },
 
       uploadDocuments() {

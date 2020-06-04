@@ -53,9 +53,10 @@ export default {
   width: auto;
   max-width: 100%;
   height: 100%;
-  margin-left: 250px;
-  padding: 0 25px 25px;
+  margin-left: 275px;
   z-index: 10;
+  margin-right: 25px;
+  /* margin-left: 25px; */
 }
 
 .owl-next,
