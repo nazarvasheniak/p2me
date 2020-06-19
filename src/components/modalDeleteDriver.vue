@@ -1,23 +1,23 @@
-<template>
-  <div>
+<template >
+  <div v-if="acceptModalVision">
     <transition name="modal">
       <div class="modal-mask">
         <div class="modal-wrapper">
           <div class="modal-container">
             <div class="modal-header">
               <div class="modal-button">
-                <button type="button" class="btn-close" @click="close">
+                <button type="button" class="btn-close" v-on:click="close">
                   <img src="../assets/icons/close.svg" alt="close">
                 </button>
               </div>
               <slot name="header">
-                <h3>Do you really want to delete this Client</h3>
+                <h3>Do you really want to delete Driver </h3>
               </slot>
             </div>
             <div class="modal-footer">
               <slot name="footer">
-                <button class="btn btn-blue" @click.prevent="close">No</button>
-                <button class="btn btn-red" @click.prevent="deleteClient">Yes</button>
+                <button class="btn btn" v-on:click.prevent="close">No</button>
+                <button class="btn btn-red" v-on:click.prevent="deleteDriver">Yes</button>
               </slot>
             </div>
           </div>
@@ -36,12 +36,14 @@
     },
     methods: {
       close() {
-        this.$store.dispatch('show_modal_delete_client', false);
+        this.$store.dispatch('show_modal_delete_driver', false);
       },
       deleteDriver() {
-        this.$store.dispatch('deleteClient')
-          .then(() => {
-             console.log(result)
+        this.$store.dispatch('deleteDriver')
+          .then((result) => {
+           console.log(result)
+            // this.$root.$emit("changeProfile");
+            // this.close();
           })
           .catch(err => console.log(err))
       }
@@ -146,7 +148,7 @@
     line-height: 28px;
     text-align: center;
   }
-  .btn {
+  /* .btn {
     border-radius: 50px;
     border: 1px solid #0000;
     margin: 20px 50px;
@@ -170,5 +172,5 @@
   .btn-red {
     box-shadow: 0px 2px 15px #fcb3bb;
     background: linear-gradient(to right, #f56c80 0%, #ea84af 100%);
-  }
+  } */
 </style>

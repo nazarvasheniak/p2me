@@ -4,10 +4,10 @@
       <div class="productImgContainerAddNew flex">
         <iconPlus />
         <img src="../assets/BurgerPhoto.png" alt />
-        <span class="price">price: 5$</span>
+        <span class="price">{{supplier.price}}</span>
       </div>
-      <span class="name flex">Lorem Ipsum</span>
-      <span class="description">Lorem ipsum lorem ipsum lorem ipsum lorem ipsum…</span>
+      <span class="name flex">{{supplier.name}}</span>
+      <span class="description">{{supplier.description}}</span>
     </div>
   </div>
 </template>

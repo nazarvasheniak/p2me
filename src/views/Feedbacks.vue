@@ -22,10 +22,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-for="item in items" :key="item.supplier_id">
             <td>
               <div class="text-center inline-flex">
-                <p class="text-default text-table-item"> {{supplier.order_number}} </p>
+                <p class="text-default text-table-item"> {{item.order_number}} </p>
               </div>
             </td>
             <td>
@@ -35,22 +35,22 @@
                   alt
                   style="width: 40px; height: 40px; margin: auto; margin-right: 5px;"
                 />
-                <p class="text-default text-table-item"> {{supplier.customer_name}} </p>
+                <p class="text-default text-table-item"> {{item.customer_name}} </p>
               </div>
             </td>
             <td>
               <div class="text-center inline-flex">
-                <p class="text-default text-table-item"> {{supplier.supplier_name}} </p>
+                <p class="text-default text-table-item"> {{item.supplier_name}} </p>
               </div>
             </td>
             <td>
               <div class="inline-flex">
-                <p class="text-default text-table-item"> {{supplier.location}} </p>
+                <p class="text-default text-table-item"> {{item.location}} </p>
               </div>
             </td>
             <td>
               <div class="inline-flex">
-                <p class="text-default text-table-item"> {{supplier.comment}} </p>
+                <p class="text-default text-table-item"> {{item.comment}} </p>
               </div>
             </td>
             <td>
@@ -73,16 +73,19 @@ import Tabs from "vue-tabs-with-active-line";
 export default {
   name: "feedbacks",
   data: () => ({
+      isSupplier: true,
       supplier: null,
-      suppliersFeedback: null
+      items: []
   }),
 
   mounted() {
+    debugger;
     this.$store.dispatch("getSuppliersFeedback", {
-        id: this.$route.params['id'],
+        id: this.$route.params.id,
         status: "active"
     }).then(result => {
-      this.suppliersFeedback = result;
+      debugger;
+      this.items = result;
     });
   }
 //   data: () => ({

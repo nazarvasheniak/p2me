@@ -11,13 +11,13 @@
                 </button>
               </div>
               <slot name="header">
-                <h3>Do you really want to delete Driver </h3>
+                <h3>Do you really want to delete this Client</h3>
               </slot>
             </div>
             <div class="modal-footer">
               <slot name="footer">
-                <button class="btn btn-blue" v-on:click.prevent="close">No</button>
-                <button class="btn btn-red" v-on:click.prevent="deleteDriver">Yes</button>
+                <button class="btn btn-blue" @click.prevent="close">No</button>
+                <button class="btn btn-red" @click.prevent="deleteClient">Yes</button>
               </slot>
             </div>
           </div>
@@ -36,14 +36,12 @@
     },
     methods: {
       close() {
-        this.$store.dispatch('show_modal_delete_driver', false);
+        this.$store.dispatch('show_modal_delete_client', false);
       },
       deleteDriver() {
-        this.$store.dispatch('deleteDriver')
-          .then((result) => {
-           console.log(result)
-            // this.$root.$emit("changeProfile");
-            // this.close();
+        this.$store.dispatch('deleteClient')
+          .then(() => {
+             console.log(result)
           })
           .catch(err => console.log(err))
       }
@@ -148,29 +146,5 @@
     line-height: 28px;
     text-align: center;
   }
-  .btn {
-    border-radius: 50px;
-    border: 1px solid #0000;
-    margin: 20px 50px;
-    background: transparent;
-    padding: 15px 30px;
-    transition: 0.8s ease-in;
-    color: #fff;
-    font-family: AvenirNext;
-    font-size: 36px;
-    line-height: 42px;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-  .btn:hover {
-    transform: scale(1.1);
-  }
-  .btn-blue {
-    background: radial-gradient(100% 100% at 0% 0%, #56CCF2 0%, #2F80ED 100%), radial-gradient(96.87% 96.87% at 3.13% 3.13%, #FB5F68 0%, #EA84AF 100%);
-    box-shadow: 0px 2px 15px rgba(51, 201, 254, 0.16);
-  }
-  .btn-red {
-    box-shadow: 0px 2px 15px #fcb3bb;
-    background: linear-gradient(to right, #f56c80 0%, #ea84af 100%);
-  }
+  
 </style>

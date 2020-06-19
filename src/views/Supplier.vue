@@ -4,7 +4,7 @@
         <h1 style="color:#606060;">Supplier profile</h1>
 
         <div class="rightSight flex">
-          <div class="goToFeedbacks" v-on:click="openFeedbacks">
+          <div class="goToFeedbacks" v-on:click="openFeedbacks()">
             <h2 style="color:#606060;">Feedbacks</h2>
           </div>
         </div>
@@ -50,8 +50,8 @@ export default {
   },
 
   methods: {
-    openFeedbacks(id) {
-      this.$router.push(`/feedbacks/${id}`);
+    openFeedbacks() {
+      this.$router.push(`/feedbacks/${this.$route.params.id}`);
     }
   }
 

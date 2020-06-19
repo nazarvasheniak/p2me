@@ -2,15 +2,15 @@
   <div
     class="ordersContainer flex suppliersListMainContainer suplierNewOrdersContainer accountOrdersContainerMain"
   >
-    <div class="headerRow2 flex">
-         <button class="DateView2">
-           <p class="datePicker">
+    <div class="headerRowOrder flex">
+         <button class="DateViewOrder">
+           <p class="datePickerOrder">
              12.07-19.07
            </p>  
          </button>  
         </div>  
 
-    <div style="width: 100%; height: 30px; margin: 0; display:inherit; margin-bottom: 10px; background: #FFFFFF;">
+    <div class="headerOrder">
       <button class="All">All</button>
       <button class="Restaurants">Restaurants</button>
       <button class="Shopping">Shopping</button>
@@ -24,7 +24,7 @@
     <div
       class="recentOrdersContainerRow flex supplierNewOrdersListContainer accountApplicationsTabs"
     >
-      <div class="content" style="width:100%;">
+      <div class="contentCour" style="width:100%; padding: 10px;">
         <tabs
           class="recentOrdersContainerRow tabs flex"
           :tabs="tabs"
@@ -115,9 +115,10 @@ export default {
   position: relative;
   display: flex;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: none;
 }
 .All {
+  font-family: AvenirNext;
   margin-left: 15px;
   margin-right: 25px;
   font-size: 18px;
@@ -141,6 +142,7 @@ export default {
   color: #4a4a4a;
 }
 .Shopping {
+  font-family: AvenirNext;
    margin-left: 0;
    margin-right: 25px;
   font-family: AvenirNext;
@@ -153,6 +155,7 @@ export default {
   color: #4a4a4a;
 }
 .Taxi {
+  font-family: AvenirNext;
   margin-left: 0;
   margin-right: 25px;
   font-family: AvenirNext;
@@ -319,7 +322,7 @@ export default {
   background: #ffffff;
   box-shadow: 0px 2px 25px rgba(30, 30, 30, 0.146031);
   border-radius: 3px;
-  padding: 25px;
+  padding: 5px;
 }
 .suplierNewOrdersContainer
   .accountApplicationsTabs
@@ -392,31 +395,45 @@ export default {
   border-color: white;
 }
 
-.headerRow2 {
+.headerOrder {
+  margin-left: 19px;
+  width: 100%;
+  height: 30px;
+  display:inherit;
+  margin-bottom: 10px;
+  background: #FFFFFF;
+  outline: none;
+}
+.headerRowOrder {
   padding-right: 26px;
   height: 68px;
-  padding-top: 8px;
-  padding-bottom: 15px;
+  margin-top: 8px;
+  margin-left: 45px;
+  margin-bottom: 24px;
 }
 
-.DateView2 {
+.DateViewOrder {
  border-radius: 24px;
  width: 200px;
  height: 38px; 
- border: 1px solid rgba(0, 0, 0, 0.2);
- 
+ border: 2px solid rgba(74, 74, 74, 0.5);
+ outline: none;
+ text-align: center;
+ background: none;
 }
 
-.datePicker {
+.datePickerOrder {
   font-family: 'Avenir_Next';
-  margin-top: 5px;
+   margin-top: 5px;
    margin-bottom: 0; 
-   font-size: 15px;
-    text-align: center;
+   font-size: 20px;
+   color: #4A4A4A;
+   font-size: 18px;
+   
 }
 
 .Buytome:focus {
-  background: #56ccf2;
+  background: #6C6C6C;
   box-sizing: border-box;
   border-radius: 24px;
   color: #FFFFFF;
@@ -424,22 +441,22 @@ export default {
 }
 
 .All:focus {
-  background: #56ccf2;
   box-sizing: border-box;
   border-radius: 24px;
   color: #FFFFFF;
   outline: none;
+  background: #6C6C6C;
 }
 
 .Restaurants:focus {
-  background: #56ccf2;
+  background: #6C6C6C;
   box-sizing: border-box;
   border-radius: 24px;
   color: #FFFFFF;
   outline: none;
 }
 .Shopping:focus {
-  background: #56ccf2;
+  background: #6C6C6C;
   box-sizing: border-box;
   border-radius: 24px;
   color: #FFFFFF;
@@ -447,7 +464,7 @@ export default {
 }
 
 .Taxi:focus {
-  background: #56ccf2;
+  background: #6C6C6C;
   box-sizing: border-box;
   border-radius: 24px;
   color: #FFFFFF;
@@ -455,7 +472,7 @@ export default {
 }
 
 .Markets:focus {
-  background: #56ccf2;
+  background: #6C6C6C;
   box-sizing: border-box;
   border-radius: 24px;
   color: #FFFFFF;
@@ -463,7 +480,7 @@ export default {
 }
 
 .Pharmacy:focus {
-  background: #56ccf2;
+  background: #6C6C6C;
   box-sizing: border-box;
   border-radius: 24px;
   color: #FFFFFF;
@@ -471,7 +488,7 @@ export default {
 }
 
 .Courier:focus {
-  background: #56ccf2;
+  background: #6C6C6C;
   box-sizing: border-box;
   border-radius: 24px;
   color: #FFFFFF;

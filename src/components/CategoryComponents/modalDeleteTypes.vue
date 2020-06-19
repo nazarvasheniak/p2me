@@ -134,29 +134,5 @@
     line-height: 28px;
     text-align: center;
   }
-  .btn {
-    border-radius: 50px;
-    border: 1px solid #0000;
-    margin: 20px 50px;
-    background: transparent;
-    padding: 15px 30px;
-    transition: 0.8s ease-in;
-    color: #fff;
-    font-family: AvenirNext;
-    font-size: 36px;
-    line-height: 42px;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-  .btn:hover {
-    transform: scale(1.1);
-  }
-  .btn-blue {
-    background: radial-gradient(100% 100% at 0% 0%, #56CCF2 0%, #2F80ED 100%), radial-gradient(96.87% 96.87% at 3.13% 3.13%, #FB5F68 0%, #EA84AF 100%);
-    box-shadow: 0px 2px 15px rgba(51, 201, 254, 0.16);
-  }
-  .btn-red {
-    box-shadow: 0px 2px 15px #fcb3bb;
-    background: linear-gradient(to right, #f56c80 0%, #ea84af 100%);
-  }
+  
 </style>

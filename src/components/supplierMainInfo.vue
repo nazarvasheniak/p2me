@@ -66,14 +66,15 @@ export default {
     getSupplier() {
       // debugger;
       this.$store
-        .dispatch("getSupplier", this.$route.params.id)
+
+         .dispatch("getSupplier", this.$route.params.id ) 
         .then(result => {
           // debugger;
           this.supplier = result;
         });
     },
-    openProductCategoryitem() {
-       this.$router.push(`/productCatedoryItem/`);
+    openProductCategoryitem(id) {
+       this.$router.push(`/productCatedoryItem/${id}`);
     }
   },
   beforeMount() {

@@ -1,21 +1,21 @@
 <template>
-    <div class="profileContainer flex">
-        <div class="headerRow flex">
-          <h1>Driver profile</h1>
-          <h2 @click="editProfile">Edit profile</h2>
-        </div>
-        <div class="profileMainContainer flex">
-        <div class="profileSubContainer flex">
-            <driverMainInfo :id="$route.params.id"/>
-        </div>
-        <div class="profileSubContainer flex">
-            <earnings :id="$route.params.id"/>
-            <tripsCompleted :id="$route.params.id"/>
-            <tripsCanceled :id="$route.params.id"/>
-            <rates :id="$route.params.id"/>
-        </div>
-        </div>
-    </div>    
+  <div class="profileContainer flex">
+    <div class="headerRow flex">
+      <h1>Driver profile</h1>
+      <h2 @click="editProfile()">Edit profile</h2>
+    </div>
+    <div class="profileMainContainer flex">
+      <div class="profileSubContainer flex">
+        <driverMainInfo :id="$route.params.id" />
+      </div>
+      <div class="profileSubContainer flex">
+        <earnings :id="$route.params.id" />
+        <tripsCompleted :id="$route.params.id" />
+        <tripsCanceled :id="$route.params.id" />
+        <rates :id="$route.params.id" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -35,15 +35,13 @@ export default {
     tripsCanceled,
     rates
   },
-  mounted() {
-    axios
-      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
-      .then(response => (this.info = response));
-  },
   methods: {
     editProfile() {
       this.$router.push(`/editDriverS/${this.$route.params.id}`);
     }
+  },
+  mounted() {
+    
   }
 };
 </script>

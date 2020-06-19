@@ -19,6 +19,7 @@
     <table style=" width: 100%; border-collapse:separate; border-spacing: 10px 5px;">
       <thead>
         <tr style="height: 70px;">
+          <td class="tdClass">Info</td>
           <td class="tdClass" style="opacity: 0.21;">Supplier</td>
           <td class="tdClass">Category</td>
           <td class="tdClass">Schedule</td>
@@ -57,8 +58,11 @@
       </thead>
       <tbody>
         <!-- row -->
-        <tr v-for="item in items" :key="item.supplier_id" v-on:click="seeSupplier(item.supplier_id, item.shop_id)">
+        <tr v-for="item in items" :key="item.supplier_id">
           <!-- column -->
+          <td class="supplierClass" style="padding-bottom: 5px;">
+            <button class="infoDriver" v-on:click="seeSupplier(item.supplier_id)">...</button>
+          </td>
           <td style="display: inline-flex;">
             <div class="text-center inline-flex">
             <img src="../assets/burder.png" alt style="width: 40px; height: 40px; margin-right: 10px;" />
@@ -203,8 +207,8 @@ export default {
           this.items = result.suppliers_list;
         });
     },
-    seeSupplier(id, shop_id) {
-      this.$router.push(`/supplier/${id}/?shop_id=${shop_id}`);
+    seeSupplier(id) {
+      this.$router.push(`/supplier/${id}`);
     }
   },
   beforeMount() {
@@ -363,7 +367,7 @@ export default {
 }
 
 .suppCategory {
-  border-radius: 17px;
+   border-radius: 17px; 
   font-family: AvenirNext;
   font-size: 17px;
   line-height: 27px;

@@ -1,15 +1,17 @@
 <template>
   <div class="ordersContainer flex suppliersListMainContainer suplierNewOrdersContainer accountOrdersContainerMain">
     
-     <div class="headerRow1 flex">
-         <button class="DateView1">
-           <span class="datePicker">
+     <div class="headerRowAccount flex">
+         <button class="DateViewAccount">
+           <p class="datePickerAccount">
              12.07-19.07
-           </span>  
+           </p>  
          </button>  
         </div>  
+
+      <div class=""  
     
-    <div class="recentOrdersContainerRow flex supplierNewOrdersListContainer accountApplicationsTabs">
+    <!-- <div class="recentOrdersContainerRow flex supplierNewOrdersListContainer accountApplicationsTabs">
         
         <div class="content">
             <tabs
@@ -48,7 +50,7 @@
               </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
   </div>
 </template>
@@ -305,24 +307,34 @@ export default {
   border-color: white;    
 }
 
-.headerRow1 {
+.headerRowAccount {
   padding-right: 26px;
   height: 68px;
   padding-top: 8px;
+  background: none;
+  margin-bottom: 34px;
+  margin-left: 45px;
+  
   
 }
 
-.DateView1 {
+.DateViewAccount {
  border-radius: 24px;
  width: 200px;
- height: 42px; 
- border: 1px solid rgba(0, 0, 0, 0.2);
+ height: 38px; 
+ border: 2px solid rgba(74, 74, 74, 0.5);
+ background: none;
+ outline: none;
+ 
 }
 
-.datepicker {
-  margin-top: 5px;
+.datePickerAccount {
+   margin-top: 5px;
    margin-bottom: 0; 
-   font-size: 15px;
-    text-align: center;
+   font-size: 18px;
+   text-align: center;
+   font-family: AvenirNext;
+   font-size: 20px; 
+   color: #4A4A4A;
 }
 </style>

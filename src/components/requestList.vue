@@ -114,7 +114,7 @@
 
 				<form @submit="declineRequest">
 					<button type="submit">OK</button>
-					<button type="button" v-on:click="toggleDeclineModal" >Cancel</button>
+					<button type="button" v-on:click="toggleDeclineModal">Cancel</button>
 				</form>
 			</div>
 		</div>
@@ -531,7 +531,7 @@ color: #4A4A4A;
 
 .modal {
 	width: 679px;
-	height: 574px;
+	height: 374px; 
 	padding: 61px 124px;
 	position: relative;
 	box-sizing: border-box;
@@ -545,7 +545,7 @@ color: #4A4A4A;
 	cursor: pointer;
 	z-index: 12;
 }
-.modal h2 {
+.modal h4 {
 	font-family: 'AvenirNext', sans-serif;
 	font-size: 30px;
 	line-height: 41px;

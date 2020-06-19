@@ -1,11 +1,44 @@
 <template>
-  <div class="ordersContainer flex driversListContainerMains supplierMainInfoOrderList">
-    <div class="recentOrdersContainerRow flex driversListCarouselContainer">
+  <!-- <div class="contentAccount">
+    <table>
+      <thead>
+        <tr style="height: 60px;">
+          <td class="tdAccount" style="width: 10%">Order #</td>
+          <td class="tdAccount" style="width: 10%">Customer</td>
+          <td class="tdAccount" style="width: 10%">Supplier</td>
+          <td class="tdAccount" style="width: 10%">Driver</td>
+          <td class="tdAccount" style="width: 10%">Date&Time</td>
+          <td class="tdAccount" style="width: 12.5%">Payment</td>
+          <td class="tdAccount" style="width: 12.5%">Status</td>
+          <td class="tdAccount" style="width: 12.5%">Earned on delivery</td>
+          <td class="tdAccount" style="width: 12.5%">Earned on supplier</td>
+        </tr>
+      </thead>
+      <tbody>
+      <tr
+      v-for="item in items"
+      :key="item.id"
+      
+      style="height: 60px;">
+      </tr>
+       <td class="accountClass">{{item.order_number}}</td>
+       <td class="accountClass">{{item.customer_name}}</td>
+       <td class="accountClass">{{item.supplier_name}}</td>
+       <td class="accountClass">{{item.driver_name}}</td>
+       <td class="accountClass">{{item.date_time}}</td>
+       <td class="accountClass"></td>
+       <td class="accountClass">{{item.payment.status}}</td>
+       <td class="accountClass">{{item.earned_delivery}}</td>
+       <td class="accountClass">{{item.earned_supplier}}</td>
+      </tbody>
+    </table> -->
+
+     <div class="recentOrdersContainerRow flex driversListCarouselContainer">
       <div class="recentOrdersContainerRow flex">
         <carousel class="sliderRecentOrders" :items="1" :nav="true">
           <div class="driversListContainer">
             <div class="driversListRowHeader">
-              <span>Order #</span>
+              <span style="margin-right: 15px;">Order #</span>
               <span>Customer</span>
               <span>Supplier</span>
               <span>Driver</span>
@@ -45,16 +78,7 @@
                       <img src="../assets/icons/cash_decline.png" alt="">
                     </span>
 
-                <!-- <img
-                  style="width: 20px!important; height: 20px!important;"
-                  src="../assets/icons/No.svg"
-                  alt
-                />
-                <img
-                  style="width: 20px!important; height: 20px!important;"
-                  src="../assets/icons/dollarRed.svg"
-                  alt
-                /> -->
+                
               </div>
               <div style="justify-content: left;">{{item.payment_status}}</div>
               <div style="justify-content: left;" class="text-center">{{item.earned_delivery}}</div>
@@ -105,6 +129,9 @@ export default {
 </script>
 
 <style >
+.contentAccount {
+  width: 100%;
+}
 .ordersContainer {
   overflow-x: hidden;
   flex-flow: column nowrap;
@@ -169,7 +196,7 @@ export default {
 }
 
 .ordersContainer {
-  padding: 25px;
+  padding: 5px;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 15px 5px #e5e5e585;
   box-shadow: 0 0 15px 5px #e5e5e585;

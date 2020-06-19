@@ -3,7 +3,7 @@
     <div class="profileMainInfoSubContainer flex">
       <div class="subContainerSub flex">
         <div class="driversMainInfoTop">
-          <img src="../assets/driver.png" alt />
+          <img v-bind:src="driver.avatar" />
           <div class="driverMainInfoSubtitle">
             <h3>{{driver.first_name + driver.last_name}}</h3>
             <p>Date of registration:13th November, 12:20</p>

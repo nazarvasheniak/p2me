@@ -1,46 +1,44 @@
 <template>
   <aside class="sidebarContainer flex" id="sidebar">
     <div class="sidebarSubContainer" v-on:click="sidebarSubContainer">
-      <img :src="userType == 'supplier' ? logo : superadminLogo">
+      <img :src="userType == 'supplier' ? logo : superadminLogo" />
     </div>
     <div class="sidebarSubContainer">
       <router-link to="/request" class="menuButton flex">
-        <span>
-          <iconBase icon-name="Request">
-            <iconHome />
-          </iconBase>
-        </span> Request
+        <div class="icon-block">
+          <img src="../assets/request1.svg" alt />
+        </div>
+        <!-- <span>
+          <iconBase icon-name="Request"></iconBase>
+        </span>  -->
+        Request
       </router-link>
       <router-link to="/drivers" class="menuButton flex">
-        <span>
-          <iconBase icon-name="Drivers">
-            <iconDrivers />
-          </iconBase>
-        </span> Drivers
+        <div class="icon-block">
+          <img src="../assets/drivers1.svg" alt />
+        </div>
+        Drivers
       </router-link>
       <router-link to="/suppliers" class="menuButton flex">
-        <span>
-          <iconBase icon-name="Suppliers">
-            <iconProfile />
-          </iconBase>
-        </span> Suppliers
+        <div class="icon-block">
+          <img src="../assets/suppliers1.svg" alt />
+        </div>
+        Suppliers
       </router-link>
       <router-link to="/clients" class="menuButton flex">
-        <span>
-          <iconBase icon-name="Clients">
-            <iconClients />
-          </iconBase>
-        </span> Clients
+        <div class="icon-block">
+          <img src="../assets/clients1.svg" alt />
+        </div>
+        Clients
       </router-link>
       <router-link to="/account" class="menuButton flex">
-        <span>
-          <iconBase icon-name="Account">
-            <iconAccount />
-          </iconBase>
-        </span> Account
+        <div class="icon-block">
+          <img src="../assets/account1.svg" alt />
+        </div>
+        Account
       </router-link>
     </div>
-    <div class="sidebarSubContainer" v-if="userType == 'supplier'">
+    <!-- <div class="sidebarSubContainer" v-if="userType == 'supplier'">
       <router-link to="/dashboard" class="menuButton flex">
         <span>
           <iconBase icon-name="Dashboard">
@@ -118,7 +116,7 @@
           </iconBase>
         </span> Settings
       </router-link>
-    </div>
+    </div> -->
   </aside>
 </template>
 
@@ -132,8 +130,8 @@ import iconReviews from "./icons/iconReviews.vue";
 import iconClients from "./icons/iconClients.vue";
 import iconDrivers from "./icons/iconDrivers.vue";
 import iconAccount from "./icons/iconAccount.vue";
-import logo from '../assets/logo.png';
-import superadminLogo from '../assets/superadmin-logo.svg';
+import logo from "../assets/logo.png";
+import superadminLogo from "../assets/superadmin-logo.svg";
 
 export default {
   name: "sidebar",
@@ -152,39 +150,55 @@ export default {
     return {
       logo,
       superadminLogo
-    }
+    };
   },
   computed: {
-    isLoggedIn: function () {
-      return this.$store.getters.isLoggedIn
+    isLoggedIn: function() {
+      return this.$store.getters.isLoggedIn;
     },
-    userType: () => localStorage.getItem('userType')
+    userType: () => localStorage.getItem("userType")
   },
 
   methods: {
     sidebarSubContainer() {
-      this.$router.push('/request');
+      this.$router.push("/request");
     }
   }
 };
 </script>
 
 <style scoped>
+.icon-block {
+  width: 46px;
+  height: 46px; 
+  margin-right: 32px;
+}
+
+.icon-block:hover {
+  box-shadow: 0 0 2px 2px #fb888b;
+}
+.icon-block img{
+ width: 30px;
+ height: 30px;
+ margin: 7.5px;
+}
+
+.svg:hover {
+  fill: red;
+}
+
+
 .sidebarSubContainer .logo {
   max-width: 100%;
- 
 }
 .sidebarContainer {
   flex-flow: column nowrap;
   justify-content: space-around;
-  
-  
 }
 .sidebarSubContainer {
   font-family: AvenirNext;
   font-size: 20px;
   margin-bottom: 25px;
-  
 }
 .menuButton {
   width: 100%;

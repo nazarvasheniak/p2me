@@ -23,8 +23,11 @@ export default {
         },
         DELETE_DRIVER(state, payload) {
             state.driver = payload
+        },
+        DELETE_COURIER(state, payload) {
+            state.courier = payload
         }
-    
+
     },
     actions: {
         loadDriversList(context, status) {
@@ -103,10 +106,10 @@ export default {
                     });
             });
         },
-        
-        deleteDriver(context, id) {
+
+        deleteDriver(context, params) {
             return new Promise((resolve, reject) => {
-                axios.delete(`/api/superadmin/driver_delete/${id}`, {
+                axios.put(`/api/superadmin/driver_update/${params.id}/`, params.body, {
                     headers: {
                         "Access-Control-Allow-Origin": '*',
                         "Content-Type": "application/json",
@@ -123,7 +126,27 @@ export default {
                     });
             });
         },
-        
+
+        deleteCourier(context, id) {
+            return new Promise((resolve, reject) => {
+                axios.put(`/api/superadmin/courier_update/${id}`, {
+                    headers: {
+                        "Access-Control-Allow-Origin": '*',
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": "j8PYQSsFNEHgI0qclM5zcMyCUH3vepQR9LEnZVut36UZ7K5XdWVDsVkkFLrgaySG",
+                        Authorization: 'token ' + localStorage.getItem('token')
+                    }
+                })
+                    .then(response => {
+                        context.commit('DELETE_COURIER', response.data);
+                        resolve(response.data);
+                    })
+                    .catch(e => {
+                        reject(e);
+                    });
+            });
+        }
+
 
 
 
@@ -133,7 +156,9 @@ export default {
         getDriversList: (state) => state.driversList,
         getDriver: (state) => state.driver,
         getCourier: (state) => state.courier,
-        deleteDriver: (state) =>state.show_modal_delete_driver
-        
+        deleteDriver: (state) => state.driver,
+        deleteCourier: (state) => state.courier
+
+
     }
 }

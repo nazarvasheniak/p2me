@@ -69,7 +69,7 @@ export default {
     },
     getSuppliersItem (context, id) {
         return new Promise((resolve, reject) => {
-            axios.get(`/api/superadmin/item_list_by_supplier/?supplier_id=${id}/`, {
+            axios.get(`/api/superadmin/item_list_by_supplier/?supplier_id=${id}`, {
                 headers: {
                     "Access-Control-Allow-Origin": '*',
                     "Content-Type": "application/json",
@@ -90,7 +90,7 @@ export default {
 
     getSuppliersFeedback (context, data) {
         return new Promise((resolve, reject) => {
-            axios.get(`/api/superadmin/feedback_list/?shop_id=${data.id}&status=${data.status}`, {
+            axios.get(`/api/superadmin/feedback_list/?supplier_id=${data.id}&status=${data.status}`, {
                 headers: {
                     "Access-Control-Allow-Origin": '*',
                     "Content-Type": "application/json",

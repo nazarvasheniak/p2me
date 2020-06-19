@@ -10,13 +10,13 @@
         <h2>Burgers (2)</h2>
       </div>
       <div>
-       <productItem></productItem>
+       <productitem :id="$route.params.id"/>
        </div>
         <div class="productNutContainer ">
           <h2>Beverages (1)</h2>
         </div>
        <div>
-         <productitemBev></productitemBev>
+         <productitemBev :id="$route.params.id"/>
        </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
    export default {
     name: "ProductCategoryItem",
     components: {
-         searchbar,
+      searchbar,
       productItem,
       productitemBev
     },
@@ -40,6 +40,8 @@
         sectionItem: this.$route.params.id
       }
     },
+
+    
   }
 </script>
 

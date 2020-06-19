@@ -129,7 +129,7 @@
     line-height: 28px;
     text-align: center;
   }
-  .btn {
+  /* .btn {
     border-radius: 50px;
     border: 1px solid #0000;
     margin: 20px 50px;
@@ -153,5 +153,5 @@
   .btn-red {
     box-shadow: 0px 2px 15px #fcb3bb;
     background: linear-gradient(to right, #f56c80 0%, #ea84af 100%);
-  }
+  } */
 </style>

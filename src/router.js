@@ -28,8 +28,7 @@ import ClientOrders from './views/ClientOrders.vue'
 import ProductsCategoryItem from './views/ProductCategoryItem.vue'
 import Courier from './views/Courier.vue'
 import AccountOrderCour from './views/AccountOrderCour.vue'
-// import CourierList from './views/CourierList.vue'
-// import Example from './views/Example.vue'
+import EditCouriers from './views/EditCouriers.vue'
 
 
 Vue.use(Router)
@@ -140,6 +139,11 @@ let router = new Router({
       path: '/editDriverS/:id',
       name: 'editDriverS',
       component: EditDriverS
+    },
+    {
+      path: '/editCouriers',
+      name: 'editCouriers',
+      component: EditCouriers
     },
     {
       path: '/suppliers',

@@ -23,7 +23,7 @@
                 <button
                   class="redBorderButtonMain"
                   v-on:click="isOpenModalRemoveDriver()"
-                >Remove courier</button>
+                >Remove driver</button>
 
                 <!-- Modal window Remove Driver -->
                 <div class="accept-modal-container flex" v-if="acceptModalVision">
@@ -77,7 +77,7 @@
           <div class="profileMainInfoSubContainer container">
             <div class="profileMainInfoColumn">
               <div class="profileDriverInfoBlockContainer">
-                <h3>Contacts :</h3>
+                <h3>Contacts & Info:</h3>
                 <p>
                   <strong>{{driverInfo.isHaveCar ? 'Have a car to drive' : ''}}</strong>
                 </p>
@@ -103,7 +103,6 @@
                 </p>
               </div>
               
-              
               <div class="profileDriverInfoBlockContainer">
                 <h3>Payment info:</h3>
                 <p>
@@ -123,7 +122,7 @@
                   <strong>Account number:</strong>
                    <input class="inputInput" v-model="driverInfo.accountNumber" style="margin-left: -5px;"/>
                 </p>
-               
+                
                 <p>
                   <strong>
                     {{driverInfo.isReceiveMoneyoncard ? 'Want to receive money on credit card' : ''}}
@@ -136,63 +135,37 @@
             <div class="profileMainInfoColumn driverDocumentsRowContainer">
               <div class="driverEditDocumentsColumn">
                 <p>
-                  <strong>Photo of driver license:</strong>
-                </p>
-                <p class="driverUploadFoto">
-                  <small>(Photo of the current driving license, side with photo)</small>
-                </p>
-                <div class="uploadDriverPhoto">
-                      <label class="inputChange">
-                         <img src="../assets/Union.svg" alt />
-                         <input type="file" v-on:change="onFileChange">
-                      </label>
-                </div>
-                <p class="ExpirationDate" style="margin-top: 30px;">
-                  <strong>Expiration date of driver</strong>
+                  <strong>Your photo</strong>
                 </p>
                 <p>
-                  <strong>license:</strong>
-                   <input class="inputInput" v-model="driverInfo.expirationDateofdriver"/>
+                  <small style="display: flex; flex-direction: inherit;">Portrait photo</small>
                 </p>
-               </div> 
 
-              <div class="driverEditDocumentsColumn">
-                <p>
-                  <strong>Photo of technical passport:</strong>
-                </p>
-                <p>
-                  <small>(Photo of technical passport, page with the car number)</small>
-                </p>
-                 <div class="uploadDriverPhoto">
+                 <div class="forDocs">
+                  <div class="uploadDriverPhoto" style="margin-right: 17px;">
                       <label class="inputChange">
                          <img src="../assets/Union.svg" alt />
                          <input type="file" v-on:change="onFileChange">
                       </label>
                   </div>
-                <p></p>
-              </div>
-              <div class="driverEditDocumentsColumn">
-                <p>
-                  <strong>Photo of insurance:</strong>
-                </p>
-                <p>
-                  <small>(OMTPL, photo of page with vehicle data and expiratioon date)</small>
-                </p>
-                <div class="driverMainInfoImage">
-                 <div class="uploadDriverPhoto">
+
+                  <div class="uploadDriverPhoto" style="margin-right: 17px;">
                       <label class="inputChange">
                          <img src="../assets/Union.svg" alt />
                          <input type="file" v-on:change="onFileChange">
                       </label>
                   </div>
-                </div>
-                <p style="margin-top: 30px;">
-                  <strong>Expiration date of car:</strong>
-                </p>
-                <p>
-                  <input class="inputInput" v-model="driverInfo.expirationDateofcar"/>
-                  </p>
+
+                  <div class="uploadDriverPhoto">
+                      <label class="inputChange">
+                         <img src="../assets/Union.svg" alt />
+                         <input type="file" v-on:change="onFileChange">
+                      </label>
+                  </div>
+                 </div>
               </div>
+              
+             
             </div>
             <div class="profileMainInfoColumn">
               <button class="redBackgroundButtonMain">Save</button>
@@ -225,7 +198,6 @@ export default {
   },
 
   data() {
-
     return {
       driverInfo: {
           isHaveCar: null,
@@ -252,10 +224,8 @@ export default {
       acceptModalVision: false,
       selectReasonForRemoveDriver: "",
 
-      image: ''
-    }
-
-    
+      imageFile: null
+    };
   },
 
 
@@ -304,26 +274,10 @@ export default {
         this.driverInfo = model;
       });
     },
-     onFileChange(e) {
-       var files = e.target.files || e.dataTransfer.files;
-        if (!files.length)
-        return;
-        this.createImage(files[0]);
-     },
+    onChangeFileUpload(event) {
+      debugger;
+      this.imageFile = event.target.files[0];
 
-     createImage(file) {
-      var image = new Image();
-      var reader = new FileReader();
-      var vm = this;
-
-      reader.onload = (e) => {
-        vm.image = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    },
-
-     removeImage: function (e) {
-      this.image = '';
     }
 
   },
@@ -342,14 +296,10 @@ export default {
   text-align: center;
 }
 
-.driverUploadFoto p {
-  margin-bottom: 30px;
-}
-
 .uploadDriverPhoto {
   display: flex;
   justify-content: center;
-  width: 209px;
+  width: 180px;
   height:99px;
   background: #FFFFFF;
   opacity: 0.8;
@@ -361,15 +311,20 @@ export default {
   display: none;
   visibility:hidden;
 }
-
-.labelDriver {
-  margin: 0;
-}
  
 .input__file {
   opacity: 0;
   visibility: hidden;
   position: absolute;
+}
+
+.forDocs {
+    display: flex;
+    flex-direction: row;
+    width: 620px;
+    height: 102px;
+    justify-content: space-between;
+    
 }
  
 .input__file-icon-wrapper {
@@ -534,7 +489,6 @@ export default {
   line-height: 25px;
   display: flex;
   align-items: center;
-
   color: #4a4a4a;
   margin: 5px 0px;
 }
@@ -567,7 +521,8 @@ export default {
   position: relative;
 }
 .driverEditDocumentsColumn small {
-  padding-right: 15%;
+  display: flex;
+  flex-direction: row;
 }
 .driverMainInfoImageOverlay {
   width: calc(100% - 19px);
@@ -588,9 +543,9 @@ export default {
 .driverMainInfoImage img {
   position: relative;
 }
-/* .driverDocumentsRowContainer .driverMainInfoImageOverlay {
+.driverDocumentsRowContainer .driverMainInfoImageOverlay {
   width: 185px;
-} */
+}
 .driverMainInfoImageOverlay img {
   width: 30px;
   height: 31px;
