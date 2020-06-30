@@ -9,8 +9,8 @@
 <script>
 import mainTemplate from "./components/mainTemplate.vue";
 import Login from "./views/Login.vue";
-//import axios from 'axios';
-//axios.defaults.baseURL = 'http://139.60.163.142:9000/';
+import axios from 'axios';
+axios.defaults.baseURL = 'http://139.60.163.142:9000/';
 
 export default {
   name: "App",

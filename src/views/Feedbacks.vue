@@ -79,28 +79,14 @@ export default {
   }),
 
   mounted() {
-    debugger;
     this.$store.dispatch("getSuppliersFeedback", {
         id: this.$route.params.id,
         status: "active"
     }).then(result => {
-      debugger;
       this.items = result;
     });
   }
-//   data: () => ({
-//     tabs: [
-//       { title: "New feedbacks", value: "New feedbacks" },
-//       { title: "Accepted", value: "Accepted" },
-//       { title: "Declined", value: "Declined" }
-//     ],
-//     currentTab: "New feedbacks"
-//   }),
-//   methods: {
-//     handleClick(newTab) {
-//       this.currentTab = newTab;
-//     }
-//   }
+
 };
 </script>
 
@@ -133,8 +119,6 @@ export default {
 .ordersContainer {
   overflow-x: hidden;
   flex-flow: column nowrap;
-  /* justify-content: flex-start;
-  align-items: flex-start; */
   width: 100%;
 }
 

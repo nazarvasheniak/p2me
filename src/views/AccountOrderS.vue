@@ -3,15 +3,17 @@
     
      <div class="headerRowAccount flex">
          <button class="DateViewAccount">
-           <p class="datePickerAccount">
+           <!-- <p class="datePickerAccount"  v-on:click="isHidden = !isHidden"  id="loginFormLink" >
              12.07-19.07
-           </p>  
+           </p> 
+           <v-md-date-range-picker  v-if="!isHidden">
+            
+           </v-md-date-range-picker>  -->
          </button>  
         </div>  
 
-      <div class=""  
     
-    <!-- <div class="recentOrdersContainerRow flex supplierNewOrdersListContainer accountApplicationsTabs">
+     <div class="recentOrdersContainerRow flex supplierNewOrdersListContainer accountApplicationsTabs">
         
         <div class="content">
             <tabs
@@ -50,7 +52,7 @@
               </div>
             </div>
         </div>
-    </div> -->
+    </div> 
 
   </div>
 </template>
@@ -60,6 +62,10 @@ import carousel from "vue-owl-carousel";
 import Tabs from "vue-tabs-with-active-line";
 import accountOrderListMain from "../components/accountOrderListMain.vue";
 import vSelect from "vue-select";
+import VMdDateRangePicker from "v-md-date-range-picker";
+import "v-md-date-range-picker/dist/v-md-date-range-picker.css";
+
+
 
 export default {
   name: "AccountOrderS",
@@ -70,6 +76,9 @@ export default {
     vSelect
   },
   data: () => ({
+    // return {
+    //             isHidden: true
+    //         };
     tabs: [
       { title: "New orders", value: "New orders" },
       { title: "Accepted", value: "Accepted" },
@@ -240,7 +249,7 @@ export default {
     background: none!important;;
 }
 .accountOrdersContainerMain .content {
-    background: #FFFFFF;
+    background: none;
     box-shadow: 0px 2px 25px rgba(30, 30, 30, 0.146031);
     border-radius: 3px;
     padding: 25px;
