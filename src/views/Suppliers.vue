@@ -284,16 +284,11 @@ export default {
   height: 72px;
   margin-top: 20px;
   margin-left: 25px;
-  /* border:2px solid red; */
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* justify-content: space-between; */
 }
 
 .tableSupplier {
   width: 1028px;
   height: 72px;
-
   display: flex;
   flex-direction: row;
   flex-flow: row nowrap;
@@ -350,9 +345,7 @@ export default {
 .suppTable {
   width: 1028px;
   height: 42px;
-
   align-items: center;
-
   margin-left: 19px;
 }
 
@@ -391,25 +384,24 @@ letter-spacing: 0.25831px;
 }
 
 .suppCategory:focus {
-  background: #56ccf2;
-  box-sizing: border-box;
-  border-radius: 24px;
-  color: #FFFFFF;
-  outline: none;
+ background: #56ccf2;
+ box-sizing: border-box;
+ border-radius: 24px;
+ color: #FFFFFF;
+ outline: none;
 }
 .suppCategory1:focus {
-  background: #535353;
-  box-sizing: border-box;
-  border-radius: 24px;
-  color: #ffffff;
-  outline: none;
+ background: #535353;
+ box-sizing: border-box;
+ border-radius: 24px;
+ color: #ffffff;
+ outline: none;
 }
 
 .menuTable {
   font-family: AvenirNext;
   font-size: 16px;
   line-height: 22px;
-
   align-items: center;
   letter-spacing: 0.206648px;
   color: #4a4a4a;

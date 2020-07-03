@@ -275,7 +275,6 @@ export default {
       });
     },
     onChangeFileUpload(event) {
-      debugger;
       this.imageFile = event.target.files[0];
 
     }
@@ -288,7 +287,6 @@ export default {
 </script>
 
 <style scoped>
-/* input type file styple */
 .input__wrapper {
   width: 100%;
   position: relative;
@@ -324,7 +322,6 @@ export default {
     width: 620px;
     height: 102px;
     justify-content: space-between;
-    
 }
  
 .input__file-icon-wrapper {
@@ -438,7 +435,6 @@ export default {
 .redBorderButtonMain {
   font-size: 16px;
   line-height: 22px;
-  /* identical to box height, or 137% */
   display: flex;
   align-items: center;
   letter-spacing: 0.172206px;
@@ -469,7 +465,6 @@ export default {
   font-size: 30px;
   line-height: 41px;
   letter-spacing: 0.322887px;
-  /* text-decoration-line: underline; */
   color: #4a4a4a;
 }
 .editDriverContainerMainBlock p {

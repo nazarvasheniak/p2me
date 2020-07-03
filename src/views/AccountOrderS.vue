@@ -3,17 +3,21 @@
     
      <div class="headerRowAccount flex">
          <button class="DateViewAccount">
-           <!-- <p class="datePickerAccount"  v-on:click="isHidden = !isHidden"  id="loginFormLink" >
+           <p class="datePickerAccount">
              12.07-19.07
            </p> 
-           <v-md-date-range-picker  v-if="!isHidden">
-            
-           </v-md-date-range-picker>  -->
          </button>  
         </div>  
 
-    
-     <div class="recentOrdersContainerRow flex supplierNewOrdersListContainer accountApplicationsTabs">
+     <div class="headerContainerOrderS">
+       <button class="but-glue focus-none" v-on:click="changeTab('new orders')" autofocus>New orders</button>
+       <button class="but-glue focus-none" v-on:click="changeTab('accepted')">Accepted</button>
+       <button class="but-glue focus-none" v-on:click="changeTab('picked up')">Picked up</button>
+       <button class="but-glue focus-none" v-on:click="changeTab('deliverd')">Delivered</button>
+       <button class="but-glue focus-none" v-on:click="changeTab('declined')">Declined</button>
+         
+     </div>
+     <!-- <div class="recentOrdersContainerRow flex supplierNewOrdersListContainer accountApplicationsTabs">
         
         <div class="content">
             <tabs
@@ -52,7 +56,7 @@
               </div>
             </div>
         </div>
-    </div> 
+    </div>  -->
 
   </div>
 </template>
@@ -62,8 +66,7 @@ import carousel from "vue-owl-carousel";
 import Tabs from "vue-tabs-with-active-line";
 import accountOrderListMain from "../components/accountOrderListMain.vue";
 import vSelect from "vue-select";
-import VMdDateRangePicker from "v-md-date-range-picker";
-import "v-md-date-range-picker/dist/v-md-date-range-picker.css";
+
 
 
 
@@ -76,9 +79,7 @@ export default {
     vSelect
   },
   data: () => ({
-    // return {
-    //             isHidden: true
-    //         };
+   
     tabs: [
       { title: "New orders", value: "New orders" },
       { title: "Accepted", value: "Accepted" },
@@ -111,30 +112,47 @@ export default {
   align-items: flex-start;
   width: 100%;
 }
-/* .headerRow {
-  border: 1px solid rgb(189, 108, 108);
-   border-radius: 34px;
-   margin-left: 30px;
-   background: #F2F2F2;
-    */
-/* } */
 
 .content {
   width: 100%;
 }
 
+.headerContainerOrderS {
+  display: flex;
+  justify-content: space-between;
+  width: 499px;
+  height: 44px;
+  background: #F2F2F2;
+  box-shadow: 0px 2px 25px rgba(30, 30, 30, 0.146031);
+  margin-left: 20px;
+}
 
+.but-glue {
+  font-family: AvenirNext;
+  font-size: 16px;
+  line-height: 27px;
+  color: #54C7F2;
+  background: #F2F2F2;
+  
+
+}
+
+.but-glue:focus {
+  background: #65D9FF;
+  border-radius: 24px;
+  color: #F2F2F2;
+}
+
+.focus-none:focus {
+  outline: none;
+}
 .Dateview {
- 
   height: 68px;
   box-sizing: border-box;
-  /* display: block; */
-   text-align: center;
-   
-   border: 1px solid #4A4A4A;
-   
-   background: #F2F2F2;
-   margin-right: 5px;
+  text-align: center;
+  border: 1px solid #4A4A4A;
+  background: #F2F2F2;
+  margin-right: 5px;
 }
 
 .menu-icon {
@@ -145,9 +163,6 @@ export default {
   height: 30px;
 }
 
-/* .recentOrdersContainerRow {
-  
-} */
 .ordersContainerTabs {
   margin: 5px 5px 15px;
   width: 100%;
@@ -158,7 +173,6 @@ export default {
 .suppliersListMainContainer  .tabs__item {
   font-size: 14px;
   line-height: 27px;
-  /* identical to box height, or 193% */
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
@@ -175,7 +189,6 @@ export default {
   border-radius: 24px;
   font-size: 14px;
   line-height: 27px;
-  /* identical to box height, or 193% */
   display: flex;
   align-items: center;
   letter-spacing: 0.25831px;
@@ -197,7 +210,6 @@ export default {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  
 }
 .driversListRowContent img {
   width: 100%;
@@ -243,16 +255,16 @@ export default {
   margin-top: 0px;
 }
 .accountOrdersContainerMain .ordersContainer {
-    padding: 1px!important;;
-    border-radius: none!important;;
-    box-shadow: none!important;;
-    background: none!important;;
+  padding: 1px!important;;
+  border-radius: none!important;;
+  box-shadow: none!important;;
+  background: none!important;;
 }
 .accountOrdersContainerMain .content {
-    background: none;
-    box-shadow: 0px 2px 25px rgba(30, 30, 30, 0.146031);
-    border-radius: 3px;
-    padding: 25px;
+  background: none;
+  box-shadow: 0px 2px 25px rgba(30, 30, 30, 0.146031);
+  border-radius: 3px;
+  padding: 25px;
 } 
 .suplierNewOrdersContainer .accountApplicationsTabs .recentOrdersContainerRow.tabs.flex button.tabs__item {
   font-size: 14px;
@@ -287,7 +299,6 @@ export default {
 .accountOrdersMainHeaders h1 {
   font-size: 32px;
   line-height: 44px;
-  /* or 137% */
   display: flex;
   align-items: center;
   letter-spacing: 0.229609px;
@@ -318,13 +329,10 @@ export default {
 
 .headerRowAccount {
   padding-right: 26px;
-  height: 68px;
-  padding-top: 8px;
+  height: 48px;
   background: none;
-  margin-bottom: 34px;
+  margin-bottom: 24px;
   margin-left: 45px;
-  
-  
 }
 
 .DateViewAccount {
@@ -334,16 +342,15 @@ export default {
  border: 2px solid rgba(74, 74, 74, 0.5);
  background: none;
  outline: none;
- 
 }
 
 .datePickerAccount {
-   margin-top: 5px;
-   margin-bottom: 0; 
-   font-size: 18px;
-   text-align: center;
-   font-family: AvenirNext;
-   font-size: 20px; 
-   color: #4A4A4A;
+  margin-top: 5px;
+  margin-bottom: 0; 
+  font-size: 18px;
+  text-align: center;
+  font-family: AvenirNext;
+  font-size: 20px; 
+  color: #4A4A4A;
 }
 </style>

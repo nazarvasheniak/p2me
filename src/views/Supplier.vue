@@ -2,7 +2,6 @@
     <div class="profileContainer flex">
         <div class="headerRow flex">
         <h1 style="color:#606060;">Supplier profile</h1>
-
         <div class="rightSight flex">
           <div class="goToFeedbacks" v-on:click="openFeedbacks()">
             <h2 style="color:#606060;">Feedbacks</h2>
@@ -54,7 +53,6 @@ export default {
       this.$router.push(`/feedbacks/${this.$route.params.id}`);
     }
   }
-
 };
 </script>
 
@@ -82,12 +80,11 @@ export default {
   margin-bottom: 14px;
 }
 .headerRow h1 {
-font-family: AvenirNext;
-font-size: 32px;
-line-height: 45px;
-/* identical to box height, or 136% */
-letter-spacing: 0.25831px;
-mix-blend-mode: normal;
+ font-family: AvenirNext;
+ font-size: 32px;
+ line-height: 45px;
+ letter-spacing: 0.25831px;
+ mix-blend-mode: normal;
 }
 
 
@@ -119,7 +116,6 @@ mix-blend-mode: normal;
   -webkit-box-direction: normal;
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
-  /* padding: 20px 25px; */
 }
 .contentContainer {
   margin-top: -89px;

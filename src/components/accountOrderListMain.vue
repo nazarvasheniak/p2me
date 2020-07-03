@@ -181,7 +181,6 @@ export default {
   letter-spacing: 0.232479px;
   color: #4a4a4a;
   display: block;
-
   height: auto;
 }
 
@@ -201,9 +200,6 @@ export default {
   -webkit-box-shadow: 0 0 15px 5px #e5e5e585;
   box-shadow: 0 0 15px 5px #e5e5e585;
   background: #fff;
-}
-
-.img {
 }
 
 .sliderRecentOrders {
@@ -246,7 +242,6 @@ export default {
 .totalsAccountDivInfos {
   font-size: 16px;
   line-height: 33px;
-  /* or 206% */
   display: block !important;
   align-items: center;
   color: #4a4a4a;
@@ -261,13 +256,11 @@ export default {
 .totalsAccountRowSums div:nth-child(8) {
   font-size: 24px;
   line-height: 33px;
-  /* identical to box height, or 137% */
   color: #4a4a4a;
 }
 .totalsAccountRowSums div:nth-child(9) {
   font-size: 24px;
   line-height: 33px;
-  /* identical to box height, or 137% */
   color: #4a4a4a;
 }
 </style> 

@@ -10,7 +10,7 @@
 import mainTemplate from "./components/mainTemplate.vue";
 import Login from "./views/Login.vue";
 import axios from 'axios';
-axios.defaults.baseURL = 'http://139.60.163.142:9000/';
+axios.defaults.baseURL = 'http://45.150.76.32:8000/';
 
 export default {
   name: "App",
