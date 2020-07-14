@@ -14,8 +14,7 @@ export default {
         }
      },
 
-    actions: 
-    {
+    actions: {
         loadClientList(context) {
             return new Promise((resolve, reject) => {
                 axios.get('/api/superadmin/client_list/', {

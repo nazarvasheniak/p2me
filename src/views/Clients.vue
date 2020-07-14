@@ -35,7 +35,11 @@
           </td>
           <td class="clientClass">{{customer.phone}} {{customer.email}}</td>
           <td class="clientClass">{{customer.total_orders}}</td>
-          <td class="clientClass">{{customer.comments}}</td>
+          <!-- <td class="clientClass">
+            <input type="text" v-model="commentsInfo.comments"/>
+
+          </td> -->
+           <td class="clientClass">{{customer.comments}}</td> 
           <td class="clientClass">{{customer.date}}</td>
           <td class="clientsClass">
             <button class="removeButton" v-on:click="openModal(customer)">Remove</button>
@@ -43,6 +47,10 @@
         </tr>
       </tbody>
     </table>
+
+    <!-- <div class="inputClient">
+      <input type="text" v-model="commentsInfo.comments"/>
+    </div> -->
 
     <!-- Modal vindow -->
     <div class="decline-modal-container flex" v-if="isModalShow">
@@ -86,7 +94,8 @@ export default {
   data: () => ({
     clientList: [],
     isModalShow: false,
-    itemModel: null
+    itemModel: null,
+    commentsInfo: null
   }),
 
   methods: {

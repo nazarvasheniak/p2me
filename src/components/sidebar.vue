@@ -174,18 +174,17 @@ export default {
   margin-right: 32px;
 }
 
-.icon-block:hover {
+.icon-block:focus {
   box-shadow: 0 0 2px 2px #fb888b;
 }
 .icon-block img{
  width: 30px;
  height: 30px;
  margin: 7.5px;
+ fill: red !important;
 }
 
-.svg:hover {
-  fill: red;
-}
+
 
 
 .sidebarSubContainer .logo {

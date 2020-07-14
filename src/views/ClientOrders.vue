@@ -21,8 +21,6 @@
        <button class="Buytome">Buy to me</button>
        </div>
 
-    
-
     <div class="recentOrdersContainerRow flex supplierNewOrdersListContainer accountApplicationsTabs">
         
         <div class="content">
@@ -37,9 +35,6 @@
         :line-class="'tabs__active-line'"
         @onClick="handleClick"
         ></tabs> 
-
-          
-
 
             <div v-if="currentTab === 'New orders'">
               <div class="recentOrdersContainerRow ">

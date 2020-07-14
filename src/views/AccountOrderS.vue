@@ -1,7 +1,7 @@
 <template>
   <div class="ordersContainer flex suppliersListMainContainer suplierNewOrdersContainer accountOrdersContainerMain">
     
-     <div class="headerRowAccount flex">
+     <div class="headerRowAccount flex" >
          <button class="DateViewAccount">
            <p class="datePickerAccount">
              12.07-19.07
