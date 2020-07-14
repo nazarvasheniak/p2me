@@ -11,9 +11,9 @@
         <tr style="height: 60px;">
           <td class="tdClassClient" style="width: 5%">Info</td>
           <td class="tdClassClient" style="width: 25%;">Clients name</td>
-          <td class="tdClassClient" style="width: 20%;">Contacts</td>
-          <td class="tdClassClient" style="width: 15%;">Orders</td>
-          <td class="tdClassClient" style="width: 15%;">Comments</td>
+          <td class="tdClassClient" style="width: 15%;">Contacts</td>
+          <td class="tdClassClient" style="width: 10%;">Orders</td>
+          <td class="tdClassClient" style="width: 20%;">Comments</td>
           <td class="tdClassClient" style="width: 15%;">Date</td>
         </tr>
       </thead>
@@ -38,11 +38,54 @@
           <!-- <td class="clientClass">
             <input type="text" v-model="commentsInfo.comments"/>
 
-          </td> -->
-           <td class="clientClass">{{customer.comments}}</td> 
+          </td>-->
+          <td class="clientClass">{{customer.comments}}</td>
           <td class="clientClass">{{customer.date}}</td>
           <td class="clientsClass">
             <button class="removeButton" v-on:click="openModal(customer)">Remove</button>
+          </td>
+        </tr>
+
+        <tr style="height: 60px;">
+          <td class="clientClass">
+            <button class="infoDriver" v-on:click="seeClient(1)">...</button>
+          </td>
+          <td>
+            <img src="../assets/driver.png" alt style="width: 40px;  margin-right: 10px;" />
+            <span style="padding-top: 10px; font-family: AvenirNext; font-size: 20px;">John Connor</span>
+          </td>
+          <td class="clientClass">+380630010011 connor@gmail.com</td>
+          <td class="clientClass">10</td>
+          <!-- <td class="clientClass">
+            <input type="text" v-model="commentsInfo.comments"/>
+
+          </td>-->
+          <td class="clientClass">
+            <div class="comment-inner" v-if="editingCustomer.id == 0">
+              <div class="comment-text">Some comment super long long text</div>
+
+              <div class="edit-button">
+                <button v-on:click="editComment(1, 'Some comment super long long text')">
+                  <img src="../assets/pen1.svg" />
+                </button>
+              </div>
+            </div>
+
+            <div class="comment-edit-inner" v-if="editingCustomer.id != 0">
+              <div class="comment-edit-area">
+                <textarea v-model="editingCustomer.comment"></textarea>
+              </div>
+
+              <div class="save-button">
+                <button v-on:click="saveComment()">
+                  <img src="../assets/correct2.svg" />
+                </button>
+              </div>
+            </div>
+          </td>
+          <td class="clientClass">20.03.2020</td>
+          <td class="clientsClass">
+            <button class="removeButton">Remove</button>
           </td>
         </tr>
       </tbody>
@@ -50,7 +93,7 @@
 
     <!-- <div class="inputClient">
       <input type="text" v-model="commentsInfo.comments"/>
-    </div> -->
+    </div>-->
 
     <!-- Modal vindow -->
     <div class="decline-modal-container flex" v-if="isModalShow">
@@ -95,7 +138,10 @@ export default {
     clientList: [],
     isModalShow: false,
     itemModel: null,
-    commentsInfo: null
+    editingCustomer: {
+      id: 0,
+      comment: ""
+    }
   }),
 
   methods: {
@@ -103,6 +149,33 @@ export default {
       this.$store.dispatch("loadClientList").then(result => {
         this.clientList = result;
       });
+    },
+    editComment(customerID, comment) {
+      this.editingCustomer = {
+        id: customerID,
+        comment: comment
+      };
+    },
+    saveComment() {
+      if (this.editingCustomer.id == 0) {
+        return;
+      }
+
+      //TODO подключить API метод
+      /* this.store.dispatch("updateClientComment", this.editingCustomer)
+        .then(result => {
+          console.log(result);
+
+          this.editingCustomer = {
+            id: 0,
+            comment: ""
+          }
+        }); */
+
+      this.editingCustomer = {
+        id: 0,
+        comment: ""
+      };
     },
     seeClient() {
       this.$router.push(`/clientOrders/`);
@@ -191,6 +264,10 @@ export default {
   font-size: 16px;
   line-height: 22px;
   background: none;
+  border: 1px solid;
+  outline: none;
+  
+
 }
 
 .modalka {
@@ -286,6 +363,34 @@ export default {
   text-align: center;
   letter-spacing: 0.14359px;
   color: #4a4a4a;
+}
+
+.comment-inner {
+  display: flex;
+  align-items: center;
+}
+
+.comment-inner .edit-button button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.comment-edit-inner {
+  display: flex;
+  align-items: center;
+}
+
+.comment-edit-inner .save-button button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.comment-edit-inner .comment-edit-area textarea {
+  resize: none;
 }
 </style>
 

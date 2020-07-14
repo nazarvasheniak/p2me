@@ -55,6 +55,28 @@ export default {
                     });
             });
         },
+
+        updateClientComment(context, data) {
+            return new Promise((resolve, reject) => {
+                axios.put(`/api/superadmin/client_comment_update/`, data, {
+                    headers: {
+                        "Access-Control-Allow-Origin": '*',
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": "j8PYQSsFNEHgI0qclM5zcMyCUH3vepQR9LEnZVut36UZ7K5XdWVDsVkkFLrgaySG",
+                        Authorization: 'token ' + localStorage.getItem('token')
+                    },
+                    
+                })
+                    .then(response => {
+                        context.commit('GHANGE_CLIENT_STATUS', response.data);
+                        resolve(response.data);
+                    })
+                    .catch(e => {
+                        // console.log(e);
+                        reject(e);
+                    });
+            });
+        }
     },
     getters: {
         getClientList: (state) => state.clientList,
